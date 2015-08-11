@@ -1,6 +1,9 @@
 # Generated Files. DO NOT EDIT
-# Generated on: 08/08/15 21:16:47
+# Generated on: 08/11/15 16:48:53
 import ctypes
+from objc_util import *
+DEBUG = False
+
 GLchar = ctypes.c_char
 GLenum = ctypes.c_uint32
 GLboolean = ctypes.c_uint8
@@ -8,6 +11,7 @@ GLbitfield = ctypes.c_uint32
 GLbyte = ctypes.c_int8
 GLshort = ctypes.c_int16
 GLint = ctypes.c_int32
+GLint64 = ctypes.c_int64
 GLsizei = ctypes.c_int32
 GLubyte = ctypes.c_uint8
 GLushort = ctypes.c_uint16
@@ -17,6 +21,12 @@ GLclampf = ctypes.c_float
 GLfixed = ctypes.c_int32
 GLintptr = ctypes.c_int32
 GLsizeiptr = ctypes.c_int32
+GLclampx = ctypes.c_int
+void = ctypes.c_void_p
+GLvoid = ctypes.c_void_p
+GLsync = None
+
+# GLES Constants
 GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT = 0x00008c29
 GL_RGBA16_EXT = 0x0000805b
 GL_GLYPH_WIDTH_BIT_NV = 0x00000001
@@ -1309,3 +1319,5 @@ GL_BLEND_ADVANCED_COHERENT_NV = 0x00009285
 GL_KHR_context_flush_control = 0x00000001
 GL_SAMPLER = 0x000082e6
 GL_LINEARBURN_NV = 0x000092a5
+
+# GL Functions

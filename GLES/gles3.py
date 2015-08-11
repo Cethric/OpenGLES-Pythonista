@@ -10,3 +10,5 @@ from headers.gl2ext_c import *
 
 ffi = cffi.FFI(backend_ctypes.CTypesBackend())
 CFFI = ffi.dlopen(None)
+
+ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/OpenGLES.framework").load()

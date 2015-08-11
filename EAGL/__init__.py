@@ -4,13 +4,17 @@ import cffi
 from cffi import backend_ctypes
 from objc_util import *
 import ui
-
+from objc_add import *
 import RenderingAPI
 
 ffi = cffi.FFI(backend_ctypes.CTypesBackend())
 CFFI = ffi.dlopen(None)
 
+ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/OpenGLES.framework").load()
+
 EAGLContext_OBJC = ObjCClass("EAGLContext")
+
+#print get_methods(EAGLContext_OBJC)
 
 def setCurrentContext(context):
     return EAGLContext_OBJC.setCurrentContext_(context)
