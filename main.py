@@ -7,49 +7,49 @@ import colorsys
 import GLES
 import EAGL
 import GLKit
-from OpenGLES.GLES.gles1 import *
+from GLES.gles1 import *
+from GLES.gles2 import *
 
 reload(GLES)
 reload(EAGL)
 reload(GLKit)
 
-GLKView = ObjCClass('GLKView')
-GLKViewController = ObjCClass('GLKViewController')
-UINavigationController = ObjCClass('UINavigationController')
-
-def test_draw():
-    r, g, b = colorsys.hsv_to_rgb((time.time() * 0.1) % 1.0, 1, 1)
-    glClearColor(1, g, b, 1.0)
-    glClear(GL_COLOR_BUFFER_BIT)
-
-def dismiss(_self, _cmd):
-    self = ObjCInstance(_self)
-    self.view().delegate().release()
-    self.view().setDelegate_(None)
-    self.dismissViewControllerAnimated_completion_(True, None)
+class Renderer(object):
+    def __init__(self):
+        self.r, self.g, self.b = colorsys.hsv_to_rgb((time.time() * 0.1) % 1.0, 0.1, 1)
+    
+    def setup(self, context):
+        if (EAGL.setCurrentContext(context)):
+            glClearColor(1, 1, 1, 1.0)
+        else:
+            print "Could not Setup OpenGLES"
+            
+    def update(self, dt):
+        self.r, self.g, self.b = colorsys.hsv_to_rgb((time.time() * 0.1) % 1.0, 1.0, 1)
+    
+    def render(self, context):
+        glClearColor(self.r, self.g, self.b, 1.0)
+        glClear(GL_COLOR_BUFFER_BIT)
 
 @on_main_thread
 def main():
-    glview = GLKit.GLKView(None, None).glview
-    context = EAGL.EAGLContext()._context
-    GLKit.draw = test_draw
+    glviewv = GLKit.GLKView(frame=(0, 0, 200, 200))
+    glview = glviewv.glview
+    context = EAGL.EAGLContext(EAGL.RenderingAPI.OpenGLES3)._context
+    r = Renderer()
+    
+    GLKit.glDraw = r.render
+    GLKit.glUpdate = r.update
+    GLKit.glSetup = r.setup
+    
     delegate = GLKit.GLKViewDelegate()
-    glview.setDelegate_(delegate)
+    glviewv.setDelegate(delegate)
+    #glview.setDelegate_(delegate)
     glview.setContext_(context)
     glview.setEnableSetNeedsDisplay_(False)
     
-    glvc = GLKit.GKLViewController("Test GLES", glview)
-    nav = UINavigationController.alloc().initWithRootViewController_(glvc)
-    print "HELLO WORLD"
-    
-    v = ui.View()
-    vo = ObjCInstance(v)
-    vo.addChildViewController_(nav)
-    
-    v.present()
-    
-    #rootvc = UIApplication.sharedApplication().keyWindow().rootViewController()
-    #rootvc.presentModalViewController_animated_(nav, True)
-    nav.release()
+    glviewv.width = 800
+    glviewv.height = 600
+    glviewv.present("sheet")
 
 main()
