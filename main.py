@@ -35,7 +35,8 @@ class Renderer(object):
 def main():
     glviewv = GLKit.GLKView(frame=(0, 0, 200, 200))
     glview = glviewv.glview
-    context = EAGL.EAGLContext(EAGL.RenderingAPI.OpenGLES3)._context
+    contextc = EAGL.EAGLContext(EAGL.RenderingAPI.OpenGLES3)
+    context = contextc._context
     r = Renderer()
     
     GLKit.glDraw = r.render
@@ -44,9 +45,7 @@ def main():
     
     delegate = GLKit.GLKViewDelegate()
     glviewv.setDelegate(delegate)
-    #glview.setDelegate_(delegate)
-    glview.setContext_(context)
-    glview.setEnableSetNeedsDisplay_(False)
+    glviewv.setContext(contextc)
     
     glviewv.width = 800
     glviewv.height = 600

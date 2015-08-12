@@ -60,6 +60,7 @@ class GLKView(ui.View):
         self.vc = GKLViewController("Test GLES", self.glview)
         self.vcd = GLKViewControllerDelegate()
         self.vc.setDelegate_(self.vcd)
+        self.glview.setEnableSetNeedsDisplay_(False)
         
     def present(self, *args, **kwargs):
         ui.View.present(self, *args, **kwargs)
