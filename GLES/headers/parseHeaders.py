@@ -22,7 +22,8 @@ for header in headers:
         for name, value in re.findall(r'#typedef\s+(\w+)\s+(.*)', text):
             print name, value
         
-        for name, value in re.findall(r'GL_API void GL_APIENTRY\s+(\w+)\s+(.*)', text):
+        #print re.findall(r'(GL_APICALL)', text)
+        for call, return_type, name, value in re.findall(r'(GL_API|GL_APICALL)\s+(\w+)\s+GL_APIENTRY\s+(\w+)\s+(.*)', text):
             if not ("sync" in name or "sync" in value or "Sync" in name):
                 value = value.replace("(", "").replace(");", "")
                 values = value.split(", ")
@@ -30,11 +31,14 @@ for header in headers:
                 v = [x.replace("const ", "").split(" ")[0] for x in values]
                 va = []
                 for i in v:
+                    if i == "void":
+                        i = "ctypes.c_void_p"
                     if i.endswith("*"):
                         i = i.replace("*", "")
                         i = "ctypes.POINTER(%s)" % i
                     va.append(i)
-                func += "    %s.restype = None\n" % name
+                return_type = return_type if return_type != "void" else "None"
+                func += "    %s.restype = %s\n" % (name, return_type)
                 func += "    %s.argtypes = %s\n" % (name, str(va))
                 func = func.replace("'", "")
                 functions.append(func)

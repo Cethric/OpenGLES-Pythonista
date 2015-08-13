@@ -5,25 +5,22 @@ import weakref
 from objc_util import *
 
 from OpenGLES.EAGL import *
+from OpenGLES.Util import RenderCycle
 
 GLKView_OBJC = ObjCClass('GLKView')
 
-def glDraw(context):
-    print "Draw"
-    
-def glUpdate(delta):
-    print "Updating with a time step of %f s" % delta
+renderEngine = RenderCycle()
     
 def glSetup(context):
     pass
 
 def glkView_drawInRect_(_self, _cmd, _view, _rect):
     view = ObjCInstance(_view)
-    glDraw(view.context)
+    renderEngine.render(view.context())
     
 def glkViewControllerUpdate_(_self, _cmd, _controller):
     controller = ObjCInstance(_controller)
-    glUpdate(controller.timeSinceLastUpdate())
+    renderEngine.update(controller.timeSinceLastUpdate())
 
 GLKViewDelegate_Class = create_objc_class('GLKViewDelegate_Class', methods=[glkView_drawInRect_], protocols=['GLKViewDelegate'])
 
@@ -71,7 +68,7 @@ class GLKView(ui.View):
             self_objc.addSubview_(self.glview)
             frame = CGRect(CGPoint(0, 0), CGSize(self.width, self.height))
             self.glview.setFrame_(frame)
-            glSetup(self.getContext()._context)
+            renderEngine.setup(self.getContext()._context)
         else:
             raise RuntimeError("GLKViewController property ('vc') must not be None")
         
@@ -91,7 +88,7 @@ class GLKView(ui.View):
         
     delegate = property(getDelegate, setDelegate, None, "GLKViewDelegate")
 
-__all__ = ["GLKView", "GLKViewDelegate", "glDraw", "glUpdate", "glSetup"]
+__all__ = ["GLKView", "GLKViewDelegate", "renderEngine"]
 if __name__ == "__main__":
     v = GLKView(None, None)
     d = GLKViewDelegate()

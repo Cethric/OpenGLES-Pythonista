@@ -1,5 +1,5 @@
 # Generated Files. DO NOT EDIT
-# Generated on: 08/11/15 16:48:53
+# Generated on: 08/13/15 19:47:37
 import ctypes
 from objc_util import *
 DEBUG = False
@@ -332,3 +332,1272 @@ GL_HIGH_INT = 0x00008df5
 GL_SAMPLES = 0x000080a9
 
 # GL Functions
+try:
+    glActiveTexture = c.glActiveTexture
+    glActiveTexture.restype = None
+    glActiveTexture.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glAttachShader = c.glAttachShader
+    glAttachShader.restype = None
+    glAttachShader.argtypes = [GLuint, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBindAttribLocation = c.glBindAttribLocation
+    glBindAttribLocation.restype = None
+    glBindAttribLocation.argtypes = [GLuint, GLuint, GLchar]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBindBuffer = c.glBindBuffer
+    glBindBuffer.restype = None
+    glBindBuffer.argtypes = [GLenum, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBindFramebuffer = c.glBindFramebuffer
+    glBindFramebuffer.restype = None
+    glBindFramebuffer.argtypes = [GLenum, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBindRenderbuffer = c.glBindRenderbuffer
+    glBindRenderbuffer.restype = None
+    glBindRenderbuffer.argtypes = [GLenum, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBindTexture = c.glBindTexture
+    glBindTexture.restype = None
+    glBindTexture.argtypes = [GLenum, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBlendColor = c.glBlendColor
+    glBlendColor.restype = None
+    glBlendColor.argtypes = [GLfloat, GLfloat, GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBlendEquation = c.glBlendEquation
+    glBlendEquation.restype = None
+    glBlendEquation.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBlendEquationSeparate = c.glBlendEquationSeparate
+    glBlendEquationSeparate.restype = None
+    glBlendEquationSeparate.argtypes = [GLenum, GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBlendFunc = c.glBlendFunc
+    glBlendFunc.restype = None
+    glBlendFunc.argtypes = [GLenum, GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBlendFuncSeparate = c.glBlendFuncSeparate
+    glBlendFuncSeparate.restype = None
+    glBlendFuncSeparate.argtypes = [GLenum, GLenum, GLenum, GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBufferData = c.glBufferData
+    glBufferData.restype = None
+    glBufferData.argtypes = [GLenum, GLsizeiptr, ctypes.c_void_p, GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glBufferSubData = c.glBufferSubData
+    glBufferSubData.restype = None
+    glBufferSubData.argtypes = [GLenum, GLintptr, GLsizeiptr, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCheckFramebufferStatus = c.glCheckFramebufferStatus
+    glCheckFramebufferStatus.restype = GLenum
+    glCheckFramebufferStatus.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glClear = c.glClear
+    glClear.restype = None
+    glClear.argtypes = [GLbitfield]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glClearColor = c.glClearColor
+    glClearColor.restype = None
+    glClearColor.argtypes = [GLfloat, GLfloat, GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glClearDepthf = c.glClearDepthf
+    glClearDepthf.restype = None
+    glClearDepthf.argtypes = [GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glClearStencil = c.glClearStencil
+    glClearStencil.restype = None
+    glClearStencil.argtypes = [GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glColorMask = c.glColorMask
+    glColorMask.restype = None
+    glColorMask.argtypes = [GLboolean, GLboolean, GLboolean, GLboolean]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCompileShader = c.glCompileShader
+    glCompileShader.restype = None
+    glCompileShader.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCompressedTexImage2D = c.glCompressedTexImage2D
+    glCompressedTexImage2D.restype = None
+    glCompressedTexImage2D.argtypes = [GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCompressedTexSubImage2D = c.glCompressedTexSubImage2D
+    glCompressedTexSubImage2D.restype = None
+    glCompressedTexSubImage2D.argtypes = [GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCopyTexImage2D = c.glCopyTexImage2D
+    glCopyTexImage2D.restype = None
+    glCopyTexImage2D.argtypes = [GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCopyTexSubImage2D = c.glCopyTexSubImage2D
+    glCopyTexSubImage2D.restype = None
+    glCopyTexSubImage2D.argtypes = [GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCreateProgram = c.glCreateProgram
+    glCreateProgram.restype = GLuint
+    glCreateProgram.argtypes = [ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCreateShader = c.glCreateShader
+    glCreateShader.restype = GLuint
+    glCreateShader.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCullFace = c.glCullFace
+    glCullFace.restype = None
+    glCullFace.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDeleteBuffers = c.glDeleteBuffers
+    glDeleteBuffers.restype = None
+    glDeleteBuffers.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDeleteFramebuffers = c.glDeleteFramebuffers
+    glDeleteFramebuffers.restype = None
+    glDeleteFramebuffers.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDeleteProgram = c.glDeleteProgram
+    glDeleteProgram.restype = None
+    glDeleteProgram.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDeleteRenderbuffers = c.glDeleteRenderbuffers
+    glDeleteRenderbuffers.restype = None
+    glDeleteRenderbuffers.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDeleteShader = c.glDeleteShader
+    glDeleteShader.restype = None
+    glDeleteShader.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDeleteTextures = c.glDeleteTextures
+    glDeleteTextures.restype = None
+    glDeleteTextures.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDepthFunc = c.glDepthFunc
+    glDepthFunc.restype = None
+    glDepthFunc.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDepthMask = c.glDepthMask
+    glDepthMask.restype = None
+    glDepthMask.argtypes = [GLboolean]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDepthRangef = c.glDepthRangef
+    glDepthRangef.restype = None
+    glDepthRangef.argtypes = [GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDetachShader = c.glDetachShader
+    glDetachShader.restype = None
+    glDetachShader.argtypes = [GLuint, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDisable = c.glDisable
+    glDisable.restype = None
+    glDisable.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDisableVertexAttribArray = c.glDisableVertexAttribArray
+    glDisableVertexAttribArray.restype = None
+    glDisableVertexAttribArray.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDrawArrays = c.glDrawArrays
+    glDrawArrays.restype = None
+    glDrawArrays.argtypes = [GLenum, GLint, GLsizei]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glDrawElements = c.glDrawElements
+    glDrawElements.restype = None
+    glDrawElements.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glEnable = c.glEnable
+    glEnable.restype = None
+    glEnable.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glEnableVertexAttribArray = c.glEnableVertexAttribArray
+    glEnableVertexAttribArray.restype = None
+    glEnableVertexAttribArray.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glFinish = c.glFinish
+    glFinish.restype = None
+    glFinish.argtypes = [ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glFlush = c.glFlush
+    glFlush.restype = None
+    glFlush.argtypes = [ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glFramebufferRenderbuffer = c.glFramebufferRenderbuffer
+    glFramebufferRenderbuffer.restype = None
+    glFramebufferRenderbuffer.argtypes = [GLenum, GLenum, GLenum, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glFramebufferTexture2D = c.glFramebufferTexture2D
+    glFramebufferTexture2D.restype = None
+    glFramebufferTexture2D.argtypes = [GLenum, GLenum, GLenum, GLuint, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glFrontFace = c.glFrontFace
+    glFrontFace.restype = None
+    glFrontFace.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGenBuffers = c.glGenBuffers
+    glGenBuffers.restype = None
+    glGenBuffers.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGenerateMipmap = c.glGenerateMipmap
+    glGenerateMipmap.restype = None
+    glGenerateMipmap.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGenFramebuffers = c.glGenFramebuffers
+    glGenFramebuffers.restype = None
+    glGenFramebuffers.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGenRenderbuffers = c.glGenRenderbuffers
+    glGenRenderbuffers.restype = None
+    glGenRenderbuffers.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGenTextures = c.glGenTextures
+    glGenTextures.restype = None
+    glGenTextures.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetActiveAttrib = c.glGetActiveAttrib
+    glGetActiveAttrib.restype = None
+    glGetActiveAttrib.argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLint, GLenum, GLchar]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetActiveUniform = c.glGetActiveUniform
+    glGetActiveUniform.restype = None
+    glGetActiveUniform.argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLint, GLenum, GLchar]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetAttachedShaders = c.glGetAttachedShaders
+    glGetAttachedShaders.restype = None
+    glGetAttachedShaders.argtypes = [GLuint, GLsizei, GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetAttribLocation = c.glGetAttribLocation
+    glGetAttribLocation.restype = GLint
+    glGetAttribLocation.argtypes = [GLuint, GLchar]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetBooleanv = c.glGetBooleanv
+    glGetBooleanv.restype = None
+    glGetBooleanv.argtypes = [GLenum, GLboolean]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetBufferParameteriv = c.glGetBufferParameteriv
+    glGetBufferParameteriv.restype = None
+    glGetBufferParameteriv.argtypes = [GLenum, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetError = c.glGetError
+    glGetError.restype = GLenum
+    glGetError.argtypes = [ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetFloatv = c.glGetFloatv
+    glGetFloatv.restype = None
+    glGetFloatv.argtypes = [GLenum, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetFramebufferAttachmentParameteriv = c.glGetFramebufferAttachmentParameteriv
+    glGetFramebufferAttachmentParameteriv.restype = None
+    glGetFramebufferAttachmentParameteriv.argtypes = [GLenum, GLenum, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetIntegerv = c.glGetIntegerv
+    glGetIntegerv.restype = None
+    glGetIntegerv.argtypes = [GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetProgramiv = c.glGetProgramiv
+    glGetProgramiv.restype = None
+    glGetProgramiv.argtypes = [GLuint, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetProgramInfoLog = c.glGetProgramInfoLog
+    glGetProgramInfoLog.restype = None
+    glGetProgramInfoLog.argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetRenderbufferParameteriv = c.glGetRenderbufferParameteriv
+    glGetRenderbufferParameteriv.restype = None
+    glGetRenderbufferParameteriv.argtypes = [GLenum, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetShaderiv = c.glGetShaderiv
+    glGetShaderiv.restype = None
+    glGetShaderiv.argtypes = [GLuint, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetShaderInfoLog = c.glGetShaderInfoLog
+    glGetShaderInfoLog.restype = None
+    glGetShaderInfoLog.argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetShaderPrecisionFormat = c.glGetShaderPrecisionFormat
+    glGetShaderPrecisionFormat.restype = None
+    glGetShaderPrecisionFormat.argtypes = [GLenum, GLenum, GLint, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetShaderSource = c.glGetShaderSource
+    glGetShaderSource.restype = None
+    glGetShaderSource.argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetTexParameterfv = c.glGetTexParameterfv
+    glGetTexParameterfv.restype = None
+    glGetTexParameterfv.argtypes = [GLenum, GLenum, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetTexParameteriv = c.glGetTexParameteriv
+    glGetTexParameteriv.restype = None
+    glGetTexParameteriv.argtypes = [GLenum, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetUniformfv = c.glGetUniformfv
+    glGetUniformfv.restype = None
+    glGetUniformfv.argtypes = [GLuint, GLint, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetUniformiv = c.glGetUniformiv
+    glGetUniformiv.restype = None
+    glGetUniformiv.argtypes = [GLuint, GLint, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetUniformLocation = c.glGetUniformLocation
+    glGetUniformLocation.restype = GLint
+    glGetUniformLocation.argtypes = [GLuint, GLchar]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetVertexAttribfv = c.glGetVertexAttribfv
+    glGetVertexAttribfv.restype = None
+    glGetVertexAttribfv.argtypes = [GLuint, GLenum, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetVertexAttribiv = c.glGetVertexAttribiv
+    glGetVertexAttribiv.restype = None
+    glGetVertexAttribiv.argtypes = [GLuint, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetVertexAttribPointerv = c.glGetVertexAttribPointerv
+    glGetVertexAttribPointerv.restype = None
+    glGetVertexAttribPointerv.argtypes = [GLuint, GLenum, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glHint = c.glHint
+    glHint.restype = None
+    glHint.argtypes = [GLenum, GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsBuffer = c.glIsBuffer
+    glIsBuffer.restype = GLboolean
+    glIsBuffer.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsEnabled = c.glIsEnabled
+    glIsEnabled.restype = GLboolean
+    glIsEnabled.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsFramebuffer = c.glIsFramebuffer
+    glIsFramebuffer.restype = GLboolean
+    glIsFramebuffer.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsProgram = c.glIsProgram
+    glIsProgram.restype = GLboolean
+    glIsProgram.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsRenderbuffer = c.glIsRenderbuffer
+    glIsRenderbuffer.restype = GLboolean
+    glIsRenderbuffer.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsShader = c.glIsShader
+    glIsShader.restype = GLboolean
+    glIsShader.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsTexture = c.glIsTexture
+    glIsTexture.restype = GLboolean
+    glIsTexture.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glLineWidth = c.glLineWidth
+    glLineWidth.restype = None
+    glLineWidth.argtypes = [GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glLinkProgram = c.glLinkProgram
+    glLinkProgram.restype = None
+    glLinkProgram.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glPixelStorei = c.glPixelStorei
+    glPixelStorei.restype = None
+    glPixelStorei.argtypes = [GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glPolygonOffset = c.glPolygonOffset
+    glPolygonOffset.restype = None
+    glPolygonOffset.argtypes = [GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glReadPixels = c.glReadPixels
+    glReadPixels.restype = None
+    glReadPixels.argtypes = [GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glReleaseShaderCompiler = c.glReleaseShaderCompiler
+    glReleaseShaderCompiler.restype = None
+    glReleaseShaderCompiler.argtypes = [ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glRenderbufferStorage = c.glRenderbufferStorage
+    glRenderbufferStorage.restype = None
+    glRenderbufferStorage.argtypes = [GLenum, GLenum, GLsizei, GLsizei]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glSampleCoverage = c.glSampleCoverage
+    glSampleCoverage.restype = None
+    glSampleCoverage.argtypes = [GLfloat, GLboolean]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glScissor = c.glScissor
+    glScissor.restype = None
+    glScissor.argtypes = [GLint, GLint, GLsizei, GLsizei]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glShaderBinary = c.glShaderBinary
+    glShaderBinary.restype = None
+    glShaderBinary.argtypes = [GLsizei, GLuint, GLenum, ctypes.c_void_p, GLsizei]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glShaderSource = c.glShaderSource
+    glShaderSource.restype = None
+    glShaderSource.argtypes = [GLuint, GLsizei, GLchar, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glStencilFunc = c.glStencilFunc
+    glStencilFunc.restype = None
+    glStencilFunc.argtypes = [GLenum, GLint, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glStencilFuncSeparate = c.glStencilFuncSeparate
+    glStencilFuncSeparate.restype = None
+    glStencilFuncSeparate.argtypes = [GLenum, GLenum, GLint, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glStencilMask = c.glStencilMask
+    glStencilMask.restype = None
+    glStencilMask.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glStencilMaskSeparate = c.glStencilMaskSeparate
+    glStencilMaskSeparate.restype = None
+    glStencilMaskSeparate.argtypes = [GLenum, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glStencilOp = c.glStencilOp
+    glStencilOp.restype = None
+    glStencilOp.argtypes = [GLenum, GLenum, GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glStencilOpSeparate = c.glStencilOpSeparate
+    glStencilOpSeparate.restype = None
+    glStencilOpSeparate.argtypes = [GLenum, GLenum, GLenum, GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glTexImage2D = c.glTexImage2D
+    glTexImage2D.restype = None
+    glTexImage2D.argtypes = [GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glTexParameterf = c.glTexParameterf
+    glTexParameterf.restype = None
+    glTexParameterf.argtypes = [GLenum, GLenum, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glTexParameterfv = c.glTexParameterfv
+    glTexParameterfv.restype = None
+    glTexParameterfv.argtypes = [GLenum, GLenum, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glTexParameteri = c.glTexParameteri
+    glTexParameteri.restype = None
+    glTexParameteri.argtypes = [GLenum, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glTexParameteriv = c.glTexParameteriv
+    glTexParameteriv.restype = None
+    glTexParameteriv.argtypes = [GLenum, GLenum, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glTexSubImage2D = c.glTexSubImage2D
+    glTexSubImage2D.restype = None
+    glTexSubImage2D.argtypes = [GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform1f = c.glUniform1f
+    glUniform1f.restype = None
+    glUniform1f.argtypes = [GLint, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform1fv = c.glUniform1fv
+    glUniform1fv.restype = None
+    glUniform1fv.argtypes = [GLint, GLsizei, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform1i = c.glUniform1i
+    glUniform1i.restype = None
+    glUniform1i.argtypes = [GLint, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform1iv = c.glUniform1iv
+    glUniform1iv.restype = None
+    glUniform1iv.argtypes = [GLint, GLsizei, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform2f = c.glUniform2f
+    glUniform2f.restype = None
+    glUniform2f.argtypes = [GLint, GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform2fv = c.glUniform2fv
+    glUniform2fv.restype = None
+    glUniform2fv.argtypes = [GLint, GLsizei, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform2i = c.glUniform2i
+    glUniform2i.restype = None
+    glUniform2i.argtypes = [GLint, GLint, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform2iv = c.glUniform2iv
+    glUniform2iv.restype = None
+    glUniform2iv.argtypes = [GLint, GLsizei, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform3f = c.glUniform3f
+    glUniform3f.restype = None
+    glUniform3f.argtypes = [GLint, GLfloat, GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform3fv = c.glUniform3fv
+    glUniform3fv.restype = None
+    glUniform3fv.argtypes = [GLint, GLsizei, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform3i = c.glUniform3i
+    glUniform3i.restype = None
+    glUniform3i.argtypes = [GLint, GLint, GLint, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform3iv = c.glUniform3iv
+    glUniform3iv.restype = None
+    glUniform3iv.argtypes = [GLint, GLsizei, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform4f = c.glUniform4f
+    glUniform4f.restype = None
+    glUniform4f.argtypes = [GLint, GLfloat, GLfloat, GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform4fv = c.glUniform4fv
+    glUniform4fv.restype = None
+    glUniform4fv.argtypes = [GLint, GLsizei, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform4i = c.glUniform4i
+    glUniform4i.restype = None
+    glUniform4i.argtypes = [GLint, GLint, GLint, GLint, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniform4iv = c.glUniform4iv
+    glUniform4iv.restype = None
+    glUniform4iv.argtypes = [GLint, GLsizei, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniformMatrix2fv = c.glUniformMatrix2fv
+    glUniformMatrix2fv.restype = None
+    glUniformMatrix2fv.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniformMatrix3fv = c.glUniformMatrix3fv
+    glUniformMatrix3fv.restype = None
+    glUniformMatrix3fv.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUniformMatrix4fv = c.glUniformMatrix4fv
+    glUniformMatrix4fv.restype = None
+    glUniformMatrix4fv.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glUseProgram = c.glUseProgram
+    glUseProgram.restype = None
+    glUseProgram.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glValidateProgram = c.glValidateProgram
+    glValidateProgram.restype = None
+    glValidateProgram.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttrib1f = c.glVertexAttrib1f
+    glVertexAttrib1f.restype = None
+    glVertexAttrib1f.argtypes = [GLuint, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttrib1fv = c.glVertexAttrib1fv
+    glVertexAttrib1fv.restype = None
+    glVertexAttrib1fv.argtypes = [GLuint, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttrib2f = c.glVertexAttrib2f
+    glVertexAttrib2f.restype = None
+    glVertexAttrib2f.argtypes = [GLuint, GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttrib2fv = c.glVertexAttrib2fv
+    glVertexAttrib2fv.restype = None
+    glVertexAttrib2fv.argtypes = [GLuint, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttrib3f = c.glVertexAttrib3f
+    glVertexAttrib3f.restype = None
+    glVertexAttrib3f.argtypes = [GLuint, GLfloat, GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttrib3fv = c.glVertexAttrib3fv
+    glVertexAttrib3fv.restype = None
+    glVertexAttrib3fv.argtypes = [GLuint, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttrib4f = c.glVertexAttrib4f
+    glVertexAttrib4f.restype = None
+    glVertexAttrib4f.argtypes = [GLuint, GLfloat, GLfloat, GLfloat, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttrib4fv = c.glVertexAttrib4fv
+    glVertexAttrib4fv.restype = None
+    glVertexAttrib4fv.argtypes = [GLuint, GLfloat]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glVertexAttribPointer = c.glVertexAttribPointer
+    glVertexAttribPointer.restype = None
+    glVertexAttribPointer.argtypes = [GLuint, GLint, GLenum, GLboolean, GLsizei, ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glViewport = c.glViewport
+    glViewport.restype = None
+    glViewport.argtypes = [GLint, GLint, GLsizei, GLsizei]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+

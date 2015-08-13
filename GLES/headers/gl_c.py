@@ -1,5 +1,5 @@
 # Generated Files. DO NOT EDIT
-# Generated on: 08/11/15 16:48:53
+# Generated on: 08/13/15 19:47:36
 import ctypes
 from objc_util import *
 DEBUG = False
@@ -1028,7 +1028,7 @@ except AttributeError as e:
 try:
     glFinish = c.glFinish
     glFinish.restype = None
-    glFinish.argtypes = [void]
+    glFinish.argtypes = [ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1037,7 +1037,7 @@ except AttributeError as e:
 try:
     glFlush = c.glFlush
     glFlush.restype = None
-    glFlush.argtypes = [void]
+    glFlush.argtypes = [ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1119,6 +1119,15 @@ try:
     glGenTextures = c.glGenTextures
     glGenTextures.restype = None
     glGenTextures.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glGetError = c.glGetError
+    glGetError.restype = GLenum
+    glGetError.argtypes = [ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1215,6 +1224,33 @@ except AttributeError as e:
         print e
 
 try:
+    glIsBuffer = c.glIsBuffer
+    glIsBuffer.restype = GLboolean
+    glIsBuffer.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsEnabled = c.glIsEnabled
+    glIsEnabled.restype = GLboolean
+    glIsEnabled.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsTexture = c.glIsTexture
+    glIsTexture.restype = GLboolean
+    glIsTexture.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
     glLightModelx = c.glLightModelx
     glLightModelx.restype = None
     glLightModelx.argtypes = [GLenum, GLfixed]
@@ -1262,7 +1298,7 @@ except AttributeError as e:
 try:
     glLoadIdentity = c.glLoadIdentity
     glLoadIdentity.restype = None
-    glLoadIdentity.argtypes = [void]
+    glLoadIdentity.argtypes = [ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1406,7 +1442,7 @@ except AttributeError as e:
 try:
     glPopMatrix = c.glPopMatrix
     glPopMatrix.restype = None
-    glPopMatrix.argtypes = [void]
+    glPopMatrix.argtypes = [ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1415,7 +1451,7 @@ except AttributeError as e:
 try:
     glPushMatrix = c.glPushMatrix
     glPushMatrix.restype = None
-    glPushMatrix.argtypes = [void]
+    glPushMatrix.argtypes = [ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'

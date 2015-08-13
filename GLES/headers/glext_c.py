@@ -1,5 +1,5 @@
 # Generated Files. DO NOT EDIT
-# Generated on: 08/11/15 16:48:53
+# Generated on: 08/13/15 19:47:37
 import ctypes
 from objc_util import *
 DEBUG = False
@@ -816,6 +816,15 @@ except AttributeError as e:
         print e
 
 try:
+    glIsRenderbufferOES = c.glIsRenderbufferOES
+    glIsRenderbufferOES.restype = GLboolean
+    glIsRenderbufferOES.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
     glBindRenderbufferOES = c.glBindRenderbufferOES
     glBindRenderbufferOES.restype = None
     glBindRenderbufferOES.argtypes = [GLenum, GLuint]
@@ -861,6 +870,15 @@ except AttributeError as e:
         print e
 
 try:
+    glIsFramebufferOES = c.glIsFramebufferOES
+    glIsFramebufferOES.restype = GLboolean
+    glIsFramebufferOES.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
     glBindFramebufferOES = c.glBindFramebufferOES
     glBindFramebufferOES.restype = None
     glBindFramebufferOES.argtypes = [GLenum, GLuint]
@@ -882,6 +900,15 @@ try:
     glGenFramebuffersOES = c.glGenFramebuffersOES
     glGenFramebuffersOES.restype = None
     glGenFramebuffersOES.argtypes = [GLsizei, ctypes.POINTER(GLuint)]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glCheckFramebufferStatusOES = c.glCheckFramebufferStatusOES
+    glCheckFramebufferStatusOES.restype = GLenum
+    glCheckFramebufferStatusOES.argtypes = [GLenum]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -924,6 +951,15 @@ except AttributeError as e:
         print e
 
 try:
+    glUnmapBufferOES = c.glUnmapBufferOES
+    glUnmapBufferOES.restype = GLboolean
+    glUnmapBufferOES.argtypes = [GLenum]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
     glGetBufferPointervOES = c.glGetBufferPointervOES
     glGetBufferPointervOES.restype = None
     glGetBufferPointervOES.argtypes = [GLenum, GLenum, GLvoid]
@@ -944,7 +980,7 @@ except AttributeError as e:
 try:
     glLoadPaletteFromModelViewMatrixOES = c.glLoadPaletteFromModelViewMatrixOES
     glLoadPaletteFromModelViewMatrixOES.restype = None
-    glLoadPaletteFromModelViewMatrixOES.argtypes = [void]
+    glLoadPaletteFromModelViewMatrixOES.argtypes = [ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -963,6 +999,15 @@ try:
     glWeightPointerOES = c.glWeightPointerOES
     glWeightPointerOES.restype = None
     glWeightPointerOES.argtypes = [GLint, GLenum, GLsizei, GLvoid]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glQueryMatrixxOES = c.glQueryMatrixxOES
+    glQueryMatrixxOES.restype = GLbitfield
+    glQueryMatrixxOES.argtypes = [GLfixed, GLint]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1131,6 +1176,15 @@ except AttributeError as e:
         print e
 
 try:
+    glIsVertexArrayOES = c.glIsVertexArrayOES
+    glIsVertexArrayOES.restype = GLboolean
+    glIsVertexArrayOES.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
     glCopyTextureLevelsAPPLE = c.glCopyTextureLevelsAPPLE
     glCopyTextureLevelsAPPLE.restype = None
     glCopyTextureLevelsAPPLE.argtypes = [GLuint, GLuint, GLint, GLsizei]
@@ -1151,7 +1205,7 @@ except AttributeError as e:
 try:
     glResolveMultisampleFramebufferAPPLE = c.glResolveMultisampleFramebufferAPPLE
     glResolveMultisampleFramebufferAPPLE.restype = None
-    glResolveMultisampleFramebufferAPPLE.argtypes = [void]
+    glResolveMultisampleFramebufferAPPLE.argtypes = [ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1221,9 +1275,18 @@ except AttributeError as e:
         print e
 
 try:
+    glGetGraphicsResetStatusEXT = c.glGetGraphicsResetStatusEXT
+    glGetGraphicsResetStatusEXT.restype = GLenum
+    glGetGraphicsResetStatusEXT.argtypes = [ctypes.c_void_p]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
     glReadnPixelsEXT = c.glReadnPixelsEXT
     glReadnPixelsEXT.restype = None
-    glReadnPixelsEXT.argtypes = [GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLsizei, void]
+    glReadnPixelsEXT.argtypes = [GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLsizei, ctypes.c_void_p]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1350,6 +1413,24 @@ try:
     glGenFencesNV = c.glGenFencesNV
     glGenFencesNV.restype = None
     glGenFencesNV.argtypes = [GLsizei, GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glIsFenceNV = c.glIsFenceNV
+    glIsFenceNV.restype = GLboolean
+    glIsFenceNV.argtypes = [GLuint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glTestFenceNV = c.glTestFenceNV
+    glTestFenceNV.restype = GLboolean
+    glTestFenceNV.argtypes = [GLuint]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
@@ -1503,6 +1584,15 @@ try:
     glExtGetProgramsQCOM = c.glExtGetProgramsQCOM
     glExtGetProgramsQCOM.restype = None
     glExtGetProgramsQCOM.argtypes = [GLuint, GLint, GLint]
+except AttributeError as e:
+    if DEBUG:
+        print 'could not load the function'
+        print e
+
+try:
+    glExtIsProgramBinaryQCOM = c.glExtIsProgramBinaryQCOM
+    glExtIsProgramBinaryQCOM.restype = GLboolean
+    glExtIsProgramBinaryQCOM.argtypes = [GLuint]
 except AttributeError as e:
     if DEBUG:
         print 'could not load the function'
