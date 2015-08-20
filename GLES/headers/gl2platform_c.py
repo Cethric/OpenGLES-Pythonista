@@ -1,8 +1,10 @@
 # Generated Files. DO NOT EDIT
-# Generated on: 08/13/15 19:47:37
+# Generated on: 08/14/15 21:51:10
 import ctypes
 from objc_util import *
-DEBUG = False
+
+DEBUG = 1
+loaded = [0, 0]
 
 GLchar = ctypes.c_char
 GLenum = ctypes.c_uint32
@@ -29,3 +31,4 @@ GLsync = None
 # GLES Constants
 
 # GL Functions
+print 'Loaded %i functions and failed to load %i functions of %i functions in the header gl2platform.h' % (loaded[0], loaded[1], sum(loaded))

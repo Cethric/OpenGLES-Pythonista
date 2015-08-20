@@ -7,20 +7,37 @@ from objc_util import *
 from OpenGLES.EAGL import *
 from OpenGLES.Util import RenderCycle
 
+ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/GLKit.framework").load()
+
+
 GLKView_OBJC = ObjCClass('GLKView')
 
 renderEngine = RenderCycle()
-    
-def glSetup(context):
-    pass
 
+def setRenderEngine(engine):
+    global renderEngine
+    renderEngine = engine
+
+def getRenderEngine():
+    return renderEngine
+
+game_initialised = False
 def glkView_drawInRect_(_self, _cmd, _view, _rect):
+    global game_initialised
     view = ObjCInstance(_view)
+    if not game_initialised:
+        try:
+            renderEngine.setup(view.context())
+            print "Game has been Initialised"
+        finally:
+            game_initialised = True
     renderEngine.render(view.context())
     
 def glkViewControllerUpdate_(_self, _cmd, _controller):
     controller = ObjCInstance(_controller)
     renderEngine.update(controller.timeSinceLastUpdate())
+    renderEngine.fps = controller.framesPerSecond()
+    renderEngine.framesDisplayed = controller.framesDisplayed()
 
 GLKViewDelegate_Class = create_objc_class('GLKViewDelegate_Class', methods=[glkView_drawInRect_], protocols=['GLKViewDelegate'])
 
@@ -53,6 +70,7 @@ class GLKView(ui.View):
         frame = CGRect(CGPoint(0, 0), CGSize(self.width, self.height))
         flex_width, flex_height = (1<<1), (1<<4)
         self.glview = GLKView_OBJC.alloc().initWithFrame_(frame).autorelease()
+        self.glview.setDrawableDepthFormat_(2)
         self.glview.setAutoresizingMask_(flex_width|flex_height)
         self.vc = GKLViewController("Test GLES", self.glview)
         self.vcd = GLKViewControllerDelegate()
@@ -62,13 +80,11 @@ class GLKView(ui.View):
     def present(self, *args, **kwargs):
         ui.View.present(self, *args, **kwargs)
         self_objc = ObjCInstance(self)
-        
         if self.vc:
             self_objc.nextResponder().addChildViewController_(self.vc)
             self_objc.addSubview_(self.glview)
             frame = CGRect(CGPoint(0, 0), CGSize(self.width, self.height))
             self.glview.setFrame_(frame)
-            renderEngine.setup(self.getContext()._context)
         else:
             raise RuntimeError("GLKViewController property ('vc') must not be None")
         
@@ -88,7 +104,7 @@ class GLKView(ui.View):
         
     delegate = property(getDelegate, setDelegate, None, "GLKViewDelegate")
 
-__all__ = ["GLKView", "GLKViewDelegate", "renderEngine"]
+__all__ = ["GLKView", "GLKViewDelegate", "setRenderEngine", "getRenderEngine"]
 if __name__ == "__main__":
     v = GLKView(None, None)
     d = GLKViewDelegate()

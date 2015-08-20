@@ -50,8 +50,9 @@ for header in headers:
         f.write("# Generated Files. DO NOT EDIT\n")
         f.write("# Generated on: %s\n" % time.strftime("%x %X"))
         f.write("import ctypes\n")
-        f.write("from objc_util import *\n")
-        f.write("DEBUG = False\n\n")
+        f.write("from objc_util import *\n\n")
+        f.write("DEBUG = 1\n")
+        f.write("loaded = [0, 0]\n\n")
         f.write("GLchar = ctypes.c_char\n")
         f.write("GLenum = ctypes.c_uint32\n")
         f.write("GLboolean = ctypes.c_uint8\n")
@@ -80,7 +81,13 @@ for header in headers:
         for fu in functions:
             f.write("try:\n")
             f.write(fu)
+            f.write("    loaded[0] += 1\n")
             f.write("except AttributeError as e:\n")
-            f.write("    if DEBUG:\n")
+            f.write("    loaded[1] += 1\n")
+            f.write("    if DEBUG > 1:\n")
             f.write("        print 'could not load the function'\n")
             f.write("        print e\n\n")
+        f.write("print 'Loaded %i functions and failed "
+                "to load %i functions of %i functions in "
+                "the header " + header +"' % (loaded[0], loaded[1], sum(loaded))")
+    execfile(header.replace(".h", "_c.py"))

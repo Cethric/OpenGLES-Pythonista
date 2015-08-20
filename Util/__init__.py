@@ -9,7 +9,8 @@ from OpenGLES.GLES.gles3 import *
 
 class RenderCycle(object):
     def __init__(self):
-        pass
+        self.fps = 0
+        self.framesDisplayed = 0
         
     def render(self, context):
         print "Draw"
@@ -22,44 +23,16 @@ class RenderCycle(object):
         
         
 class RenderObject(object):
-    def __init__(self, verticies=[], colour=[], uv=[], indecies=[]):
-        pass
+    def __init__(self, vertices=[], colour=[], uv=[], indices=[]):
+        self.vVertices = (GLfloat * len(vertices))(*vertices)
         
-    def _setup_object(self):
+    def setup_object(self):
         pass
         
     def render(self):
-        pass
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, self.vVertices);
+        glEnableVertexAttribArray(0);
+        glDrawArrays(GL_TRIANGLES, 0, 12*3);
         
     def update(self):
         pass
-        
-        
-def create_GLchar(string):
-    return (GLchar * len(string))(*list(string))
-    
-def loadShader(source, glsl_type):
-    shader = GLuint()
-    compiled = GLint()
-    # Create the shader object
-    shader = glCreateShader(glsl_type)
-    if(shader == 0):
-        print "Failed to create shader"
-        return 0;
-    # Load the shader source
-    glShaderSource(shader, 1, shaderSrc, 0)
-    # Compile the shader
-    glCompileShader(shader)
-    # Check the compile status
-    
-    glGetShaderiv(shader, GL_COMPILE_STATUS, ctypes.byref(compiled))
-    if(not compiled):
-        infoLen = GLint(0)
-        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, ctypes.byref(infoLen))
-        if(infoLen > 1):
-            infoLog = (ctypes.c_char * infoLen)()
-            glGetShaderInfoLog(shader, infoLen, 0, infoLog);
-            print("Error compiling shader:\n%s\n" % infoLog);
-        glDeleteShader(shader);
-        return 0;
-    return shader;

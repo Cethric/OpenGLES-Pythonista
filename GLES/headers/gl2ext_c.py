@@ -1,8 +1,10 @@
 # Generated Files. DO NOT EDIT
-# Generated on: 08/13/15 19:47:37
+# Generated on: 08/14/15 21:51:09
 import ctypes
 from objc_util import *
-DEBUG = False
+
+DEBUG = 1
+loaded = [0, 0]
 
 GLchar = ctypes.c_char
 GLenum = ctypes.c_uint32
@@ -1325,8 +1327,10 @@ try:
     glBlendBarrierKHR = c.glBlendBarrierKHR
     glBlendBarrierKHR.restype = None
     glBlendBarrierKHR.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1334,8 +1338,10 @@ try:
     glDebugMessageControlKHR = c.glDebugMessageControlKHR
     glDebugMessageControlKHR.restype = None
     glDebugMessageControlKHR.argtypes = [GLenum, GLenum, GLenum, GLsizei, GLuint, GLboolean]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1343,8 +1349,10 @@ try:
     glDebugMessageInsertKHR = c.glDebugMessageInsertKHR
     glDebugMessageInsertKHR.restype = None
     glDebugMessageInsertKHR.argtypes = [GLenum, GLenum, GLuint, GLenum, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1352,8 +1360,10 @@ try:
     glDebugMessageCallbackKHR = c.glDebugMessageCallbackKHR
     glDebugMessageCallbackKHR.restype = None
     glDebugMessageCallbackKHR.argtypes = [GLDEBUGPROCKHR, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1361,8 +1371,10 @@ try:
     glGetDebugMessageLogKHR = c.glGetDebugMessageLogKHR
     glGetDebugMessageLogKHR.restype = GLuint
     glGetDebugMessageLogKHR.argtypes = [GLuint, GLsizei, GLenum, GLenum, GLuint, GLenum, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1370,8 +1382,10 @@ try:
     glPushDebugGroupKHR = c.glPushDebugGroupKHR
     glPushDebugGroupKHR.restype = None
     glPushDebugGroupKHR.argtypes = [GLenum, GLuint, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1379,8 +1393,10 @@ try:
     glPopDebugGroupKHR = c.glPopDebugGroupKHR
     glPopDebugGroupKHR.restype = None
     glPopDebugGroupKHR.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1388,8 +1404,10 @@ try:
     glObjectLabelKHR = c.glObjectLabelKHR
     glObjectLabelKHR.restype = None
     glObjectLabelKHR.argtypes = [GLenum, GLuint, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1397,8 +1415,10 @@ try:
     glGetObjectLabelKHR = c.glGetObjectLabelKHR
     glGetObjectLabelKHR.restype = None
     glGetObjectLabelKHR.argtypes = [GLenum, GLuint, GLsizei, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1406,8 +1426,10 @@ try:
     glObjectPtrLabelKHR = c.glObjectPtrLabelKHR
     glObjectPtrLabelKHR.restype = None
     glObjectPtrLabelKHR.argtypes = [ctypes.c_void_p, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1415,8 +1437,10 @@ try:
     glGetObjectPtrLabelKHR = c.glGetObjectPtrLabelKHR
     glGetObjectPtrLabelKHR.restype = None
     glGetObjectPtrLabelKHR.argtypes = [ctypes.c_void_p, GLsizei, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1424,8 +1448,10 @@ try:
     glGetPointervKHR = c.glGetPointervKHR
     glGetPointervKHR.restype = None
     glGetPointervKHR.argtypes = [GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1433,8 +1459,10 @@ try:
     glGetGraphicsResetStatusKHR = c.glGetGraphicsResetStatusKHR
     glGetGraphicsResetStatusKHR.restype = GLenum
     glGetGraphicsResetStatusKHR.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1442,8 +1470,10 @@ try:
     glReadnPixelsKHR = c.glReadnPixelsKHR
     glReadnPixelsKHR.restype = None
     glReadnPixelsKHR.argtypes = [GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLsizei, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1451,8 +1481,10 @@ try:
     glGetnUniformfvKHR = c.glGetnUniformfvKHR
     glGetnUniformfvKHR.restype = None
     glGetnUniformfvKHR.argtypes = [GLuint, GLint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1460,8 +1492,10 @@ try:
     glGetnUniformivKHR = c.glGetnUniformivKHR
     glGetnUniformivKHR.restype = None
     glGetnUniformivKHR.argtypes = [GLuint, GLint, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1469,8 +1503,10 @@ try:
     glGetnUniformuivKHR = c.glGetnUniformuivKHR
     glGetnUniformuivKHR.restype = None
     glGetnUniformuivKHR.argtypes = [GLuint, GLint, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1478,8 +1514,10 @@ try:
     glEGLImageTargetTexture2DOES = c.glEGLImageTargetTexture2DOES
     glEGLImageTargetTexture2DOES.restype = None
     glEGLImageTargetTexture2DOES.argtypes = [GLenum, GLeglImageOES]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1487,8 +1525,10 @@ try:
     glEGLImageTargetRenderbufferStorageOES = c.glEGLImageTargetRenderbufferStorageOES
     glEGLImageTargetRenderbufferStorageOES.restype = None
     glEGLImageTargetRenderbufferStorageOES.argtypes = [GLenum, GLeglImageOES]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1496,8 +1536,10 @@ try:
     glCopyImageSubDataOES = c.glCopyImageSubDataOES
     glCopyImageSubDataOES.restype = None
     glCopyImageSubDataOES.argtypes = [GLuint, GLenum, GLint, GLint, GLint, GLint, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1505,8 +1547,10 @@ try:
     glEnableiOES = c.glEnableiOES
     glEnableiOES.restype = None
     glEnableiOES.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1514,8 +1558,10 @@ try:
     glDisableiOES = c.glDisableiOES
     glDisableiOES.restype = None
     glDisableiOES.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1523,8 +1569,10 @@ try:
     glBlendEquationiOES = c.glBlendEquationiOES
     glBlendEquationiOES.restype = None
     glBlendEquationiOES.argtypes = [GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1532,8 +1580,10 @@ try:
     glBlendEquationSeparateiOES = c.glBlendEquationSeparateiOES
     glBlendEquationSeparateiOES.restype = None
     glBlendEquationSeparateiOES.argtypes = [GLuint, GLenum, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1541,8 +1591,10 @@ try:
     glBlendFunciOES = c.glBlendFunciOES
     glBlendFunciOES.restype = None
     glBlendFunciOES.argtypes = [GLuint, GLenum, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1550,8 +1602,10 @@ try:
     glBlendFuncSeparateiOES = c.glBlendFuncSeparateiOES
     glBlendFuncSeparateiOES.restype = None
     glBlendFuncSeparateiOES.argtypes = [GLuint, GLenum, GLenum, GLenum, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1559,8 +1613,10 @@ try:
     glColorMaskiOES = c.glColorMaskiOES
     glColorMaskiOES.restype = None
     glColorMaskiOES.argtypes = [GLuint, GLboolean, GLboolean, GLboolean, GLboolean]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1568,8 +1624,10 @@ try:
     glIsEnablediOES = c.glIsEnablediOES
     glIsEnablediOES.restype = GLboolean
     glIsEnablediOES.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1577,8 +1635,10 @@ try:
     glDrawElementsBaseVertexOES = c.glDrawElementsBaseVertexOES
     glDrawElementsBaseVertexOES.restype = None
     glDrawElementsBaseVertexOES.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1586,8 +1646,10 @@ try:
     glDrawRangeElementsBaseVertexOES = c.glDrawRangeElementsBaseVertexOES
     glDrawRangeElementsBaseVertexOES.restype = None
     glDrawRangeElementsBaseVertexOES.argtypes = [GLenum, GLuint, GLuint, GLsizei, GLenum, ctypes.c_void_p, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1595,8 +1657,10 @@ try:
     glDrawElementsInstancedBaseVertexOES = c.glDrawElementsInstancedBaseVertexOES
     glDrawElementsInstancedBaseVertexOES.restype = None
     glDrawElementsInstancedBaseVertexOES.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1604,8 +1668,10 @@ try:
     glMultiDrawElementsBaseVertexOES = c.glMultiDrawElementsBaseVertexOES
     glMultiDrawElementsBaseVertexOES.restype = None
     glMultiDrawElementsBaseVertexOES.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1613,8 +1679,10 @@ try:
     glFramebufferTextureOES = c.glFramebufferTextureOES
     glFramebufferTextureOES.restype = None
     glFramebufferTextureOES.argtypes = [GLenum, GLenum, GLuint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1622,8 +1690,10 @@ try:
     glGetProgramBinaryOES = c.glGetProgramBinaryOES
     glGetProgramBinaryOES.restype = None
     glGetProgramBinaryOES.argtypes = [GLuint, GLsizei, GLsizei, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1631,8 +1701,10 @@ try:
     glProgramBinaryOES = c.glProgramBinaryOES
     glProgramBinaryOES.restype = None
     glProgramBinaryOES.argtypes = [GLuint, GLenum, ctypes.c_void_p, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1640,8 +1712,10 @@ try:
     glUnmapBufferOES = c.glUnmapBufferOES
     glUnmapBufferOES.restype = GLboolean
     glUnmapBufferOES.argtypes = [GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1649,8 +1723,10 @@ try:
     glGetBufferPointervOES = c.glGetBufferPointervOES
     glGetBufferPointervOES.restype = None
     glGetBufferPointervOES.argtypes = [GLenum, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1658,8 +1734,10 @@ try:
     glPrimitiveBoundingBoxOES = c.glPrimitiveBoundingBoxOES
     glPrimitiveBoundingBoxOES.restype = None
     glPrimitiveBoundingBoxOES.argtypes = [GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1667,8 +1745,10 @@ try:
     glMinSampleShadingOES = c.glMinSampleShadingOES
     glMinSampleShadingOES.restype = None
     glMinSampleShadingOES.argtypes = [GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1676,8 +1756,10 @@ try:
     glPatchParameteriOES = c.glPatchParameteriOES
     glPatchParameteriOES.restype = None
     glPatchParameteriOES.argtypes = [GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1685,8 +1767,10 @@ try:
     glTexImage3DOES = c.glTexImage3DOES
     glTexImage3DOES.restype = None
     glTexImage3DOES.argtypes = [GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLenum, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1694,8 +1778,10 @@ try:
     glTexSubImage3DOES = c.glTexSubImage3DOES
     glTexSubImage3DOES.restype = None
     glTexSubImage3DOES.argtypes = [GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1703,8 +1789,10 @@ try:
     glCopyTexSubImage3DOES = c.glCopyTexSubImage3DOES
     glCopyTexSubImage3DOES.restype = None
     glCopyTexSubImage3DOES.argtypes = [GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1712,8 +1800,10 @@ try:
     glCompressedTexImage3DOES = c.glCompressedTexImage3DOES
     glCompressedTexImage3DOES.restype = None
     glCompressedTexImage3DOES.argtypes = [GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1721,8 +1811,10 @@ try:
     glCompressedTexSubImage3DOES = c.glCompressedTexSubImage3DOES
     glCompressedTexSubImage3DOES.restype = None
     glCompressedTexSubImage3DOES.argtypes = [GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1730,8 +1822,10 @@ try:
     glFramebufferTexture3DOES = c.glFramebufferTexture3DOES
     glFramebufferTexture3DOES.restype = None
     glFramebufferTexture3DOES.argtypes = [GLenum, GLenum, GLenum, GLuint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1739,8 +1833,10 @@ try:
     glTexParameterIivOES = c.glTexParameterIivOES
     glTexParameterIivOES.restype = None
     glTexParameterIivOES.argtypes = [GLenum, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1748,8 +1844,10 @@ try:
     glTexParameterIuivOES = c.glTexParameterIuivOES
     glTexParameterIuivOES.restype = None
     glTexParameterIuivOES.argtypes = [GLenum, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1757,8 +1855,10 @@ try:
     glGetTexParameterIivOES = c.glGetTexParameterIivOES
     glGetTexParameterIivOES.restype = None
     glGetTexParameterIivOES.argtypes = [GLenum, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1766,8 +1866,10 @@ try:
     glGetTexParameterIuivOES = c.glGetTexParameterIuivOES
     glGetTexParameterIuivOES.restype = None
     glGetTexParameterIuivOES.argtypes = [GLenum, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1775,8 +1877,10 @@ try:
     glSamplerParameterIivOES = c.glSamplerParameterIivOES
     glSamplerParameterIivOES.restype = None
     glSamplerParameterIivOES.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1784,8 +1888,10 @@ try:
     glSamplerParameterIuivOES = c.glSamplerParameterIuivOES
     glSamplerParameterIuivOES.restype = None
     glSamplerParameterIuivOES.argtypes = [GLuint, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1793,8 +1899,10 @@ try:
     glGetSamplerParameterIivOES = c.glGetSamplerParameterIivOES
     glGetSamplerParameterIivOES.restype = None
     glGetSamplerParameterIivOES.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1802,8 +1910,10 @@ try:
     glGetSamplerParameterIuivOES = c.glGetSamplerParameterIuivOES
     glGetSamplerParameterIuivOES.restype = None
     glGetSamplerParameterIuivOES.argtypes = [GLuint, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1811,8 +1921,10 @@ try:
     glTexBufferOES = c.glTexBufferOES
     glTexBufferOES.restype = None
     glTexBufferOES.argtypes = [GLenum, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1820,8 +1932,10 @@ try:
     glTexBufferRangeOES = c.glTexBufferRangeOES
     glTexBufferRangeOES.restype = None
     glTexBufferRangeOES.argtypes = [GLenum, GLenum, GLuint, GLintptr, GLsizeiptr]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1829,8 +1943,10 @@ try:
     glTexStorage3DMultisampleOES = c.glTexStorage3DMultisampleOES
     glTexStorage3DMultisampleOES.restype = None
     glTexStorage3DMultisampleOES.argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei, GLboolean]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1838,8 +1954,10 @@ try:
     glTextureViewOES = c.glTextureViewOES
     glTextureViewOES.restype = None
     glTextureViewOES.argtypes = [GLuint, GLenum, GLuint, GLenum, GLuint, GLuint, GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1847,8 +1965,10 @@ try:
     glBindVertexArrayOES = c.glBindVertexArrayOES
     glBindVertexArrayOES.restype = None
     glBindVertexArrayOES.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1856,8 +1976,10 @@ try:
     glDeleteVertexArraysOES = c.glDeleteVertexArraysOES
     glDeleteVertexArraysOES.restype = None
     glDeleteVertexArraysOES.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1865,8 +1987,10 @@ try:
     glGenVertexArraysOES = c.glGenVertexArraysOES
     glGenVertexArraysOES.restype = None
     glGenVertexArraysOES.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1874,8 +1998,10 @@ try:
     glIsVertexArrayOES = c.glIsVertexArrayOES
     glIsVertexArrayOES.restype = GLboolean
     glIsVertexArrayOES.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1883,8 +2009,10 @@ try:
     glGetPerfMonitorGroupsAMD = c.glGetPerfMonitorGroupsAMD
     glGetPerfMonitorGroupsAMD.restype = None
     glGetPerfMonitorGroupsAMD.argtypes = [GLint, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1892,8 +2020,10 @@ try:
     glGetPerfMonitorCountersAMD = c.glGetPerfMonitorCountersAMD
     glGetPerfMonitorCountersAMD.restype = None
     glGetPerfMonitorCountersAMD.argtypes = [GLuint, GLint, GLint, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1901,8 +2031,10 @@ try:
     glGetPerfMonitorGroupStringAMD = c.glGetPerfMonitorGroupStringAMD
     glGetPerfMonitorGroupStringAMD.restype = None
     glGetPerfMonitorGroupStringAMD.argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1910,8 +2042,10 @@ try:
     glGetPerfMonitorCounterStringAMD = c.glGetPerfMonitorCounterStringAMD
     glGetPerfMonitorCounterStringAMD.restype = None
     glGetPerfMonitorCounterStringAMD.argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1919,8 +2053,10 @@ try:
     glGetPerfMonitorCounterInfoAMD = c.glGetPerfMonitorCounterInfoAMD
     glGetPerfMonitorCounterInfoAMD.restype = None
     glGetPerfMonitorCounterInfoAMD.argtypes = [GLuint, GLuint, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1928,8 +2064,10 @@ try:
     glGenPerfMonitorsAMD = c.glGenPerfMonitorsAMD
     glGenPerfMonitorsAMD.restype = None
     glGenPerfMonitorsAMD.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1937,8 +2075,10 @@ try:
     glDeletePerfMonitorsAMD = c.glDeletePerfMonitorsAMD
     glDeletePerfMonitorsAMD.restype = None
     glDeletePerfMonitorsAMD.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1946,8 +2086,10 @@ try:
     glSelectPerfMonitorCountersAMD = c.glSelectPerfMonitorCountersAMD
     glSelectPerfMonitorCountersAMD.restype = None
     glSelectPerfMonitorCountersAMD.argtypes = [GLuint, GLboolean, GLuint, GLint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1955,8 +2097,10 @@ try:
     glBeginPerfMonitorAMD = c.glBeginPerfMonitorAMD
     glBeginPerfMonitorAMD.restype = None
     glBeginPerfMonitorAMD.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1964,8 +2108,10 @@ try:
     glEndPerfMonitorAMD = c.glEndPerfMonitorAMD
     glEndPerfMonitorAMD.restype = None
     glEndPerfMonitorAMD.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1973,8 +2119,10 @@ try:
     glGetPerfMonitorCounterDataAMD = c.glGetPerfMonitorCounterDataAMD
     glGetPerfMonitorCounterDataAMD.restype = None
     glGetPerfMonitorCounterDataAMD.argtypes = [GLuint, GLenum, GLsizei, GLuint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1982,8 +2130,10 @@ try:
     glBlitFramebufferANGLE = c.glBlitFramebufferANGLE
     glBlitFramebufferANGLE.restype = None
     glBlitFramebufferANGLE.argtypes = [GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -1991,8 +2141,10 @@ try:
     glRenderbufferStorageMultisampleANGLE = c.glRenderbufferStorageMultisampleANGLE
     glRenderbufferStorageMultisampleANGLE.restype = None
     glRenderbufferStorageMultisampleANGLE.argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2000,8 +2152,10 @@ try:
     glDrawArraysInstancedANGLE = c.glDrawArraysInstancedANGLE
     glDrawArraysInstancedANGLE.restype = None
     glDrawArraysInstancedANGLE.argtypes = [GLenum, GLint, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2009,8 +2163,10 @@ try:
     glDrawElementsInstancedANGLE = c.glDrawElementsInstancedANGLE
     glDrawElementsInstancedANGLE.restype = None
     glDrawElementsInstancedANGLE.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2018,8 +2174,10 @@ try:
     glVertexAttribDivisorANGLE = c.glVertexAttribDivisorANGLE
     glVertexAttribDivisorANGLE.restype = None
     glVertexAttribDivisorANGLE.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2027,8 +2185,10 @@ try:
     glGetTranslatedShaderSourceANGLE = c.glGetTranslatedShaderSourceANGLE
     glGetTranslatedShaderSourceANGLE.restype = None
     glGetTranslatedShaderSourceANGLE.argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2036,8 +2196,10 @@ try:
     glCopyTextureLevelsAPPLE = c.glCopyTextureLevelsAPPLE
     glCopyTextureLevelsAPPLE.restype = None
     glCopyTextureLevelsAPPLE.argtypes = [GLuint, GLuint, GLint, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2045,8 +2207,10 @@ try:
     glRenderbufferStorageMultisampleAPPLE = c.glRenderbufferStorageMultisampleAPPLE
     glRenderbufferStorageMultisampleAPPLE.restype = None
     glRenderbufferStorageMultisampleAPPLE.argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2054,8 +2218,10 @@ try:
     glResolveMultisampleFramebufferAPPLE = c.glResolveMultisampleFramebufferAPPLE
     glResolveMultisampleFramebufferAPPLE.restype = None
     glResolveMultisampleFramebufferAPPLE.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2063,8 +2229,10 @@ try:
     glGetInteger64vAPPLE = c.glGetInteger64vAPPLE
     glGetInteger64vAPPLE.restype = None
     glGetInteger64vAPPLE.argtypes = [GLenum, GLint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2072,8 +2240,10 @@ try:
     glDrawArraysInstancedBaseInstanceEXT = c.glDrawArraysInstancedBaseInstanceEXT
     glDrawArraysInstancedBaseInstanceEXT.restype = None
     glDrawArraysInstancedBaseInstanceEXT.argtypes = [GLenum, GLint, GLsizei, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2081,8 +2251,10 @@ try:
     glDrawElementsInstancedBaseInstanceEXT = c.glDrawElementsInstancedBaseInstanceEXT
     glDrawElementsInstancedBaseInstanceEXT.restype = None
     glDrawElementsInstancedBaseInstanceEXT.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2090,8 +2262,10 @@ try:
     glDrawElementsInstancedBaseVertexBaseInstanceEXT = c.glDrawElementsInstancedBaseVertexBaseInstanceEXT
     glDrawElementsInstancedBaseVertexBaseInstanceEXT.restype = None
     glDrawElementsInstancedBaseVertexBaseInstanceEXT.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei, GLint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2099,8 +2273,10 @@ try:
     glBufferStorageEXT = c.glBufferStorageEXT
     glBufferStorageEXT.restype = None
     glBufferStorageEXT.argtypes = [GLenum, GLsizeiptr, ctypes.c_void_p, GLbitfield]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2108,8 +2284,10 @@ try:
     glCopyImageSubDataEXT = c.glCopyImageSubDataEXT
     glCopyImageSubDataEXT.restype = None
     glCopyImageSubDataEXT.argtypes = [GLuint, GLenum, GLint, GLint, GLint, GLint, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2117,8 +2295,10 @@ try:
     glLabelObjectEXT = c.glLabelObjectEXT
     glLabelObjectEXT.restype = None
     glLabelObjectEXT.argtypes = [GLenum, GLuint, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2126,8 +2306,10 @@ try:
     glGetObjectLabelEXT = c.glGetObjectLabelEXT
     glGetObjectLabelEXT.restype = None
     glGetObjectLabelEXT.argtypes = [GLenum, GLuint, GLsizei, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2135,8 +2317,10 @@ try:
     glInsertEventMarkerEXT = c.glInsertEventMarkerEXT
     glInsertEventMarkerEXT.restype = None
     glInsertEventMarkerEXT.argtypes = [GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2144,8 +2328,10 @@ try:
     glPushGroupMarkerEXT = c.glPushGroupMarkerEXT
     glPushGroupMarkerEXT.restype = None
     glPushGroupMarkerEXT.argtypes = [GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2153,8 +2339,10 @@ try:
     glPopGroupMarkerEXT = c.glPopGroupMarkerEXT
     glPopGroupMarkerEXT.restype = None
     glPopGroupMarkerEXT.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2162,8 +2350,10 @@ try:
     glDiscardFramebufferEXT = c.glDiscardFramebufferEXT
     glDiscardFramebufferEXT.restype = None
     glDiscardFramebufferEXT.argtypes = [GLenum, GLsizei, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2171,8 +2361,10 @@ try:
     glGenQueriesEXT = c.glGenQueriesEXT
     glGenQueriesEXT.restype = None
     glGenQueriesEXT.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2180,8 +2372,10 @@ try:
     glDeleteQueriesEXT = c.glDeleteQueriesEXT
     glDeleteQueriesEXT.restype = None
     glDeleteQueriesEXT.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2189,8 +2383,10 @@ try:
     glIsQueryEXT = c.glIsQueryEXT
     glIsQueryEXT.restype = GLboolean
     glIsQueryEXT.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2198,8 +2394,10 @@ try:
     glBeginQueryEXT = c.glBeginQueryEXT
     glBeginQueryEXT.restype = None
     glBeginQueryEXT.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2207,8 +2405,10 @@ try:
     glEndQueryEXT = c.glEndQueryEXT
     glEndQueryEXT.restype = None
     glEndQueryEXT.argtypes = [GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2216,8 +2416,10 @@ try:
     glQueryCounterEXT = c.glQueryCounterEXT
     glQueryCounterEXT.restype = None
     glQueryCounterEXT.argtypes = [GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2225,8 +2427,10 @@ try:
     glGetQueryivEXT = c.glGetQueryivEXT
     glGetQueryivEXT.restype = None
     glGetQueryivEXT.argtypes = [GLenum, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2234,8 +2438,10 @@ try:
     glGetQueryObjectivEXT = c.glGetQueryObjectivEXT
     glGetQueryObjectivEXT.restype = None
     glGetQueryObjectivEXT.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2243,8 +2449,10 @@ try:
     glGetQueryObjectuivEXT = c.glGetQueryObjectuivEXT
     glGetQueryObjectuivEXT.restype = None
     glGetQueryObjectuivEXT.argtypes = [GLuint, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2252,8 +2460,10 @@ try:
     glGetQueryObjecti64vEXT = c.glGetQueryObjecti64vEXT
     glGetQueryObjecti64vEXT.restype = None
     glGetQueryObjecti64vEXT.argtypes = [GLuint, GLenum, GLint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2261,8 +2471,10 @@ try:
     glGetQueryObjectui64vEXT = c.glGetQueryObjectui64vEXT
     glGetQueryObjectui64vEXT.restype = None
     glGetQueryObjectui64vEXT.argtypes = [GLuint, GLenum, GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2270,8 +2482,10 @@ try:
     glDrawBuffersEXT = c.glDrawBuffersEXT
     glDrawBuffersEXT.restype = None
     glDrawBuffersEXT.argtypes = [GLsizei, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2279,8 +2493,10 @@ try:
     glEnableiEXT = c.glEnableiEXT
     glEnableiEXT.restype = None
     glEnableiEXT.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2288,8 +2504,10 @@ try:
     glDisableiEXT = c.glDisableiEXT
     glDisableiEXT.restype = None
     glDisableiEXT.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2297,8 +2515,10 @@ try:
     glBlendEquationiEXT = c.glBlendEquationiEXT
     glBlendEquationiEXT.restype = None
     glBlendEquationiEXT.argtypes = [GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2306,8 +2526,10 @@ try:
     glBlendEquationSeparateiEXT = c.glBlendEquationSeparateiEXT
     glBlendEquationSeparateiEXT.restype = None
     glBlendEquationSeparateiEXT.argtypes = [GLuint, GLenum, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2315,8 +2537,10 @@ try:
     glBlendFunciEXT = c.glBlendFunciEXT
     glBlendFunciEXT.restype = None
     glBlendFunciEXT.argtypes = [GLuint, GLenum, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2324,8 +2548,10 @@ try:
     glBlendFuncSeparateiEXT = c.glBlendFuncSeparateiEXT
     glBlendFuncSeparateiEXT.restype = None
     glBlendFuncSeparateiEXT.argtypes = [GLuint, GLenum, GLenum, GLenum, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2333,8 +2559,10 @@ try:
     glColorMaskiEXT = c.glColorMaskiEXT
     glColorMaskiEXT.restype = None
     glColorMaskiEXT.argtypes = [GLuint, GLboolean, GLboolean, GLboolean, GLboolean]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2342,8 +2570,10 @@ try:
     glIsEnablediEXT = c.glIsEnablediEXT
     glIsEnablediEXT.restype = GLboolean
     glIsEnablediEXT.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2351,8 +2581,10 @@ try:
     glDrawElementsBaseVertexEXT = c.glDrawElementsBaseVertexEXT
     glDrawElementsBaseVertexEXT.restype = None
     glDrawElementsBaseVertexEXT.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2360,8 +2592,10 @@ try:
     glDrawRangeElementsBaseVertexEXT = c.glDrawRangeElementsBaseVertexEXT
     glDrawRangeElementsBaseVertexEXT.restype = None
     glDrawRangeElementsBaseVertexEXT.argtypes = [GLenum, GLuint, GLuint, GLsizei, GLenum, ctypes.c_void_p, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2369,8 +2603,10 @@ try:
     glDrawElementsInstancedBaseVertexEXT = c.glDrawElementsInstancedBaseVertexEXT
     glDrawElementsInstancedBaseVertexEXT.restype = None
     glDrawElementsInstancedBaseVertexEXT.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2378,8 +2614,10 @@ try:
     glMultiDrawElementsBaseVertexEXT = c.glMultiDrawElementsBaseVertexEXT
     glMultiDrawElementsBaseVertexEXT.restype = None
     glMultiDrawElementsBaseVertexEXT.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2387,8 +2625,10 @@ try:
     glDrawArraysInstancedEXT = c.glDrawArraysInstancedEXT
     glDrawArraysInstancedEXT.restype = None
     glDrawArraysInstancedEXT.argtypes = [GLenum, GLint, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2396,8 +2636,10 @@ try:
     glDrawElementsInstancedEXT = c.glDrawElementsInstancedEXT
     glDrawElementsInstancedEXT.restype = None
     glDrawElementsInstancedEXT.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2405,8 +2647,10 @@ try:
     glFramebufferTextureEXT = c.glFramebufferTextureEXT
     glFramebufferTextureEXT.restype = None
     glFramebufferTextureEXT.argtypes = [GLenum, GLenum, GLuint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2414,8 +2658,10 @@ try:
     glVertexAttribDivisorEXT = c.glVertexAttribDivisorEXT
     glVertexAttribDivisorEXT.restype = None
     glVertexAttribDivisorEXT.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2423,8 +2669,10 @@ try:
     glFlushMappedBufferRangeEXT = c.glFlushMappedBufferRangeEXT
     glFlushMappedBufferRangeEXT.restype = None
     glFlushMappedBufferRangeEXT.argtypes = [GLenum, GLintptr, GLsizeiptr]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2432,8 +2680,10 @@ try:
     glMultiDrawArraysEXT = c.glMultiDrawArraysEXT
     glMultiDrawArraysEXT.restype = None
     glMultiDrawArraysEXT.argtypes = [GLenum, GLint, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2441,8 +2691,10 @@ try:
     glMultiDrawElementsEXT = c.glMultiDrawElementsEXT
     glMultiDrawElementsEXT.restype = None
     glMultiDrawElementsEXT.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2450,8 +2702,10 @@ try:
     glMultiDrawArraysIndirectEXT = c.glMultiDrawArraysIndirectEXT
     glMultiDrawArraysIndirectEXT.restype = None
     glMultiDrawArraysIndirectEXT.argtypes = [GLenum, ctypes.c_void_p, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2459,8 +2713,10 @@ try:
     glMultiDrawElementsIndirectEXT = c.glMultiDrawElementsIndirectEXT
     glMultiDrawElementsIndirectEXT.restype = None
     glMultiDrawElementsIndirectEXT.argtypes = [GLenum, GLenum, ctypes.c_void_p, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2468,8 +2724,10 @@ try:
     glRenderbufferStorageMultisampleEXT = c.glRenderbufferStorageMultisampleEXT
     glRenderbufferStorageMultisampleEXT.restype = None
     glRenderbufferStorageMultisampleEXT.argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2477,8 +2735,10 @@ try:
     glFramebufferTexture2DMultisampleEXT = c.glFramebufferTexture2DMultisampleEXT
     glFramebufferTexture2DMultisampleEXT.restype = None
     glFramebufferTexture2DMultisampleEXT.argtypes = [GLenum, GLenum, GLenum, GLuint, GLint, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2486,8 +2746,10 @@ try:
     glReadBufferIndexedEXT = c.glReadBufferIndexedEXT
     glReadBufferIndexedEXT.restype = None
     glReadBufferIndexedEXT.argtypes = [GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2495,8 +2757,10 @@ try:
     glDrawBuffersIndexedEXT = c.glDrawBuffersIndexedEXT
     glDrawBuffersIndexedEXT.restype = None
     glDrawBuffersIndexedEXT.argtypes = [GLint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2504,8 +2768,10 @@ try:
     glGetIntegeri_vEXT = c.glGetIntegeri_vEXT
     glGetIntegeri_vEXT.restype = None
     glGetIntegeri_vEXT.argtypes = [GLenum, GLuint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2513,8 +2779,10 @@ try:
     glPrimitiveBoundingBoxEXT = c.glPrimitiveBoundingBoxEXT
     glPrimitiveBoundingBoxEXT.restype = None
     glPrimitiveBoundingBoxEXT.argtypes = [GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2522,8 +2790,10 @@ try:
     glRasterSamplesEXT = c.glRasterSamplesEXT
     glRasterSamplesEXT.restype = None
     glRasterSamplesEXT.argtypes = [GLuint, GLboolean]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2531,8 +2801,10 @@ try:
     glGetGraphicsResetStatusEXT = c.glGetGraphicsResetStatusEXT
     glGetGraphicsResetStatusEXT.restype = GLenum
     glGetGraphicsResetStatusEXT.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2540,8 +2812,10 @@ try:
     glReadnPixelsEXT = c.glReadnPixelsEXT
     glReadnPixelsEXT.restype = None
     glReadnPixelsEXT.argtypes = [GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLsizei, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2549,8 +2823,10 @@ try:
     glGetnUniformfvEXT = c.glGetnUniformfvEXT
     glGetnUniformfvEXT.restype = None
     glGetnUniformfvEXT.argtypes = [GLuint, GLint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2558,8 +2834,10 @@ try:
     glGetnUniformivEXT = c.glGetnUniformivEXT
     glGetnUniformivEXT.restype = None
     glGetnUniformivEXT.argtypes = [GLuint, GLint, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2567,8 +2845,10 @@ try:
     glActiveShaderProgramEXT = c.glActiveShaderProgramEXT
     glActiveShaderProgramEXT.restype = None
     glActiveShaderProgramEXT.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2576,8 +2856,10 @@ try:
     glBindProgramPipelineEXT = c.glBindProgramPipelineEXT
     glBindProgramPipelineEXT.restype = None
     glBindProgramPipelineEXT.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2585,8 +2867,10 @@ try:
     glCreateShaderProgramvEXT = c.glCreateShaderProgramvEXT
     glCreateShaderProgramvEXT.restype = GLuint
     glCreateShaderProgramvEXT.argtypes = [GLenum, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2594,8 +2878,10 @@ try:
     glDeleteProgramPipelinesEXT = c.glDeleteProgramPipelinesEXT
     glDeleteProgramPipelinesEXT.restype = None
     glDeleteProgramPipelinesEXT.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2603,8 +2889,10 @@ try:
     glGenProgramPipelinesEXT = c.glGenProgramPipelinesEXT
     glGenProgramPipelinesEXT.restype = None
     glGenProgramPipelinesEXT.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2612,8 +2900,10 @@ try:
     glGetProgramPipelineInfoLogEXT = c.glGetProgramPipelineInfoLogEXT
     glGetProgramPipelineInfoLogEXT.restype = None
     glGetProgramPipelineInfoLogEXT.argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2621,8 +2911,10 @@ try:
     glGetProgramPipelineivEXT = c.glGetProgramPipelineivEXT
     glGetProgramPipelineivEXT.restype = None
     glGetProgramPipelineivEXT.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2630,8 +2922,10 @@ try:
     glIsProgramPipelineEXT = c.glIsProgramPipelineEXT
     glIsProgramPipelineEXT.restype = GLboolean
     glIsProgramPipelineEXT.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2639,8 +2933,10 @@ try:
     glProgramParameteriEXT = c.glProgramParameteriEXT
     glProgramParameteriEXT.restype = None
     glProgramParameteriEXT.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2648,8 +2944,10 @@ try:
     glProgramUniform1fEXT = c.glProgramUniform1fEXT
     glProgramUniform1fEXT.restype = None
     glProgramUniform1fEXT.argtypes = [GLuint, GLint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2657,8 +2955,10 @@ try:
     glProgramUniform1fvEXT = c.glProgramUniform1fvEXT
     glProgramUniform1fvEXT.restype = None
     glProgramUniform1fvEXT.argtypes = [GLuint, GLint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2666,8 +2966,10 @@ try:
     glProgramUniform1iEXT = c.glProgramUniform1iEXT
     glProgramUniform1iEXT.restype = None
     glProgramUniform1iEXT.argtypes = [GLuint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2675,8 +2977,10 @@ try:
     glProgramUniform1ivEXT = c.glProgramUniform1ivEXT
     glProgramUniform1ivEXT.restype = None
     glProgramUniform1ivEXT.argtypes = [GLuint, GLint, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2684,8 +2988,10 @@ try:
     glProgramUniform2fEXT = c.glProgramUniform2fEXT
     glProgramUniform2fEXT.restype = None
     glProgramUniform2fEXT.argtypes = [GLuint, GLint, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2693,8 +2999,10 @@ try:
     glProgramUniform2fvEXT = c.glProgramUniform2fvEXT
     glProgramUniform2fvEXT.restype = None
     glProgramUniform2fvEXT.argtypes = [GLuint, GLint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2702,8 +3010,10 @@ try:
     glProgramUniform2iEXT = c.glProgramUniform2iEXT
     glProgramUniform2iEXT.restype = None
     glProgramUniform2iEXT.argtypes = [GLuint, GLint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2711,8 +3021,10 @@ try:
     glProgramUniform2ivEXT = c.glProgramUniform2ivEXT
     glProgramUniform2ivEXT.restype = None
     glProgramUniform2ivEXT.argtypes = [GLuint, GLint, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2720,8 +3032,10 @@ try:
     glProgramUniform3fEXT = c.glProgramUniform3fEXT
     glProgramUniform3fEXT.restype = None
     glProgramUniform3fEXT.argtypes = [GLuint, GLint, GLfloat, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2729,8 +3043,10 @@ try:
     glProgramUniform3fvEXT = c.glProgramUniform3fvEXT
     glProgramUniform3fvEXT.restype = None
     glProgramUniform3fvEXT.argtypes = [GLuint, GLint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2738,8 +3054,10 @@ try:
     glProgramUniform3iEXT = c.glProgramUniform3iEXT
     glProgramUniform3iEXT.restype = None
     glProgramUniform3iEXT.argtypes = [GLuint, GLint, GLint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2747,8 +3065,10 @@ try:
     glProgramUniform3ivEXT = c.glProgramUniform3ivEXT
     glProgramUniform3ivEXT.restype = None
     glProgramUniform3ivEXT.argtypes = [GLuint, GLint, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2756,8 +3076,10 @@ try:
     glProgramUniform4fEXT = c.glProgramUniform4fEXT
     glProgramUniform4fEXT.restype = None
     glProgramUniform4fEXT.argtypes = [GLuint, GLint, GLfloat, GLfloat, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2765,8 +3087,10 @@ try:
     glProgramUniform4fvEXT = c.glProgramUniform4fvEXT
     glProgramUniform4fvEXT.restype = None
     glProgramUniform4fvEXT.argtypes = [GLuint, GLint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2774,8 +3098,10 @@ try:
     glProgramUniform4iEXT = c.glProgramUniform4iEXT
     glProgramUniform4iEXT.restype = None
     glProgramUniform4iEXT.argtypes = [GLuint, GLint, GLint, GLint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2783,8 +3109,10 @@ try:
     glProgramUniform4ivEXT = c.glProgramUniform4ivEXT
     glProgramUniform4ivEXT.restype = None
     glProgramUniform4ivEXT.argtypes = [GLuint, GLint, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2792,8 +3120,10 @@ try:
     glProgramUniformMatrix2fvEXT = c.glProgramUniformMatrix2fvEXT
     glProgramUniformMatrix2fvEXT.restype = None
     glProgramUniformMatrix2fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2801,8 +3131,10 @@ try:
     glProgramUniformMatrix3fvEXT = c.glProgramUniformMatrix3fvEXT
     glProgramUniformMatrix3fvEXT.restype = None
     glProgramUniformMatrix3fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2810,8 +3142,10 @@ try:
     glProgramUniformMatrix4fvEXT = c.glProgramUniformMatrix4fvEXT
     glProgramUniformMatrix4fvEXT.restype = None
     glProgramUniformMatrix4fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2819,8 +3153,10 @@ try:
     glUseProgramStagesEXT = c.glUseProgramStagesEXT
     glUseProgramStagesEXT.restype = None
     glUseProgramStagesEXT.argtypes = [GLuint, GLbitfield, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2828,8 +3164,10 @@ try:
     glValidateProgramPipelineEXT = c.glValidateProgramPipelineEXT
     glValidateProgramPipelineEXT.restype = None
     glValidateProgramPipelineEXT.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2837,8 +3175,10 @@ try:
     glProgramUniform1uiEXT = c.glProgramUniform1uiEXT
     glProgramUniform1uiEXT.restype = None
     glProgramUniform1uiEXT.argtypes = [GLuint, GLint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2846,8 +3186,10 @@ try:
     glProgramUniform2uiEXT = c.glProgramUniform2uiEXT
     glProgramUniform2uiEXT.restype = None
     glProgramUniform2uiEXT.argtypes = [GLuint, GLint, GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2855,8 +3197,10 @@ try:
     glProgramUniform3uiEXT = c.glProgramUniform3uiEXT
     glProgramUniform3uiEXT.restype = None
     glProgramUniform3uiEXT.argtypes = [GLuint, GLint, GLuint, GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2864,8 +3208,10 @@ try:
     glProgramUniform4uiEXT = c.glProgramUniform4uiEXT
     glProgramUniform4uiEXT.restype = None
     glProgramUniform4uiEXT.argtypes = [GLuint, GLint, GLuint, GLuint, GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2873,8 +3219,10 @@ try:
     glProgramUniform1uivEXT = c.glProgramUniform1uivEXT
     glProgramUniform1uivEXT.restype = None
     glProgramUniform1uivEXT.argtypes = [GLuint, GLint, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2882,8 +3230,10 @@ try:
     glProgramUniform2uivEXT = c.glProgramUniform2uivEXT
     glProgramUniform2uivEXT.restype = None
     glProgramUniform2uivEXT.argtypes = [GLuint, GLint, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2891,8 +3241,10 @@ try:
     glProgramUniform3uivEXT = c.glProgramUniform3uivEXT
     glProgramUniform3uivEXT.restype = None
     glProgramUniform3uivEXT.argtypes = [GLuint, GLint, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2900,8 +3252,10 @@ try:
     glProgramUniform4uivEXT = c.glProgramUniform4uivEXT
     glProgramUniform4uivEXT.restype = None
     glProgramUniform4uivEXT.argtypes = [GLuint, GLint, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2909,8 +3263,10 @@ try:
     glProgramUniformMatrix2x3fvEXT = c.glProgramUniformMatrix2x3fvEXT
     glProgramUniformMatrix2x3fvEXT.restype = None
     glProgramUniformMatrix2x3fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2918,8 +3274,10 @@ try:
     glProgramUniformMatrix3x2fvEXT = c.glProgramUniformMatrix3x2fvEXT
     glProgramUniformMatrix3x2fvEXT.restype = None
     glProgramUniformMatrix3x2fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2927,8 +3285,10 @@ try:
     glProgramUniformMatrix2x4fvEXT = c.glProgramUniformMatrix2x4fvEXT
     glProgramUniformMatrix2x4fvEXT.restype = None
     glProgramUniformMatrix2x4fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2936,8 +3296,10 @@ try:
     glProgramUniformMatrix4x2fvEXT = c.glProgramUniformMatrix4x2fvEXT
     glProgramUniformMatrix4x2fvEXT.restype = None
     glProgramUniformMatrix4x2fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2945,8 +3307,10 @@ try:
     glProgramUniformMatrix3x4fvEXT = c.glProgramUniformMatrix3x4fvEXT
     glProgramUniformMatrix3x4fvEXT.restype = None
     glProgramUniformMatrix3x4fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2954,8 +3318,10 @@ try:
     glProgramUniformMatrix4x3fvEXT = c.glProgramUniformMatrix4x3fvEXT
     glProgramUniformMatrix4x3fvEXT.restype = None
     glProgramUniformMatrix4x3fvEXT.argtypes = [GLuint, GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2963,8 +3329,10 @@ try:
     glTexPageCommitmentARB = c.glTexPageCommitmentARB
     glTexPageCommitmentARB.restype = None
     glTexPageCommitmentARB.argtypes = [GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLboolean]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2972,8 +3340,10 @@ try:
     glPatchParameteriEXT = c.glPatchParameteriEXT
     glPatchParameteriEXT.restype = None
     glPatchParameteriEXT.argtypes = [GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2981,8 +3351,10 @@ try:
     glTexParameterIivEXT = c.glTexParameterIivEXT
     glTexParameterIivEXT.restype = None
     glTexParameterIivEXT.argtypes = [GLenum, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2990,8 +3362,10 @@ try:
     glTexParameterIuivEXT = c.glTexParameterIuivEXT
     glTexParameterIuivEXT.restype = None
     glTexParameterIuivEXT.argtypes = [GLenum, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -2999,8 +3373,10 @@ try:
     glGetTexParameterIivEXT = c.glGetTexParameterIivEXT
     glGetTexParameterIivEXT.restype = None
     glGetTexParameterIivEXT.argtypes = [GLenum, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3008,8 +3384,10 @@ try:
     glGetTexParameterIuivEXT = c.glGetTexParameterIuivEXT
     glGetTexParameterIuivEXT.restype = None
     glGetTexParameterIuivEXT.argtypes = [GLenum, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3017,8 +3395,10 @@ try:
     glSamplerParameterIivEXT = c.glSamplerParameterIivEXT
     glSamplerParameterIivEXT.restype = None
     glSamplerParameterIivEXT.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3026,8 +3406,10 @@ try:
     glSamplerParameterIuivEXT = c.glSamplerParameterIuivEXT
     glSamplerParameterIuivEXT.restype = None
     glSamplerParameterIuivEXT.argtypes = [GLuint, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3035,8 +3417,10 @@ try:
     glGetSamplerParameterIivEXT = c.glGetSamplerParameterIivEXT
     glGetSamplerParameterIivEXT.restype = None
     glGetSamplerParameterIivEXT.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3044,8 +3428,10 @@ try:
     glGetSamplerParameterIuivEXT = c.glGetSamplerParameterIuivEXT
     glGetSamplerParameterIuivEXT.restype = None
     glGetSamplerParameterIuivEXT.argtypes = [GLuint, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3053,8 +3439,10 @@ try:
     glTexBufferEXT = c.glTexBufferEXT
     glTexBufferEXT.restype = None
     glTexBufferEXT.argtypes = [GLenum, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3062,8 +3450,10 @@ try:
     glTexBufferRangeEXT = c.glTexBufferRangeEXT
     glTexBufferRangeEXT.restype = None
     glTexBufferRangeEXT.argtypes = [GLenum, GLenum, GLuint, GLintptr, GLsizeiptr]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3071,8 +3461,10 @@ try:
     glTexStorage1DEXT = c.glTexStorage1DEXT
     glTexStorage1DEXT.restype = None
     glTexStorage1DEXT.argtypes = [GLenum, GLsizei, GLenum, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3080,8 +3472,10 @@ try:
     glTexStorage2DEXT = c.glTexStorage2DEXT
     glTexStorage2DEXT.restype = None
     glTexStorage2DEXT.argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3089,8 +3483,10 @@ try:
     glTexStorage3DEXT = c.glTexStorage3DEXT
     glTexStorage3DEXT.restype = None
     glTexStorage3DEXT.argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3098,8 +3494,10 @@ try:
     glTextureStorage1DEXT = c.glTextureStorage1DEXT
     glTextureStorage1DEXT.restype = None
     glTextureStorage1DEXT.argtypes = [GLuint, GLenum, GLsizei, GLenum, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3107,8 +3505,10 @@ try:
     glTextureStorage2DEXT = c.glTextureStorage2DEXT
     glTextureStorage2DEXT.restype = None
     glTextureStorage2DEXT.argtypes = [GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3116,8 +3516,10 @@ try:
     glTextureStorage3DEXT = c.glTextureStorage3DEXT
     glTextureStorage3DEXT.restype = None
     glTextureStorage3DEXT.argtypes = [GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3125,8 +3527,10 @@ try:
     glTextureViewEXT = c.glTextureViewEXT
     glTextureViewEXT.restype = None
     glTextureViewEXT.argtypes = [GLuint, GLenum, GLuint, GLenum, GLuint, GLuint, GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3134,8 +3538,10 @@ try:
     glRenderbufferStorageMultisampleIMG = c.glRenderbufferStorageMultisampleIMG
     glRenderbufferStorageMultisampleIMG.restype = None
     glRenderbufferStorageMultisampleIMG.argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3143,8 +3549,10 @@ try:
     glFramebufferTexture2DMultisampleIMG = c.glFramebufferTexture2DMultisampleIMG
     glFramebufferTexture2DMultisampleIMG.restype = None
     glFramebufferTexture2DMultisampleIMG.argtypes = [GLenum, GLenum, GLenum, GLuint, GLint, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3152,8 +3560,10 @@ try:
     glBeginPerfQueryINTEL = c.glBeginPerfQueryINTEL
     glBeginPerfQueryINTEL.restype = None
     glBeginPerfQueryINTEL.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3161,8 +3571,10 @@ try:
     glCreatePerfQueryINTEL = c.glCreatePerfQueryINTEL
     glCreatePerfQueryINTEL.restype = None
     glCreatePerfQueryINTEL.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3170,8 +3582,10 @@ try:
     glDeletePerfQueryINTEL = c.glDeletePerfQueryINTEL
     glDeletePerfQueryINTEL.restype = None
     glDeletePerfQueryINTEL.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3179,8 +3593,10 @@ try:
     glEndPerfQueryINTEL = c.glEndPerfQueryINTEL
     glEndPerfQueryINTEL.restype = None
     glEndPerfQueryINTEL.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3188,8 +3604,10 @@ try:
     glGetFirstPerfQueryIdINTEL = c.glGetFirstPerfQueryIdINTEL
     glGetFirstPerfQueryIdINTEL.restype = None
     glGetFirstPerfQueryIdINTEL.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3197,8 +3615,10 @@ try:
     glGetNextPerfQueryIdINTEL = c.glGetNextPerfQueryIdINTEL
     glGetNextPerfQueryIdINTEL.restype = None
     glGetNextPerfQueryIdINTEL.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3206,8 +3626,10 @@ try:
     glGetPerfCounterInfoINTEL = c.glGetPerfCounterInfoINTEL
     glGetPerfCounterInfoINTEL.restype = None
     glGetPerfCounterInfoINTEL.argtypes = [GLuint, GLuint, GLuint, GLchar, GLuint, GLchar, GLuint, GLuint, GLuint, GLuint, GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3215,8 +3637,10 @@ try:
     glGetPerfQueryDataINTEL = c.glGetPerfQueryDataINTEL
     glGetPerfQueryDataINTEL.restype = None
     glGetPerfQueryDataINTEL.argtypes = [GLuint, GLuint, GLsizei, GLvoid, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3224,8 +3648,10 @@ try:
     glGetPerfQueryIdByNameINTEL = c.glGetPerfQueryIdByNameINTEL
     glGetPerfQueryIdByNameINTEL.restype = None
     glGetPerfQueryIdByNameINTEL.argtypes = [GLchar, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3233,8 +3659,10 @@ try:
     glGetPerfQueryInfoINTEL = c.glGetPerfQueryInfoINTEL
     glGetPerfQueryInfoINTEL.restype = None
     glGetPerfQueryInfoINTEL.argtypes = [GLuint, GLuint, GLchar, GLuint, GLuint, GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3242,8 +3670,10 @@ try:
     glGetTextureHandleNV = c.glGetTextureHandleNV
     glGetTextureHandleNV.restype = GLuint64
     glGetTextureHandleNV.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3251,8 +3681,10 @@ try:
     glGetTextureSamplerHandleNV = c.glGetTextureSamplerHandleNV
     glGetTextureSamplerHandleNV.restype = GLuint64
     glGetTextureSamplerHandleNV.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3260,8 +3692,10 @@ try:
     glMakeTextureHandleResidentNV = c.glMakeTextureHandleResidentNV
     glMakeTextureHandleResidentNV.restype = None
     glMakeTextureHandleResidentNV.argtypes = [GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3269,8 +3703,10 @@ try:
     glMakeTextureHandleNonResidentNV = c.glMakeTextureHandleNonResidentNV
     glMakeTextureHandleNonResidentNV.restype = None
     glMakeTextureHandleNonResidentNV.argtypes = [GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3278,8 +3714,10 @@ try:
     glGetImageHandleNV = c.glGetImageHandleNV
     glGetImageHandleNV.restype = GLuint64
     glGetImageHandleNV.argtypes = [GLuint, GLint, GLboolean, GLint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3287,8 +3725,10 @@ try:
     glMakeImageHandleResidentNV = c.glMakeImageHandleResidentNV
     glMakeImageHandleResidentNV.restype = None
     glMakeImageHandleResidentNV.argtypes = [GLuint64, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3296,8 +3736,10 @@ try:
     glMakeImageHandleNonResidentNV = c.glMakeImageHandleNonResidentNV
     glMakeImageHandleNonResidentNV.restype = None
     glMakeImageHandleNonResidentNV.argtypes = [GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3305,8 +3747,10 @@ try:
     glUniformHandleui64NV = c.glUniformHandleui64NV
     glUniformHandleui64NV.restype = None
     glUniformHandleui64NV.argtypes = [GLint, GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3314,8 +3758,10 @@ try:
     glUniformHandleui64vNV = c.glUniformHandleui64vNV
     glUniformHandleui64vNV.restype = None
     glUniformHandleui64vNV.argtypes = [GLint, GLsizei, GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3323,8 +3769,10 @@ try:
     glProgramUniformHandleui64NV = c.glProgramUniformHandleui64NV
     glProgramUniformHandleui64NV.restype = None
     glProgramUniformHandleui64NV.argtypes = [GLuint, GLint, GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3332,8 +3780,10 @@ try:
     glProgramUniformHandleui64vNV = c.glProgramUniformHandleui64vNV
     glProgramUniformHandleui64vNV.restype = None
     glProgramUniformHandleui64vNV.argtypes = [GLuint, GLint, GLsizei, GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3341,8 +3791,10 @@ try:
     glIsTextureHandleResidentNV = c.glIsTextureHandleResidentNV
     glIsTextureHandleResidentNV.restype = GLboolean
     glIsTextureHandleResidentNV.argtypes = [GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3350,8 +3802,10 @@ try:
     glIsImageHandleResidentNV = c.glIsImageHandleResidentNV
     glIsImageHandleResidentNV.restype = GLboolean
     glIsImageHandleResidentNV.argtypes = [GLuint64]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3359,8 +3813,10 @@ try:
     glBlendParameteriNV = c.glBlendParameteriNV
     glBlendParameteriNV.restype = None
     glBlendParameteriNV.argtypes = [GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3368,8 +3824,10 @@ try:
     glBlendBarrierNV = c.glBlendBarrierNV
     glBlendBarrierNV.restype = None
     glBlendBarrierNV.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3377,8 +3835,10 @@ try:
     glBeginConditionalRenderNV = c.glBeginConditionalRenderNV
     glBeginConditionalRenderNV.restype = None
     glBeginConditionalRenderNV.argtypes = [GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3386,8 +3846,10 @@ try:
     glEndConditionalRenderNV = c.glEndConditionalRenderNV
     glEndConditionalRenderNV.restype = None
     glEndConditionalRenderNV.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3395,8 +3857,10 @@ try:
     glSubpixelPrecisionBiasNV = c.glSubpixelPrecisionBiasNV
     glSubpixelPrecisionBiasNV.restype = None
     glSubpixelPrecisionBiasNV.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3404,8 +3868,10 @@ try:
     glCopyBufferSubDataNV = c.glCopyBufferSubDataNV
     glCopyBufferSubDataNV.restype = None
     glCopyBufferSubDataNV.argtypes = [GLenum, GLenum, GLintptr, GLintptr, GLsizeiptr]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3413,8 +3879,10 @@ try:
     glCoverageMaskNV = c.glCoverageMaskNV
     glCoverageMaskNV.restype = None
     glCoverageMaskNV.argtypes = [GLboolean]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3422,8 +3890,10 @@ try:
     glCoverageOperationNV = c.glCoverageOperationNV
     glCoverageOperationNV.restype = None
     glCoverageOperationNV.argtypes = [GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3431,8 +3901,10 @@ try:
     glDrawBuffersNV = c.glDrawBuffersNV
     glDrawBuffersNV.restype = None
     glDrawBuffersNV.argtypes = [GLsizei, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3440,8 +3912,10 @@ try:
     glDrawArraysInstancedNV = c.glDrawArraysInstancedNV
     glDrawArraysInstancedNV.restype = None
     glDrawArraysInstancedNV.argtypes = [GLenum, GLint, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3449,8 +3923,10 @@ try:
     glDrawElementsInstancedNV = c.glDrawElementsInstancedNV
     glDrawElementsInstancedNV.restype = None
     glDrawElementsInstancedNV.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3458,8 +3934,10 @@ try:
     glDeleteFencesNV = c.glDeleteFencesNV
     glDeleteFencesNV.restype = None
     glDeleteFencesNV.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3467,8 +3945,10 @@ try:
     glGenFencesNV = c.glGenFencesNV
     glGenFencesNV.restype = None
     glGenFencesNV.argtypes = [GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3476,8 +3956,10 @@ try:
     glIsFenceNV = c.glIsFenceNV
     glIsFenceNV.restype = GLboolean
     glIsFenceNV.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3485,8 +3967,10 @@ try:
     glTestFenceNV = c.glTestFenceNV
     glTestFenceNV.restype = GLboolean
     glTestFenceNV.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3494,8 +3978,10 @@ try:
     glGetFenceivNV = c.glGetFenceivNV
     glGetFenceivNV.restype = None
     glGetFenceivNV.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3503,8 +3989,10 @@ try:
     glFinishFenceNV = c.glFinishFenceNV
     glFinishFenceNV.restype = None
     glFinishFenceNV.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3512,8 +4000,10 @@ try:
     glSetFenceNV = c.glSetFenceNV
     glSetFenceNV.restype = None
     glSetFenceNV.argtypes = [GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3521,8 +4011,10 @@ try:
     glFragmentCoverageColorNV = c.glFragmentCoverageColorNV
     glFragmentCoverageColorNV.restype = None
     glFragmentCoverageColorNV.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3530,8 +4022,10 @@ try:
     glBlitFramebufferNV = c.glBlitFramebufferNV
     glBlitFramebufferNV.restype = None
     glBlitFramebufferNV.argtypes = [GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3539,8 +4033,10 @@ try:
     glCoverageModulationTableNV = c.glCoverageModulationTableNV
     glCoverageModulationTableNV.restype = None
     glCoverageModulationTableNV.argtypes = [GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3548,8 +4044,10 @@ try:
     glGetCoverageModulationTableNV = c.glGetCoverageModulationTableNV
     glGetCoverageModulationTableNV.restype = None
     glGetCoverageModulationTableNV.argtypes = [GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3557,8 +4055,10 @@ try:
     glCoverageModulationNV = c.glCoverageModulationNV
     glCoverageModulationNV.restype = None
     glCoverageModulationNV.argtypes = [GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3566,8 +4066,10 @@ try:
     glRenderbufferStorageMultisampleNV = c.glRenderbufferStorageMultisampleNV
     glRenderbufferStorageMultisampleNV.restype = None
     glRenderbufferStorageMultisampleNV.argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3575,8 +4077,10 @@ try:
     glVertexAttribDivisorNV = c.glVertexAttribDivisorNV
     glVertexAttribDivisorNV.restype = None
     glVertexAttribDivisorNV.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3584,8 +4088,10 @@ try:
     glGetInternalformatSampleivNV = c.glGetInternalformatSampleivNV
     glGetInternalformatSampleivNV.restype = None
     glGetInternalformatSampleivNV.argtypes = [GLenum, GLenum, GLsizei, GLenum, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3593,8 +4099,10 @@ try:
     glUniformMatrix2x3fvNV = c.glUniformMatrix2x3fvNV
     glUniformMatrix2x3fvNV.restype = None
     glUniformMatrix2x3fvNV.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3602,8 +4110,10 @@ try:
     glUniformMatrix3x2fvNV = c.glUniformMatrix3x2fvNV
     glUniformMatrix3x2fvNV.restype = None
     glUniformMatrix3x2fvNV.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3611,8 +4121,10 @@ try:
     glUniformMatrix2x4fvNV = c.glUniformMatrix2x4fvNV
     glUniformMatrix2x4fvNV.restype = None
     glUniformMatrix2x4fvNV.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3620,8 +4132,10 @@ try:
     glUniformMatrix4x2fvNV = c.glUniformMatrix4x2fvNV
     glUniformMatrix4x2fvNV.restype = None
     glUniformMatrix4x2fvNV.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3629,8 +4143,10 @@ try:
     glUniformMatrix3x4fvNV = c.glUniformMatrix3x4fvNV
     glUniformMatrix3x4fvNV.restype = None
     glUniformMatrix3x4fvNV.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3638,8 +4154,10 @@ try:
     glUniformMatrix4x3fvNV = c.glUniformMatrix4x3fvNV
     glUniformMatrix4x3fvNV.restype = None
     glUniformMatrix4x3fvNV.argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3647,8 +4165,10 @@ try:
     glGenPathsNV = c.glGenPathsNV
     glGenPathsNV.restype = GLuint
     glGenPathsNV.argtypes = [GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3656,8 +4176,10 @@ try:
     glDeletePathsNV = c.glDeletePathsNV
     glDeletePathsNV.restype = None
     glDeletePathsNV.argtypes = [GLuint, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3665,8 +4187,10 @@ try:
     glIsPathNV = c.glIsPathNV
     glIsPathNV.restype = GLboolean
     glIsPathNV.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3674,8 +4198,10 @@ try:
     glPathCommandsNV = c.glPathCommandsNV
     glPathCommandsNV.restype = None
     glPathCommandsNV.argtypes = [GLuint, GLsizei, GLubyte, GLsizei, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3683,8 +4209,10 @@ try:
     glPathCoordsNV = c.glPathCoordsNV
     glPathCoordsNV.restype = None
     glPathCoordsNV.argtypes = [GLuint, GLsizei, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3692,8 +4220,10 @@ try:
     glPathSubCommandsNV = c.glPathSubCommandsNV
     glPathSubCommandsNV.restype = None
     glPathSubCommandsNV.argtypes = [GLuint, GLsizei, GLsizei, GLsizei, GLubyte, GLsizei, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3701,8 +4231,10 @@ try:
     glPathSubCoordsNV = c.glPathSubCoordsNV
     glPathSubCoordsNV.restype = None
     glPathSubCoordsNV.argtypes = [GLuint, GLsizei, GLsizei, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3710,8 +4242,10 @@ try:
     glPathStringNV = c.glPathStringNV
     glPathStringNV.restype = None
     glPathStringNV.argtypes = [GLuint, GLenum, GLsizei, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3719,8 +4253,10 @@ try:
     glPathGlyphsNV = c.glPathGlyphsNV
     glPathGlyphsNV.restype = None
     glPathGlyphsNV.argtypes = [GLuint, GLenum, ctypes.c_void_p, GLbitfield, GLsizei, GLenum, ctypes.c_void_p, GLenum, GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3728,8 +4264,10 @@ try:
     glPathGlyphRangeNV = c.glPathGlyphRangeNV
     glPathGlyphRangeNV.restype = None
     glPathGlyphRangeNV.argtypes = [GLuint, GLenum, ctypes.c_void_p, GLbitfield, GLuint, GLsizei, GLenum, GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3737,8 +4275,10 @@ try:
     glWeightPathsNV = c.glWeightPathsNV
     glWeightPathsNV.restype = None
     glWeightPathsNV.argtypes = [GLuint, GLsizei, GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3746,8 +4286,10 @@ try:
     glCopyPathNV = c.glCopyPathNV
     glCopyPathNV.restype = None
     glCopyPathNV.argtypes = [GLuint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3755,8 +4297,10 @@ try:
     glInterpolatePathsNV = c.glInterpolatePathsNV
     glInterpolatePathsNV.restype = None
     glInterpolatePathsNV.argtypes = [GLuint, GLuint, GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3764,8 +4308,10 @@ try:
     glTransformPathNV = c.glTransformPathNV
     glTransformPathNV.restype = None
     glTransformPathNV.argtypes = [GLuint, GLuint, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3773,8 +4319,10 @@ try:
     glPathParameterivNV = c.glPathParameterivNV
     glPathParameterivNV.restype = None
     glPathParameterivNV.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3782,8 +4330,10 @@ try:
     glPathParameteriNV = c.glPathParameteriNV
     glPathParameteriNV.restype = None
     glPathParameteriNV.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3791,8 +4341,10 @@ try:
     glPathParameterfvNV = c.glPathParameterfvNV
     glPathParameterfvNV.restype = None
     glPathParameterfvNV.argtypes = [GLuint, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3800,8 +4352,10 @@ try:
     glPathParameterfNV = c.glPathParameterfNV
     glPathParameterfNV.restype = None
     glPathParameterfNV.argtypes = [GLuint, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3809,8 +4363,10 @@ try:
     glPathDashArrayNV = c.glPathDashArrayNV
     glPathDashArrayNV.restype = None
     glPathDashArrayNV.argtypes = [GLuint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3818,8 +4374,10 @@ try:
     glPathStencilFuncNV = c.glPathStencilFuncNV
     glPathStencilFuncNV.restype = None
     glPathStencilFuncNV.argtypes = [GLenum, GLint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3827,8 +4385,10 @@ try:
     glPathStencilDepthOffsetNV = c.glPathStencilDepthOffsetNV
     glPathStencilDepthOffsetNV.restype = None
     glPathStencilDepthOffsetNV.argtypes = [GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3836,8 +4396,10 @@ try:
     glStencilFillPathNV = c.glStencilFillPathNV
     glStencilFillPathNV.restype = None
     glStencilFillPathNV.argtypes = [GLuint, GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3845,8 +4407,10 @@ try:
     glStencilStrokePathNV = c.glStencilStrokePathNV
     glStencilStrokePathNV.restype = None
     glStencilStrokePathNV.argtypes = [GLuint, GLint, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3854,8 +4418,10 @@ try:
     glStencilFillPathInstancedNV = c.glStencilFillPathInstancedNV
     glStencilFillPathInstancedNV.restype = None
     glStencilFillPathInstancedNV.argtypes = [GLsizei, GLenum, ctypes.c_void_p, GLuint, GLenum, GLuint, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3863,8 +4429,10 @@ try:
     glStencilStrokePathInstancedNV = c.glStencilStrokePathInstancedNV
     glStencilStrokePathInstancedNV.restype = None
     glStencilStrokePathInstancedNV.argtypes = [GLsizei, GLenum, ctypes.c_void_p, GLuint, GLint, GLuint, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3872,8 +4440,10 @@ try:
     glPathCoverDepthFuncNV = c.glPathCoverDepthFuncNV
     glPathCoverDepthFuncNV.restype = None
     glPathCoverDepthFuncNV.argtypes = [GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3881,8 +4451,10 @@ try:
     glCoverFillPathNV = c.glCoverFillPathNV
     glCoverFillPathNV.restype = None
     glCoverFillPathNV.argtypes = [GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3890,8 +4462,10 @@ try:
     glCoverStrokePathNV = c.glCoverStrokePathNV
     glCoverStrokePathNV.restype = None
     glCoverStrokePathNV.argtypes = [GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3899,8 +4473,10 @@ try:
     glCoverFillPathInstancedNV = c.glCoverFillPathInstancedNV
     glCoverFillPathInstancedNV.restype = None
     glCoverFillPathInstancedNV.argtypes = [GLsizei, GLenum, ctypes.c_void_p, GLuint, GLenum, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3908,8 +4484,10 @@ try:
     glCoverStrokePathInstancedNV = c.glCoverStrokePathInstancedNV
     glCoverStrokePathInstancedNV.restype = None
     glCoverStrokePathInstancedNV.argtypes = [GLsizei, GLenum, ctypes.c_void_p, GLuint, GLenum, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3917,8 +4495,10 @@ try:
     glGetPathParameterivNV = c.glGetPathParameterivNV
     glGetPathParameterivNV.restype = None
     glGetPathParameterivNV.argtypes = [GLuint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3926,8 +4506,10 @@ try:
     glGetPathParameterfvNV = c.glGetPathParameterfvNV
     glGetPathParameterfvNV.restype = None
     glGetPathParameterfvNV.argtypes = [GLuint, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3935,8 +4517,10 @@ try:
     glGetPathCommandsNV = c.glGetPathCommandsNV
     glGetPathCommandsNV.restype = None
     glGetPathCommandsNV.argtypes = [GLuint, GLubyte]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3944,8 +4528,10 @@ try:
     glGetPathCoordsNV = c.glGetPathCoordsNV
     glGetPathCoordsNV.restype = None
     glGetPathCoordsNV.argtypes = [GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3953,8 +4539,10 @@ try:
     glGetPathDashArrayNV = c.glGetPathDashArrayNV
     glGetPathDashArrayNV.restype = None
     glGetPathDashArrayNV.argtypes = [GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3962,8 +4550,10 @@ try:
     glGetPathMetricsNV = c.glGetPathMetricsNV
     glGetPathMetricsNV.restype = None
     glGetPathMetricsNV.argtypes = [GLbitfield, GLsizei, GLenum, ctypes.c_void_p, GLuint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3971,8 +4561,10 @@ try:
     glGetPathMetricRangeNV = c.glGetPathMetricRangeNV
     glGetPathMetricRangeNV.restype = None
     glGetPathMetricRangeNV.argtypes = [GLbitfield, GLuint, GLsizei, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3980,8 +4572,10 @@ try:
     glGetPathSpacingNV = c.glGetPathSpacingNV
     glGetPathSpacingNV.restype = None
     glGetPathSpacingNV.argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLuint, GLfloat, GLfloat, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3989,8 +4583,10 @@ try:
     glIsPointInFillPathNV = c.glIsPointInFillPathNV
     glIsPointInFillPathNV.restype = GLboolean
     glIsPointInFillPathNV.argtypes = [GLuint, GLuint, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -3998,8 +4594,10 @@ try:
     glIsPointInStrokePathNV = c.glIsPointInStrokePathNV
     glIsPointInStrokePathNV.restype = GLboolean
     glIsPointInStrokePathNV.argtypes = [GLuint, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4007,8 +4605,10 @@ try:
     glGetPathLengthNV = c.glGetPathLengthNV
     glGetPathLengthNV.restype = GLfloat
     glGetPathLengthNV.argtypes = [GLuint, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4016,8 +4616,10 @@ try:
     glPointAlongPathNV = c.glPointAlongPathNV
     glPointAlongPathNV.restype = GLboolean
     glPointAlongPathNV.argtypes = [GLuint, GLsizei, GLsizei, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4025,8 +4627,10 @@ try:
     glMatrixLoad3x2fNV = c.glMatrixLoad3x2fNV
     glMatrixLoad3x2fNV.restype = None
     glMatrixLoad3x2fNV.argtypes = [GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4034,8 +4638,10 @@ try:
     glMatrixLoad3x3fNV = c.glMatrixLoad3x3fNV
     glMatrixLoad3x3fNV.restype = None
     glMatrixLoad3x3fNV.argtypes = [GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4043,8 +4649,10 @@ try:
     glMatrixLoadTranspose3x3fNV = c.glMatrixLoadTranspose3x3fNV
     glMatrixLoadTranspose3x3fNV.restype = None
     glMatrixLoadTranspose3x3fNV.argtypes = [GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4052,8 +4660,10 @@ try:
     glMatrixMult3x2fNV = c.glMatrixMult3x2fNV
     glMatrixMult3x2fNV.restype = None
     glMatrixMult3x2fNV.argtypes = [GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4061,8 +4671,10 @@ try:
     glMatrixMult3x3fNV = c.glMatrixMult3x3fNV
     glMatrixMult3x3fNV.restype = None
     glMatrixMult3x3fNV.argtypes = [GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4070,8 +4682,10 @@ try:
     glMatrixMultTranspose3x3fNV = c.glMatrixMultTranspose3x3fNV
     glMatrixMultTranspose3x3fNV.restype = None
     glMatrixMultTranspose3x3fNV.argtypes = [GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4079,8 +4693,10 @@ try:
     glStencilThenCoverFillPathNV = c.glStencilThenCoverFillPathNV
     glStencilThenCoverFillPathNV.restype = None
     glStencilThenCoverFillPathNV.argtypes = [GLuint, GLenum, GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4088,8 +4704,10 @@ try:
     glStencilThenCoverStrokePathNV = c.glStencilThenCoverStrokePathNV
     glStencilThenCoverStrokePathNV.restype = None
     glStencilThenCoverStrokePathNV.argtypes = [GLuint, GLint, GLuint, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4097,8 +4715,10 @@ try:
     glStencilThenCoverFillPathInstancedNV = c.glStencilThenCoverFillPathInstancedNV
     glStencilThenCoverFillPathInstancedNV.restype = None
     glStencilThenCoverFillPathInstancedNV.argtypes = [GLsizei, GLenum, ctypes.c_void_p, GLuint, GLenum, GLuint, GLenum, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4106,8 +4726,10 @@ try:
     glStencilThenCoverStrokePathInstancedNV = c.glStencilThenCoverStrokePathInstancedNV
     glStencilThenCoverStrokePathInstancedNV.restype = None
     glStencilThenCoverStrokePathInstancedNV.argtypes = [GLsizei, GLenum, ctypes.c_void_p, GLuint, GLint, GLuint, GLenum, GLenum, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4115,8 +4737,10 @@ try:
     glPathGlyphIndexRangeNV = c.glPathGlyphIndexRangeNV
     glPathGlyphIndexRangeNV.restype = GLenum
     glPathGlyphIndexRangeNV.argtypes = [GLenum, ctypes.c_void_p, GLbitfield, GLuint, GLfloat, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4124,8 +4748,10 @@ try:
     glPathGlyphIndexArrayNV = c.glPathGlyphIndexArrayNV
     glPathGlyphIndexArrayNV.restype = GLenum
     glPathGlyphIndexArrayNV.argtypes = [GLuint, GLenum, ctypes.c_void_p, GLbitfield, GLuint, GLsizei, GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4133,8 +4759,10 @@ try:
     glPathMemoryGlyphIndexArrayNV = c.glPathMemoryGlyphIndexArrayNV
     glPathMemoryGlyphIndexArrayNV.restype = GLenum
     glPathMemoryGlyphIndexArrayNV.argtypes = [GLuint, GLenum, GLsizeiptr, ctypes.c_void_p, GLsizei, GLuint, GLsizei, GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4142,8 +4770,10 @@ try:
     glProgramPathFragmentInputGenNV = c.glProgramPathFragmentInputGenNV
     glProgramPathFragmentInputGenNV.restype = None
     glProgramPathFragmentInputGenNV.argtypes = [GLuint, GLint, GLenum, GLint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4151,8 +4781,10 @@ try:
     glGetProgramResourcefvNV = c.glGetProgramResourcefvNV
     glGetProgramResourcefvNV.restype = None
     glGetProgramResourcefvNV.argtypes = [GLuint, GLenum, GLuint, GLsizei, GLenum, GLsizei, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4160,8 +4792,10 @@ try:
     glPolygonModeNV = c.glPolygonModeNV
     glPolygonModeNV.restype = None
     glPolygonModeNV.argtypes = [GLenum, GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4169,8 +4803,10 @@ try:
     glReadBufferNV = c.glReadBufferNV
     glReadBufferNV.restype = None
     glReadBufferNV.argtypes = [GLenum]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4178,8 +4814,10 @@ try:
     glFramebufferSampleLocationsfvNV = c.glFramebufferSampleLocationsfvNV
     glFramebufferSampleLocationsfvNV.restype = None
     glFramebufferSampleLocationsfvNV.argtypes = [GLenum, GLuint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4187,8 +4825,10 @@ try:
     glNamedFramebufferSampleLocationsfvNV = c.glNamedFramebufferSampleLocationsfvNV
     glNamedFramebufferSampleLocationsfvNV.restype = None
     glNamedFramebufferSampleLocationsfvNV.argtypes = [GLuint, GLuint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4196,8 +4836,10 @@ try:
     glResolveDepthValuesNV = c.glResolveDepthValuesNV
     glResolveDepthValuesNV.restype = None
     glResolveDepthValuesNV.argtypes = [ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4205,8 +4847,10 @@ try:
     glViewportArrayvNV = c.glViewportArrayvNV
     glViewportArrayvNV.restype = None
     glViewportArrayvNV.argtypes = [GLuint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4214,8 +4858,10 @@ try:
     glViewportIndexedfNV = c.glViewportIndexedfNV
     glViewportIndexedfNV.restype = None
     glViewportIndexedfNV.argtypes = [GLuint, GLfloat, GLfloat, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4223,8 +4869,10 @@ try:
     glViewportIndexedfvNV = c.glViewportIndexedfvNV
     glViewportIndexedfvNV.restype = None
     glViewportIndexedfvNV.argtypes = [GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4232,8 +4880,10 @@ try:
     glScissorArrayvNV = c.glScissorArrayvNV
     glScissorArrayvNV.restype = None
     glScissorArrayvNV.argtypes = [GLuint, GLsizei, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4241,8 +4891,10 @@ try:
     glScissorIndexedNV = c.glScissorIndexedNV
     glScissorIndexedNV.restype = None
     glScissorIndexedNV.argtypes = [GLuint, GLint, GLint, GLsizei, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4250,8 +4902,10 @@ try:
     glScissorIndexedvNV = c.glScissorIndexedvNV
     glScissorIndexedvNV.restype = None
     glScissorIndexedvNV.argtypes = [GLuint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4259,8 +4913,10 @@ try:
     glDepthRangeArrayfvNV = c.glDepthRangeArrayfvNV
     glDepthRangeArrayfvNV.restype = None
     glDepthRangeArrayfvNV.argtypes = [GLuint, GLsizei, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4268,8 +4924,10 @@ try:
     glDepthRangeIndexedfNV = c.glDepthRangeIndexedfNV
     glDepthRangeIndexedfNV.restype = None
     glDepthRangeIndexedfNV.argtypes = [GLuint, GLfloat, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4277,8 +4935,10 @@ try:
     glGetFloati_vNV = c.glGetFloati_vNV
     glGetFloati_vNV.restype = None
     glGetFloati_vNV.argtypes = [GLenum, GLuint, GLfloat]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4286,8 +4946,10 @@ try:
     glEnableiNV = c.glEnableiNV
     glEnableiNV.restype = None
     glEnableiNV.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4295,8 +4957,10 @@ try:
     glDisableiNV = c.glDisableiNV
     glDisableiNV.restype = None
     glDisableiNV.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4304,8 +4968,10 @@ try:
     glIsEnablediNV = c.glIsEnablediNV
     glIsEnablediNV.restype = GLboolean
     glIsEnablediNV.argtypes = [GLenum, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4313,8 +4979,10 @@ try:
     glFramebufferTextureMultiviewOVR = c.glFramebufferTextureMultiviewOVR
     glFramebufferTextureMultiviewOVR.restype = None
     glFramebufferTextureMultiviewOVR.argtypes = [GLenum, GLenum, GLuint, GLint, GLint, GLsizei]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4322,8 +4990,10 @@ try:
     glAlphaFuncQCOM = c.glAlphaFuncQCOM
     glAlphaFuncQCOM.restype = None
     glAlphaFuncQCOM.argtypes = [GLenum, GLclampf]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4331,8 +5001,10 @@ try:
     glGetDriverControlsQCOM = c.glGetDriverControlsQCOM
     glGetDriverControlsQCOM.restype = None
     glGetDriverControlsQCOM.argtypes = [GLint, GLsizei, GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4340,8 +5012,10 @@ try:
     glGetDriverControlStringQCOM = c.glGetDriverControlStringQCOM
     glGetDriverControlStringQCOM.restype = None
     glGetDriverControlStringQCOM.argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4349,8 +5023,10 @@ try:
     glEnableDriverControlQCOM = c.glEnableDriverControlQCOM
     glEnableDriverControlQCOM.restype = None
     glEnableDriverControlQCOM.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4358,8 +5034,10 @@ try:
     glDisableDriverControlQCOM = c.glDisableDriverControlQCOM
     glDisableDriverControlQCOM.restype = None
     glDisableDriverControlQCOM.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4367,8 +5045,10 @@ try:
     glExtGetTexturesQCOM = c.glExtGetTexturesQCOM
     glExtGetTexturesQCOM.restype = None
     glExtGetTexturesQCOM.argtypes = [GLuint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4376,8 +5056,10 @@ try:
     glExtGetBuffersQCOM = c.glExtGetBuffersQCOM
     glExtGetBuffersQCOM.restype = None
     glExtGetBuffersQCOM.argtypes = [GLuint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4385,8 +5067,10 @@ try:
     glExtGetRenderbuffersQCOM = c.glExtGetRenderbuffersQCOM
     glExtGetRenderbuffersQCOM.restype = None
     glExtGetRenderbuffersQCOM.argtypes = [GLuint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4394,8 +5078,10 @@ try:
     glExtGetFramebuffersQCOM = c.glExtGetFramebuffersQCOM
     glExtGetFramebuffersQCOM.restype = None
     glExtGetFramebuffersQCOM.argtypes = [GLuint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4403,8 +5089,10 @@ try:
     glExtGetTexLevelParameterivQCOM = c.glExtGetTexLevelParameterivQCOM
     glExtGetTexLevelParameterivQCOM.restype = None
     glExtGetTexLevelParameterivQCOM.argtypes = [GLuint, GLenum, GLint, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4412,8 +5100,10 @@ try:
     glExtTexObjectStateOverrideiQCOM = c.glExtTexObjectStateOverrideiQCOM
     glExtTexObjectStateOverrideiQCOM.restype = None
     glExtTexObjectStateOverrideiQCOM.argtypes = [GLenum, GLenum, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4421,8 +5111,10 @@ try:
     glExtGetTexSubImageQCOM = c.glExtGetTexSubImageQCOM
     glExtGetTexSubImageQCOM.restype = None
     glExtGetTexSubImageQCOM.argtypes = [GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4430,8 +5122,10 @@ try:
     glExtGetBufferPointervQCOM = c.glExtGetBufferPointervQCOM
     glExtGetBufferPointervQCOM.restype = None
     glExtGetBufferPointervQCOM.argtypes = [GLenum, ctypes.c_void_p]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4439,8 +5133,10 @@ try:
     glExtGetShadersQCOM = c.glExtGetShadersQCOM
     glExtGetShadersQCOM.restype = None
     glExtGetShadersQCOM.argtypes = [GLuint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4448,8 +5144,10 @@ try:
     glExtGetProgramsQCOM = c.glExtGetProgramsQCOM
     glExtGetProgramsQCOM.restype = None
     glExtGetProgramsQCOM.argtypes = [GLuint, GLint, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4457,8 +5155,10 @@ try:
     glExtIsProgramBinaryQCOM = c.glExtIsProgramBinaryQCOM
     glExtIsProgramBinaryQCOM.restype = GLboolean
     glExtIsProgramBinaryQCOM.argtypes = [GLuint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4466,8 +5166,10 @@ try:
     glExtGetProgramBinarySourceQCOM = c.glExtGetProgramBinarySourceQCOM
     glExtGetProgramBinarySourceQCOM.restype = None
     glExtGetProgramBinarySourceQCOM.argtypes = [GLuint, GLenum, GLchar, GLint]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4475,8 +5177,10 @@ try:
     glStartTilingQCOM = c.glStartTilingQCOM
     glStartTilingQCOM.restype = None
     glStartTilingQCOM.argtypes = [GLuint, GLuint, GLuint, GLuint, GLbitfield]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
@@ -4484,8 +5188,11 @@ try:
     glEndTilingQCOM = c.glEndTilingQCOM
     glEndTilingQCOM.restype = None
     glEndTilingQCOM.argtypes = [GLbitfield]
+    loaded[0] += 1
 except AttributeError as e:
-    if DEBUG:
+    loaded[1] += 1
+    if DEBUG > 1:
         print 'could not load the function'
         print e
 
+print 'Loaded %i functions and failed to load %i functions of %i functions in the header gl2ext.h' % (loaded[0], loaded[1], sum(loaded))
