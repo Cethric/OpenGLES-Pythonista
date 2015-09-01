@@ -7,6 +7,8 @@ from objc_util import *
 from OpenGLES.EAGL import *
 from OpenGLES.Util import RenderCycle
 
+__all__ = ["GLKView", "GLKViewDelegate", "setRenderEngine", "getRenderEngine"]
+
 ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/GLKit.framework").load()
 
 
@@ -62,11 +64,89 @@ def GKLViewController(title, glview):
     glvc.setTitle_(title)
     glvc.setView_(glview)
     return glvc
+    
+class TouchController(ui.View):
+    def __init__(self, *args, **kwargs):
+        ui.View.__init__(self, *args, **kwargs)
+        
+        self.left_touch = {}
+        self.right_touch = {}
+        
+        self.dir_move = [0,0]
+        self.dir_look = [0,0]
+        
+        ui.delay(self.update_touch, 0.01)
+        
+    def update_touch(self):
+        renderEngine.look_f(self.dir_look)
+        renderEngine.move_f(self.dir_move)
+        ui.delay(self.update_touch, 0.01)
+
+    def touch_began(self, touch):
+        if touch.location[0] > self.width / 2:
+            self.right_touch[touch.touch_id] = touch.location
+        else:
+            self.left_touch[touch.touch_id] = touch.location
+
+    def touch_moved(self, touch):
+        b = 50
+        if touch.touch_id in self.right_touch:
+            mx = touch.location[0] - self.right_touch[touch.touch_id][0]
+            my = touch.location[1] - self.right_touch[touch.touch_id][1]
+            
+            if mx < -b:
+                #print "Strafe Left", mx + b
+                self.dir_move[0] = 1
+            elif mx > b:
+                #print "Strafe Right", mx - b
+                self.dir_move[0] = -1
+            else:
+                self.dir_move[0] = 0
+                
+            if my < -b:
+                #print "Move Forward", my + b
+                self.dir_move[1] = 1
+            elif my > b:
+                #print "Move Backward", my - b
+                self.dir_move[1] = -1
+            else:
+                self.dir_move[1] = 0
+                
+        elif touch.touch_id in self.left_touch:
+            mx = touch.location[0] - self.left_touch[touch.touch_id][0]
+            my = touch.location[1] - self.left_touch[touch.touch_id][1]
+            if mx < -b:
+                #print "Look Left", mx + b
+                self.dir_look[0] = 1
+            elif mx > b:
+                #print "Look Right", mx - b
+                self.dir_look[0] = -1
+            else:
+                self.dir_look[0] = 0
+                
+            if my < -b:
+                #print "Look Up", my + b
+                self.dir_look[1] = 1
+            elif my > b:
+                #print "Look Down", my - b
+                self.dir_look[1] = -1
+            else:
+                self.dir_look[1] = 0
+
+    def touch_ended(self, touch):
+        if touch.touch_id in self.right_touch:
+            del self.right_touch[touch.touch_id]
+            self.dir_move = [0,0]
+        elif touch.touch_id in self.left_touch:
+            del self.left_touch[touch.touch_id]
+            self.dir_look = [0,0]
 
 class GLKView(ui.View):
     @on_main_thread
     def __init__(self, *args, **kwargs):
         ui.View.__init__(self, *args, **kwargs)
+        print self.width, self.height
+        self.name = "HELLO WORLD"
         frame = CGRect(CGPoint(0, 0), CGSize(self.width, self.height))
         flex_width, flex_height = (1<<1), (1<<4)
         self.glview = GLKView_OBJC.alloc().initWithFrame_(frame).autorelease()
@@ -76,6 +156,10 @@ class GLKView(ui.View):
         self.vcd = GLKViewControllerDelegate()
         self.vc.setDelegate_(self.vcd)
         self.glview.setEnableSetNeedsDisplay_(False)
+        self.tc = TouchController(frame=(0,0,400,400))
+    
+    def will_close(self):
+        ui.cancel_delays()
         
     def present(self, *args, **kwargs):
         ui.View.present(self, *args, **kwargs)
@@ -87,6 +171,18 @@ class GLKView(ui.View):
             self.glview.setFrame_(frame)
         else:
             raise RuntimeError("GLKViewController property ('vc') must not be None")
+        
+        self.tc.multitouch_enabled = True
+        
+        #self.glview.addSubview_(ObjCInstance(tc))
+        self.add_subview(self.tc)
+        self.tc.width = self.width
+        self.tc.height = self.height
+        
+        self.tc.bring_to_front()
+        
+    def updateToucher(self):
+        print "Update Touch events"
         
     def setContext(self, context):
         self.glview.setContext_(context._context)
@@ -104,9 +200,9 @@ class GLKView(ui.View):
         
     delegate = property(getDelegate, setDelegate, None, "GLKViewDelegate")
 
-__all__ = ["GLKView", "GLKViewDelegate", "setRenderEngine", "getRenderEngine"]
+
 if __name__ == "__main__":
-    v = GLKView(None, None)
+    v = GLKView(frame=(0,0,800,600))
     d = GLKViewDelegate()
     vc = GKLViewController("GLKit Demo", v)
     vcd = GLKViewControllerDelegate()
