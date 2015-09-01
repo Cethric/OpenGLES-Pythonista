@@ -4,6 +4,8 @@ from objc_util import *
 import ui
 import RenderingAPI
 
+__all__ = ["setCurrentContext", "EAGLContext"]
+
 ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/OpenGLES.framework").load()
 
 EAGLContext_OBJC = ObjCClass("EAGLContext")

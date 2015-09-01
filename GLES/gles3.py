@@ -9,8 +9,8 @@ from headers.gl3_c import *
 from headers.gl31_c import *
 from headers.gl2ext_c import *
 
-reload(headers.gl3_c)
-reload(headers.gl31_c)
-reload(headers.gl2ext_c)
+#reload(headers.gl3_c)
+#reload(headers.gl31_c)
+#reload(headers.gl2ext_c)
 
 ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/OpenGLES.framework").load()
