@@ -189,10 +189,18 @@ def build_gl_header_file():
                 f.write("    if DEBUG > 1:\n")
                 f.write("        print 'could not load the function'\n")
                 f.write("        print e\n\n")
-            f.write("print 'Loaded %i functions and failed\\n'\\\n"
-                    "      'to load %i functions of %i functions in\\n'\\\n"
-                    "      'the header " + header +"' % (loaded[0], loaded[1], sum(loaded))\n")
-            f.write("__all__ = [%s]" % ", ".join(arg_names))
+            f.write("print 'Loaded %i functions and failed "
+                    "to load %i functions of %i functions in "
+                    "the header " + header +"' % (loaded[0], loaded[1], sum(loaded))\n")
+            all_obj = []
+            all_obj.extend(arg_names)
+            all_obj.extend(constants.keys())
+            all_obj.extend(['GLchar', 'GLenum', 'GLboolean', 'GLbitfield',
+                            'GLbyte', 'GLshort', 'GLint', 'GLint64', 'GLsizei',
+                            'GLubyte', 'GLushort', 'GLuint', 'GLfloat', 'GLclampf',
+                            'GLfixed', 'GLintptr', 'GLsizeiptr', 'GLclampx', 'void',
+                            'GLvoid', 'GLsync'])
+            f.write("__all__ = %s" % str(all_obj))
         execfile(header.replace(".h", "_c.py"))
         if VERBOSITY >= 0:
             print "Finished parsing header %s" % header

@@ -6,7 +6,7 @@ import math
 from OpenGLES.GLES.gles1 import *
 from OpenGLES.GLES.gles2 import *
 from OpenGLES.GLES.gles3 import *
-
+from OpenGLES.GLES.headers.GLConstants import *
 import euclid
 
 
@@ -72,7 +72,7 @@ class LookObject(object):
         return euclid.Matrix4.new_look_at(
                                           self._eye,
                                           self._look_at,
-                                          self._up)
+                                          self._up).inverse()
     def look(self, dx, dy):
         if dx == 0 and dy == 0:
             return

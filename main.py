@@ -2,34 +2,26 @@
 # NOTE:
 # This example requires the euclid.py math library
 #
-import sys
 import ui
-from objc_util import *
+import sys
 import time
-import colorsys
 import math
-import random
 import copy
 import time
+import random
+import euclid
+import colorsys
+from objc_util import *
 
+import OpenGLES.Util.Model
+import OpenGLES.Util.Shader
 import OpenGLES.GLES as GLES
 import OpenGLES.EAGL as EAGL
-import OpenGLES.GLKit as GLKit
 import OpenGLES.Util as Util
-import OpenGLES.Util.Shader
-import OpenGLES.Util.Model    
+import OpenGLES.GLKit as GLKit
 from OpenGLES.GLES.gles1 import *
 from OpenGLES.GLES.gles2 import *
 from OpenGLES.Util import Physics
-
-import euclid
-reload(GLES)
-reload(EAGL)
-reload(GLKit)
-reload(Util)
-reload(OpenGLES.Util.Shader)
-reload(OpenGLES.Util.Model)
-reload(Physics)
 
 VERTEX_SHADER_SOURCE = '''
 attribute vec3 vPosition;
