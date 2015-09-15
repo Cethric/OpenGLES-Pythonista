@@ -136,23 +136,34 @@ class ShaderProgram(object):
         if self.programObject:
             glUseProgram(self.programObject)
         else:
-            raise Warning("'ShaderProgram.programObject' is not set")
+            raise ValueError("'ShaderProgram.programObject' is not set. Try running ShaderProgram.build() first")
             
     def unbind(self):
         glUseProgram(0)
         
-    def uniform4x4(self, name, mat):
+    def uniformLocation(self, name):
         if name in self.uniforms:
             mid = self.uniforms[name]
         else:
-            name_c = (GLchar * len(name))()
+            name_c_p = (GLchar * len(name))
+            name_c = name_c_p()
             name_c[0] = name
             mid = glGetUniformLocation(
-                                        self.programObject,
-                                        name_c,
-                                        argtypes_p=(GLuint,
-                                                    (GLchar * len(name))))
+                                       self.programObject,
+                                       name_c,
+                                       argtypes_p=(GLuint,
+                                                   name_c_p,
+                                                   )
+                                       )
+                
             self.uniforms[name] = mid
+            print name, mid
+        return mid
+        
+    def uniform4x4(self, name, mat):
+        mid = self.uniformLocation(name)
+        if mid == -1:
+            raise AttributeError("Could not find the location of the uniform: '%s'" % name)
         glUniformMatrix4fv(mid,
                            0,
                            GL_FALSE,

@@ -50,7 +50,7 @@ FRAGMENT_SHADER_SOURCE = '''
 precision mediump float;
 varying vec4 t;
 void main() {
-    gl_FragColor = vec4(t.x, t.y, t.z, 1.0);
+    gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
 }
 '''
 
@@ -83,10 +83,9 @@ class Renderer(Util.RenderCycle):
         Util.RenderCycle.__init__(self)
         
         self.objects = []
-        for x in range(1, random.randint(2, 8)):
-            for y in range(1, random.randint(2, 8)):
-                o1 = PhysicsObject("test_model.xml", euclid.Vector3(x*4, y*4, 0))
-                self.objects.append(o1)
+        #o1 = PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
+        o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(0, 0, 0))
+        self.objects.append(o1)
         self.v = Util.Shader.ShaderSource(VERTEX_SHADER_SOURCE, GL_VERTEX_SHADER)
         self.f = Util.Shader.ShaderSource(FRAGMENT_SHADER_SOURCE, GL_FRAGMENT_SHADER)
         self.sp = Util.Shader.ShaderProgram(self.v, self.f)
@@ -126,6 +125,7 @@ class Renderer(Util.RenderCycle):
         glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
         for rObj in self.objects:
             rObj.update(dt)
+            rObj.model.rotatex(10)
             
         self.eye.update(dt)
         self.view = self.eye.view

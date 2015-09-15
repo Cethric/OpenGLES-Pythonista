@@ -5,6 +5,7 @@ from OpenGLES.GLES import gles3 as GLES3
 import OpenGLES
 import euclid
 import math
+import ctypes
 import xmltodict
 
 
@@ -41,17 +42,28 @@ class XMLModel(OpenGLES.Util.RenderObject):
             verts.append(float(y))
             verts.append(float(z))
             
-        for index in frame["face"]:
-            print index
-            
+        print "Frame '%i' registered" % int(frame["@num"])
         self.frames[int(frame["@num"])] = (GLES1.GLfloat * len(verts))(*verts)
         
     def render(self, sp):
         sp.uniform4x4("M", list(self.model))
         frame = self.frames[self.frame]
-        GLES2.glVertexAttribPointer(0, 3, GLES2.GL_FLOAT, GLES2.GL_FALSE, 0, frame);
-        GLES2.glEnableVertexAttribArray(0);
-        GLES2.glDrawArrays(GLES2.GL_TRIANGLES, 0, len(frame) / 3);
+        GLES2.glVertexAttribPointer(0,
+                                    3, 
+                                    GLES2.GL_FLOAT,
+                                    GLES2.GL_FALSE,
+                                    0,
+                                    frame,
+                                    argtypes_p=(GLES1.GLuint,
+                                                GLES1.GLint,
+                                                GLES1.GLenum,
+                                                GLES1.GLboolean,
+                                                GLES1.GLsizei,
+                                                (GLES1.GLfloat * len(frame))
+                                                )
+                                    )
+        GLES2.glEnableVertexAttribArray(0)
+        GLES2.glDrawArrays(GLES2.GL_TRIANGLES, 0, len(frame) / 3)
         
             
 

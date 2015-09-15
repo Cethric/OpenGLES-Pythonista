@@ -157,9 +157,6 @@ class GLKView(ui.View):
         self.vc.setDelegate_(self.vcd)
         self.glview.setEnableSetNeedsDisplay_(False)
         self.tc = TouchController(frame=(0,0,400,400))
-    
-    def will_close(self):
-        ui.cancel_delays()
         
     def present(self, *args, **kwargs):
         ui.View.present(self, *args, **kwargs)
@@ -180,6 +177,11 @@ class GLKView(ui.View):
         self.tc.height = self.height
         
         self.tc.bring_to_front()
+    def will_close(self):
+        ui.cancel_delays()
+        print "Tearing down GLES data"
+        renderEngine.teardown()
+        print "Goodbye"
         
     def updateToucher(self):
         print "Update Touch events"
