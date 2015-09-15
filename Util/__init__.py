@@ -6,6 +6,8 @@ from OpenGLES.GLES.gles1 import *
 from OpenGLES.GLES.gles2 import *
 from OpenGLES.GLES.gles3 import *
 
+import euclid
+
 
 class RenderCycle(object):
     def __init__(self):
@@ -25,6 +27,7 @@ class RenderCycle(object):
 class RenderObject(object):
     def __init__(self, vertices=[], colour=[], uv=[], indices=[]):
         self.vVertices = (GLfloat * len(vertices))(*vertices)
+        self.model = euclid.Matrix4.new_identity()
         
     def setup_object(self):
         pass
@@ -35,4 +38,20 @@ class RenderObject(object):
         glDrawArrays(GL_TRIANGLES, 0, 12*3);
         
     def update(self):
+        pass
+        
+class LookObject(object):
+    def __init__(self, *args, **kwargs):
+        self.view = euclid.Matrix4.new_look_at(
+                                                euclid.Vector3(10,0,10),
+                                                euclid.Vector3(0,0,0),
+                                                euclid.Vector3(0,1,0))
+                                                
+    def look(self, *args):
+        pass
+    
+    def move(self, *args):
+        pass
+        
+    def update(self, *args):
         pass

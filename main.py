@@ -76,7 +76,7 @@ class PhysicsObject(Util.Model.XMLModel):
         start = time.clock()
         self.model = self.get_mat()
         end = time.clock()
-        print end - start
+        #print end - start
 
 class Renderer(Util.RenderCycle):
     def __init__(self):
@@ -122,7 +122,7 @@ class Renderer(Util.RenderCycle):
     @on_main_thread
     def update(self, dt):
         start = time.clock()
-        Physics.step_simulation(dt*10.0, 10)
+        #Physics.step_simulation(dt*10.0, 10)
         glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
         for rObj in self.objects:
             rObj.update(dt)
@@ -131,7 +131,7 @@ class Renderer(Util.RenderCycle):
         self.view = self.eye.view
         
         end = time.clock()
-        print end - start
+        #print end - start
             
     def move_f(self, mdir):
         self.eye.move(*mdir)
@@ -154,7 +154,7 @@ class Renderer(Util.RenderCycle):
             
             self.sp.unbind()
         end = time.clock()
-        print (end - self.last) * 100
+        #print (end - self.last) * 100
         self.last = end
 
 @on_main_thread
