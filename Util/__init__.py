@@ -1,6 +1,13 @@
 # coding: utf-8
 import ctypes
 from objc_util import *
+import math
+try:
+    import cmath
+    HAS_CMATH = True
+except ImportError as e:
+    print e
+    HAS_CMATH = False
 
 from OpenGLES.GLES.gles1 import *
 from OpenGLES.GLES.gles2 import *
@@ -42,16 +49,23 @@ class RenderObject(object):
         
 class LookObject(object):
     def __init__(self, *args, **kwargs):
-        self.view = euclid.Matrix4.new_look_at(
-                                                euclid.Vector3(10,0,10),
-                                                euclid.Vector3(0,0,0),
-                                                euclid.Vector3(0,1,0))
-                                                
-    def look(self, *args):
+        self._eye = euclid.Vector3(0,1,0)
+        self._look_at = euclid.Vector3(0,5,10)
+        self._up = euclid.Vector3(0,1,0)
+        
+    @property
+    def view(self):
+        print self._eye
+        print self._look_at
+        return euclid.Matrix4.new_look_at(
+                                          self._eye,
+                                          self._look_at,
+                                          self._up)
+    def look(self, x, y):
         pass
     
-    def move(self, *args):
+    def move(self, x, y):
         pass
         
-    def update(self, *args):
+    def update(self, dt):
         pass

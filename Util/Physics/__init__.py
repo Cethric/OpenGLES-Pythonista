@@ -19,8 +19,24 @@ context.setExceptionHandler_(eb)
 
 context.evaluateScript_("function print(args){return args;}")
 
-with open("/private/var/mobile/Containers/Shared/AppGroup/877D6E00-D22C-4407-9A69-C27FA4B9356A/Documents/site-packages/OpenGLES/Util/Physics/ammo.js", "rb") as f:
-    AMMO = f.read()
+PHYSICS_DIR = __file__.replace("__init__.py", "")
+BULLET_CODE = os.path.join(os.path.join(PHYSICS_DIR,"ammo.js"))
+if os.path.exists(BULLET_CODE):
+    with open(BULLET_CODE, "rb") as f:
+        AMMO = f.read()
+else:
+    ammo_url = "https://raw.githubusercontent.com/kripken/ammo.js/master/builds/ammo.js"
+    print "No Bullet engine (ammo.js file) found"
+    print "Downloading one from '%s'" % ammo_url
+    import urllib2
+    try:
+        f = urllib2.urlopen(ammo_url)
+        AMMO = f.read()
+        with open(BULLET_CODE, "wb") as r:
+            r.write(AMMO)
+    finally:
+        f.close()
+    print "ammo.js successfully downloaded"
 context.evaluateScript_(AMMO)
 
 PHYSICS_WORLD_LOAD = '''
