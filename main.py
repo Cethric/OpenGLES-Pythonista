@@ -23,7 +23,6 @@ from OpenGLES.GLES.gles2 import *
 from OpenGLES.Util import Physics
 
 import euclid
-
 reload(GLES)
 reload(EAGL)
 reload(GLKit)
@@ -37,18 +36,15 @@ attribute vec3 vPosition;
 uniform mat4 M;
 uniform mat4 V;
 uniform mat4 P;
-
-varying vec4 t;
 void main() {
     mat4 mvp = P * V * M;
-    t = vec4(vPosition.xyz, 1);
+    vec4 t = vec4(vPosition.xyz, 1);
     gl_Position = mvp * t;
 }
 '''
 
 FRAGMENT_SHADER_SOURCE = '''
 precision mediump float;
-varying vec4 t;
 void main() {
     gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
 }
@@ -94,7 +90,6 @@ class Renderer(Util.RenderCycle):
         
         self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
-        self.model = euclid.Matrix4.new_identity()
     
     def setup(self, context):
         if EAGL.setCurrentContext(context):
@@ -111,17 +106,21 @@ class Renderer(Util.RenderCycle):
             glDepthFunc(GL_LESS);
             glViewport(0, 0, int(glviewv.width*2), int(glviewv.height*2))
             
-            glClearColor(0.1, 0.12, 0.39, 1.0)
-            
-            self.look_f([0,0])
+            glClearColor(0.1, 0.12, 0.45, 1.0)
+
         else:
             print "Could not Setup OpenGLES"
         self.last = time.clock()
+        
+    def teardown(self):
+        self.sp.teardown()
             
-    @on_main_thread
     def update(self, dt):
         start = time.clock()
-        #Physics.step_simulation(dt*10.0, 10)
+        @on_main_thread
+        def update(dt):
+            Physics.step_simulation(dt*10.0, 10)
+        # update(dt)
         glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
         for rObj in self.objects:
             rObj.update(dt)
@@ -141,18 +140,15 @@ class Renderer(Util.RenderCycle):
         
     def render(self, context):
         if EAGL.setCurrentContext(context):
-            # Clear the color buffer
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glViewport(0, 0, 800*2, 600*2);
             
             self.sp.bind()
             self.sp.uniform4x4("V", list(self.view))
             self.sp.uniform4x4("P", list(self.projection))
-            
             for rObj in self.objects:
                 rObj.render(self.sp)
-            
-            self.sp.unbind()
+                
         end = time.clock()
         #print (end - self.last) * 100
         self.last = end

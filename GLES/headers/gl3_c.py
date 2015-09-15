@@ -1,32 +1,11 @@
 # Generated Files. DO NOT EDIT
-# Generated on: 09/15/15 11:46:11
+# Generated on: 09/15/15 17:53:16
 import ctypes
 from objc_util import *
+from GLConstants import *
 
 DEBUG = 1
 loaded = [0, 0]
-
-GLchar = ctypes.c_char
-GLenum = ctypes.c_uint32
-GLboolean = ctypes.c_uint8
-GLbitfield = ctypes.c_uint32
-GLbyte = ctypes.c_int8
-GLshort = ctypes.c_int16
-GLint = ctypes.c_int32
-GLint64 = ctypes.c_int64
-GLsizei = ctypes.c_int32
-GLubyte = ctypes.c_uint8
-GLushort = ctypes.c_uint16
-GLuint = ctypes.c_uint32
-GLfloat = ctypes.c_float
-GLclampf = ctypes.c_float
-GLfixed = ctypes.c_int32
-GLintptr = ctypes.c_int32
-GLsizeiptr = ctypes.c_int32
-GLclampx = ctypes.c_int
-void = ctypes.c_void_p
-GLvoid = ctypes.c_void_p
-GLsync = None
 
 # GLES Constants
 GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE = 0x00008214
@@ -657,21 +636,20 @@ GL_SAMPLES = 0x000080a9
 
 # GL Functions
 try:
-
-        def glActiveTexture(texture, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glActiveTexture
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(texture)
-        # Check if the function actually exists
-        f = c.glActiveTexture
-        del f
-        loaded[0] += 1
+    def glActiveTexture(texture, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glActiveTexture
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(texture)
+    # Check if the function actually exists
+    f = c.glActiveTexture
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -679,21 +657,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glAttachShader(program, shader, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint]
-            cfunc = c.glAttachShader
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, shader)
-        # Check if the function actually exists
-        f = c.glAttachShader
-        del f
-        loaded[0] += 1
+    def glAttachShader(program, shader, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint]
+        cfunc = c.glAttachShader
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, shader)
+    # Check if the function actually exists
+    f = c.glAttachShader
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -701,21 +678,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindAttribLocation(program, index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint,GLchar]
-            cfunc = c.glBindAttribLocation
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, index, param0)
-        # Check if the function actually exists
-        f = c.glBindAttribLocation
-        del f
-        loaded[0] += 1
+    def glBindAttribLocation(program, index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint, GLchar]
+        cfunc = c.glBindAttribLocation
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, index, param0)
+    # Check if the function actually exists
+    f = c.glBindAttribLocation
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -723,21 +699,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindBuffer(target, buffer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint]
-            cfunc = c.glBindBuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, buffer)
-        # Check if the function actually exists
-        f = c.glBindBuffer
-        del f
-        loaded[0] += 1
+    def glBindBuffer(target, buffer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint]
+        cfunc = c.glBindBuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, buffer)
+    # Check if the function actually exists
+    f = c.glBindBuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -745,21 +720,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindFramebuffer(target, framebuffer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint]
-            cfunc = c.glBindFramebuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, framebuffer)
-        # Check if the function actually exists
-        f = c.glBindFramebuffer
-        del f
-        loaded[0] += 1
+    def glBindFramebuffer(target, framebuffer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint]
+        cfunc = c.glBindFramebuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, framebuffer)
+    # Check if the function actually exists
+    f = c.glBindFramebuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -767,21 +741,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindRenderbuffer(target, renderbuffer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint]
-            cfunc = c.glBindRenderbuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, renderbuffer)
-        # Check if the function actually exists
-        f = c.glBindRenderbuffer
-        del f
-        loaded[0] += 1
+    def glBindRenderbuffer(target, renderbuffer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint]
+        cfunc = c.glBindRenderbuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, renderbuffer)
+    # Check if the function actually exists
+    f = c.glBindRenderbuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -789,21 +762,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindTexture(target, texture, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint]
-            cfunc = c.glBindTexture
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, texture)
-        # Check if the function actually exists
-        f = c.glBindTexture
-        del f
-        loaded[0] += 1
+    def glBindTexture(target, texture, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint]
+        cfunc = c.glBindTexture
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, texture)
+    # Check if the function actually exists
+    f = c.glBindTexture
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -811,21 +783,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBlendColor(red, green, blue, alpha, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLfloat,GLfloat,GLfloat,GLfloat]
-            cfunc = c.glBlendColor
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(red, green, blue, alpha)
-        # Check if the function actually exists
-        f = c.glBlendColor
-        del f
-        loaded[0] += 1
+    def glBlendColor(red, green, blue, alpha, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLfloat, GLfloat, GLfloat, GLfloat]
+        cfunc = c.glBlendColor
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(red, green, blue, alpha)
+    # Check if the function actually exists
+    f = c.glBlendColor
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -833,21 +804,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBlendEquation(mode, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glBlendEquation
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mode)
-        # Check if the function actually exists
-        f = c.glBlendEquation
-        del f
-        loaded[0] += 1
+    def glBlendEquation(mode, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glBlendEquation
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mode)
+    # Check if the function actually exists
+    f = c.glBlendEquation
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -855,21 +825,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBlendEquationSeparate(modeRGB, modeAlpha, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum]
-            cfunc = c.glBlendEquationSeparate
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(modeRGB, modeAlpha)
-        # Check if the function actually exists
-        f = c.glBlendEquationSeparate
-        del f
-        loaded[0] += 1
+    def glBlendEquationSeparate(modeRGB, modeAlpha, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum]
+        cfunc = c.glBlendEquationSeparate
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(modeRGB, modeAlpha)
+    # Check if the function actually exists
+    f = c.glBlendEquationSeparate
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -877,21 +846,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBlendFunc(sfactor, dfactor, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum]
-            cfunc = c.glBlendFunc
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sfactor, dfactor)
-        # Check if the function actually exists
-        f = c.glBlendFunc
-        del f
-        loaded[0] += 1
+    def glBlendFunc(sfactor, dfactor, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum]
+        cfunc = c.glBlendFunc
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sfactor, dfactor)
+    # Check if the function actually exists
+    f = c.glBlendFunc
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -899,21 +867,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLenum,GLenum]
-            cfunc = c.glBlendFuncSeparate
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha)
-        # Check if the function actually exists
-        f = c.glBlendFuncSeparate
-        del f
-        loaded[0] += 1
+    def glBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLenum, GLenum]
+        cfunc = c.glBlendFuncSeparate
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha)
+    # Check if the function actually exists
+    f = c.glBlendFuncSeparate
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -921,21 +888,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBufferData(target, size, voiddata, usage, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLsizeiptr,ctypes.c_void_p,GLenum]
-            cfunc = c.glBufferData
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, size, voiddata, usage)
-        # Check if the function actually exists
-        f = c.glBufferData
-        del f
-        loaded[0] += 1
+    def glBufferData(target, size, voiddata, usage, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLsizeiptr, ctypes.c_void_p, GLenum]
+        cfunc = c.glBufferData
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, size, voiddata, usage)
+    # Check if the function actually exists
+    f = c.glBufferData
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -943,21 +909,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBufferSubData(target, offset, size, voiddata, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLintptr,GLsizeiptr,ctypes.c_void_p]
-            cfunc = c.glBufferSubData
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, offset, size, voiddata)
-        # Check if the function actually exists
-        f = c.glBufferSubData
-        del f
-        loaded[0] += 1
+    def glBufferSubData(target, offset, size, voiddata, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLintptr, GLsizeiptr, ctypes.c_void_p]
+        cfunc = c.glBufferSubData
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, offset, size, voiddata)
+    # Check if the function actually exists
+    f = c.glBufferSubData
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -965,21 +930,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCheckFramebufferStatus(target, argtypes_p=None):
-            restype = GLenum
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glCheckFramebufferStatus
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target)
-        # Check if the function actually exists
-        f = c.glCheckFramebufferStatus
-        del f
-        loaded[0] += 1
+    def glCheckFramebufferStatus(target, argtypes_p=None):
+        restype = GLenum
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glCheckFramebufferStatus
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target)
+    # Check if the function actually exists
+    f = c.glCheckFramebufferStatus
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -987,21 +951,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glClear(mask, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLbitfield]
-            cfunc = c.glClear
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mask)
-        # Check if the function actually exists
-        f = c.glClear
-        del f
-        loaded[0] += 1
+    def glClear(mask, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLbitfield]
+        cfunc = c.glClear
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mask)
+    # Check if the function actually exists
+    f = c.glClear
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1009,21 +972,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glClearColor(red, green, blue, alpha, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLfloat,GLfloat,GLfloat,GLfloat]
-            cfunc = c.glClearColor
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(red, green, blue, alpha)
-        # Check if the function actually exists
-        f = c.glClearColor
-        del f
-        loaded[0] += 1
+    def glClearColor(red, green, blue, alpha, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLfloat, GLfloat, GLfloat, GLfloat]
+        cfunc = c.glClearColor
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(red, green, blue, alpha)
+    # Check if the function actually exists
+    f = c.glClearColor
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1031,21 +993,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glClearDepthf(d, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLfloat]
-            cfunc = c.glClearDepthf
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(d)
-        # Check if the function actually exists
-        f = c.glClearDepthf
-        del f
-        loaded[0] += 1
+    def glClearDepthf(d, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLfloat]
+        cfunc = c.glClearDepthf
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(d)
+    # Check if the function actually exists
+    f = c.glClearDepthf
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1053,21 +1014,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glClearStencil(s, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint]
-            cfunc = c.glClearStencil
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(s)
-        # Check if the function actually exists
-        f = c.glClearStencil
-        del f
-        loaded[0] += 1
+    def glClearStencil(s, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint]
+        cfunc = c.glClearStencil
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(s)
+    # Check if the function actually exists
+    f = c.glClearStencil
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1075,21 +1035,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glColorMask(red, green, blue, alpha, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLboolean,GLboolean,GLboolean,GLboolean]
-            cfunc = c.glColorMask
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(red, green, blue, alpha)
-        # Check if the function actually exists
-        f = c.glColorMask
-        del f
-        loaded[0] += 1
+    def glColorMask(red, green, blue, alpha, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLboolean, GLboolean, GLboolean, GLboolean]
+        cfunc = c.glColorMask
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(red, green, blue, alpha)
+    # Check if the function actually exists
+    f = c.glColorMask
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1097,21 +1056,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCompileShader(shader, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glCompileShader
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(shader)
-        # Check if the function actually exists
-        f = c.glCompileShader
-        del f
-        loaded[0] += 1
+    def glCompileShader(shader, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glCompileShader
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(shader)
+    # Check if the function actually exists
+    f = c.glCompileShader
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1119,21 +1077,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, voiddata, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLenum,GLsizei,GLsizei,GLint,GLsizei,ctypes.c_void_p]
-            cfunc = c.glCompressedTexImage2D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, internalformat, width, height, border, imageSize, voiddata)
-        # Check if the function actually exists
-        f = c.glCompressedTexImage2D
-        del f
-        loaded[0] += 1
+    def glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, voiddata, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, ctypes.c_void_p]
+        cfunc = c.glCompressedTexImage2D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, internalformat, width, height, border, imageSize, voiddata)
+    # Check if the function actually exists
+    f = c.glCompressedTexImage2D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1141,21 +1098,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, voiddata, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint,GLint,GLsizei,GLsizei,GLenum,GLsizei,ctypes.c_void_p]
-            cfunc = c.glCompressedTexSubImage2D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, xoffset, yoffset, width, height, format, imageSize, voiddata)
-        # Check if the function actually exists
-        f = c.glCompressedTexSubImage2D
-        del f
-        loaded[0] += 1
+    def glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, voiddata, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, ctypes.c_void_p]
+        cfunc = c.glCompressedTexSubImage2D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, xoffset, yoffset, width, height, format, imageSize, voiddata)
+    # Check if the function actually exists
+    f = c.glCompressedTexSubImage2D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1163,21 +1119,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCopyTexImage2D(target, level, internalformat, x, y, width, height, border, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLenum,GLint,GLint,GLsizei,GLsizei,GLint]
-            cfunc = c.glCopyTexImage2D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, internalformat, x, y, width, height, border)
-        # Check if the function actually exists
-        f = c.glCopyTexImage2D
-        del f
-        loaded[0] += 1
+    def glCopyTexImage2D(target, level, internalformat, x, y, width, height, border, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint]
+        cfunc = c.glCopyTexImage2D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, internalformat, x, y, width, height, border)
+    # Check if the function actually exists
+    f = c.glCopyTexImage2D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1185,21 +1140,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint,GLint,GLint,GLint,GLsizei,GLsizei]
-            cfunc = c.glCopyTexSubImage2D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, xoffset, yoffset, x, y, width, height)
-        # Check if the function actually exists
-        f = c.glCopyTexSubImage2D
-        del f
-        loaded[0] += 1
+    def glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei]
+        cfunc = c.glCopyTexSubImage2D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, xoffset, yoffset, x, y, width, height)
+    # Check if the function actually exists
+    f = c.glCopyTexSubImage2D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1207,21 +1161,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCreateProgram(void, argtypes_p=None):
-            restype = GLuint
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [ctypes.c_void_p]
-            cfunc = c.glCreateProgram
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(void)
-        # Check if the function actually exists
-        f = c.glCreateProgram
-        del f
-        loaded[0] += 1
+    def glCreateProgram(void, argtypes_p=None):
+        restype = GLuint
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [ctypes.c_void_p]
+        cfunc = c.glCreateProgram
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(void)
+    # Check if the function actually exists
+    f = c.glCreateProgram
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1229,21 +1182,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCreateShader(type, argtypes_p=None):
-            restype = GLuint
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glCreateShader
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(type)
-        # Check if the function actually exists
-        f = c.glCreateShader
-        del f
-        loaded[0] += 1
+    def glCreateShader(type, argtypes_p=None):
+        restype = GLuint
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glCreateShader
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(type)
+    # Check if the function actually exists
+    f = c.glCreateShader
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1251,21 +1203,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCullFace(mode, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glCullFace
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mode)
-        # Check if the function actually exists
-        f = c.glCullFace
-        del f
-        loaded[0] += 1
+    def glCullFace(mode, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glCullFace
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mode)
+    # Check if the function actually exists
+    f = c.glCullFace
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1273,21 +1224,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteBuffers(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glDeleteBuffers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glDeleteBuffers
-        del f
-        loaded[0] += 1
+    def glDeleteBuffers(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glDeleteBuffers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glDeleteBuffers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1295,21 +1245,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteFramebuffers(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glDeleteFramebuffers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glDeleteFramebuffers
-        del f
-        loaded[0] += 1
+    def glDeleteFramebuffers(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glDeleteFramebuffers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glDeleteFramebuffers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1317,21 +1266,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteProgram(program, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glDeleteProgram
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program)
-        # Check if the function actually exists
-        f = c.glDeleteProgram
-        del f
-        loaded[0] += 1
+    def glDeleteProgram(program, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glDeleteProgram
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program)
+    # Check if the function actually exists
+    f = c.glDeleteProgram
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1339,21 +1287,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteRenderbuffers(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glDeleteRenderbuffers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glDeleteRenderbuffers
-        del f
-        loaded[0] += 1
+    def glDeleteRenderbuffers(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glDeleteRenderbuffers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glDeleteRenderbuffers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1361,21 +1308,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteShader(shader, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glDeleteShader
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(shader)
-        # Check if the function actually exists
-        f = c.glDeleteShader
-        del f
-        loaded[0] += 1
+    def glDeleteShader(shader, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glDeleteShader
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(shader)
+    # Check if the function actually exists
+    f = c.glDeleteShader
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1383,21 +1329,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteTextures(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glDeleteTextures
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glDeleteTextures
-        del f
-        loaded[0] += 1
+    def glDeleteTextures(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glDeleteTextures
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glDeleteTextures
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1405,21 +1350,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDepthFunc(func, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glDepthFunc
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(func)
-        # Check if the function actually exists
-        f = c.glDepthFunc
-        del f
-        loaded[0] += 1
+    def glDepthFunc(func, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glDepthFunc
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(func)
+    # Check if the function actually exists
+    f = c.glDepthFunc
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1427,21 +1371,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDepthMask(flag, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLboolean]
-            cfunc = c.glDepthMask
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(flag)
-        # Check if the function actually exists
-        f = c.glDepthMask
-        del f
-        loaded[0] += 1
+    def glDepthMask(flag, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLboolean]
+        cfunc = c.glDepthMask
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(flag)
+    # Check if the function actually exists
+    f = c.glDepthMask
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1449,21 +1392,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDepthRangef(n, f, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLfloat,GLfloat]
-            cfunc = c.glDepthRangef
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, f)
-        # Check if the function actually exists
-        f = c.glDepthRangef
-        del f
-        loaded[0] += 1
+    def glDepthRangef(n, f, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLfloat, GLfloat]
+        cfunc = c.glDepthRangef
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, f)
+    # Check if the function actually exists
+    f = c.glDepthRangef
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1471,21 +1413,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDetachShader(program, shader, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint]
-            cfunc = c.glDetachShader
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, shader)
-        # Check if the function actually exists
-        f = c.glDetachShader
-        del f
-        loaded[0] += 1
+    def glDetachShader(program, shader, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint]
+        cfunc = c.glDetachShader
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, shader)
+    # Check if the function actually exists
+    f = c.glDetachShader
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1493,21 +1434,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDisable(cap, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glDisable
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(cap)
-        # Check if the function actually exists
-        f = c.glDisable
-        del f
-        loaded[0] += 1
+    def glDisable(cap, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glDisable
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(cap)
+    # Check if the function actually exists
+    f = c.glDisable
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1515,21 +1455,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDisableVertexAttribArray(index, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glDisableVertexAttribArray
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index)
-        # Check if the function actually exists
-        f = c.glDisableVertexAttribArray
-        del f
-        loaded[0] += 1
+    def glDisableVertexAttribArray(index, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glDisableVertexAttribArray
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index)
+    # Check if the function actually exists
+    f = c.glDisableVertexAttribArray
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1537,21 +1476,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDrawArrays(mode, first, count, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLsizei]
-            cfunc = c.glDrawArrays
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mode, first, count)
-        # Check if the function actually exists
-        f = c.glDrawArrays
-        del f
-        loaded[0] += 1
+    def glDrawArrays(mode, first, count, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLsizei]
+        cfunc = c.glDrawArrays
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mode, first, count)
+    # Check if the function actually exists
+    f = c.glDrawArrays
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1559,21 +1497,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDrawElements(mode, count, type, voidindices, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLsizei,GLenum,ctypes.c_void_p]
-            cfunc = c.glDrawElements
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mode, count, type, voidindices)
-        # Check if the function actually exists
-        f = c.glDrawElements
-        del f
-        loaded[0] += 1
+    def glDrawElements(mode, count, type, voidindices, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p]
+        cfunc = c.glDrawElements
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mode, count, type, voidindices)
+    # Check if the function actually exists
+    f = c.glDrawElements
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1581,21 +1518,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glEnable(cap, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glEnable
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(cap)
-        # Check if the function actually exists
-        f = c.glEnable
-        del f
-        loaded[0] += 1
+    def glEnable(cap, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glEnable
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(cap)
+    # Check if the function actually exists
+    f = c.glEnable
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1603,21 +1539,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glEnableVertexAttribArray(index, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glEnableVertexAttribArray
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index)
-        # Check if the function actually exists
-        f = c.glEnableVertexAttribArray
-        del f
-        loaded[0] += 1
+    def glEnableVertexAttribArray(index, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glEnableVertexAttribArray
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index)
+    # Check if the function actually exists
+    f = c.glEnableVertexAttribArray
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1625,21 +1560,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glFinish(void, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [ctypes.c_void_p]
-            cfunc = c.glFinish
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(void)
-        # Check if the function actually exists
-        f = c.glFinish
-        del f
-        loaded[0] += 1
+    def glFinish(void, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [ctypes.c_void_p]
+        cfunc = c.glFinish
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(void)
+    # Check if the function actually exists
+    f = c.glFinish
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1647,21 +1581,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glFlush(void, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [ctypes.c_void_p]
-            cfunc = c.glFlush
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(void)
-        # Check if the function actually exists
-        f = c.glFlush
-        del f
-        loaded[0] += 1
+    def glFlush(void, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [ctypes.c_void_p]
+        cfunc = c.glFlush
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(void)
+    # Check if the function actually exists
+    f = c.glFlush
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1669,21 +1602,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLenum,GLuint]
-            cfunc = c.glFramebufferRenderbuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, attachment, renderbuffertarget, renderbuffer)
-        # Check if the function actually exists
-        f = c.glFramebufferRenderbuffer
-        del f
-        loaded[0] += 1
+    def glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLenum, GLuint]
+        cfunc = c.glFramebufferRenderbuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, attachment, renderbuffertarget, renderbuffer)
+    # Check if the function actually exists
+    f = c.glFramebufferRenderbuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1691,21 +1623,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glFramebufferTexture2D(target, attachment, textarget, texture, level, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLenum,GLuint,GLint]
-            cfunc = c.glFramebufferTexture2D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, attachment, textarget, texture, level)
-        # Check if the function actually exists
-        f = c.glFramebufferTexture2D
-        del f
-        loaded[0] += 1
+    def glFramebufferTexture2D(target, attachment, textarget, texture, level, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLenum, GLuint, GLint]
+        cfunc = c.glFramebufferTexture2D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, attachment, textarget, texture, level)
+    # Check if the function actually exists
+    f = c.glFramebufferTexture2D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1713,21 +1644,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glFrontFace(mode, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glFrontFace
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mode)
-        # Check if the function actually exists
-        f = c.glFrontFace
-        del f
-        loaded[0] += 1
+    def glFrontFace(mode, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glFrontFace
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mode)
+    # Check if the function actually exists
+    f = c.glFrontFace
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1735,21 +1665,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenBuffers(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glGenBuffers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glGenBuffers
-        del f
-        loaded[0] += 1
+    def glGenBuffers(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glGenBuffers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glGenBuffers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1757,21 +1686,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenerateMipmap(target, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glGenerateMipmap
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target)
-        # Check if the function actually exists
-        f = c.glGenerateMipmap
-        del f
-        loaded[0] += 1
+    def glGenerateMipmap(target, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glGenerateMipmap
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target)
+    # Check if the function actually exists
+    f = c.glGenerateMipmap
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1779,21 +1707,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenFramebuffers(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glGenFramebuffers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glGenFramebuffers
-        del f
-        loaded[0] += 1
+    def glGenFramebuffers(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glGenFramebuffers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glGenFramebuffers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1801,21 +1728,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenRenderbuffers(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glGenRenderbuffers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glGenRenderbuffers
-        del f
-        loaded[0] += 1
+    def glGenRenderbuffers(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glGenRenderbuffers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glGenRenderbuffers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1823,21 +1749,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenTextures(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glGenTextures
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glGenTextures
-        del f
-        loaded[0] += 1
+    def glGenTextures(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glGenTextures
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glGenTextures
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1845,21 +1770,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetActiveAttrib(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint,GLsizei,GLsizei,GLint,GLenum,GLchar]
-            cfunc = c.glGetActiveAttrib
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, index, bufSize, param0, param1, param2, param3)
-        # Check if the function actually exists
-        f = c.glGetActiveAttrib
-        del f
-        loaded[0] += 1
+    def glGetActiveAttrib(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLint, GLenum, GLchar]
+        cfunc = c.glGetActiveAttrib
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, index, bufSize, param0, param1, param2, param3)
+    # Check if the function actually exists
+    f = c.glGetActiveAttrib
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1867,21 +1791,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetActiveUniform(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint,GLsizei,GLsizei,GLint,GLenum,GLchar]
-            cfunc = c.glGetActiveUniform
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, index, bufSize, param0, param1, param2, param3)
-        # Check if the function actually exists
-        f = c.glGetActiveUniform
-        del f
-        loaded[0] += 1
+    def glGetActiveUniform(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLint, GLenum, GLchar]
+        cfunc = c.glGetActiveUniform
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, index, bufSize, param0, param1, param2, param3)
+    # Check if the function actually exists
+    f = c.glGetActiveUniform
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1889,21 +1812,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetAttachedShaders(program, maxCount, param0, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLsizei,GLuint]
-            cfunc = c.glGetAttachedShaders
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, maxCount, param0, param1)
-        # Check if the function actually exists
-        f = c.glGetAttachedShaders
-        del f
-        loaded[0] += 1
+    def glGetAttachedShaders(program, maxCount, param0, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLsizei, GLuint]
+        cfunc = c.glGetAttachedShaders
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, maxCount, param0, param1)
+    # Check if the function actually exists
+    f = c.glGetAttachedShaders
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1911,21 +1833,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetAttribLocation(program, param0, argtypes_p=None):
-            restype = GLint
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLchar]
-            cfunc = c.glGetAttribLocation
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, param0)
-        # Check if the function actually exists
-        f = c.glGetAttribLocation
-        del f
-        loaded[0] += 1
+    def glGetAttribLocation(program, param0, argtypes_p=None):
+        restype = GLint
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLchar]
+        cfunc = c.glGetAttribLocation
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, param0)
+    # Check if the function actually exists
+    f = c.glGetAttribLocation
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1933,21 +1854,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetBooleanv(pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLboolean]
-            cfunc = c.glGetBooleanv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(pname, param0)
-        # Check if the function actually exists
-        f = c.glGetBooleanv
-        del f
-        loaded[0] += 1
+    def glGetBooleanv(pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLboolean]
+        cfunc = c.glGetBooleanv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(pname, param0)
+    # Check if the function actually exists
+    f = c.glGetBooleanv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1955,21 +1875,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetBufferParameteriv(target, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint]
-            cfunc = c.glGetBufferParameteriv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetBufferParameteriv
-        del f
-        loaded[0] += 1
+    def glGetBufferParameteriv(target, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint]
+        cfunc = c.glGetBufferParameteriv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetBufferParameteriv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1977,21 +1896,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetError(void, argtypes_p=None):
-            restype = GLenum
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [ctypes.c_void_p]
-            cfunc = c.glGetError
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(void)
-        # Check if the function actually exists
-        f = c.glGetError
-        del f
-        loaded[0] += 1
+    def glGetError(void, argtypes_p=None):
+        restype = GLenum
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [ctypes.c_void_p]
+        cfunc = c.glGetError
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(void)
+    # Check if the function actually exists
+    f = c.glGetError
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -1999,21 +1917,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetFloatv(pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLfloat]
-            cfunc = c.glGetFloatv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(pname, param0)
-        # Check if the function actually exists
-        f = c.glGetFloatv
-        del f
-        loaded[0] += 1
+    def glGetFloatv(pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLfloat]
+        cfunc = c.glGetFloatv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(pname, param0)
+    # Check if the function actually exists
+    f = c.glGetFloatv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2021,21 +1938,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetFramebufferAttachmentParameteriv(target, attachment, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLenum,GLint]
-            cfunc = c.glGetFramebufferAttachmentParameteriv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, attachment, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetFramebufferAttachmentParameteriv
-        del f
-        loaded[0] += 1
+    def glGetFramebufferAttachmentParameteriv(target, attachment, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLenum, GLint]
+        cfunc = c.glGetFramebufferAttachmentParameteriv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, attachment, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetFramebufferAttachmentParameteriv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2043,21 +1959,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetIntegerv(pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint]
-            cfunc = c.glGetIntegerv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(pname, param0)
-        # Check if the function actually exists
-        f = c.glGetIntegerv
-        del f
-        loaded[0] += 1
+    def glGetIntegerv(pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint]
+        cfunc = c.glGetIntegerv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(pname, param0)
+    # Check if the function actually exists
+    f = c.glGetIntegerv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2065,21 +1980,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetProgramiv(program, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLint]
-            cfunc = c.glGetProgramiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetProgramiv
-        del f
-        loaded[0] += 1
+    def glGetProgramiv(program, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLint]
+        cfunc = c.glGetProgramiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetProgramiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2087,21 +2001,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetProgramInfoLog(program, bufSize, param0, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLsizei,GLchar]
-            cfunc = c.glGetProgramInfoLog
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, bufSize, param0, param1)
-        # Check if the function actually exists
-        f = c.glGetProgramInfoLog
-        del f
-        loaded[0] += 1
+    def glGetProgramInfoLog(program, bufSize, param0, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+        cfunc = c.glGetProgramInfoLog
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, bufSize, param0, param1)
+    # Check if the function actually exists
+    f = c.glGetProgramInfoLog
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2109,21 +2022,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetRenderbufferParameteriv(target, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint]
-            cfunc = c.glGetRenderbufferParameteriv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetRenderbufferParameteriv
-        del f
-        loaded[0] += 1
+    def glGetRenderbufferParameteriv(target, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint]
+        cfunc = c.glGetRenderbufferParameteriv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetRenderbufferParameteriv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2131,21 +2043,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetShaderiv(shader, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLint]
-            cfunc = c.glGetShaderiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(shader, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetShaderiv
-        del f
-        loaded[0] += 1
+    def glGetShaderiv(shader, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLint]
+        cfunc = c.glGetShaderiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(shader, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetShaderiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2153,21 +2064,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetShaderInfoLog(shader, bufSize, param0, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLsizei,GLchar]
-            cfunc = c.glGetShaderInfoLog
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(shader, bufSize, param0, param1)
-        # Check if the function actually exists
-        f = c.glGetShaderInfoLog
-        del f
-        loaded[0] += 1
+    def glGetShaderInfoLog(shader, bufSize, param0, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+        cfunc = c.glGetShaderInfoLog
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(shader, bufSize, param0, param1)
+    # Check if the function actually exists
+    f = c.glGetShaderInfoLog
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2175,21 +2085,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetShaderPrecisionFormat(shadertype, precisiontype, param0, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint,GLint]
-            cfunc = c.glGetShaderPrecisionFormat
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(shadertype, precisiontype, param0, param1)
-        # Check if the function actually exists
-        f = c.glGetShaderPrecisionFormat
-        del f
-        loaded[0] += 1
+    def glGetShaderPrecisionFormat(shadertype, precisiontype, param0, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint, GLint]
+        cfunc = c.glGetShaderPrecisionFormat
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(shadertype, precisiontype, param0, param1)
+    # Check if the function actually exists
+    f = c.glGetShaderPrecisionFormat
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2197,21 +2106,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetShaderSource(shader, bufSize, param0, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLsizei,GLchar]
-            cfunc = c.glGetShaderSource
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(shader, bufSize, param0, param1)
-        # Check if the function actually exists
-        f = c.glGetShaderSource
-        del f
-        loaded[0] += 1
+    def glGetShaderSource(shader, bufSize, param0, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+        cfunc = c.glGetShaderSource
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(shader, bufSize, param0, param1)
+    # Check if the function actually exists
+    f = c.glGetShaderSource
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2219,21 +2127,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetTexParameterfv(target, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLfloat]
-            cfunc = c.glGetTexParameterfv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetTexParameterfv
-        del f
-        loaded[0] += 1
+    def glGetTexParameterfv(target, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLfloat]
+        cfunc = c.glGetTexParameterfv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetTexParameterfv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2241,21 +2148,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetTexParameteriv(target, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint]
-            cfunc = c.glGetTexParameteriv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetTexParameteriv
-        del f
-        loaded[0] += 1
+    def glGetTexParameteriv(target, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint]
+        cfunc = c.glGetTexParameteriv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetTexParameteriv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2263,21 +2169,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetUniformfv(program, location, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLint,GLfloat]
-            cfunc = c.glGetUniformfv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, location, param0)
-        # Check if the function actually exists
-        f = c.glGetUniformfv
-        del f
-        loaded[0] += 1
+    def glGetUniformfv(program, location, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLint, GLfloat]
+        cfunc = c.glGetUniformfv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, location, param0)
+    # Check if the function actually exists
+    f = c.glGetUniformfv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2285,21 +2190,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetUniformiv(program, location, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLint,GLint]
-            cfunc = c.glGetUniformiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, location, param0)
-        # Check if the function actually exists
-        f = c.glGetUniformiv
-        del f
-        loaded[0] += 1
+    def glGetUniformiv(program, location, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLint, GLint]
+        cfunc = c.glGetUniformiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, location, param0)
+    # Check if the function actually exists
+    f = c.glGetUniformiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2307,21 +2211,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetUniformLocation(program, param0, argtypes_p=None):
-            restype = GLint
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLchar]
-            cfunc = c.glGetUniformLocation
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, param0)
-        # Check if the function actually exists
-        f = c.glGetUniformLocation
-        del f
-        loaded[0] += 1
+    def glGetUniformLocation(program, param0, argtypes_p=None):
+        restype = GLint
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLchar]
+        cfunc = c.glGetUniformLocation
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, param0)
+    # Check if the function actually exists
+    f = c.glGetUniformLocation
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2329,21 +2232,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetVertexAttribfv(index, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLfloat]
-            cfunc = c.glGetVertexAttribfv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetVertexAttribfv
-        del f
-        loaded[0] += 1
+    def glGetVertexAttribfv(index, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLfloat]
+        cfunc = c.glGetVertexAttribfv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetVertexAttribfv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2351,21 +2253,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetVertexAttribiv(index, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLint]
-            cfunc = c.glGetVertexAttribiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetVertexAttribiv
-        del f
-        loaded[0] += 1
+    def glGetVertexAttribiv(index, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLint]
+        cfunc = c.glGetVertexAttribiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetVertexAttribiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2373,21 +2274,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetVertexAttribPointerv(index, pname, voidpointer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,ctypes.c_void_p]
-            cfunc = c.glGetVertexAttribPointerv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, pname, voidpointer)
-        # Check if the function actually exists
-        f = c.glGetVertexAttribPointerv
-        del f
-        loaded[0] += 1
+    def glGetVertexAttribPointerv(index, pname, voidpointer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, ctypes.c_void_p]
+        cfunc = c.glGetVertexAttribPointerv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, pname, voidpointer)
+    # Check if the function actually exists
+    f = c.glGetVertexAttribPointerv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2395,21 +2295,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glHint(target, mode, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum]
-            cfunc = c.glHint
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, mode)
-        # Check if the function actually exists
-        f = c.glHint
-        del f
-        loaded[0] += 1
+    def glHint(target, mode, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum]
+        cfunc = c.glHint
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, mode)
+    # Check if the function actually exists
+    f = c.glHint
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2417,21 +2316,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsBuffer(buffer, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsBuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(buffer)
-        # Check if the function actually exists
-        f = c.glIsBuffer
-        del f
-        loaded[0] += 1
+    def glIsBuffer(buffer, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsBuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(buffer)
+    # Check if the function actually exists
+    f = c.glIsBuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2439,21 +2337,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsEnabled(cap, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glIsEnabled
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(cap)
-        # Check if the function actually exists
-        f = c.glIsEnabled
-        del f
-        loaded[0] += 1
+    def glIsEnabled(cap, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glIsEnabled
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(cap)
+    # Check if the function actually exists
+    f = c.glIsEnabled
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2461,21 +2358,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsFramebuffer(framebuffer, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsFramebuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(framebuffer)
-        # Check if the function actually exists
-        f = c.glIsFramebuffer
-        del f
-        loaded[0] += 1
+    def glIsFramebuffer(framebuffer, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsFramebuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(framebuffer)
+    # Check if the function actually exists
+    f = c.glIsFramebuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2483,21 +2379,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsProgram(program, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsProgram
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program)
-        # Check if the function actually exists
-        f = c.glIsProgram
-        del f
-        loaded[0] += 1
+    def glIsProgram(program, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsProgram
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program)
+    # Check if the function actually exists
+    f = c.glIsProgram
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2505,21 +2400,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsRenderbuffer(renderbuffer, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsRenderbuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(renderbuffer)
-        # Check if the function actually exists
-        f = c.glIsRenderbuffer
-        del f
-        loaded[0] += 1
+    def glIsRenderbuffer(renderbuffer, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsRenderbuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(renderbuffer)
+    # Check if the function actually exists
+    f = c.glIsRenderbuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2527,21 +2421,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsShader(shader, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsShader
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(shader)
-        # Check if the function actually exists
-        f = c.glIsShader
-        del f
-        loaded[0] += 1
+    def glIsShader(shader, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsShader
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(shader)
+    # Check if the function actually exists
+    f = c.glIsShader
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2549,21 +2442,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsTexture(texture, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsTexture
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(texture)
-        # Check if the function actually exists
-        f = c.glIsTexture
-        del f
-        loaded[0] += 1
+    def glIsTexture(texture, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsTexture
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(texture)
+    # Check if the function actually exists
+    f = c.glIsTexture
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2571,21 +2463,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glLineWidth(width, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLfloat]
-            cfunc = c.glLineWidth
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(width)
-        # Check if the function actually exists
-        f = c.glLineWidth
-        del f
-        loaded[0] += 1
+    def glLineWidth(width, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLfloat]
+        cfunc = c.glLineWidth
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(width)
+    # Check if the function actually exists
+    f = c.glLineWidth
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2593,21 +2484,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glLinkProgram(program, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glLinkProgram
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program)
-        # Check if the function actually exists
-        f = c.glLinkProgram
-        del f
-        loaded[0] += 1
+    def glLinkProgram(program, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glLinkProgram
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program)
+    # Check if the function actually exists
+    f = c.glLinkProgram
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2615,21 +2505,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glPixelStorei(pname, param, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint]
-            cfunc = c.glPixelStorei
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(pname, param)
-        # Check if the function actually exists
-        f = c.glPixelStorei
-        del f
-        loaded[0] += 1
+    def glPixelStorei(pname, param, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint]
+        cfunc = c.glPixelStorei
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(pname, param)
+    # Check if the function actually exists
+    f = c.glPixelStorei
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2637,21 +2526,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glPolygonOffset(factor, units, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLfloat,GLfloat]
-            cfunc = c.glPolygonOffset
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(factor, units)
-        # Check if the function actually exists
-        f = c.glPolygonOffset
-        del f
-        loaded[0] += 1
+    def glPolygonOffset(factor, units, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLfloat, GLfloat]
+        cfunc = c.glPolygonOffset
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(factor, units)
+    # Check if the function actually exists
+    f = c.glPolygonOffset
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2659,21 +2547,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glReadPixels(x, y, width, height, format, type, voidpixels, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLint,GLsizei,GLsizei,GLenum,GLenum,ctypes.c_void_p]
-            cfunc = c.glReadPixels
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(x, y, width, height, format, type, voidpixels)
-        # Check if the function actually exists
-        f = c.glReadPixels
-        del f
-        loaded[0] += 1
+    def glReadPixels(x, y, width, height, format, type, voidpixels, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+        cfunc = c.glReadPixels
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(x, y, width, height, format, type, voidpixels)
+    # Check if the function actually exists
+    f = c.glReadPixels
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2681,21 +2568,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glReleaseShaderCompiler(void, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [ctypes.c_void_p]
-            cfunc = c.glReleaseShaderCompiler
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(void)
-        # Check if the function actually exists
-        f = c.glReleaseShaderCompiler
-        del f
-        loaded[0] += 1
+    def glReleaseShaderCompiler(void, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [ctypes.c_void_p]
+        cfunc = c.glReleaseShaderCompiler
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(void)
+    # Check if the function actually exists
+    f = c.glReleaseShaderCompiler
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2703,21 +2589,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glRenderbufferStorage(target, internalformat, width, height, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLsizei,GLsizei]
-            cfunc = c.glRenderbufferStorage
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, internalformat, width, height)
-        # Check if the function actually exists
-        f = c.glRenderbufferStorage
-        del f
-        loaded[0] += 1
+    def glRenderbufferStorage(target, internalformat, width, height, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLsizei, GLsizei]
+        cfunc = c.glRenderbufferStorage
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, internalformat, width, height)
+    # Check if the function actually exists
+    f = c.glRenderbufferStorage
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2725,21 +2610,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glSampleCoverage(value, invert, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLfloat,GLboolean]
-            cfunc = c.glSampleCoverage
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(value, invert)
-        # Check if the function actually exists
-        f = c.glSampleCoverage
-        del f
-        loaded[0] += 1
+    def glSampleCoverage(value, invert, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLfloat, GLboolean]
+        cfunc = c.glSampleCoverage
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(value, invert)
+    # Check if the function actually exists
+    f = c.glSampleCoverage
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2747,21 +2631,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glScissor(x, y, width, height, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLint,GLsizei,GLsizei]
-            cfunc = c.glScissor
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(x, y, width, height)
-        # Check if the function actually exists
-        f = c.glScissor
-        del f
-        loaded[0] += 1
+    def glScissor(x, y, width, height, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLint, GLsizei, GLsizei]
+        cfunc = c.glScissor
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(x, y, width, height)
+    # Check if the function actually exists
+    f = c.glScissor
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2769,21 +2652,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glShaderBinary(count, param0, binaryformat, voidbinary, length, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint,GLenum,ctypes.c_void_p,GLsizei]
-            cfunc = c.glShaderBinary
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(count, param0, binaryformat, voidbinary, length)
-        # Check if the function actually exists
-        f = c.glShaderBinary
-        del f
-        loaded[0] += 1
+    def glShaderBinary(count, param0, binaryformat, voidbinary, length, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint, GLenum, ctypes.c_void_p, GLsizei]
+        cfunc = c.glShaderBinary
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(count, param0, binaryformat, voidbinary, length)
+    # Check if the function actually exists
+    f = c.glShaderBinary
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2791,21 +2673,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glShaderSource(shader, count, param0, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLchar,GLint]
-            cfunc = c.glShaderSource
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(shader, count, param0, param1)
-        # Check if the function actually exists
-        f = c.glShaderSource
-        del f
-        loaded[0] += 1
+    def glShaderSource(shader, count, param0, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLchar, GLint]
+        cfunc = c.glShaderSource
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(shader, count, param0, param1)
+    # Check if the function actually exists
+    f = c.glShaderSource
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2813,21 +2694,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glStencilFunc(func, ref, mask, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLuint]
-            cfunc = c.glStencilFunc
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(func, ref, mask)
-        # Check if the function actually exists
-        f = c.glStencilFunc
-        del f
-        loaded[0] += 1
+    def glStencilFunc(func, ref, mask, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLuint]
+        cfunc = c.glStencilFunc
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(func, ref, mask)
+    # Check if the function actually exists
+    f = c.glStencilFunc
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2835,21 +2715,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glStencilFuncSeparate(face, func, ref, mask, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint,GLuint]
-            cfunc = c.glStencilFuncSeparate
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(face, func, ref, mask)
-        # Check if the function actually exists
-        f = c.glStencilFuncSeparate
-        del f
-        loaded[0] += 1
+    def glStencilFuncSeparate(face, func, ref, mask, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint, GLuint]
+        cfunc = c.glStencilFuncSeparate
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(face, func, ref, mask)
+    # Check if the function actually exists
+    f = c.glStencilFuncSeparate
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2857,21 +2736,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glStencilMask(mask, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glStencilMask
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mask)
-        # Check if the function actually exists
-        f = c.glStencilMask
-        del f
-        loaded[0] += 1
+    def glStencilMask(mask, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glStencilMask
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mask)
+    # Check if the function actually exists
+    f = c.glStencilMask
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2879,21 +2757,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glStencilMaskSeparate(face, mask, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint]
-            cfunc = c.glStencilMaskSeparate
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(face, mask)
-        # Check if the function actually exists
-        f = c.glStencilMaskSeparate
-        del f
-        loaded[0] += 1
+    def glStencilMaskSeparate(face, mask, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint]
+        cfunc = c.glStencilMaskSeparate
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(face, mask)
+    # Check if the function actually exists
+    f = c.glStencilMaskSeparate
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2901,21 +2778,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glStencilOp(fail, zfail, zpass, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLenum]
-            cfunc = c.glStencilOp
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(fail, zfail, zpass)
-        # Check if the function actually exists
-        f = c.glStencilOp
-        del f
-        loaded[0] += 1
+    def glStencilOp(fail, zfail, zpass, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLenum]
+        cfunc = c.glStencilOp
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(fail, zfail, zpass)
+    # Check if the function actually exists
+    f = c.glStencilOp
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2923,21 +2799,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glStencilOpSeparate(face, sfail, dpfail, dppass, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLenum,GLenum]
-            cfunc = c.glStencilOpSeparate
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(face, sfail, dpfail, dppass)
-        # Check if the function actually exists
-        f = c.glStencilOpSeparate
-        del f
-        loaded[0] += 1
+    def glStencilOpSeparate(face, sfail, dpfail, dppass, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLenum, GLenum]
+        cfunc = c.glStencilOpSeparate
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(face, sfail, dpfail, dppass)
+    # Check if the function actually exists
+    f = c.glStencilOpSeparate
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2945,21 +2820,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexImage2D(target, level, internalformat, width, height, border, format, type, voidpixels, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint,GLsizei,GLsizei,GLint,GLenum,GLenum,ctypes.c_void_p]
-            cfunc = c.glTexImage2D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, internalformat, width, height, border, format, type, voidpixels)
-        # Check if the function actually exists
-        f = c.glTexImage2D
-        del f
-        loaded[0] += 1
+    def glTexImage2D(target, level, internalformat, width, height, border, format, type, voidpixels, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, ctypes.c_void_p]
+        cfunc = c.glTexImage2D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, internalformat, width, height, border, format, type, voidpixels)
+    # Check if the function actually exists
+    f = c.glTexImage2D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2967,21 +2841,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexParameterf(target, pname, param, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLfloat]
-            cfunc = c.glTexParameterf
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param)
-        # Check if the function actually exists
-        f = c.glTexParameterf
-        del f
-        loaded[0] += 1
+    def glTexParameterf(target, pname, param, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLfloat]
+        cfunc = c.glTexParameterf
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param)
+    # Check if the function actually exists
+    f = c.glTexParameterf
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -2989,21 +2862,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexParameterfv(target, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLfloat]
-            cfunc = c.glTexParameterfv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param0)
-        # Check if the function actually exists
-        f = c.glTexParameterfv
-        del f
-        loaded[0] += 1
+    def glTexParameterfv(target, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLfloat]
+        cfunc = c.glTexParameterfv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param0)
+    # Check if the function actually exists
+    f = c.glTexParameterfv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3011,21 +2883,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexParameteri(target, pname, param, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint]
-            cfunc = c.glTexParameteri
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param)
-        # Check if the function actually exists
-        f = c.glTexParameteri
-        del f
-        loaded[0] += 1
+    def glTexParameteri(target, pname, param, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint]
+        cfunc = c.glTexParameteri
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param)
+    # Check if the function actually exists
+    f = c.glTexParameteri
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3033,21 +2904,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexParameteriv(target, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint]
-            cfunc = c.glTexParameteriv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param0)
-        # Check if the function actually exists
-        f = c.glTexParameteriv
-        del f
-        loaded[0] += 1
+    def glTexParameteriv(target, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint]
+        cfunc = c.glTexParameteriv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param0)
+    # Check if the function actually exists
+    f = c.glTexParameteriv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3055,21 +2925,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, voidpixels, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint,GLint,GLsizei,GLsizei,GLenum,GLenum,ctypes.c_void_p]
-            cfunc = c.glTexSubImage2D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, xoffset, yoffset, width, height, format, type, voidpixels)
-        # Check if the function actually exists
-        f = c.glTexSubImage2D
-        del f
-        loaded[0] += 1
+    def glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, voidpixels, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+        cfunc = c.glTexSubImage2D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, xoffset, yoffset, width, height, format, type, voidpixels)
+    # Check if the function actually exists
+    f = c.glTexSubImage2D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3077,21 +2946,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform1f(location, v0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLfloat]
-            cfunc = c.glUniform1f
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0)
-        # Check if the function actually exists
-        f = c.glUniform1f
-        del f
-        loaded[0] += 1
+    def glUniform1f(location, v0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLfloat]
+        cfunc = c.glUniform1f
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0)
+    # Check if the function actually exists
+    f = c.glUniform1f
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3099,21 +2967,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform1fv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLfloat]
-            cfunc = c.glUniform1fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform1fv
-        del f
-        loaded[0] += 1
+    def glUniform1fv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLfloat]
+        cfunc = c.glUniform1fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform1fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3121,21 +2988,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform1i(location, v0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLint]
-            cfunc = c.glUniform1i
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0)
-        # Check if the function actually exists
-        f = c.glUniform1i
-        del f
-        loaded[0] += 1
+    def glUniform1i(location, v0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLint]
+        cfunc = c.glUniform1i
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0)
+    # Check if the function actually exists
+    f = c.glUniform1i
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3143,21 +3009,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform1iv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLint]
-            cfunc = c.glUniform1iv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform1iv
-        del f
-        loaded[0] += 1
+    def glUniform1iv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLint]
+        cfunc = c.glUniform1iv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform1iv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3165,21 +3030,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform2f(location, v0, v1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLfloat,GLfloat]
-            cfunc = c.glUniform2f
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1)
-        # Check if the function actually exists
-        f = c.glUniform2f
-        del f
-        loaded[0] += 1
+    def glUniform2f(location, v0, v1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLfloat, GLfloat]
+        cfunc = c.glUniform2f
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1)
+    # Check if the function actually exists
+    f = c.glUniform2f
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3187,21 +3051,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform2fv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLfloat]
-            cfunc = c.glUniform2fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform2fv
-        del f
-        loaded[0] += 1
+    def glUniform2fv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLfloat]
+        cfunc = c.glUniform2fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform2fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3209,21 +3072,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform2i(location, v0, v1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLint,GLint]
-            cfunc = c.glUniform2i
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1)
-        # Check if the function actually exists
-        f = c.glUniform2i
-        del f
-        loaded[0] += 1
+    def glUniform2i(location, v0, v1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLint, GLint]
+        cfunc = c.glUniform2i
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1)
+    # Check if the function actually exists
+    f = c.glUniform2i
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3231,21 +3093,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform2iv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLint]
-            cfunc = c.glUniform2iv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform2iv
-        del f
-        loaded[0] += 1
+    def glUniform2iv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLint]
+        cfunc = c.glUniform2iv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform2iv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3253,21 +3114,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform3f(location, v0, v1, v2, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLfloat,GLfloat,GLfloat]
-            cfunc = c.glUniform3f
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1, v2)
-        # Check if the function actually exists
-        f = c.glUniform3f
-        del f
-        loaded[0] += 1
+    def glUniform3f(location, v0, v1, v2, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLfloat, GLfloat, GLfloat]
+        cfunc = c.glUniform3f
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1, v2)
+    # Check if the function actually exists
+    f = c.glUniform3f
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3275,21 +3135,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform3fv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLfloat]
-            cfunc = c.glUniform3fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform3fv
-        del f
-        loaded[0] += 1
+    def glUniform3fv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLfloat]
+        cfunc = c.glUniform3fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform3fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3297,21 +3156,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform3i(location, v0, v1, v2, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLint,GLint,GLint]
-            cfunc = c.glUniform3i
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1, v2)
-        # Check if the function actually exists
-        f = c.glUniform3i
-        del f
-        loaded[0] += 1
+    def glUniform3i(location, v0, v1, v2, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLint, GLint, GLint]
+        cfunc = c.glUniform3i
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1, v2)
+    # Check if the function actually exists
+    f = c.glUniform3i
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3319,21 +3177,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform3iv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLint]
-            cfunc = c.glUniform3iv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform3iv
-        del f
-        loaded[0] += 1
+    def glUniform3iv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLint]
+        cfunc = c.glUniform3iv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform3iv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3341,21 +3198,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform4f(location, v0, v1, v2, v3, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLfloat,GLfloat,GLfloat,GLfloat]
-            cfunc = c.glUniform4f
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1, v2, v3)
-        # Check if the function actually exists
-        f = c.glUniform4f
-        del f
-        loaded[0] += 1
+    def glUniform4f(location, v0, v1, v2, v3, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLfloat, GLfloat, GLfloat, GLfloat]
+        cfunc = c.glUniform4f
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1, v2, v3)
+    # Check if the function actually exists
+    f = c.glUniform4f
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3363,21 +3219,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform4fv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLfloat]
-            cfunc = c.glUniform4fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform4fv
-        del f
-        loaded[0] += 1
+    def glUniform4fv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLfloat]
+        cfunc = c.glUniform4fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform4fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3385,21 +3240,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform4i(location, v0, v1, v2, v3, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLint,GLint,GLint,GLint]
-            cfunc = c.glUniform4i
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1, v2, v3)
-        # Check if the function actually exists
-        f = c.glUniform4i
-        del f
-        loaded[0] += 1
+    def glUniform4i(location, v0, v1, v2, v3, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLint, GLint, GLint, GLint]
+        cfunc = c.glUniform4i
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1, v2, v3)
+    # Check if the function actually exists
+    f = c.glUniform4i
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3407,21 +3261,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform4iv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLint]
-            cfunc = c.glUniform4iv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform4iv
-        del f
-        loaded[0] += 1
+    def glUniform4iv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLint]
+        cfunc = c.glUniform4iv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform4iv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3429,21 +3282,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix2fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix2fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix2fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix2fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix2fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix2fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3451,21 +3303,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix3fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix3fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix3fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix3fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix3fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix3fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3473,21 +3324,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix4fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix4fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix4fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix4fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix4fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix4fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3495,21 +3345,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUseProgram(program, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glUseProgram
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program)
-        # Check if the function actually exists
-        f = c.glUseProgram
-        del f
-        loaded[0] += 1
+    def glUseProgram(program, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glUseProgram
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program)
+    # Check if the function actually exists
+    f = c.glUseProgram
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3517,21 +3366,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glValidateProgram(program, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glValidateProgram
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program)
-        # Check if the function actually exists
-        f = c.glValidateProgram
-        del f
-        loaded[0] += 1
+    def glValidateProgram(program, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glValidateProgram
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program)
+    # Check if the function actually exists
+    f = c.glValidateProgram
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3539,21 +3387,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttrib1f(index, x, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLfloat]
-            cfunc = c.glVertexAttrib1f
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, x)
-        # Check if the function actually exists
-        f = c.glVertexAttrib1f
-        del f
-        loaded[0] += 1
+    def glVertexAttrib1f(index, x, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLfloat]
+        cfunc = c.glVertexAttrib1f
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, x)
+    # Check if the function actually exists
+    f = c.glVertexAttrib1f
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3561,21 +3408,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttrib1fv(index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLfloat]
-            cfunc = c.glVertexAttrib1fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, param0)
-        # Check if the function actually exists
-        f = c.glVertexAttrib1fv
-        del f
-        loaded[0] += 1
+    def glVertexAttrib1fv(index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLfloat]
+        cfunc = c.glVertexAttrib1fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, param0)
+    # Check if the function actually exists
+    f = c.glVertexAttrib1fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3583,21 +3429,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttrib2f(index, x, y, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLfloat,GLfloat]
-            cfunc = c.glVertexAttrib2f
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, x, y)
-        # Check if the function actually exists
-        f = c.glVertexAttrib2f
-        del f
-        loaded[0] += 1
+    def glVertexAttrib2f(index, x, y, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLfloat, GLfloat]
+        cfunc = c.glVertexAttrib2f
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, x, y)
+    # Check if the function actually exists
+    f = c.glVertexAttrib2f
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3605,21 +3450,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttrib2fv(index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLfloat]
-            cfunc = c.glVertexAttrib2fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, param0)
-        # Check if the function actually exists
-        f = c.glVertexAttrib2fv
-        del f
-        loaded[0] += 1
+    def glVertexAttrib2fv(index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLfloat]
+        cfunc = c.glVertexAttrib2fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, param0)
+    # Check if the function actually exists
+    f = c.glVertexAttrib2fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3627,21 +3471,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttrib3f(index, x, y, z, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLfloat,GLfloat,GLfloat]
-            cfunc = c.glVertexAttrib3f
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, x, y, z)
-        # Check if the function actually exists
-        f = c.glVertexAttrib3f
-        del f
-        loaded[0] += 1
+    def glVertexAttrib3f(index, x, y, z, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLfloat, GLfloat, GLfloat]
+        cfunc = c.glVertexAttrib3f
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, x, y, z)
+    # Check if the function actually exists
+    f = c.glVertexAttrib3f
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3649,21 +3492,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttrib3fv(index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLfloat]
-            cfunc = c.glVertexAttrib3fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, param0)
-        # Check if the function actually exists
-        f = c.glVertexAttrib3fv
-        del f
-        loaded[0] += 1
+    def glVertexAttrib3fv(index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLfloat]
+        cfunc = c.glVertexAttrib3fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, param0)
+    # Check if the function actually exists
+    f = c.glVertexAttrib3fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3671,21 +3513,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttrib4f(index, x, y, z, w, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLfloat,GLfloat,GLfloat,GLfloat]
-            cfunc = c.glVertexAttrib4f
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, x, y, z, w)
-        # Check if the function actually exists
-        f = c.glVertexAttrib4f
-        del f
-        loaded[0] += 1
+    def glVertexAttrib4f(index, x, y, z, w, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLfloat, GLfloat, GLfloat, GLfloat]
+        cfunc = c.glVertexAttrib4f
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, x, y, z, w)
+    # Check if the function actually exists
+    f = c.glVertexAttrib4f
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3693,21 +3534,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttrib4fv(index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLfloat]
-            cfunc = c.glVertexAttrib4fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, param0)
-        # Check if the function actually exists
-        f = c.glVertexAttrib4fv
-        del f
-        loaded[0] += 1
+    def glVertexAttrib4fv(index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLfloat]
+        cfunc = c.glVertexAttrib4fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, param0)
+    # Check if the function actually exists
+    f = c.glVertexAttrib4fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3715,21 +3555,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttribPointer(index, size, type, normalized, stride, voidpointer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLint,GLenum,GLboolean,GLsizei,ctypes.c_void_p]
-            cfunc = c.glVertexAttribPointer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, size, type, normalized, stride, voidpointer)
-        # Check if the function actually exists
-        f = c.glVertexAttribPointer
-        del f
-        loaded[0] += 1
+    def glVertexAttribPointer(index, size, type, normalized, stride, voidpointer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLint, GLenum, GLboolean, GLsizei, ctypes.c_void_p]
+        cfunc = c.glVertexAttribPointer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, size, type, normalized, stride, voidpointer)
+    # Check if the function actually exists
+    f = c.glVertexAttribPointer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3737,21 +3576,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glViewport(x, y, width, height, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLint,GLsizei,GLsizei]
-            cfunc = c.glViewport
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(x, y, width, height)
-        # Check if the function actually exists
-        f = c.glViewport
-        del f
-        loaded[0] += 1
+    def glViewport(x, y, width, height, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLint, GLsizei, GLsizei]
+        cfunc = c.glViewport
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(x, y, width, height)
+    # Check if the function actually exists
+    f = c.glViewport
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3759,21 +3597,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glReadBuffer(src, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glReadBuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(src)
-        # Check if the function actually exists
-        f = c.glReadBuffer
-        del f
-        loaded[0] += 1
+    def glReadBuffer(src, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glReadBuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(src)
+    # Check if the function actually exists
+    f = c.glReadBuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3781,21 +3618,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDrawRangeElements(mode, start, end, count, type, voidindices, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint,GLuint,GLsizei,GLenum,ctypes.c_void_p]
-            cfunc = c.glDrawRangeElements
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mode, start, end, count, type, voidindices)
-        # Check if the function actually exists
-        f = c.glDrawRangeElements
-        del f
-        loaded[0] += 1
+    def glDrawRangeElements(mode, start, end, count, type, voidindices, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint, GLuint, GLsizei, GLenum, ctypes.c_void_p]
+        cfunc = c.glDrawRangeElements
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mode, start, end, count, type, voidindices)
+    # Check if the function actually exists
+    f = c.glDrawRangeElements
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3803,21 +3639,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, voidpixels, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint,GLsizei,GLsizei,GLsizei,GLint,GLenum,GLenum,ctypes.c_void_p]
-            cfunc = c.glTexImage3D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, internalformat, width, height, depth, border, format, type, voidpixels)
-        # Check if the function actually exists
-        f = c.glTexImage3D
-        del f
-        loaded[0] += 1
+    def glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, voidpixels, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint, GLsizei, GLsizei, GLsizei, GLint, GLenum, GLenum, ctypes.c_void_p]
+        cfunc = c.glTexImage3D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, internalformat, width, height, depth, border, format, type, voidpixels)
+    # Check if the function actually exists
+    f = c.glTexImage3D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3825,21 +3660,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, voidpixels, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint,GLint,GLint,GLsizei,GLsizei,GLsizei,GLenum,GLenum,ctypes.c_void_p]
-            cfunc = c.glTexSubImage3D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, voidpixels)
-        # Check if the function actually exists
-        f = c.glTexSubImage3D
-        del f
-        loaded[0] += 1
+    def glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, voidpixels, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+        cfunc = c.glTexSubImage3D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, voidpixels)
+    # Check if the function actually exists
+    f = c.glTexSubImage3D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3847,21 +3681,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint,GLint,GLint,GLint,GLint,GLsizei,GLsizei]
-            cfunc = c.glCopyTexSubImage3D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, xoffset, yoffset, zoffset, x, y, width, height)
-        # Check if the function actually exists
-        f = c.glCopyTexSubImage3D
-        del f
-        loaded[0] += 1
+    def glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei]
+        cfunc = c.glCopyTexSubImage3D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, xoffset, yoffset, zoffset, x, y, width, height)
+    # Check if the function actually exists
+    f = c.glCopyTexSubImage3D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3869,21 +3702,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, voiddata, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLenum,GLsizei,GLsizei,GLsizei,GLint,GLsizei,ctypes.c_void_p]
-            cfunc = c.glCompressedTexImage3D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, internalformat, width, height, depth, border, imageSize, voiddata)
-        # Check if the function actually exists
-        f = c.glCompressedTexImage3D
-        del f
-        loaded[0] += 1
+    def glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, voiddata, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, ctypes.c_void_p]
+        cfunc = c.glCompressedTexImage3D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, internalformat, width, height, depth, border, imageSize, voiddata)
+    # Check if the function actually exists
+    f = c.glCompressedTexImage3D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3891,21 +3723,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, voiddata, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint,GLint,GLint,GLsizei,GLsizei,GLsizei,GLenum,GLsizei,ctypes.c_void_p]
-            cfunc = c.glCompressedTexSubImage3D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, voiddata)
-        # Check if the function actually exists
-        f = c.glCompressedTexSubImage3D
-        del f
-        loaded[0] += 1
+    def glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, voiddata, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, ctypes.c_void_p]
+        cfunc = c.glCompressedTexSubImage3D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, voiddata)
+    # Check if the function actually exists
+    f = c.glCompressedTexSubImage3D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3913,21 +3744,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenQueries(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glGenQueries
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glGenQueries
-        del f
-        loaded[0] += 1
+    def glGenQueries(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glGenQueries
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glGenQueries
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3935,21 +3765,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteQueries(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glDeleteQueries
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glDeleteQueries
-        del f
-        loaded[0] += 1
+    def glDeleteQueries(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glDeleteQueries
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glDeleteQueries
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3957,21 +3786,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsQuery(id, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsQuery
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(id)
-        # Check if the function actually exists
-        f = c.glIsQuery
-        del f
-        loaded[0] += 1
+    def glIsQuery(id, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsQuery
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(id)
+    # Check if the function actually exists
+    f = c.glIsQuery
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -3979,21 +3807,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBeginQuery(target, id, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint]
-            cfunc = c.glBeginQuery
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, id)
-        # Check if the function actually exists
-        f = c.glBeginQuery
-        del f
-        loaded[0] += 1
+    def glBeginQuery(target, id, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint]
+        cfunc = c.glBeginQuery
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, id)
+    # Check if the function actually exists
+    f = c.glBeginQuery
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4001,21 +3828,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glEndQuery(target, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glEndQuery
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target)
-        # Check if the function actually exists
-        f = c.glEndQuery
-        del f
-        loaded[0] += 1
+    def glEndQuery(target, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glEndQuery
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target)
+    # Check if the function actually exists
+    f = c.glEndQuery
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4023,21 +3849,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetQueryiv(target, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint]
-            cfunc = c.glGetQueryiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetQueryiv
-        del f
-        loaded[0] += 1
+    def glGetQueryiv(target, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint]
+        cfunc = c.glGetQueryiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetQueryiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4045,21 +3870,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetQueryObjectuiv(id, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLuint]
-            cfunc = c.glGetQueryObjectuiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(id, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetQueryObjectuiv
-        del f
-        loaded[0] += 1
+    def glGetQueryObjectuiv(id, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLuint]
+        cfunc = c.glGetQueryObjectuiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(id, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetQueryObjectuiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4067,21 +3891,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUnmapBuffer(target, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glUnmapBuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target)
-        # Check if the function actually exists
-        f = c.glUnmapBuffer
-        del f
-        loaded[0] += 1
+    def glUnmapBuffer(target, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glUnmapBuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target)
+    # Check if the function actually exists
+    f = c.glUnmapBuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4089,21 +3912,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetBufferPointerv(target, pname, voidparams, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,ctypes.c_void_p]
-            cfunc = c.glGetBufferPointerv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, voidparams)
-        # Check if the function actually exists
-        f = c.glGetBufferPointerv
-        del f
-        loaded[0] += 1
+    def glGetBufferPointerv(target, pname, voidparams, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, ctypes.c_void_p]
+        cfunc = c.glGetBufferPointerv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, voidparams)
+    # Check if the function actually exists
+    f = c.glGetBufferPointerv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4111,21 +3933,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDrawBuffers(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLenum]
-            cfunc = c.glDrawBuffers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glDrawBuffers
-        del f
-        loaded[0] += 1
+    def glDrawBuffers(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLenum]
+        cfunc = c.glDrawBuffers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glDrawBuffers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4133,21 +3954,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix2x3fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix2x3fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix2x3fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix2x3fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix2x3fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix2x3fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4155,21 +3975,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix3x2fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix3x2fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix3x2fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix3x2fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix3x2fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix3x2fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4177,21 +3996,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix2x4fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix2x4fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix2x4fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix2x4fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix2x4fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix2x4fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4199,21 +4017,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix4x2fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix4x2fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix4x2fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix4x2fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix4x2fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix4x2fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4221,21 +4038,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix3x4fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix3x4fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix3x4fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix3x4fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix3x4fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix3x4fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4243,21 +4059,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformMatrix4x3fv(location, count, transpose, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLboolean,GLfloat]
-            cfunc = c.glUniformMatrix4x3fv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, transpose, param0)
-        # Check if the function actually exists
-        f = c.glUniformMatrix4x3fv
-        del f
-        loaded[0] += 1
+    def glUniformMatrix4x3fv(location, count, transpose, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        cfunc = c.glUniformMatrix4x3fv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, transpose, param0)
+    # Check if the function actually exists
+    f = c.glUniformMatrix4x3fv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4265,21 +4080,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLint,GLint,GLint,GLint,GLint,GLint,GLint,GLbitfield,GLenum]
-            cfunc = c.glBlitFramebuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter)
-        # Check if the function actually exists
-        f = c.glBlitFramebuffer
-        del f
-        loaded[0] += 1
+    def glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum]
+        cfunc = c.glBlitFramebuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter)
+    # Check if the function actually exists
+    f = c.glBlitFramebuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4287,21 +4101,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glRenderbufferStorageMultisample(target, samples, internalformat, width, height, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLsizei,GLenum,GLsizei,GLsizei]
-            cfunc = c.glRenderbufferStorageMultisample
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, samples, internalformat, width, height)
-        # Check if the function actually exists
-        f = c.glRenderbufferStorageMultisample
-        del f
-        loaded[0] += 1
+    def glRenderbufferStorageMultisample(target, samples, internalformat, width, height, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+        cfunc = c.glRenderbufferStorageMultisample
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, samples, internalformat, width, height)
+    # Check if the function actually exists
+    f = c.glRenderbufferStorageMultisample
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4309,21 +4122,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glFramebufferTextureLayer(target, attachment, texture, level, layer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLuint,GLint,GLint]
-            cfunc = c.glFramebufferTextureLayer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, attachment, texture, level, layer)
-        # Check if the function actually exists
-        f = c.glFramebufferTextureLayer
-        del f
-        loaded[0] += 1
+    def glFramebufferTextureLayer(target, attachment, texture, level, layer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLuint, GLint, GLint]
+        cfunc = c.glFramebufferTextureLayer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, attachment, texture, level, layer)
+    # Check if the function actually exists
+    f = c.glFramebufferTextureLayer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4331,21 +4143,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glFlushMappedBufferRange(target, offset, length, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLintptr,GLsizeiptr]
-            cfunc = c.glFlushMappedBufferRange
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, offset, length)
-        # Check if the function actually exists
-        f = c.glFlushMappedBufferRange
-        del f
-        loaded[0] += 1
+    def glFlushMappedBufferRange(target, offset, length, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLintptr, GLsizeiptr]
+        cfunc = c.glFlushMappedBufferRange
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, offset, length)
+    # Check if the function actually exists
+    f = c.glFlushMappedBufferRange
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4353,21 +4164,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindVertexArray(array, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glBindVertexArray
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(array)
-        # Check if the function actually exists
-        f = c.glBindVertexArray
-        del f
-        loaded[0] += 1
+    def glBindVertexArray(array, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glBindVertexArray
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(array)
+    # Check if the function actually exists
+    f = c.glBindVertexArray
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4375,21 +4185,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteVertexArrays(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glDeleteVertexArrays
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glDeleteVertexArrays
-        del f
-        loaded[0] += 1
+    def glDeleteVertexArrays(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glDeleteVertexArrays
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glDeleteVertexArrays
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4397,21 +4206,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenVertexArrays(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glGenVertexArrays
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glGenVertexArrays
-        del f
-        loaded[0] += 1
+    def glGenVertexArrays(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glGenVertexArrays
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glGenVertexArrays
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4419,21 +4227,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsVertexArray(array, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsVertexArray
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(array)
-        # Check if the function actually exists
-        f = c.glIsVertexArray
-        del f
-        loaded[0] += 1
+    def glIsVertexArray(array, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsVertexArray
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(array)
+    # Check if the function actually exists
+    f = c.glIsVertexArray
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4441,21 +4248,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetIntegeri_v(target, index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint,GLint]
-            cfunc = c.glGetIntegeri_v
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, index, param0)
-        # Check if the function actually exists
-        f = c.glGetIntegeri_v
-        del f
-        loaded[0] += 1
+    def glGetIntegeri_v(target, index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint, GLint]
+        cfunc = c.glGetIntegeri_v
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, index, param0)
+    # Check if the function actually exists
+    f = c.glGetIntegeri_v
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4463,21 +4269,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBeginTransformFeedback(primitiveMode, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum]
-            cfunc = c.glBeginTransformFeedback
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(primitiveMode)
-        # Check if the function actually exists
-        f = c.glBeginTransformFeedback
-        del f
-        loaded[0] += 1
+    def glBeginTransformFeedback(primitiveMode, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum]
+        cfunc = c.glBeginTransformFeedback
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(primitiveMode)
+    # Check if the function actually exists
+    f = c.glBeginTransformFeedback
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4485,21 +4290,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glEndTransformFeedback(void, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [ctypes.c_void_p]
-            cfunc = c.glEndTransformFeedback
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(void)
-        # Check if the function actually exists
-        f = c.glEndTransformFeedback
-        del f
-        loaded[0] += 1
+    def glEndTransformFeedback(void, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [ctypes.c_void_p]
+        cfunc = c.glEndTransformFeedback
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(void)
+    # Check if the function actually exists
+    f = c.glEndTransformFeedback
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4507,21 +4311,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindBufferRange(target, index, buffer, offset, size, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint,GLuint,GLintptr,GLsizeiptr]
-            cfunc = c.glBindBufferRange
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, index, buffer, offset, size)
-        # Check if the function actually exists
-        f = c.glBindBufferRange
-        del f
-        loaded[0] += 1
+    def glBindBufferRange(target, index, buffer, offset, size, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint, GLuint, GLintptr, GLsizeiptr]
+        cfunc = c.glBindBufferRange
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, index, buffer, offset, size)
+    # Check if the function actually exists
+    f = c.glBindBufferRange
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4529,21 +4332,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindBufferBase(target, index, buffer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint,GLuint]
-            cfunc = c.glBindBufferBase
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, index, buffer)
-        # Check if the function actually exists
-        f = c.glBindBufferBase
-        del f
-        loaded[0] += 1
+    def glBindBufferBase(target, index, buffer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint, GLuint]
+        cfunc = c.glBindBufferBase
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, index, buffer)
+    # Check if the function actually exists
+    f = c.glBindBufferBase
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4551,21 +4353,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTransformFeedbackVaryings(program, count, param0, bufferMode, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLchar,GLenum]
-            cfunc = c.glTransformFeedbackVaryings
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, count, param0, bufferMode)
-        # Check if the function actually exists
-        f = c.glTransformFeedbackVaryings
-        del f
-        loaded[0] += 1
+    def glTransformFeedbackVaryings(program, count, param0, bufferMode, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLchar, GLenum]
+        cfunc = c.glTransformFeedbackVaryings
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, count, param0, bufferMode)
+    # Check if the function actually exists
+    f = c.glTransformFeedbackVaryings
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4573,21 +4374,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetTransformFeedbackVarying(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint,GLsizei,GLsizei,GLsizei,GLenum,GLchar]
-            cfunc = c.glGetTransformFeedbackVarying
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, index, bufSize, param0, param1, param2, param3)
-        # Check if the function actually exists
-        f = c.glGetTransformFeedbackVarying
-        del f
-        loaded[0] += 1
+    def glGetTransformFeedbackVarying(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLsizei, GLenum, GLchar]
+        cfunc = c.glGetTransformFeedbackVarying
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, index, bufSize, param0, param1, param2, param3)
+    # Check if the function actually exists
+    f = c.glGetTransformFeedbackVarying
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4595,21 +4395,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttribIPointer(index, size, type, stride, voidpointer, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLint,GLenum,GLsizei,ctypes.c_void_p]
-            cfunc = c.glVertexAttribIPointer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, size, type, stride, voidpointer)
-        # Check if the function actually exists
-        f = c.glVertexAttribIPointer
-        del f
-        loaded[0] += 1
+    def glVertexAttribIPointer(index, size, type, stride, voidpointer, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLint, GLenum, GLsizei, ctypes.c_void_p]
+        cfunc = c.glVertexAttribIPointer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, size, type, stride, voidpointer)
+    # Check if the function actually exists
+    f = c.glVertexAttribIPointer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4617,21 +4416,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetVertexAttribIiv(index, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLint]
-            cfunc = c.glGetVertexAttribIiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetVertexAttribIiv
-        del f
-        loaded[0] += 1
+    def glGetVertexAttribIiv(index, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLint]
+        cfunc = c.glGetVertexAttribIiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetVertexAttribIiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4639,21 +4437,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetVertexAttribIuiv(index, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLuint]
-            cfunc = c.glGetVertexAttribIuiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetVertexAttribIuiv
-        del f
-        loaded[0] += 1
+    def glGetVertexAttribIuiv(index, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLuint]
+        cfunc = c.glGetVertexAttribIuiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetVertexAttribIuiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4661,21 +4458,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttribI4i(index, x, y, z, w, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLint,GLint,GLint,GLint]
-            cfunc = c.glVertexAttribI4i
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, x, y, z, w)
-        # Check if the function actually exists
-        f = c.glVertexAttribI4i
-        del f
-        loaded[0] += 1
+    def glVertexAttribI4i(index, x, y, z, w, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLint, GLint, GLint, GLint]
+        cfunc = c.glVertexAttribI4i
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, x, y, z, w)
+    # Check if the function actually exists
+    f = c.glVertexAttribI4i
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4683,21 +4479,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttribI4ui(index, x, y, z, w, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint,GLuint,GLuint,GLuint]
-            cfunc = c.glVertexAttribI4ui
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, x, y, z, w)
-        # Check if the function actually exists
-        f = c.glVertexAttribI4ui
-        del f
-        loaded[0] += 1
+    def glVertexAttribI4ui(index, x, y, z, w, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint, GLuint, GLuint, GLuint]
+        cfunc = c.glVertexAttribI4ui
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, x, y, z, w)
+    # Check if the function actually exists
+    f = c.glVertexAttribI4ui
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4705,21 +4500,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttribI4iv(index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLint]
-            cfunc = c.glVertexAttribI4iv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, param0)
-        # Check if the function actually exists
-        f = c.glVertexAttribI4iv
-        del f
-        loaded[0] += 1
+    def glVertexAttribI4iv(index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLint]
+        cfunc = c.glVertexAttribI4iv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, param0)
+    # Check if the function actually exists
+    f = c.glVertexAttribI4iv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4727,21 +4521,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttribI4uiv(index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint]
-            cfunc = c.glVertexAttribI4uiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, param0)
-        # Check if the function actually exists
-        f = c.glVertexAttribI4uiv
-        del f
-        loaded[0] += 1
+    def glVertexAttribI4uiv(index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint]
+        cfunc = c.glVertexAttribI4uiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, param0)
+    # Check if the function actually exists
+    f = c.glVertexAttribI4uiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4749,21 +4542,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetUniformuiv(program, location, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLint,GLuint]
-            cfunc = c.glGetUniformuiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, location, param0)
-        # Check if the function actually exists
-        f = c.glGetUniformuiv
-        del f
-        loaded[0] += 1
+    def glGetUniformuiv(program, location, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLint, GLuint]
+        cfunc = c.glGetUniformuiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, location, param0)
+    # Check if the function actually exists
+    f = c.glGetUniformuiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4771,21 +4563,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetFragDataLocation(program, param0, argtypes_p=None):
-            restype = GLint
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLchar]
-            cfunc = c.glGetFragDataLocation
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, param0)
-        # Check if the function actually exists
-        f = c.glGetFragDataLocation
-        del f
-        loaded[0] += 1
+    def glGetFragDataLocation(program, param0, argtypes_p=None):
+        restype = GLint
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLchar]
+        cfunc = c.glGetFragDataLocation
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, param0)
+    # Check if the function actually exists
+    f = c.glGetFragDataLocation
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4793,21 +4584,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform1ui(location, v0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLuint]
-            cfunc = c.glUniform1ui
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0)
-        # Check if the function actually exists
-        f = c.glUniform1ui
-        del f
-        loaded[0] += 1
+    def glUniform1ui(location, v0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLuint]
+        cfunc = c.glUniform1ui
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0)
+    # Check if the function actually exists
+    f = c.glUniform1ui
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4815,21 +4605,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform2ui(location, v0, v1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLuint,GLuint]
-            cfunc = c.glUniform2ui
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1)
-        # Check if the function actually exists
-        f = c.glUniform2ui
-        del f
-        loaded[0] += 1
+    def glUniform2ui(location, v0, v1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLuint, GLuint]
+        cfunc = c.glUniform2ui
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1)
+    # Check if the function actually exists
+    f = c.glUniform2ui
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4837,21 +4626,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform3ui(location, v0, v1, v2, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLuint,GLuint,GLuint]
-            cfunc = c.glUniform3ui
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1, v2)
-        # Check if the function actually exists
-        f = c.glUniform3ui
-        del f
-        loaded[0] += 1
+    def glUniform3ui(location, v0, v1, v2, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLuint, GLuint, GLuint]
+        cfunc = c.glUniform3ui
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1, v2)
+    # Check if the function actually exists
+    f = c.glUniform3ui
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4859,21 +4647,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform4ui(location, v0, v1, v2, v3, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLuint,GLuint,GLuint,GLuint]
-            cfunc = c.glUniform4ui
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, v0, v1, v2, v3)
-        # Check if the function actually exists
-        f = c.glUniform4ui
-        del f
-        loaded[0] += 1
+    def glUniform4ui(location, v0, v1, v2, v3, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLuint, GLuint, GLuint, GLuint]
+        cfunc = c.glUniform4ui
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, v0, v1, v2, v3)
+    # Check if the function actually exists
+    f = c.glUniform4ui
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4881,21 +4668,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform1uiv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLuint]
-            cfunc = c.glUniform1uiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform1uiv
-        del f
-        loaded[0] += 1
+    def glUniform1uiv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLuint]
+        cfunc = c.glUniform1uiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform1uiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4903,21 +4689,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform2uiv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLuint]
-            cfunc = c.glUniform2uiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform2uiv
-        del f
-        loaded[0] += 1
+    def glUniform2uiv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLuint]
+        cfunc = c.glUniform2uiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform2uiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4925,21 +4710,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform3uiv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLuint]
-            cfunc = c.glUniform3uiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform3uiv
-        del f
-        loaded[0] += 1
+    def glUniform3uiv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLuint]
+        cfunc = c.glUniform3uiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform3uiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4947,21 +4731,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniform4uiv(location, count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLint,GLsizei,GLuint]
-            cfunc = c.glUniform4uiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(location, count, param0)
-        # Check if the function actually exists
-        f = c.glUniform4uiv
-        del f
-        loaded[0] += 1
+    def glUniform4uiv(location, count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLint, GLsizei, GLuint]
+        cfunc = c.glUniform4uiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(location, count, param0)
+    # Check if the function actually exists
+    f = c.glUniform4uiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4969,21 +4752,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glClearBufferiv(buffer, drawbuffer, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLint]
-            cfunc = c.glClearBufferiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(buffer, drawbuffer, param0)
-        # Check if the function actually exists
-        f = c.glClearBufferiv
-        del f
-        loaded[0] += 1
+    def glClearBufferiv(buffer, drawbuffer, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLint]
+        cfunc = c.glClearBufferiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(buffer, drawbuffer, param0)
+    # Check if the function actually exists
+    f = c.glClearBufferiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -4991,21 +4773,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glClearBufferuiv(buffer, drawbuffer, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLuint]
-            cfunc = c.glClearBufferuiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(buffer, drawbuffer, param0)
-        # Check if the function actually exists
-        f = c.glClearBufferuiv
-        del f
-        loaded[0] += 1
+    def glClearBufferuiv(buffer, drawbuffer, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLuint]
+        cfunc = c.glClearBufferuiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(buffer, drawbuffer, param0)
+    # Check if the function actually exists
+    f = c.glClearBufferuiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5013,21 +4794,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glClearBufferfv(buffer, drawbuffer, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLfloat]
-            cfunc = c.glClearBufferfv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(buffer, drawbuffer, param0)
-        # Check if the function actually exists
-        f = c.glClearBufferfv
-        del f
-        loaded[0] += 1
+    def glClearBufferfv(buffer, drawbuffer, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLfloat]
+        cfunc = c.glClearBufferfv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(buffer, drawbuffer, param0)
+    # Check if the function actually exists
+    f = c.glClearBufferfv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5035,21 +4815,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glClearBufferfi(buffer, drawbuffer, depth, stencil, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLfloat,GLint]
-            cfunc = c.glClearBufferfi
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(buffer, drawbuffer, depth, stencil)
-        # Check if the function actually exists
-        f = c.glClearBufferfi
-        del f
-        loaded[0] += 1
+    def glClearBufferfi(buffer, drawbuffer, depth, stencil, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLfloat, GLint]
+        cfunc = c.glClearBufferfi
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(buffer, drawbuffer, depth, stencil)
+    # Check if the function actually exists
+    f = c.glClearBufferfi
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5057,21 +4836,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLintptr,GLintptr,GLsizeiptr]
-            cfunc = c.glCopyBufferSubData
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(readTarget, writeTarget, readOffset, writeOffset, size)
-        # Check if the function actually exists
-        f = c.glCopyBufferSubData
-        del f
-        loaded[0] += 1
+    def glCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLintptr, GLintptr, GLsizeiptr]
+        cfunc = c.glCopyBufferSubData
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(readTarget, writeTarget, readOffset, writeOffset, size)
+    # Check if the function actually exists
+    f = c.glCopyBufferSubData
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5079,21 +4857,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetUniformIndices(program, uniformCount, param0, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLchar,GLuint]
-            cfunc = c.glGetUniformIndices
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, uniformCount, param0, param1)
-        # Check if the function actually exists
-        f = c.glGetUniformIndices
-        del f
-        loaded[0] += 1
+    def glGetUniformIndices(program, uniformCount, param0, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLchar, GLuint]
+        cfunc = c.glGetUniformIndices
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, uniformCount, param0, param1)
+    # Check if the function actually exists
+    f = c.glGetUniformIndices
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5101,21 +4878,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetActiveUniformsiv(program, uniformCount, param0, pname, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLuint,GLenum,GLint]
-            cfunc = c.glGetActiveUniformsiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, uniformCount, param0, pname, param1)
-        # Check if the function actually exists
-        f = c.glGetActiveUniformsiv
-        del f
-        loaded[0] += 1
+    def glGetActiveUniformsiv(program, uniformCount, param0, pname, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLuint, GLenum, GLint]
+        cfunc = c.glGetActiveUniformsiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, uniformCount, param0, pname, param1)
+    # Check if the function actually exists
+    f = c.glGetActiveUniformsiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5123,21 +4899,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetUniformBlockIndex(program, param0, argtypes_p=None):
-            restype = GLuint
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLchar]
-            cfunc = c.glGetUniformBlockIndex
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, param0)
-        # Check if the function actually exists
-        f = c.glGetUniformBlockIndex
-        del f
-        loaded[0] += 1
+    def glGetUniformBlockIndex(program, param0, argtypes_p=None):
+        restype = GLuint
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLchar]
+        cfunc = c.glGetUniformBlockIndex
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, param0)
+    # Check if the function actually exists
+    f = c.glGetUniformBlockIndex
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5145,21 +4920,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint,GLenum,GLint]
-            cfunc = c.glGetActiveUniformBlockiv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, uniformBlockIndex, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetActiveUniformBlockiv
-        del f
-        loaded[0] += 1
+    def glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint, GLenum, GLint]
+        cfunc = c.glGetActiveUniformBlockiv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, uniformBlockIndex, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetActiveUniformBlockiv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5167,21 +4941,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, param0, param1, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint,GLsizei,GLsizei,GLchar]
-            cfunc = c.glGetActiveUniformBlockName
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, uniformBlockIndex, bufSize, param0, param1)
-        # Check if the function actually exists
-        f = c.glGetActiveUniformBlockName
-        del f
-        loaded[0] += 1
+    def glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, param0, param1, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLchar]
+        cfunc = c.glGetActiveUniformBlockName
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, uniformBlockIndex, bufSize, param0, param1)
+    # Check if the function actually exists
+    f = c.glGetActiveUniformBlockName
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5189,21 +4962,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint,GLuint]
-            cfunc = c.glUniformBlockBinding
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, uniformBlockIndex, uniformBlockBinding)
-        # Check if the function actually exists
-        f = c.glUniformBlockBinding
-        del f
-        loaded[0] += 1
+    def glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint, GLuint]
+        cfunc = c.glUniformBlockBinding
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, uniformBlockIndex, uniformBlockBinding)
+    # Check if the function actually exists
+    f = c.glUniformBlockBinding
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5211,21 +4983,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDrawArraysInstanced(mode, first, count, instancecount, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint,GLsizei,GLsizei]
-            cfunc = c.glDrawArraysInstanced
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mode, first, count, instancecount)
-        # Check if the function actually exists
-        f = c.glDrawArraysInstanced
-        del f
-        loaded[0] += 1
+    def glDrawArraysInstanced(mode, first, count, instancecount, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint, GLsizei, GLsizei]
+        cfunc = c.glDrawArraysInstanced
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mode, first, count, instancecount)
+    # Check if the function actually exists
+    f = c.glDrawArraysInstanced
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5233,21 +5004,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDrawElementsInstanced(mode, count, type, voidindices, instancecount, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLsizei,GLenum,ctypes.c_void_p,GLsizei]
-            cfunc = c.glDrawElementsInstanced
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(mode, count, type, voidindices, instancecount)
-        # Check if the function actually exists
-        f = c.glDrawElementsInstanced
-        del f
-        loaded[0] += 1
+    def glDrawElementsInstanced(mode, count, type, voidindices, instancecount, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei]
+        cfunc = c.glDrawElementsInstanced
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(mode, count, type, voidindices, instancecount)
+    # Check if the function actually exists
+    f = c.glDrawElementsInstanced
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5255,21 +5025,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetInteger64v(pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLint64]
-            cfunc = c.glGetInteger64v
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(pname, param0)
-        # Check if the function actually exists
-        f = c.glGetInteger64v
-        del f
-        loaded[0] += 1
+    def glGetInteger64v(pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLint64]
+        cfunc = c.glGetInteger64v
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(pname, param0)
+    # Check if the function actually exists
+    f = c.glGetInteger64v
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5277,21 +5046,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetInteger64i_v(target, index, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint,GLint64]
-            cfunc = c.glGetInteger64i_v
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, index, param0)
-        # Check if the function actually exists
-        f = c.glGetInteger64i_v
-        del f
-        loaded[0] += 1
+    def glGetInteger64i_v(target, index, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint, GLint64]
+        cfunc = c.glGetInteger64i_v
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, index, param0)
+    # Check if the function actually exists
+    f = c.glGetInteger64i_v
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5299,21 +5067,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetBufferParameteri64v(target, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLint64]
-            cfunc = c.glGetBufferParameteri64v
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetBufferParameteri64v
-        del f
-        loaded[0] += 1
+    def glGetBufferParameteri64v(target, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLint64]
+        cfunc = c.glGetBufferParameteri64v
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetBufferParameteri64v
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5321,21 +5088,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenSamplers(count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glGenSamplers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(count, param0)
-        # Check if the function actually exists
-        f = c.glGenSamplers
-        del f
-        loaded[0] += 1
+    def glGenSamplers(count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glGenSamplers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(count, param0)
+    # Check if the function actually exists
+    f = c.glGenSamplers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5343,21 +5109,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteSamplers(count, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glDeleteSamplers
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(count, param0)
-        # Check if the function actually exists
-        f = c.glDeleteSamplers
-        del f
-        loaded[0] += 1
+    def glDeleteSamplers(count, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glDeleteSamplers
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(count, param0)
+    # Check if the function actually exists
+    f = c.glDeleteSamplers
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5365,21 +5130,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsSampler(sampler, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsSampler
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sampler)
-        # Check if the function actually exists
-        f = c.glIsSampler
-        del f
-        loaded[0] += 1
+    def glIsSampler(sampler, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsSampler
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sampler)
+    # Check if the function actually exists
+    f = c.glIsSampler
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5387,21 +5151,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindSampler(unit, sampler, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint]
-            cfunc = c.glBindSampler
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(unit, sampler)
-        # Check if the function actually exists
-        f = c.glBindSampler
-        del f
-        loaded[0] += 1
+    def glBindSampler(unit, sampler, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint]
+        cfunc = c.glBindSampler
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(unit, sampler)
+    # Check if the function actually exists
+    f = c.glBindSampler
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5409,21 +5172,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glSamplerParameteri(sampler, pname, param, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLint]
-            cfunc = c.glSamplerParameteri
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sampler, pname, param)
-        # Check if the function actually exists
-        f = c.glSamplerParameteri
-        del f
-        loaded[0] += 1
+    def glSamplerParameteri(sampler, pname, param, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLint]
+        cfunc = c.glSamplerParameteri
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sampler, pname, param)
+    # Check if the function actually exists
+    f = c.glSamplerParameteri
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5431,21 +5193,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glSamplerParameteriv(sampler, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLint]
-            cfunc = c.glSamplerParameteriv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sampler, pname, param0)
-        # Check if the function actually exists
-        f = c.glSamplerParameteriv
-        del f
-        loaded[0] += 1
+    def glSamplerParameteriv(sampler, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLint]
+        cfunc = c.glSamplerParameteriv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sampler, pname, param0)
+    # Check if the function actually exists
+    f = c.glSamplerParameteriv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5453,21 +5214,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glSamplerParameterf(sampler, pname, param, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLfloat]
-            cfunc = c.glSamplerParameterf
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sampler, pname, param)
-        # Check if the function actually exists
-        f = c.glSamplerParameterf
-        del f
-        loaded[0] += 1
+    def glSamplerParameterf(sampler, pname, param, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLfloat]
+        cfunc = c.glSamplerParameterf
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sampler, pname, param)
+    # Check if the function actually exists
+    f = c.glSamplerParameterf
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5475,21 +5235,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glSamplerParameterfv(sampler, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLfloat]
-            cfunc = c.glSamplerParameterfv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sampler, pname, param0)
-        # Check if the function actually exists
-        f = c.glSamplerParameterfv
-        del f
-        loaded[0] += 1
+    def glSamplerParameterfv(sampler, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLfloat]
+        cfunc = c.glSamplerParameterfv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sampler, pname, param0)
+    # Check if the function actually exists
+    f = c.glSamplerParameterfv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5497,21 +5256,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetSamplerParameteriv(sampler, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLint]
-            cfunc = c.glGetSamplerParameteriv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sampler, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetSamplerParameteriv
-        del f
-        loaded[0] += 1
+    def glGetSamplerParameteriv(sampler, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLint]
+        cfunc = c.glGetSamplerParameteriv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sampler, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetSamplerParameteriv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5519,21 +5277,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetSamplerParameterfv(sampler, pname, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLfloat]
-            cfunc = c.glGetSamplerParameterfv
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(sampler, pname, param0)
-        # Check if the function actually exists
-        f = c.glGetSamplerParameterfv
-        del f
-        loaded[0] += 1
+    def glGetSamplerParameterfv(sampler, pname, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLfloat]
+        cfunc = c.glGetSamplerParameterfv
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(sampler, pname, param0)
+    # Check if the function actually exists
+    f = c.glGetSamplerParameterfv
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5541,21 +5298,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glVertexAttribDivisor(index, divisor, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLuint]
-            cfunc = c.glVertexAttribDivisor
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(index, divisor)
-        # Check if the function actually exists
-        f = c.glVertexAttribDivisor
-        del f
-        loaded[0] += 1
+    def glVertexAttribDivisor(index, divisor, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLuint]
+        cfunc = c.glVertexAttribDivisor
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(index, divisor)
+    # Check if the function actually exists
+    f = c.glVertexAttribDivisor
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5563,21 +5319,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glBindTransformFeedback(target, id, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLuint]
-            cfunc = c.glBindTransformFeedback
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, id)
-        # Check if the function actually exists
-        f = c.glBindTransformFeedback
-        del f
-        loaded[0] += 1
+    def glBindTransformFeedback(target, id, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLuint]
+        cfunc = c.glBindTransformFeedback
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, id)
+    # Check if the function actually exists
+    f = c.glBindTransformFeedback
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5585,21 +5340,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glDeleteTransformFeedbacks(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glDeleteTransformFeedbacks
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glDeleteTransformFeedbacks
-        del f
-        loaded[0] += 1
+    def glDeleteTransformFeedbacks(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glDeleteTransformFeedbacks
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glDeleteTransformFeedbacks
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5607,21 +5361,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGenTransformFeedbacks(n, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLsizei,GLuint]
-            cfunc = c.glGenTransformFeedbacks
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(n, param0)
-        # Check if the function actually exists
-        f = c.glGenTransformFeedbacks
-        del f
-        loaded[0] += 1
+    def glGenTransformFeedbacks(n, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLsizei, GLuint]
+        cfunc = c.glGenTransformFeedbacks
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(n, param0)
+    # Check if the function actually exists
+    f = c.glGenTransformFeedbacks
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5629,21 +5382,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glIsTransformFeedback(id, argtypes_p=None):
-            restype = GLboolean
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint]
-            cfunc = c.glIsTransformFeedback
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(id)
-        # Check if the function actually exists
-        f = c.glIsTransformFeedback
-        del f
-        loaded[0] += 1
+    def glIsTransformFeedback(id, argtypes_p=None):
+        restype = GLboolean
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint]
+        cfunc = c.glIsTransformFeedback
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(id)
+    # Check if the function actually exists
+    f = c.glIsTransformFeedback
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5651,21 +5403,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glPauseTransformFeedback(void, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [ctypes.c_void_p]
-            cfunc = c.glPauseTransformFeedback
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(void)
-        # Check if the function actually exists
-        f = c.glPauseTransformFeedback
-        del f
-        loaded[0] += 1
+    def glPauseTransformFeedback(void, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [ctypes.c_void_p]
+        cfunc = c.glPauseTransformFeedback
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(void)
+    # Check if the function actually exists
+    f = c.glPauseTransformFeedback
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5673,21 +5424,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glResumeTransformFeedback(void, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [ctypes.c_void_p]
-            cfunc = c.glResumeTransformFeedback
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(void)
-        # Check if the function actually exists
-        f = c.glResumeTransformFeedback
-        del f
-        loaded[0] += 1
+    def glResumeTransformFeedback(void, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [ctypes.c_void_p]
+        cfunc = c.glResumeTransformFeedback
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(void)
+    # Check if the function actually exists
+    f = c.glResumeTransformFeedback
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5695,21 +5445,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetProgramBinary(program, bufSize, param0, param1, voidbinary, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLsizei,GLsizei,GLenum,ctypes.c_void_p]
-            cfunc = c.glGetProgramBinary
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, bufSize, param0, param1, voidbinary)
-        # Check if the function actually exists
-        f = c.glGetProgramBinary
-        del f
-        loaded[0] += 1
+    def glGetProgramBinary(program, bufSize, param0, param1, voidbinary, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLsizei, GLsizei, GLenum, ctypes.c_void_p]
+        cfunc = c.glGetProgramBinary
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, bufSize, param0, param1, voidbinary)
+    # Check if the function actually exists
+    f = c.glGetProgramBinary
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5717,21 +5466,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glProgramBinary(program, binaryFormat, voidbinary, length, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,ctypes.c_void_p,GLsizei]
-            cfunc = c.glProgramBinary
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, binaryFormat, voidbinary, length)
-        # Check if the function actually exists
-        f = c.glProgramBinary
-        del f
-        loaded[0] += 1
+    def glProgramBinary(program, binaryFormat, voidbinary, length, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, ctypes.c_void_p, GLsizei]
+        cfunc = c.glProgramBinary
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, binaryFormat, voidbinary, length)
+    # Check if the function actually exists
+    f = c.glProgramBinary
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5739,21 +5487,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glProgramParameteri(program, pname, value, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLuint,GLenum,GLint]
-            cfunc = c.glProgramParameteri
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(program, pname, value)
-        # Check if the function actually exists
-        f = c.glProgramParameteri
-        del f
-        loaded[0] += 1
+    def glProgramParameteri(program, pname, value, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLuint, GLenum, GLint]
+        cfunc = c.glProgramParameteri
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(program, pname, value)
+    # Check if the function actually exists
+    f = c.glProgramParameteri
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5761,21 +5508,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glInvalidateFramebuffer(target, numAttachments, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLsizei,GLenum]
-            cfunc = c.glInvalidateFramebuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, numAttachments, param0)
-        # Check if the function actually exists
-        f = c.glInvalidateFramebuffer
-        del f
-        loaded[0] += 1
+    def glInvalidateFramebuffer(target, numAttachments, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLsizei, GLenum]
+        cfunc = c.glInvalidateFramebuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, numAttachments, param0)
+    # Check if the function actually exists
+    f = c.glInvalidateFramebuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5783,21 +5529,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glInvalidateSubFramebuffer(target, numAttachments, param0, x, y, width, height, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLsizei,GLenum,GLint,GLint,GLsizei,GLsizei]
-            cfunc = c.glInvalidateSubFramebuffer
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, numAttachments, param0, x, y, width, height)
-        # Check if the function actually exists
-        f = c.glInvalidateSubFramebuffer
-        del f
-        loaded[0] += 1
+    def glInvalidateSubFramebuffer(target, numAttachments, param0, x, y, width, height, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLsizei, GLenum, GLint, GLint, GLsizei, GLsizei]
+        cfunc = c.glInvalidateSubFramebuffer
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, numAttachments, param0, x, y, width, height)
+    # Check if the function actually exists
+    f = c.glInvalidateSubFramebuffer
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5805,21 +5550,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexStorage2D(target, levels, internalformat, width, height, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLsizei,GLenum,GLsizei,GLsizei]
-            cfunc = c.glTexStorage2D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, levels, internalformat, width, height)
-        # Check if the function actually exists
-        f = c.glTexStorage2D
-        del f
-        loaded[0] += 1
+    def glTexStorage2D(target, levels, internalformat, width, height, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+        cfunc = c.glTexStorage2D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, levels, internalformat, width, height)
+    # Check if the function actually exists
+    f = c.glTexStorage2D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5827,21 +5571,20 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glTexStorage3D(target, levels, internalformat, width, height, depth, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLsizei,GLenum,GLsizei,GLsizei,GLsizei]
-            cfunc = c.glTexStorage3D
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, levels, internalformat, width, height, depth)
-        # Check if the function actually exists
-        f = c.glTexStorage3D
-        del f
-        loaded[0] += 1
+    def glTexStorage3D(target, levels, internalformat, width, height, depth, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei]
+        cfunc = c.glTexStorage3D
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, levels, internalformat, width, height, depth)
+    # Check if the function actually exists
+    f = c.glTexStorage3D
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
@@ -5849,25 +5592,27 @@ except AttributeError as e:
         print e
 
 try:
-
-        def glGetInternalformativ(target, internalformat, pname, bufSize, param0, argtypes_p=None):
-            restype = None
-            if argtypes_p:
-                argtypes = argtypes_p
-            else:
-                argtypes = [GLenum,GLenum,GLenum,GLsizei,GLint]
-            cfunc = c.glGetInternalformativ
-            cfunc.restype = restype
-            cfunc.argtypes = argtypes
-            return cfunc(target, internalformat, pname, bufSize, param0)
-        # Check if the function actually exists
-        f = c.glGetInternalformativ
-        del f
-        loaded[0] += 1
+    def glGetInternalformativ(target, internalformat, pname, bufSize, param0, argtypes_p=None):
+        restype = None
+        if argtypes_p:
+            argtypes = argtypes_p
+        else:
+            argtypes = [GLenum, GLenum, GLenum, GLsizei, GLint]
+        cfunc = c.glGetInternalformativ
+        cfunc.restype = restype
+        cfunc.argtypes = argtypes
+        return cfunc(target, internalformat, pname, bufSize, param0)
+    # Check if the function actually exists
+    f = c.glGetInternalformativ
+    del f
+    loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 1:
         print 'could not load the function'
         print e
 
-print 'Loaded %i functions and failed to load %i functions of %i functions in the header gl3.h' % (loaded[0], loaded[1], sum(loaded))
+print 'Loaded %i functions and failed\n'\
+      'to load %i functions of %i functions in\n'\
+      'the header gl3.h' % (loaded[0], loaded[1], sum(loaded))
+__all__ = [glActiveTexture, glAttachShader, glBindAttribLocation, glBindBuffer, glBindFramebuffer, glBindRenderbuffer, glBindTexture, glBlendColor, glBlendEquation, glBlendEquationSeparate, glBlendFunc, glBlendFuncSeparate, glBufferData, glBufferSubData, glCheckFramebufferStatus, glClear, glClearColor, glClearDepthf, glClearStencil, glColorMask, glCompileShader, glCompressedTexImage2D, glCompressedTexSubImage2D, glCopyTexImage2D, glCopyTexSubImage2D, glCreateProgram, glCreateShader, glCullFace, glDeleteBuffers, glDeleteFramebuffers, glDeleteProgram, glDeleteRenderbuffers, glDeleteShader, glDeleteTextures, glDepthFunc, glDepthMask, glDepthRangef, glDetachShader, glDisable, glDisableVertexAttribArray, glDrawArrays, glDrawElements, glEnable, glEnableVertexAttribArray, glFinish, glFlush, glFramebufferRenderbuffer, glFramebufferTexture2D, glFrontFace, glGenBuffers, glGenerateMipmap, glGenFramebuffers, glGenRenderbuffers, glGenTextures, glGetActiveAttrib, glGetActiveUniform, glGetAttachedShaders, glGetAttribLocation, glGetBooleanv, glGetBufferParameteriv, glGetError, glGetFloatv, glGetFramebufferAttachmentParameteriv, glGetIntegerv, glGetProgramiv, glGetProgramInfoLog, glGetRenderbufferParameteriv, glGetShaderiv, glGetShaderInfoLog, glGetShaderPrecisionFormat, glGetShaderSource, glGetTexParameterfv, glGetTexParameteriv, glGetUniformfv, glGetUniformiv, glGetUniformLocation, glGetVertexAttribfv, glGetVertexAttribiv, glGetVertexAttribPointerv, glHint, glIsBuffer, glIsEnabled, glIsFramebuffer, glIsProgram, glIsRenderbuffer, glIsShader, glIsTexture, glLineWidth, glLinkProgram, glPixelStorei, glPolygonOffset, glReadPixels, glReleaseShaderCompiler, glRenderbufferStorage, glSampleCoverage, glScissor, glShaderBinary, glShaderSource, glStencilFunc, glStencilFuncSeparate, glStencilMask, glStencilMaskSeparate, glStencilOp, glStencilOpSeparate, glTexImage2D, glTexParameterf, glTexParameterfv, glTexParameteri, glTexParameteriv, glTexSubImage2D, glUniform1f, glUniform1fv, glUniform1i, glUniform1iv, glUniform2f, glUniform2fv, glUniform2i, glUniform2iv, glUniform3f, glUniform3fv, glUniform3i, glUniform3iv, glUniform4f, glUniform4fv, glUniform4i, glUniform4iv, glUniformMatrix2fv, glUniformMatrix3fv, glUniformMatrix4fv, glUseProgram, glValidateProgram, glVertexAttrib1f, glVertexAttrib1fv, glVertexAttrib2f, glVertexAttrib2fv, glVertexAttrib3f, glVertexAttrib3fv, glVertexAttrib4f, glVertexAttrib4fv, glVertexAttribPointer, glViewport, glReadBuffer, glDrawRangeElements, glTexImage3D, glTexSubImage3D, glCopyTexSubImage3D, glCompressedTexImage3D, glCompressedTexSubImage3D, glGenQueries, glDeleteQueries, glIsQuery, glBeginQuery, glEndQuery, glGetQueryiv, glGetQueryObjectuiv, glUnmapBuffer, glGetBufferPointerv, glDrawBuffers, glUniformMatrix2x3fv, glUniformMatrix3x2fv, glUniformMatrix2x4fv, glUniformMatrix4x2fv, glUniformMatrix3x4fv, glUniformMatrix4x3fv, glBlitFramebuffer, glRenderbufferStorageMultisample, glFramebufferTextureLayer, glFlushMappedBufferRange, glBindVertexArray, glDeleteVertexArrays, glGenVertexArrays, glIsVertexArray, glGetIntegeri_v, glBeginTransformFeedback, glEndTransformFeedback, glBindBufferRange, glBindBufferBase, glTransformFeedbackVaryings, glGetTransformFeedbackVarying, glVertexAttribIPointer, glGetVertexAttribIiv, glGetVertexAttribIuiv, glVertexAttribI4i, glVertexAttribI4ui, glVertexAttribI4iv, glVertexAttribI4uiv, glGetUniformuiv, glGetFragDataLocation, glUniform1ui, glUniform2ui, glUniform3ui, glUniform4ui, glUniform1uiv, glUniform2uiv, glUniform3uiv, glUniform4uiv, glClearBufferiv, glClearBufferuiv, glClearBufferfv, glClearBufferfi, glCopyBufferSubData, glGetUniformIndices, glGetActiveUniformsiv, glGetUniformBlockIndex, glGetActiveUniformBlockiv, glGetActiveUniformBlockName, glUniformBlockBinding, glDrawArraysInstanced, glDrawElementsInstanced, glGetInteger64v, glGetInteger64i_v, glGetBufferParameteri64v, glGenSamplers, glDeleteSamplers, glIsSampler, glBindSampler, glSamplerParameteri, glSamplerParameteriv, glSamplerParameterf, glSamplerParameterfv, glGetSamplerParameteriv, glGetSamplerParameterfv, glVertexAttribDivisor, glBindTransformFeedback, glDeleteTransformFeedbacks, glGenTransformFeedbacks, glIsTransformFeedback, glPauseTransformFeedback, glResumeTransformFeedback, glGetProgramBinary, glProgramBinary, glProgramParameteri, glInvalidateFramebuffer, glInvalidateSubFramebuffer, glTexStorage2D, glTexStorage3D, glGetInternalformativ]

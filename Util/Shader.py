@@ -12,6 +12,9 @@ class ShaderSource(object):
         self.compiled = False
         self.shader_id = None
         
+    def teardown(self):
+        glDeleteShader(self.shader_id)
+        
     def compile(self):
         shader = glCreateShader(self.shader_type)
         if(shader == 0):
@@ -63,6 +66,16 @@ class ShaderProgram(object):
         self.programObject = None
         self.uniforms = {}
         
+    def teardown(self):
+        glDeleteProgram(self.programObject)
+        if self.vertex:
+            self.vertex.teardown()
+        if self.fragment:
+            self.fragment.teardown()
+        if self.geometry:
+            self.geometry.teardown()
+        print "ShaderProgram deleted"
+        
     def build(self):
         if self.compiled:
             return
@@ -99,10 +112,7 @@ class ShaderProgram(object):
                                     argtypes_p=(GLuint,
                                                 GLuint,
                                                 ctypes.c_char_p * 1024));
-            # Link the program
-            glLinkProgram(programObject);
-            # Check the link status
-            print "Program Linked, Checking status"
+            glLinkProgram(programObject)
             linked = GLint()
             glGetProgramiv(
                             programObject,
@@ -111,12 +121,11 @@ class ShaderProgram(object):
                             argtypes_p=(GLuint,
                                         GLenum,
                                         ctypes.POINTER(GLint)))
-            print "Linked Status in %s" % "success" if linked.value == GL_TRUE else "fail"
+            print "Linked Status: %s" % "success" if linked.value == GL_TRUE else "fail"
             if linked.value == GL_FALSE:
                 infoLen = GLint()
                 glGetProgramiv(programObject, GL_INFO_LOG_LENGTH, ctypes.byref(infoLen))
                 if(infoLen > 1):
-                    print "Info len: ", infoLen.value
                     infoLog = (ctypes.c_char_p * infoLen.value)()
                     glGetProgramInfoLog(
                                         programObject,

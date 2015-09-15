@@ -146,7 +146,7 @@ class GLKView(ui.View):
     def __init__(self, *args, **kwargs):
         ui.View.__init__(self, *args, **kwargs)
         print self.width, self.height
-        self.name = "HELLO WORLD"
+        self.name = "GLKView"
         frame = CGRect(CGPoint(0, 0), CGSize(self.width, self.height))
         flex_width, flex_height = (1<<1), (1<<4)
         self.glview = GLKView_OBJC.alloc().initWithFrame_(frame).autorelease()

@@ -12,3 +12,4 @@
 #reload(gl2ext_c)
 #reload(gl3_c)
 #reload(gl31_c)
+from GLConstants import *

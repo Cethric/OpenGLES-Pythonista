@@ -43,7 +43,7 @@ class XMLModel(OpenGLES.Util.RenderObject):
             verts.append(float(z))
             
         print "Frame '%i' registered" % int(frame["@num"])
-        self.frames[int(frame["@num"])] = (GLES1.GLfloat * len(verts))(*verts)
+        self.frames[int(frame["@num"])] = (ctypes.c_float * len(verts))(*verts)
         
     def render(self, sp):
         sp.uniform4x4("M", list(self.model))
@@ -53,18 +53,17 @@ class XMLModel(OpenGLES.Util.RenderObject):
                                     GLES2.GL_FLOAT,
                                     GLES2.GL_FALSE,
                                     0,
-                                    frame,
+                                    ctypes.pointer(frame),
                                     argtypes_p=(GLES1.GLuint,
                                                 GLES1.GLint,
                                                 GLES1.GLenum,
                                                 GLES1.GLboolean,
                                                 GLES1.GLsizei,
-                                                (GLES1.GLfloat * len(frame))
+                                                ctypes.POINTER((ctypes.c_float * len(frame)))
                                                 )
                                     )
         GLES2.glEnableVertexAttribArray(0)
         GLES2.glDrawArrays(GLES2.GL_TRIANGLES, 0, len(frame) / 3)
-        
             
 
 if __name__ == "__main__":

@@ -2,12 +2,6 @@
 import ctypes
 from objc_util import *
 import math
-try:
-    import cmath
-    HAS_CMATH = True
-except ImportError as e:
-    print e
-    HAS_CMATH = False
 
 from OpenGLES.GLES.gles1 import *
 from OpenGLES.GLES.gles2 import *
@@ -48,7 +42,11 @@ class RenderObject(object):
     def setup_object(self):
         pass
         
+    def teardown(self):
+        pass
+        
     def render(self):
+        print "default render"
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, self.vVertices);
         glEnableVertexAttribArray(0);
         glDrawArrays(GL_TRIANGLES, 0, 12*3);
@@ -57,9 +55,9 @@ class RenderObject(object):
         pass
         
 class LookObject(object):
-    def __init__(self, *args, **kwargs):
-        self._eye = euclid.Vector3(0,1,0)
-        self._look_at = euclid.Vector3(0,5,10)
+    def __init__(self, initial_eye=euclid.Vector3(0,0,0)):
+        self._eye = initial_eye
+        self._look_at = euclid.Vector3(0,0,0)
         self._up = euclid.Vector3(0,1,0)
         self._heading = 0
         self._attitude = 0
@@ -67,6 +65,7 @@ class LookObject(object):
         self.strafe_dir = euclid.Vector3(1,0,0)
         self.strafe = []
         self.speed = 10
+        self.look(0.001, 0.001)
         
     @property
     def view(self):
