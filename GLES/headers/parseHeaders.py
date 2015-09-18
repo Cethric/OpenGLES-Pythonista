@@ -12,7 +12,7 @@ import datetime
 
 headers = ["gl.h", "glext.h", "gl2.h", "gl2ext.h", "gl2platform.h", "gl3.h", "gl31.h", "gl3platform.h"]
 
-VERBOSITY = 0
+VERBOSITY = 2
 
 def download_header_files(force_download=False):
     if not os.path.exists(os.path.join(os.getcwd(), headers[0])) or force_download:
@@ -54,6 +54,7 @@ def build_constants_file():
         f.write("GLubyte = ctypes.c_uint8\n")
         f.write("GLushort = ctypes.c_uint16\n")
         f.write("GLuint = ctypes.c_uint32\n")
+        f.write("GLuint64 = ctypes.c_uint64\n")
         f.write("GLfloat = ctypes.c_float\n")
         f.write("GLclampf = ctypes.c_float\n")
         f.write("GLfixed = ctypes.c_int32\n")
@@ -62,7 +63,9 @@ def build_constants_file():
         f.write("GLclampx = ctypes.c_int\n")
         f.write("void = ctypes.c_void_p\n")
         f.write("GLvoid = ctypes.c_void_p\n")
-        f.write("GLsync = None\n\n")
+        f.write("GLsync = None\n")
+        f.write("GLeglImageOES = void\n")
+        f.write("GLDEBUGPROCKHR = void\n")
 
 def build_gl_header_file():
     for header in headers:
@@ -79,9 +82,11 @@ def build_gl_header_file():
                     constants[name] = "{0:#0{1}x}".format(ast.literal_eval(value),10)
                 except Exception as e:
                     pass
-
-            for name, value in re.findall(r'#typedef\s+(\w+)\s+(.*)', text):
-                print name, value
+            
+            
+            for name, value in re.findall(r'typedef\s+(\w+)\s+(.*)', text):
+                if ('GLeglImageOES' in name) or ('GLeglImageOES' in value):
+                    print 'NAME', name, 'VALUE', value
             
             arg_names = []
             for call, return_type, name, value in re.findall(r'(GL_API|GL_APICALL)'
@@ -100,8 +105,6 @@ def build_gl_header_file():
                                 .replace(" *", "")
                                 .replace("*", "")
                                 .split(" ")[-1] for x in values]
-                        agn2 = copy.deepcopy(agn)
-                        agn2.append('argtypes_p=None')
                     except IndexError as e:
                         if VERBOSITY >= 2:
                             print e
@@ -119,7 +122,7 @@ def build_gl_header_file():
                     for a in agn:
                         if 'GL' in a:
                             agn[agn.index(a)] = 'param%s' % argva
-                            agn2[agn2.index(a)] = 'param%s' % argva
+                            #agn2[agn2.index(a)] = 'param%s' % argva
                             argva += 1
                         if '[' in a and ']' in a:
                             try:
@@ -128,7 +131,7 @@ def build_gl_header_file():
                                 asize = a[lb:rb]
                                 oldcmd = agn[i].strip("[1234567890]")
                                 agn[i] = oldcmd
-                                agn2[i] = oldcmd
+                                #agn2[i] = oldcmd
                                 va[i] = "(%s * %i)" % (va[i], int(asize))
                                 if VERBOSITY >= 1:
                                     print "Limited Array Object Support"
@@ -136,12 +139,15 @@ def build_gl_header_file():
                                 if VERBOSITY >= 2:
                                     print e
                             argva += 1
+                    try:
+                        agn2 = copy.deepcopy(agn)
+                        for i in range(0, len(agn)):
+                            agn2.append('%s_t=%s' % (agn[i], va[i]))
+                    except:
+                        pass
                     func = '''    def {funcname}({arg_names1}):
         restype = {return_type}
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [{argument_types}]
+        argtypes = [{argument_types}]
         cfunc = c.{funcname}
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -155,7 +161,7 @@ def build_gl_header_file():
                                 **{
                                     'funcname': name,
                                     'return_type': return_type,
-                                    'argument_types': ', '.join(va),
+                                    'argument_types': ', '.join(['%s_t' % x for x in agn]),
                                     'arg_names': ', '.join(agn),
                                     'arg_names1': ', '.join(agn2),
                                 })
@@ -174,7 +180,7 @@ def build_gl_header_file():
             f.write("import ctypes\n")
             f.write("from objc_util import *\n")
             f.write("from GLConstants import *\n\n")
-            f.write("DEBUG = 1\n")
+            f.write("DEBUG = 0\n")
             f.write("loaded = [0, 0]\n\n")
             f.write("# GLES Constants\n")
             for k,v in constants.iteritems():
@@ -186,7 +192,7 @@ def build_gl_header_file():
                 f.write("loaded[0] += 1\n")
                 f.write("except AttributeError as e:\n")
                 f.write("    loaded[1] += 1\n")
-                f.write("    if DEBUG > 1:\n")
+                f.write("    if DEBUG > 0:\n")
                 f.write("        print 'could not load the function'\n")
                 f.write("        print e\n\n")
             f.write("print 'Loaded %i functions and failed "
@@ -199,9 +205,10 @@ def build_gl_header_file():
                             'GLbyte', 'GLshort', 'GLint', 'GLint64', 'GLsizei',
                             'GLubyte', 'GLushort', 'GLuint', 'GLfloat', 'GLclampf',
                             'GLfixed', 'GLintptr', 'GLsizeiptr', 'GLclampx', 'void',
-                            'GLvoid', 'GLsync'])
+                            'GLvoid', 'GLsync', 'GLeglImageOES', 'GLDEBUGPROCKHR',
+                            'GLuint64'])
             f.write("__all__ = %s" % str(all_obj))
-        execfile(header.replace(".h", "_c.py"))
+        execfile(header.replace(".h", "_c.py"), {}, {})
         if VERBOSITY >= 0:
             print "Finished parsing header %s" % header
         

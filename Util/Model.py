@@ -43,7 +43,25 @@ class XMLModel(OpenGLES.Util.RenderObject):
             verts.append(float(z))
             
         print "Frame '%i' registered" % int(frame["@num"])
-        self.frames[int(frame["@num"])] = (ctypes.c_float * len(verts))(*verts)
+        self.bind_frame_to_buffer(int(frame["@num"]), verts)
+        
+    def bind_frame_to_buffer(self, frame_id, verts):
+        vertextArray = GLES1.GLuint()
+        vertexBuffer = GLES1.GLuint()
+        print vertexBuffer, vertextArray
+        GLES2.glGenVertexArraysOES(1, ctypes.byref(vertextArray), GLES1.GLsizei, ctypes.POINTER(GLES1.GLuint))
+        GLES2.glBindVertexArrayOES(vertextArray)
+        
+        GLES2.glGenBuffers(1, ctypes.byref(vertexBuffer), GLES1.GLsizei, ctypes.POINTER(GLES1.GLuint))
+        GLES2.glBindBuffer(GLES2.GL_ARRAY_BUFFER, vertexBuffer)
+        GLES2.glBufferData(
+                           GLES2.GL_ARRAY_BUFFER,
+                           len(verts) * ctypes.sizeof(GLES2.GLfloat),
+                           (GLES2.GLfloat * len(verts))(*verts),
+                           GLES2.GL_STATIC_DRAW,
+                           voiddata_t=(GLES2.GLfloat * len(verts)))
+                           
+        self.frames[frame_id] = (ctypes.c_float * len(verts))(*verts)
         
     def render(self, sp):
         sp.uniform4x4("M", list(self.model))
@@ -54,13 +72,12 @@ class XMLModel(OpenGLES.Util.RenderObject):
                                     GLES2.GL_FALSE,
                                     0,
                                     ctypes.pointer(frame),
-                                    argtypes_p=(GLES1.GLuint,
-                                                GLES1.GLint,
-                                                GLES1.GLenum,
-                                                GLES1.GLboolean,
-                                                GLES1.GLsizei,
-                                                ctypes.POINTER((ctypes.c_float * len(frame)))
-                                                )
+                                    GLES1.GLuint,
+                                    GLES1.GLint,
+                                    GLES1.GLenum,
+                                    GLES1.GLboolean,
+                                    GLES1.GLsizei,
+                                    ctypes.POINTER((ctypes.c_float * len(frame)))
                                     )
         GLES2.glEnableVertexAttribArray(0)
         GLES2.glDrawArrays(GLES2.GL_TRIANGLES, 0, len(frame) / 3)

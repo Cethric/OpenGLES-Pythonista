@@ -13,7 +13,9 @@ class ShaderSource(object):
         self.shader_id = None
         
     def teardown(self):
-        glDeleteShader(self.shader_id)
+        if self.shader_id:
+            glDeleteShader(self.shader_id)
+        self.shader_id = None
         
     def compile(self):
         shader = glCreateShader(self.shader_type)
@@ -28,29 +30,28 @@ class ShaderSource(object):
                 GLsizei(1),
                 ca,
                 GLint(0))
-        glShaderSource(*args, argtypes_p=(GLuint, GLsizei, char_arr, GLint))
+        glShaderSource(*args, param0_t=char_arr)
         # Compile the shader
         glCompileShader(shader)
         # Check the compile status
         compiled = GLint(0)
         sargs = (shader, GL_COMPILE_STATUS, ctypes.byref(compiled))
-        glGetShaderiv(*sargs, argtypes_p=(GLuint, GLenum, ctypes.POINTER(GLint)))
+        glGetShaderiv(*sargs, param0_t=ctypes.POINTER(GLint))
         print "%s Shader Compile Status: %s" % ("Vertex" if self.shader_type == GL_VERTEX_SHADER else "Fragment", "success" if compiled.value == GL_TRUE else "fail")
         if(compiled.value == GL_FALSE):
             infoLen = GLint()
-            glGetShaderiv(shader, GL_INFO_LOG_LENGTH, ctypes.byref(infoLen))
+            glGetShaderiv(shader, GL_INFO_LOG_LENGTH, ctypes.byref(infoLen), param0_t=ctypes.POINTER(GLint))
             if(infoLen > 1):
-                print "Info len: ", infoLen.value
                 infoLog = (ctypes.c_char_p * infoLen.value)()
                 glGetShaderInfoLog(
                                     shader,
                                     infoLen.value,
                                     0,
                                     ctypes.byref(infoLog),
-                                    argtypes_p=(GLuint,
-                                                GLsizei,
-                                                GLsizei,
-                                                ctypes.POINTER((ctypes.c_char_p * infoLen.value))))
+                                    GLuint,
+                                    GLsizei,
+                                    GLsizei,
+                                    ctypes.POINTER((ctypes.c_char_p * infoLen.value)))
                 print ctypes.string_at(infoLog)
             glDeleteShader(shader);
             return 0
@@ -67,7 +68,8 @@ class ShaderProgram(object):
         self.uniforms = {}
         
     def teardown(self):
-        glDeleteProgram(self.programObject)
+        if self.programObject:
+            glDeleteProgram(self.programObject)
         if self.vertex:
             self.vertex.teardown()
         if self.fragment:
@@ -77,6 +79,7 @@ class ShaderProgram(object):
         print "ShaderProgram deleted"
         
     def build(self):
+        print "Building Shader"
         if self.compiled:
             return
             
@@ -103,24 +106,24 @@ class ShaderProgram(object):
                 glAttachShader(programObject, self.geometry.shader_id);
             print "Shaders Compiled and Attatched"
             # Bind vPosition to attribute 0
-            attr = (ctypes.c_char_p * 1024)()
-            attr[0] = "vPosition"
+            attr = (GLchar * 8)()
+            attr[:] = "position"
             glBindAttribLocation(
-                                    programObject,
-                                    0,
-                                    attr,
-                                    argtypes_p=(GLuint,
-                                                GLuint,
-                                                ctypes.c_char_p * 1024));
+                                 programObject,
+                                 0,
+                                 attr,
+                                 GLuint,
+                                 GLuint,
+                                 (GLchar * 8))
             glLinkProgram(programObject)
             linked = GLint()
             glGetProgramiv(
                             programObject,
                             GL_LINK_STATUS,
                             ctypes.byref(linked),
-                            argtypes_p=(GLuint,
-                                        GLenum,
-                                        ctypes.POINTER(GLint)))
+                            GLuint,
+                            GLenum,
+                            ctypes.POINTER(GLint))
             print "Linked Status: %s" % "success" if linked.value == GL_TRUE else "fail"
             if linked.value == GL_FALSE:
                 infoLen = GLint()
@@ -132,20 +135,21 @@ class ShaderProgram(object):
                                         infoLen,
                                         0,
                                         ctypes.byref(infoLog),
-                                        argtypes_p=(GLuint,
-                                                    GLsizei,
-                                                    GLsizei,
-                                                    ctypes.POINTER((ctypes.c_char_p * infoLen.value))))
+                                        GLuint,
+                                        GLsizei,
+                                        GLsizei,
+                                        ctypes.POINTER((ctypes.c_char_p * infoLen.value)))
                     print ctypes.string_at(infoLog)
                 glDeleteProgram(programObject);
         self.programObject = programObject
         self.compiled = True
+        print "Done"
         
     def bind(self):
         if self.programObject:
             glUseProgram(self.programObject)
         else:
-            raise ValueError("'ShaderProgram.programObject' is not set. Try running ShaderProgram.build() first")
+            print "'ShaderProgram.programObject' is not set. Try running ShaderProgram.build() first"
             
     def unbind(self):
         glUseProgram(0)
@@ -156,28 +160,24 @@ class ShaderProgram(object):
         else:
             name_c_p = (GLchar * len(name))
             name_c = name_c_p()
-            name_c[0] = name
+            name_c[:] = name
             mid = glGetUniformLocation(
                                        self.programObject,
                                        name_c,
-                                       argtypes_p=(GLuint,
-                                                   name_c_p,
-                                                   )
+                                       GLuint,
+                                       name_c_p,
                                        )
                 
             self.uniforms[name] = mid
             print name, mid
+        if mid == -1:
+            raise AttributeError("Could not find the location of the uniform: '%s'" % name)
         return mid
         
     def uniform4x4(self, name, mat):
         mid = self.uniformLocation(name)
-        if mid == -1:
-            raise AttributeError("Could not find the location of the uniform: '%s'" % name)
         glUniformMatrix4fv(mid,
-                           0,
+                           1,
                            GL_FALSE,
                            (GLfloat * 16)(*mat),
-                           argtypes_p=(GLint,
-                                       GLsizei,
-                                       GLboolean,
-                                       (GLfloat * 16)))
+                           param0_t = (GLfloat * 16))

@@ -23,26 +23,19 @@ from OpenGLES.GLES.gles1 import *
 from OpenGLES.GLES.gles2 import *
 from OpenGLES.Util import Physics
 
-VERTEX_SHADER_SOURCE = '''
-attribute vec3 vPosition;
-uniform mat4 M;
-uniform mat4 V;
-uniform mat4 P;
-void main() {
-    mat4 mvp = P * V * M;
-    vec4 t = vec4(vPosition.xyz, 1);
-    gl_Position = mvp * t;
-}
-'''
+reload(Util)
+reload(GLES)
+reload(OpenGLES.Util.Shader)
+reload(OpenGLES.Util.Model)
 
-FRAGMENT_SHADER_SOURCE = '''
-precision mediump float;
-void main() {
-    gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-}
-'''
-
+with open("shader.vs", "rb") as f:
+    VERTEX_SHADER_SOURCE = f.read()
+    
+with open("shader.fs", "rb") as f:
+    FRAGMENT_SHADER_SOURCE = f.read()
+    
 glviewv = GLKit.GLKView(frame=(0, 0, 800, 600))
+
 
 class PhysicsObject(Util.Model.XMLModel):
     def __init__(self, *args, **kwargs):
@@ -65,6 +58,14 @@ class PhysicsObject(Util.Model.XMLModel):
         self.model = self.get_mat()
         end = time.clock()
         #print end - start
+        
+
+TRIANGLE = [
+    0.0, 0.5, 0.0,
+    -0.5, -0.5, 0.0,
+    0.5, -0.5, 0
+]
+
 
 class Renderer(Util.RenderCycle):
     def __init__(self):
@@ -72,7 +73,8 @@ class Renderer(Util.RenderCycle):
         
         self.objects = []
         #o1 = PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
-        o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(0, 0, 0))
+        #o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(0, 0, 0))
+        o1 = Util.RenderObject(euclid.Vector3(0,0,-0.1), TRIANGLE)
         self.objects.append(o1)
         self.v = Util.Shader.ShaderSource(VERTEX_SHADER_SOURCE, GL_VERTEX_SHADER)
         self.f = Util.Shader.ShaderSource(FRAGMENT_SHADER_SOURCE, GL_FRAGMENT_SHADER)
@@ -82,7 +84,9 @@ class Renderer(Util.RenderCycle):
         
         self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
-    
+        self.view = euclid.Matrix4.new_identity()
+        self.model = euclid.Matrix4.new_identity()
+        
     def setup(self, context):
         if EAGL.setCurrentContext(context):
             print "Setup"
@@ -99,14 +103,14 @@ class Renderer(Util.RenderCycle):
             glViewport(0, 0, int(glviewv.width*2), int(glviewv.height*2))
             
             glClearColor(0.1, 0.12, 0.45, 1.0)
-
         else:
             print "Could not Setup OpenGLES"
         self.last = time.clock()
         
     def teardown(self):
         self.sp.teardown()
-            
+        EAGL.setCurrentContext(None)
+        
     def update(self, dt):
         start = time.clock()
         @on_main_thread
@@ -114,12 +118,12 @@ class Renderer(Util.RenderCycle):
             Physics.step_simulation(dt*10.0, 10)
         # update(dt)
         glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
-        for rObj in self.objects:
-            rObj.update(dt)
-            rObj.model.rotatex(10)
-            
-        self.eye.update(dt)
-        self.view = self.eye.view
+        # for rObj in self.objects:
+        #     rObj.update(dt)
+        #     rObj.model.rotatex(10)
+        self.model.rotatex(10)
+        #self.eye.update(dt)
+        #self.view = self.eye.view
         
         end = time.clock()
         #print end - start
@@ -133,14 +137,25 @@ class Renderer(Util.RenderCycle):
     def render(self, context):
         if EAGL.setCurrentContext(context):
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-            glViewport(0, 0, 800*2, 600*2);
+            glViewport(0, 0, int(glviewv.width*2), int(glviewv.height*2))
             
             self.sp.bind()
             self.sp.uniform4x4("V", list(self.view))
             self.sp.uniform4x4("P", list(self.projection))
-            for rObj in self.objects:
-                rObj.render(self.sp)
-                
+            # for rObj in self.objects:
+            #    rObj.render(self.sp)
+            self.sp.uniform4x4("M", list(self.model))
+            glVertexAttribPointer(
+                                    0,
+                                    3,
+                                    GL_FLOAT,
+                                    GL_FALSE,
+                                    0, 
+                                    (GLfloat * len(TRIANGLE))(*TRIANGLE),
+                                    voidpointer_t=(GLfloat * len(TRIANGLE)))
+            glEnableVertexAttribArray(0)
+            glDrawArrays(GL_TRIANGLES, 0, 3)
+            glDisableVertexAttribArray(0)
         end = time.clock()
         #print (end - self.last) * 100
         self.last = end

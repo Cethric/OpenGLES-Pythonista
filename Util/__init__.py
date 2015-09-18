@@ -45,11 +45,11 @@ class RenderObject(object):
     def teardown(self):
         pass
         
-    def render(self):
-        print "default render"
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, self.vVertices);
+    def render(self, sp):
+        sp.uniform4x4("M", list(self.model))
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, self.vVertices, voidpointer_t=(GLfloat * 9));
         glEnableVertexAttribArray(0);
-        glDrawArrays(GL_TRIANGLES, 0, 12*3);
+        glDrawArrays(GL_TRIANGLES, 0, 3*3);
         
     def update(self, dt):
         pass

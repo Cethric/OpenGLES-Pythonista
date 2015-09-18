@@ -11,6 +11,7 @@ GLsizei = ctypes.c_int32
 GLubyte = ctypes.c_uint8
 GLushort = ctypes.c_uint16
 GLuint = ctypes.c_uint32
+GLuint64 = ctypes.c_uint64
 GLfloat = ctypes.c_float
 GLclampf = ctypes.c_float
 GLfixed = ctypes.c_int32
@@ -20,4 +21,5 @@ GLclampx = ctypes.c_int
 void = ctypes.c_void_p
 GLvoid = ctypes.c_void_p
 GLsync = None
-
+GLeglImageOES = void
+GLDEBUGPROCKHR = void

@@ -1,10 +1,10 @@
 # Generated Files. DO NOT EDIT
-# Generated on: 09/16/15 08:54:00
+# Generated on: 09/19/15 09:14:34
 import ctypes
 from objc_util import *
 from GLConstants import *
 
-DEBUG = 1
+DEBUG = 0
 loaded = [0, 0]
 
 # GLES Constants
@@ -636,12 +636,9 @@ GL_SAMPLES = 0x000080a9
 
 # GL Functions
 try:
-    def glActiveTexture(texture, argtypes_p=None):
+    def glActiveTexture(texture, texture_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [texture_t]
         cfunc = c.glActiveTexture
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -652,17 +649,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glAttachShader(program, shader, argtypes_p=None):
+    def glAttachShader(program, shader, program_t=GLuint, shader_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint]
+        argtypes = [program_t, shader_t]
         cfunc = c.glAttachShader
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -673,17 +667,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindAttribLocation(program, index, param0, argtypes_p=None):
+    def glBindAttribLocation(program, index, param0, program_t=GLuint, index_t=GLuint, param0_t=GLchar):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint, GLchar]
+        argtypes = [program_t, index_t, param0_t]
         cfunc = c.glBindAttribLocation
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -694,17 +685,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindBuffer(target, buffer, argtypes_p=None):
+    def glBindBuffer(target, buffer, target_t=GLenum, buffer_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint]
+        argtypes = [target_t, buffer_t]
         cfunc = c.glBindBuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -715,17 +703,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindFramebuffer(target, framebuffer, argtypes_p=None):
+    def glBindFramebuffer(target, framebuffer, target_t=GLenum, framebuffer_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint]
+        argtypes = [target_t, framebuffer_t]
         cfunc = c.glBindFramebuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -736,17 +721,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindRenderbuffer(target, renderbuffer, argtypes_p=None):
+    def glBindRenderbuffer(target, renderbuffer, target_t=GLenum, renderbuffer_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint]
+        argtypes = [target_t, renderbuffer_t]
         cfunc = c.glBindRenderbuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -757,17 +739,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindTexture(target, texture, argtypes_p=None):
+    def glBindTexture(target, texture, target_t=GLenum, texture_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint]
+        argtypes = [target_t, texture_t]
         cfunc = c.glBindTexture
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -778,17 +757,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBlendColor(red, green, blue, alpha, argtypes_p=None):
+    def glBlendColor(red, green, blue, alpha, red_t=GLfloat, green_t=GLfloat, blue_t=GLfloat, alpha_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLfloat, GLfloat, GLfloat, GLfloat]
+        argtypes = [red_t, green_t, blue_t, alpha_t]
         cfunc = c.glBlendColor
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -799,17 +775,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBlendEquation(mode, argtypes_p=None):
+    def glBlendEquation(mode, mode_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [mode_t]
         cfunc = c.glBlendEquation
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -820,17 +793,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBlendEquationSeparate(modeRGB, modeAlpha, argtypes_p=None):
+    def glBlendEquationSeparate(modeRGB, modeAlpha, modeRGB_t=GLenum, modeAlpha_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum]
+        argtypes = [modeRGB_t, modeAlpha_t]
         cfunc = c.glBlendEquationSeparate
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -841,17 +811,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBlendFunc(sfactor, dfactor, argtypes_p=None):
+    def glBlendFunc(sfactor, dfactor, sfactor_t=GLenum, dfactor_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum]
+        argtypes = [sfactor_t, dfactor_t]
         cfunc = c.glBlendFunc
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -862,17 +829,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, argtypes_p=None):
+    def glBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, sfactorRGB_t=GLenum, dfactorRGB_t=GLenum, sfactorAlpha_t=GLenum, dfactorAlpha_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLenum, GLenum]
+        argtypes = [sfactorRGB_t, dfactorRGB_t, sfactorAlpha_t, dfactorAlpha_t]
         cfunc = c.glBlendFuncSeparate
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -883,17 +847,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBufferData(target, size, voiddata, usage, argtypes_p=None):
+    def glBufferData(target, size, voiddata, usage, target_t=GLenum, size_t=GLsizeiptr, voiddata_t=ctypes.c_void_p, usage_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLsizeiptr, ctypes.c_void_p, GLenum]
+        argtypes = [target_t, size_t, voiddata_t, usage_t]
         cfunc = c.glBufferData
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -904,17 +865,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBufferSubData(target, offset, size, voiddata, argtypes_p=None):
+    def glBufferSubData(target, offset, size, voiddata, target_t=GLenum, offset_t=GLintptr, size_t=GLsizeiptr, voiddata_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLintptr, GLsizeiptr, ctypes.c_void_p]
+        argtypes = [target_t, offset_t, size_t, voiddata_t]
         cfunc = c.glBufferSubData
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -925,17 +883,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCheckFramebufferStatus(target, argtypes_p=None):
+    def glCheckFramebufferStatus(target, target_t=GLenum):
         restype = GLenum
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [target_t]
         cfunc = c.glCheckFramebufferStatus
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -946,17 +901,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glClear(mask, argtypes_p=None):
+    def glClear(mask, mask_t=GLbitfield):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLbitfield]
+        argtypes = [mask_t]
         cfunc = c.glClear
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -967,17 +919,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glClearColor(red, green, blue, alpha, argtypes_p=None):
+    def glClearColor(red, green, blue, alpha, red_t=GLfloat, green_t=GLfloat, blue_t=GLfloat, alpha_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLfloat, GLfloat, GLfloat, GLfloat]
+        argtypes = [red_t, green_t, blue_t, alpha_t]
         cfunc = c.glClearColor
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -988,17 +937,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glClearDepthf(d, argtypes_p=None):
+    def glClearDepthf(d, d_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLfloat]
+        argtypes = [d_t]
         cfunc = c.glClearDepthf
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1009,17 +955,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glClearStencil(s, argtypes_p=None):
+    def glClearStencil(s, s_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint]
+        argtypes = [s_t]
         cfunc = c.glClearStencil
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1030,17 +973,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glColorMask(red, green, blue, alpha, argtypes_p=None):
+    def glColorMask(red, green, blue, alpha, red_t=GLboolean, green_t=GLboolean, blue_t=GLboolean, alpha_t=GLboolean):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLboolean, GLboolean, GLboolean, GLboolean]
+        argtypes = [red_t, green_t, blue_t, alpha_t]
         cfunc = c.glColorMask
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1051,17 +991,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCompileShader(shader, argtypes_p=None):
+    def glCompileShader(shader, shader_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [shader_t]
         cfunc = c.glCompileShader
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1072,17 +1009,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, voiddata, argtypes_p=None):
+    def glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, voiddata, target_t=GLenum, level_t=GLint, internalformat_t=GLenum, width_t=GLsizei, height_t=GLsizei, border_t=GLint, imageSize_t=GLsizei, voiddata_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, ctypes.c_void_p]
+        argtypes = [target_t, level_t, internalformat_t, width_t, height_t, border_t, imageSize_t, voiddata_t]
         cfunc = c.glCompressedTexImage2D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1093,17 +1027,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, voiddata, argtypes_p=None):
+    def glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, voiddata, target_t=GLenum, level_t=GLint, xoffset_t=GLint, yoffset_t=GLint, width_t=GLsizei, height_t=GLsizei, format_t=GLenum, imageSize_t=GLsizei, voiddata_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, ctypes.c_void_p]
+        argtypes = [target_t, level_t, xoffset_t, yoffset_t, width_t, height_t, format_t, imageSize_t, voiddata_t]
         cfunc = c.glCompressedTexSubImage2D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1114,17 +1045,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCopyTexImage2D(target, level, internalformat, x, y, width, height, border, argtypes_p=None):
+    def glCopyTexImage2D(target, level, internalformat, x, y, width, height, border, target_t=GLenum, level_t=GLint, internalformat_t=GLenum, x_t=GLint, y_t=GLint, width_t=GLsizei, height_t=GLsizei, border_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint]
+        argtypes = [target_t, level_t, internalformat_t, x_t, y_t, width_t, height_t, border_t]
         cfunc = c.glCopyTexImage2D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1135,17 +1063,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height, argtypes_p=None):
+    def glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height, target_t=GLenum, level_t=GLint, xoffset_t=GLint, yoffset_t=GLint, x_t=GLint, y_t=GLint, width_t=GLsizei, height_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei]
+        argtypes = [target_t, level_t, xoffset_t, yoffset_t, x_t, y_t, width_t, height_t]
         cfunc = c.glCopyTexSubImage2D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1156,17 +1081,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCreateProgram(void, argtypes_p=None):
+    def glCreateProgram(void, void_t=ctypes.c_void_p):
         restype = GLuint
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [ctypes.c_void_p]
+        argtypes = [void_t]
         cfunc = c.glCreateProgram
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1177,17 +1099,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCreateShader(type, argtypes_p=None):
+    def glCreateShader(type, type_t=GLenum):
         restype = GLuint
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [type_t]
         cfunc = c.glCreateShader
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1198,17 +1117,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCullFace(mode, argtypes_p=None):
+    def glCullFace(mode, mode_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [mode_t]
         cfunc = c.glCullFace
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1219,17 +1135,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteBuffers(n, param0, argtypes_p=None):
+    def glDeleteBuffers(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glDeleteBuffers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1240,17 +1153,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteFramebuffers(n, param0, argtypes_p=None):
+    def glDeleteFramebuffers(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glDeleteFramebuffers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1261,17 +1171,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteProgram(program, argtypes_p=None):
+    def glDeleteProgram(program, program_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [program_t]
         cfunc = c.glDeleteProgram
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1282,17 +1189,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteRenderbuffers(n, param0, argtypes_p=None):
+    def glDeleteRenderbuffers(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glDeleteRenderbuffers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1303,17 +1207,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteShader(shader, argtypes_p=None):
+    def glDeleteShader(shader, shader_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [shader_t]
         cfunc = c.glDeleteShader
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1324,17 +1225,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteTextures(n, param0, argtypes_p=None):
+    def glDeleteTextures(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glDeleteTextures
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1345,17 +1243,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDepthFunc(func, argtypes_p=None):
+    def glDepthFunc(func, func_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [func_t]
         cfunc = c.glDepthFunc
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1366,17 +1261,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDepthMask(flag, argtypes_p=None):
+    def glDepthMask(flag, flag_t=GLboolean):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLboolean]
+        argtypes = [flag_t]
         cfunc = c.glDepthMask
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1387,17 +1279,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDepthRangef(n, f, argtypes_p=None):
+    def glDepthRangef(n, f, n_t=GLfloat, f_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLfloat, GLfloat]
+        argtypes = [n_t, f_t]
         cfunc = c.glDepthRangef
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1408,17 +1297,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDetachShader(program, shader, argtypes_p=None):
+    def glDetachShader(program, shader, program_t=GLuint, shader_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint]
+        argtypes = [program_t, shader_t]
         cfunc = c.glDetachShader
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1429,17 +1315,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDisable(cap, argtypes_p=None):
+    def glDisable(cap, cap_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [cap_t]
         cfunc = c.glDisable
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1450,17 +1333,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDisableVertexAttribArray(index, argtypes_p=None):
+    def glDisableVertexAttribArray(index, index_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [index_t]
         cfunc = c.glDisableVertexAttribArray
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1471,17 +1351,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDrawArrays(mode, first, count, argtypes_p=None):
+    def glDrawArrays(mode, first, count, mode_t=GLenum, first_t=GLint, count_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLsizei]
+        argtypes = [mode_t, first_t, count_t]
         cfunc = c.glDrawArrays
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1492,17 +1369,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDrawElements(mode, count, type, voidindices, argtypes_p=None):
+    def glDrawElements(mode, count, type, voidindices, mode_t=GLenum, count_t=GLsizei, type_t=GLenum, voidindices_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p]
+        argtypes = [mode_t, count_t, type_t, voidindices_t]
         cfunc = c.glDrawElements
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1513,17 +1387,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glEnable(cap, argtypes_p=None):
+    def glEnable(cap, cap_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [cap_t]
         cfunc = c.glEnable
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1534,17 +1405,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glEnableVertexAttribArray(index, argtypes_p=None):
+    def glEnableVertexAttribArray(index, index_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [index_t]
         cfunc = c.glEnableVertexAttribArray
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1555,17 +1423,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glFinish(void, argtypes_p=None):
+    def glFinish(void, void_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [ctypes.c_void_p]
+        argtypes = [void_t]
         cfunc = c.glFinish
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1576,17 +1441,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glFlush(void, argtypes_p=None):
+    def glFlush(void, void_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [ctypes.c_void_p]
+        argtypes = [void_t]
         cfunc = c.glFlush
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1597,17 +1459,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, argtypes_p=None):
+    def glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, target_t=GLenum, attachment_t=GLenum, renderbuffertarget_t=GLenum, renderbuffer_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLenum, GLuint]
+        argtypes = [target_t, attachment_t, renderbuffertarget_t, renderbuffer_t]
         cfunc = c.glFramebufferRenderbuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1618,17 +1477,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glFramebufferTexture2D(target, attachment, textarget, texture, level, argtypes_p=None):
+    def glFramebufferTexture2D(target, attachment, textarget, texture, level, target_t=GLenum, attachment_t=GLenum, textarget_t=GLenum, texture_t=GLuint, level_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLenum, GLuint, GLint]
+        argtypes = [target_t, attachment_t, textarget_t, texture_t, level_t]
         cfunc = c.glFramebufferTexture2D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1639,17 +1495,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glFrontFace(mode, argtypes_p=None):
+    def glFrontFace(mode, mode_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [mode_t]
         cfunc = c.glFrontFace
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1660,17 +1513,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenBuffers(n, param0, argtypes_p=None):
+    def glGenBuffers(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glGenBuffers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1681,17 +1531,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenerateMipmap(target, argtypes_p=None):
+    def glGenerateMipmap(target, target_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [target_t]
         cfunc = c.glGenerateMipmap
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1702,17 +1549,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenFramebuffers(n, param0, argtypes_p=None):
+    def glGenFramebuffers(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glGenFramebuffers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1723,17 +1567,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenRenderbuffers(n, param0, argtypes_p=None):
+    def glGenRenderbuffers(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glGenRenderbuffers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1744,17 +1585,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenTextures(n, param0, argtypes_p=None):
+    def glGenTextures(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glGenTextures
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1765,17 +1603,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetActiveAttrib(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
+    def glGetActiveAttrib(program, index, bufSize, param0, param1, param2, param3, program_t=GLuint, index_t=GLuint, bufSize_t=GLsizei, param0_t=GLsizei, param1_t=GLint, param2_t=GLenum, param3_t=GLchar):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLint, GLenum, GLchar]
+        argtypes = [program_t, index_t, bufSize_t, param0_t, param1_t, param2_t, param3_t]
         cfunc = c.glGetActiveAttrib
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1786,17 +1621,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetActiveUniform(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
+    def glGetActiveUniform(program, index, bufSize, param0, param1, param2, param3, program_t=GLuint, index_t=GLuint, bufSize_t=GLsizei, param0_t=GLsizei, param1_t=GLint, param2_t=GLenum, param3_t=GLchar):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLint, GLenum, GLchar]
+        argtypes = [program_t, index_t, bufSize_t, param0_t, param1_t, param2_t, param3_t]
         cfunc = c.glGetActiveUniform
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1807,17 +1639,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetAttachedShaders(program, maxCount, param0, param1, argtypes_p=None):
+    def glGetAttachedShaders(program, maxCount, param0, param1, program_t=GLuint, maxCount_t=GLsizei, param0_t=GLsizei, param1_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLsizei, GLuint]
+        argtypes = [program_t, maxCount_t, param0_t, param1_t]
         cfunc = c.glGetAttachedShaders
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1828,17 +1657,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetAttribLocation(program, param0, argtypes_p=None):
+    def glGetAttribLocation(program, param0, program_t=GLuint, param0_t=GLchar):
         restype = GLint
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLchar]
+        argtypes = [program_t, param0_t]
         cfunc = c.glGetAttribLocation
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1849,17 +1675,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetBooleanv(pname, param0, argtypes_p=None):
+    def glGetBooleanv(pname, param0, pname_t=GLenum, param0_t=GLboolean):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLboolean]
+        argtypes = [pname_t, param0_t]
         cfunc = c.glGetBooleanv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1870,17 +1693,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetBufferParameteriv(target, pname, param0, argtypes_p=None):
+    def glGetBufferParameteriv(target, pname, param0, target_t=GLenum, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint]
+        argtypes = [target_t, pname_t, param0_t]
         cfunc = c.glGetBufferParameteriv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1891,17 +1711,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetError(void, argtypes_p=None):
+    def glGetError(void, void_t=ctypes.c_void_p):
         restype = GLenum
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [ctypes.c_void_p]
+        argtypes = [void_t]
         cfunc = c.glGetError
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1912,17 +1729,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetFloatv(pname, param0, argtypes_p=None):
+    def glGetFloatv(pname, param0, pname_t=GLenum, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLfloat]
+        argtypes = [pname_t, param0_t]
         cfunc = c.glGetFloatv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1933,17 +1747,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetFramebufferAttachmentParameteriv(target, attachment, pname, param0, argtypes_p=None):
+    def glGetFramebufferAttachmentParameteriv(target, attachment, pname, param0, target_t=GLenum, attachment_t=GLenum, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLenum, GLint]
+        argtypes = [target_t, attachment_t, pname_t, param0_t]
         cfunc = c.glGetFramebufferAttachmentParameteriv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1954,17 +1765,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetIntegerv(pname, param0, argtypes_p=None):
+    def glGetIntegerv(pname, param0, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint]
+        argtypes = [pname_t, param0_t]
         cfunc = c.glGetIntegerv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1975,17 +1783,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetProgramiv(program, pname, param0, argtypes_p=None):
+    def glGetProgramiv(program, pname, param0, program_t=GLuint, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLint]
+        argtypes = [program_t, pname_t, param0_t]
         cfunc = c.glGetProgramiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -1996,17 +1801,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetProgramInfoLog(program, bufSize, param0, param1, argtypes_p=None):
+    def glGetProgramInfoLog(program, bufSize, param0, param1, program_t=GLuint, bufSize_t=GLsizei, param0_t=GLsizei, param1_t=GLchar):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+        argtypes = [program_t, bufSize_t, param0_t, param1_t]
         cfunc = c.glGetProgramInfoLog
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2017,17 +1819,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetRenderbufferParameteriv(target, pname, param0, argtypes_p=None):
+    def glGetRenderbufferParameteriv(target, pname, param0, target_t=GLenum, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint]
+        argtypes = [target_t, pname_t, param0_t]
         cfunc = c.glGetRenderbufferParameteriv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2038,17 +1837,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetShaderiv(shader, pname, param0, argtypes_p=None):
+    def glGetShaderiv(shader, pname, param0, shader_t=GLuint, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLint]
+        argtypes = [shader_t, pname_t, param0_t]
         cfunc = c.glGetShaderiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2059,17 +1855,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetShaderInfoLog(shader, bufSize, param0, param1, argtypes_p=None):
+    def glGetShaderInfoLog(shader, bufSize, param0, param1, shader_t=GLuint, bufSize_t=GLsizei, param0_t=GLsizei, param1_t=GLchar):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+        argtypes = [shader_t, bufSize_t, param0_t, param1_t]
         cfunc = c.glGetShaderInfoLog
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2080,17 +1873,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetShaderPrecisionFormat(shadertype, precisiontype, param0, param1, argtypes_p=None):
+    def glGetShaderPrecisionFormat(shadertype, precisiontype, param0, param1, shadertype_t=GLenum, precisiontype_t=GLenum, param0_t=GLint, param1_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint, GLint]
+        argtypes = [shadertype_t, precisiontype_t, param0_t, param1_t]
         cfunc = c.glGetShaderPrecisionFormat
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2101,17 +1891,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetShaderSource(shader, bufSize, param0, param1, argtypes_p=None):
+    def glGetShaderSource(shader, bufSize, param0, param1, shader_t=GLuint, bufSize_t=GLsizei, param0_t=GLsizei, param1_t=GLchar):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLsizei, GLchar]
+        argtypes = [shader_t, bufSize_t, param0_t, param1_t]
         cfunc = c.glGetShaderSource
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2122,17 +1909,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetTexParameterfv(target, pname, param0, argtypes_p=None):
+    def glGetTexParameterfv(target, pname, param0, target_t=GLenum, pname_t=GLenum, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLfloat]
+        argtypes = [target_t, pname_t, param0_t]
         cfunc = c.glGetTexParameterfv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2143,17 +1927,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetTexParameteriv(target, pname, param0, argtypes_p=None):
+    def glGetTexParameteriv(target, pname, param0, target_t=GLenum, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint]
+        argtypes = [target_t, pname_t, param0_t]
         cfunc = c.glGetTexParameteriv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2164,17 +1945,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetUniformfv(program, location, param0, argtypes_p=None):
+    def glGetUniformfv(program, location, param0, program_t=GLuint, location_t=GLint, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLint, GLfloat]
+        argtypes = [program_t, location_t, param0_t]
         cfunc = c.glGetUniformfv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2185,17 +1963,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetUniformiv(program, location, param0, argtypes_p=None):
+    def glGetUniformiv(program, location, param0, program_t=GLuint, location_t=GLint, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLint, GLint]
+        argtypes = [program_t, location_t, param0_t]
         cfunc = c.glGetUniformiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2206,17 +1981,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetUniformLocation(program, param0, argtypes_p=None):
+    def glGetUniformLocation(program, param0, program_t=GLuint, param0_t=GLchar):
         restype = GLint
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLchar]
+        argtypes = [program_t, param0_t]
         cfunc = c.glGetUniformLocation
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2227,17 +1999,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetVertexAttribfv(index, pname, param0, argtypes_p=None):
+    def glGetVertexAttribfv(index, pname, param0, index_t=GLuint, pname_t=GLenum, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLfloat]
+        argtypes = [index_t, pname_t, param0_t]
         cfunc = c.glGetVertexAttribfv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2248,17 +2017,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetVertexAttribiv(index, pname, param0, argtypes_p=None):
+    def glGetVertexAttribiv(index, pname, param0, index_t=GLuint, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLint]
+        argtypes = [index_t, pname_t, param0_t]
         cfunc = c.glGetVertexAttribiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2269,17 +2035,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetVertexAttribPointerv(index, pname, voidpointer, argtypes_p=None):
+    def glGetVertexAttribPointerv(index, pname, voidpointer, index_t=GLuint, pname_t=GLenum, voidpointer_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, ctypes.c_void_p]
+        argtypes = [index_t, pname_t, voidpointer_t]
         cfunc = c.glGetVertexAttribPointerv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2290,17 +2053,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glHint(target, mode, argtypes_p=None):
+    def glHint(target, mode, target_t=GLenum, mode_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum]
+        argtypes = [target_t, mode_t]
         cfunc = c.glHint
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2311,17 +2071,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsBuffer(buffer, argtypes_p=None):
+    def glIsBuffer(buffer, buffer_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [buffer_t]
         cfunc = c.glIsBuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2332,17 +2089,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsEnabled(cap, argtypes_p=None):
+    def glIsEnabled(cap, cap_t=GLenum):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [cap_t]
         cfunc = c.glIsEnabled
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2353,17 +2107,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsFramebuffer(framebuffer, argtypes_p=None):
+    def glIsFramebuffer(framebuffer, framebuffer_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [framebuffer_t]
         cfunc = c.glIsFramebuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2374,17 +2125,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsProgram(program, argtypes_p=None):
+    def glIsProgram(program, program_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [program_t]
         cfunc = c.glIsProgram
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2395,17 +2143,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsRenderbuffer(renderbuffer, argtypes_p=None):
+    def glIsRenderbuffer(renderbuffer, renderbuffer_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [renderbuffer_t]
         cfunc = c.glIsRenderbuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2416,17 +2161,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsShader(shader, argtypes_p=None):
+    def glIsShader(shader, shader_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [shader_t]
         cfunc = c.glIsShader
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2437,17 +2179,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsTexture(texture, argtypes_p=None):
+    def glIsTexture(texture, texture_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [texture_t]
         cfunc = c.glIsTexture
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2458,17 +2197,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glLineWidth(width, argtypes_p=None):
+    def glLineWidth(width, width_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLfloat]
+        argtypes = [width_t]
         cfunc = c.glLineWidth
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2479,17 +2215,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glLinkProgram(program, argtypes_p=None):
+    def glLinkProgram(program, program_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [program_t]
         cfunc = c.glLinkProgram
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2500,17 +2233,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glPixelStorei(pname, param, argtypes_p=None):
+    def glPixelStorei(pname, param, pname_t=GLenum, param_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint]
+        argtypes = [pname_t, param_t]
         cfunc = c.glPixelStorei
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2521,17 +2251,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glPolygonOffset(factor, units, argtypes_p=None):
+    def glPolygonOffset(factor, units, factor_t=GLfloat, units_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLfloat, GLfloat]
+        argtypes = [factor_t, units_t]
         cfunc = c.glPolygonOffset
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2542,17 +2269,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glReadPixels(x, y, width, height, format, type, voidpixels, argtypes_p=None):
+    def glReadPixels(x, y, width, height, format, type, voidpixels, x_t=GLint, y_t=GLint, width_t=GLsizei, height_t=GLsizei, format_t=GLenum, type_t=GLenum, voidpixels_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+        argtypes = [x_t, y_t, width_t, height_t, format_t, type_t, voidpixels_t]
         cfunc = c.glReadPixels
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2563,17 +2287,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glReleaseShaderCompiler(void, argtypes_p=None):
+    def glReleaseShaderCompiler(void, void_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [ctypes.c_void_p]
+        argtypes = [void_t]
         cfunc = c.glReleaseShaderCompiler
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2584,17 +2305,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glRenderbufferStorage(target, internalformat, width, height, argtypes_p=None):
+    def glRenderbufferStorage(target, internalformat, width, height, target_t=GLenum, internalformat_t=GLenum, width_t=GLsizei, height_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLsizei, GLsizei]
+        argtypes = [target_t, internalformat_t, width_t, height_t]
         cfunc = c.glRenderbufferStorage
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2605,17 +2323,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glSampleCoverage(value, invert, argtypes_p=None):
+    def glSampleCoverage(value, invert, value_t=GLfloat, invert_t=GLboolean):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLfloat, GLboolean]
+        argtypes = [value_t, invert_t]
         cfunc = c.glSampleCoverage
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2626,17 +2341,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glScissor(x, y, width, height, argtypes_p=None):
+    def glScissor(x, y, width, height, x_t=GLint, y_t=GLint, width_t=GLsizei, height_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLint, GLsizei, GLsizei]
+        argtypes = [x_t, y_t, width_t, height_t]
         cfunc = c.glScissor
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2647,17 +2359,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glShaderBinary(count, param0, binaryformat, voidbinary, length, argtypes_p=None):
+    def glShaderBinary(count, param0, binaryformat, voidbinary, length, count_t=GLsizei, param0_t=GLuint, binaryformat_t=GLenum, voidbinary_t=ctypes.c_void_p, length_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint, GLenum, ctypes.c_void_p, GLsizei]
+        argtypes = [count_t, param0_t, binaryformat_t, voidbinary_t, length_t]
         cfunc = c.glShaderBinary
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2668,17 +2377,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glShaderSource(shader, count, param0, param1, argtypes_p=None):
+    def glShaderSource(shader, count, param0, param1, shader_t=GLuint, count_t=GLsizei, param0_t=GLchar, param1_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLchar, GLint]
+        argtypes = [shader_t, count_t, param0_t, param1_t]
         cfunc = c.glShaderSource
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2689,17 +2395,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glStencilFunc(func, ref, mask, argtypes_p=None):
+    def glStencilFunc(func, ref, mask, func_t=GLenum, ref_t=GLint, mask_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLuint]
+        argtypes = [func_t, ref_t, mask_t]
         cfunc = c.glStencilFunc
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2710,17 +2413,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glStencilFuncSeparate(face, func, ref, mask, argtypes_p=None):
+    def glStencilFuncSeparate(face, func, ref, mask, face_t=GLenum, func_t=GLenum, ref_t=GLint, mask_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint, GLuint]
+        argtypes = [face_t, func_t, ref_t, mask_t]
         cfunc = c.glStencilFuncSeparate
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2731,17 +2431,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glStencilMask(mask, argtypes_p=None):
+    def glStencilMask(mask, mask_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [mask_t]
         cfunc = c.glStencilMask
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2752,17 +2449,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glStencilMaskSeparate(face, mask, argtypes_p=None):
+    def glStencilMaskSeparate(face, mask, face_t=GLenum, mask_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint]
+        argtypes = [face_t, mask_t]
         cfunc = c.glStencilMaskSeparate
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2773,17 +2467,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glStencilOp(fail, zfail, zpass, argtypes_p=None):
+    def glStencilOp(fail, zfail, zpass, fail_t=GLenum, zfail_t=GLenum, zpass_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLenum]
+        argtypes = [fail_t, zfail_t, zpass_t]
         cfunc = c.glStencilOp
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2794,17 +2485,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glStencilOpSeparate(face, sfail, dpfail, dppass, argtypes_p=None):
+    def glStencilOpSeparate(face, sfail, dpfail, dppass, face_t=GLenum, sfail_t=GLenum, dpfail_t=GLenum, dppass_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLenum, GLenum]
+        argtypes = [face_t, sfail_t, dpfail_t, dppass_t]
         cfunc = c.glStencilOpSeparate
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2815,17 +2503,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexImage2D(target, level, internalformat, width, height, border, format, type, voidpixels, argtypes_p=None):
+    def glTexImage2D(target, level, internalformat, width, height, border, format, type, voidpixels, target_t=GLenum, level_t=GLint, internalformat_t=GLint, width_t=GLsizei, height_t=GLsizei, border_t=GLint, format_t=GLenum, type_t=GLenum, voidpixels_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, ctypes.c_void_p]
+        argtypes = [target_t, level_t, internalformat_t, width_t, height_t, border_t, format_t, type_t, voidpixels_t]
         cfunc = c.glTexImage2D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2836,17 +2521,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexParameterf(target, pname, param, argtypes_p=None):
+    def glTexParameterf(target, pname, param, target_t=GLenum, pname_t=GLenum, param_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLfloat]
+        argtypes = [target_t, pname_t, param_t]
         cfunc = c.glTexParameterf
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2857,17 +2539,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexParameterfv(target, pname, param0, argtypes_p=None):
+    def glTexParameterfv(target, pname, param0, target_t=GLenum, pname_t=GLenum, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLfloat]
+        argtypes = [target_t, pname_t, param0_t]
         cfunc = c.glTexParameterfv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2878,17 +2557,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexParameteri(target, pname, param, argtypes_p=None):
+    def glTexParameteri(target, pname, param, target_t=GLenum, pname_t=GLenum, param_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint]
+        argtypes = [target_t, pname_t, param_t]
         cfunc = c.glTexParameteri
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2899,17 +2575,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexParameteriv(target, pname, param0, argtypes_p=None):
+    def glTexParameteriv(target, pname, param0, target_t=GLenum, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint]
+        argtypes = [target_t, pname_t, param0_t]
         cfunc = c.glTexParameteriv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2920,17 +2593,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, voidpixels, argtypes_p=None):
+    def glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, voidpixels, target_t=GLenum, level_t=GLint, xoffset_t=GLint, yoffset_t=GLint, width_t=GLsizei, height_t=GLsizei, format_t=GLenum, type_t=GLenum, voidpixels_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+        argtypes = [target_t, level_t, xoffset_t, yoffset_t, width_t, height_t, format_t, type_t, voidpixels_t]
         cfunc = c.glTexSubImage2D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2941,17 +2611,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform1f(location, v0, argtypes_p=None):
+    def glUniform1f(location, v0, location_t=GLint, v0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLfloat]
+        argtypes = [location_t, v0_t]
         cfunc = c.glUniform1f
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2962,17 +2629,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform1fv(location, count, param0, argtypes_p=None):
+    def glUniform1fv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLfloat]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform1fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -2983,17 +2647,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform1i(location, v0, argtypes_p=None):
+    def glUniform1i(location, v0, location_t=GLint, v0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLint]
+        argtypes = [location_t, v0_t]
         cfunc = c.glUniform1i
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3004,17 +2665,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform1iv(location, count, param0, argtypes_p=None):
+    def glUniform1iv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLint]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform1iv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3025,17 +2683,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform2f(location, v0, v1, argtypes_p=None):
+    def glUniform2f(location, v0, v1, location_t=GLint, v0_t=GLfloat, v1_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLfloat, GLfloat]
+        argtypes = [location_t, v0_t, v1_t]
         cfunc = c.glUniform2f
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3046,17 +2701,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform2fv(location, count, param0, argtypes_p=None):
+    def glUniform2fv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLfloat]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform2fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3067,17 +2719,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform2i(location, v0, v1, argtypes_p=None):
+    def glUniform2i(location, v0, v1, location_t=GLint, v0_t=GLint, v1_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLint, GLint]
+        argtypes = [location_t, v0_t, v1_t]
         cfunc = c.glUniform2i
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3088,17 +2737,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform2iv(location, count, param0, argtypes_p=None):
+    def glUniform2iv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLint]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform2iv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3109,17 +2755,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform3f(location, v0, v1, v2, argtypes_p=None):
+    def glUniform3f(location, v0, v1, v2, location_t=GLint, v0_t=GLfloat, v1_t=GLfloat, v2_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLfloat, GLfloat, GLfloat]
+        argtypes = [location_t, v0_t, v1_t, v2_t]
         cfunc = c.glUniform3f
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3130,17 +2773,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform3fv(location, count, param0, argtypes_p=None):
+    def glUniform3fv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLfloat]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform3fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3151,17 +2791,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform3i(location, v0, v1, v2, argtypes_p=None):
+    def glUniform3i(location, v0, v1, v2, location_t=GLint, v0_t=GLint, v1_t=GLint, v2_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLint, GLint, GLint]
+        argtypes = [location_t, v0_t, v1_t, v2_t]
         cfunc = c.glUniform3i
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3172,17 +2809,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform3iv(location, count, param0, argtypes_p=None):
+    def glUniform3iv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLint]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform3iv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3193,17 +2827,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform4f(location, v0, v1, v2, v3, argtypes_p=None):
+    def glUniform4f(location, v0, v1, v2, v3, location_t=GLint, v0_t=GLfloat, v1_t=GLfloat, v2_t=GLfloat, v3_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLfloat, GLfloat, GLfloat, GLfloat]
+        argtypes = [location_t, v0_t, v1_t, v2_t, v3_t]
         cfunc = c.glUniform4f
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3214,17 +2845,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform4fv(location, count, param0, argtypes_p=None):
+    def glUniform4fv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLfloat]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform4fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3235,17 +2863,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform4i(location, v0, v1, v2, v3, argtypes_p=None):
+    def glUniform4i(location, v0, v1, v2, v3, location_t=GLint, v0_t=GLint, v1_t=GLint, v2_t=GLint, v3_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLint, GLint, GLint, GLint]
+        argtypes = [location_t, v0_t, v1_t, v2_t, v3_t]
         cfunc = c.glUniform4i
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3256,17 +2881,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform4iv(location, count, param0, argtypes_p=None):
+    def glUniform4iv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLint]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform4iv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3277,17 +2899,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix2fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix2fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix2fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3298,17 +2917,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix3fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix3fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix3fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3319,17 +2935,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix4fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix4fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix4fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3340,17 +2953,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUseProgram(program, argtypes_p=None):
+    def glUseProgram(program, program_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [program_t]
         cfunc = c.glUseProgram
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3361,17 +2971,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glValidateProgram(program, argtypes_p=None):
+    def glValidateProgram(program, program_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [program_t]
         cfunc = c.glValidateProgram
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3382,17 +2989,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttrib1f(index, x, argtypes_p=None):
+    def glVertexAttrib1f(index, x, index_t=GLuint, x_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLfloat]
+        argtypes = [index_t, x_t]
         cfunc = c.glVertexAttrib1f
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3403,17 +3007,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttrib1fv(index, param0, argtypes_p=None):
+    def glVertexAttrib1fv(index, param0, index_t=GLuint, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLfloat]
+        argtypes = [index_t, param0_t]
         cfunc = c.glVertexAttrib1fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3424,17 +3025,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttrib2f(index, x, y, argtypes_p=None):
+    def glVertexAttrib2f(index, x, y, index_t=GLuint, x_t=GLfloat, y_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLfloat, GLfloat]
+        argtypes = [index_t, x_t, y_t]
         cfunc = c.glVertexAttrib2f
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3445,17 +3043,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttrib2fv(index, param0, argtypes_p=None):
+    def glVertexAttrib2fv(index, param0, index_t=GLuint, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLfloat]
+        argtypes = [index_t, param0_t]
         cfunc = c.glVertexAttrib2fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3466,17 +3061,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttrib3f(index, x, y, z, argtypes_p=None):
+    def glVertexAttrib3f(index, x, y, z, index_t=GLuint, x_t=GLfloat, y_t=GLfloat, z_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLfloat, GLfloat, GLfloat]
+        argtypes = [index_t, x_t, y_t, z_t]
         cfunc = c.glVertexAttrib3f
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3487,17 +3079,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttrib3fv(index, param0, argtypes_p=None):
+    def glVertexAttrib3fv(index, param0, index_t=GLuint, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLfloat]
+        argtypes = [index_t, param0_t]
         cfunc = c.glVertexAttrib3fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3508,17 +3097,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttrib4f(index, x, y, z, w, argtypes_p=None):
+    def glVertexAttrib4f(index, x, y, z, w, index_t=GLuint, x_t=GLfloat, y_t=GLfloat, z_t=GLfloat, w_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLfloat, GLfloat, GLfloat, GLfloat]
+        argtypes = [index_t, x_t, y_t, z_t, w_t]
         cfunc = c.glVertexAttrib4f
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3529,17 +3115,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttrib4fv(index, param0, argtypes_p=None):
+    def glVertexAttrib4fv(index, param0, index_t=GLuint, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLfloat]
+        argtypes = [index_t, param0_t]
         cfunc = c.glVertexAttrib4fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3550,17 +3133,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttribPointer(index, size, type, normalized, stride, voidpointer, argtypes_p=None):
+    def glVertexAttribPointer(index, size, type, normalized, stride, voidpointer, index_t=GLuint, size_t=GLint, type_t=GLenum, normalized_t=GLboolean, stride_t=GLsizei, voidpointer_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLint, GLenum, GLboolean, GLsizei, ctypes.c_void_p]
+        argtypes = [index_t, size_t, type_t, normalized_t, stride_t, voidpointer_t]
         cfunc = c.glVertexAttribPointer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3571,17 +3151,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glViewport(x, y, width, height, argtypes_p=None):
+    def glViewport(x, y, width, height, x_t=GLint, y_t=GLint, width_t=GLsizei, height_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLint, GLsizei, GLsizei]
+        argtypes = [x_t, y_t, width_t, height_t]
         cfunc = c.glViewport
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3592,17 +3169,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glReadBuffer(src, argtypes_p=None):
+    def glReadBuffer(src, src_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [src_t]
         cfunc = c.glReadBuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3613,17 +3187,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDrawRangeElements(mode, start, end, count, type, voidindices, argtypes_p=None):
+    def glDrawRangeElements(mode, start, end, count, type, voidindices, mode_t=GLenum, start_t=GLuint, end_t=GLuint, count_t=GLsizei, type_t=GLenum, voidindices_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint, GLuint, GLsizei, GLenum, ctypes.c_void_p]
+        argtypes = [mode_t, start_t, end_t, count_t, type_t, voidindices_t]
         cfunc = c.glDrawRangeElements
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3634,17 +3205,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, voidpixels, argtypes_p=None):
+    def glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, voidpixels, target_t=GLenum, level_t=GLint, internalformat_t=GLint, width_t=GLsizei, height_t=GLsizei, depth_t=GLsizei, border_t=GLint, format_t=GLenum, type_t=GLenum, voidpixels_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint, GLsizei, GLsizei, GLsizei, GLint, GLenum, GLenum, ctypes.c_void_p]
+        argtypes = [target_t, level_t, internalformat_t, width_t, height_t, depth_t, border_t, format_t, type_t, voidpixels_t]
         cfunc = c.glTexImage3D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3655,17 +3223,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, voidpixels, argtypes_p=None):
+    def glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, voidpixels, target_t=GLenum, level_t=GLint, xoffset_t=GLint, yoffset_t=GLint, zoffset_t=GLint, width_t=GLsizei, height_t=GLsizei, depth_t=GLsizei, format_t=GLenum, type_t=GLenum, voidpixels_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, ctypes.c_void_p]
+        argtypes = [target_t, level_t, xoffset_t, yoffset_t, zoffset_t, width_t, height_t, depth_t, format_t, type_t, voidpixels_t]
         cfunc = c.glTexSubImage3D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3676,17 +3241,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height, argtypes_p=None):
+    def glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height, target_t=GLenum, level_t=GLint, xoffset_t=GLint, yoffset_t=GLint, zoffset_t=GLint, x_t=GLint, y_t=GLint, width_t=GLsizei, height_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei]
+        argtypes = [target_t, level_t, xoffset_t, yoffset_t, zoffset_t, x_t, y_t, width_t, height_t]
         cfunc = c.glCopyTexSubImage3D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3697,17 +3259,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, voiddata, argtypes_p=None):
+    def glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, voiddata, target_t=GLenum, level_t=GLint, internalformat_t=GLenum, width_t=GLsizei, height_t=GLsizei, depth_t=GLsizei, border_t=GLint, imageSize_t=GLsizei, voiddata_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, ctypes.c_void_p]
+        argtypes = [target_t, level_t, internalformat_t, width_t, height_t, depth_t, border_t, imageSize_t, voiddata_t]
         cfunc = c.glCompressedTexImage3D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3718,17 +3277,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, voiddata, argtypes_p=None):
+    def glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, voiddata, target_t=GLenum, level_t=GLint, xoffset_t=GLint, yoffset_t=GLint, zoffset_t=GLint, width_t=GLsizei, height_t=GLsizei, depth_t=GLsizei, format_t=GLenum, imageSize_t=GLsizei, voiddata_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, ctypes.c_void_p]
+        argtypes = [target_t, level_t, xoffset_t, yoffset_t, zoffset_t, width_t, height_t, depth_t, format_t, imageSize_t, voiddata_t]
         cfunc = c.glCompressedTexSubImage3D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3739,17 +3295,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenQueries(n, param0, argtypes_p=None):
+    def glGenQueries(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glGenQueries
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3760,17 +3313,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteQueries(n, param0, argtypes_p=None):
+    def glDeleteQueries(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glDeleteQueries
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3781,17 +3331,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsQuery(id, argtypes_p=None):
+    def glIsQuery(id, id_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [id_t]
         cfunc = c.glIsQuery
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3802,17 +3349,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBeginQuery(target, id, argtypes_p=None):
+    def glBeginQuery(target, id, target_t=GLenum, id_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint]
+        argtypes = [target_t, id_t]
         cfunc = c.glBeginQuery
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3823,17 +3367,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glEndQuery(target, argtypes_p=None):
+    def glEndQuery(target, target_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [target_t]
         cfunc = c.glEndQuery
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3844,17 +3385,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetQueryiv(target, pname, param0, argtypes_p=None):
+    def glGetQueryiv(target, pname, param0, target_t=GLenum, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint]
+        argtypes = [target_t, pname_t, param0_t]
         cfunc = c.glGetQueryiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3865,17 +3403,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetQueryObjectuiv(id, pname, param0, argtypes_p=None):
+    def glGetQueryObjectuiv(id, pname, param0, id_t=GLuint, pname_t=GLenum, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLuint]
+        argtypes = [id_t, pname_t, param0_t]
         cfunc = c.glGetQueryObjectuiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3886,17 +3421,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUnmapBuffer(target, argtypes_p=None):
+    def glUnmapBuffer(target, target_t=GLenum):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [target_t]
         cfunc = c.glUnmapBuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3907,17 +3439,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetBufferPointerv(target, pname, voidparams, argtypes_p=None):
+    def glGetBufferPointerv(target, pname, voidparams, target_t=GLenum, pname_t=GLenum, voidparams_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, ctypes.c_void_p]
+        argtypes = [target_t, pname_t, voidparams_t]
         cfunc = c.glGetBufferPointerv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3928,17 +3457,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDrawBuffers(n, param0, argtypes_p=None):
+    def glDrawBuffers(n, param0, n_t=GLsizei, param0_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLenum]
+        argtypes = [n_t, param0_t]
         cfunc = c.glDrawBuffers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3949,17 +3475,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix2x3fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix2x3fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix2x3fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3970,17 +3493,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix3x2fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix3x2fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix3x2fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -3991,17 +3511,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix2x4fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix2x4fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix2x4fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4012,17 +3529,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix4x2fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix4x2fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix4x2fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4033,17 +3547,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix3x4fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix3x4fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix3x4fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4054,17 +3565,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformMatrix4x3fv(location, count, transpose, param0, argtypes_p=None):
+    def glUniformMatrix4x3fv(location, count, transpose, param0, location_t=GLint, count_t=GLsizei, transpose_t=GLboolean, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLboolean, GLfloat]
+        argtypes = [location_t, count_t, transpose_t, param0_t]
         cfunc = c.glUniformMatrix4x3fv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4075,17 +3583,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, argtypes_p=None):
+    def glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, srcX0_t=GLint, srcY0_t=GLint, srcX1_t=GLint, srcY1_t=GLint, dstX0_t=GLint, dstY0_t=GLint, dstX1_t=GLint, dstY1_t=GLint, mask_t=GLbitfield, filter_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum]
+        argtypes = [srcX0_t, srcY0_t, srcX1_t, srcY1_t, dstX0_t, dstY0_t, dstX1_t, dstY1_t, mask_t, filter_t]
         cfunc = c.glBlitFramebuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4096,17 +3601,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glRenderbufferStorageMultisample(target, samples, internalformat, width, height, argtypes_p=None):
+    def glRenderbufferStorageMultisample(target, samples, internalformat, width, height, target_t=GLenum, samples_t=GLsizei, internalformat_t=GLenum, width_t=GLsizei, height_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+        argtypes = [target_t, samples_t, internalformat_t, width_t, height_t]
         cfunc = c.glRenderbufferStorageMultisample
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4117,17 +3619,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glFramebufferTextureLayer(target, attachment, texture, level, layer, argtypes_p=None):
+    def glFramebufferTextureLayer(target, attachment, texture, level, layer, target_t=GLenum, attachment_t=GLenum, texture_t=GLuint, level_t=GLint, layer_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLuint, GLint, GLint]
+        argtypes = [target_t, attachment_t, texture_t, level_t, layer_t]
         cfunc = c.glFramebufferTextureLayer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4138,17 +3637,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glFlushMappedBufferRange(target, offset, length, argtypes_p=None):
+    def glFlushMappedBufferRange(target, offset, length, target_t=GLenum, offset_t=GLintptr, length_t=GLsizeiptr):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLintptr, GLsizeiptr]
+        argtypes = [target_t, offset_t, length_t]
         cfunc = c.glFlushMappedBufferRange
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4159,17 +3655,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindVertexArray(array, argtypes_p=None):
+    def glBindVertexArray(array, array_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [array_t]
         cfunc = c.glBindVertexArray
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4180,17 +3673,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteVertexArrays(n, param0, argtypes_p=None):
+    def glDeleteVertexArrays(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glDeleteVertexArrays
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4201,17 +3691,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenVertexArrays(n, param0, argtypes_p=None):
+    def glGenVertexArrays(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glGenVertexArrays
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4222,17 +3709,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsVertexArray(array, argtypes_p=None):
+    def glIsVertexArray(array, array_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [array_t]
         cfunc = c.glIsVertexArray
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4243,17 +3727,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetIntegeri_v(target, index, param0, argtypes_p=None):
+    def glGetIntegeri_v(target, index, param0, target_t=GLenum, index_t=GLuint, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint, GLint]
+        argtypes = [target_t, index_t, param0_t]
         cfunc = c.glGetIntegeri_v
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4264,17 +3745,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBeginTransformFeedback(primitiveMode, argtypes_p=None):
+    def glBeginTransformFeedback(primitiveMode, primitiveMode_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum]
+        argtypes = [primitiveMode_t]
         cfunc = c.glBeginTransformFeedback
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4285,17 +3763,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glEndTransformFeedback(void, argtypes_p=None):
+    def glEndTransformFeedback(void, void_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [ctypes.c_void_p]
+        argtypes = [void_t]
         cfunc = c.glEndTransformFeedback
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4306,17 +3781,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindBufferRange(target, index, buffer, offset, size, argtypes_p=None):
+    def glBindBufferRange(target, index, buffer, offset, size, target_t=GLenum, index_t=GLuint, buffer_t=GLuint, offset_t=GLintptr, size_t=GLsizeiptr):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint, GLuint, GLintptr, GLsizeiptr]
+        argtypes = [target_t, index_t, buffer_t, offset_t, size_t]
         cfunc = c.glBindBufferRange
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4327,17 +3799,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindBufferBase(target, index, buffer, argtypes_p=None):
+    def glBindBufferBase(target, index, buffer, target_t=GLenum, index_t=GLuint, buffer_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint, GLuint]
+        argtypes = [target_t, index_t, buffer_t]
         cfunc = c.glBindBufferBase
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4348,17 +3817,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTransformFeedbackVaryings(program, count, param0, bufferMode, argtypes_p=None):
+    def glTransformFeedbackVaryings(program, count, param0, bufferMode, program_t=GLuint, count_t=GLsizei, param0_t=GLchar, bufferMode_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLchar, GLenum]
+        argtypes = [program_t, count_t, param0_t, bufferMode_t]
         cfunc = c.glTransformFeedbackVaryings
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4369,17 +3835,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetTransformFeedbackVarying(program, index, bufSize, param0, param1, param2, param3, argtypes_p=None):
+    def glGetTransformFeedbackVarying(program, index, bufSize, param0, param1, param2, param3, program_t=GLuint, index_t=GLuint, bufSize_t=GLsizei, param0_t=GLsizei, param1_t=GLsizei, param2_t=GLenum, param3_t=GLchar):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLsizei, GLenum, GLchar]
+        argtypes = [program_t, index_t, bufSize_t, param0_t, param1_t, param2_t, param3_t]
         cfunc = c.glGetTransformFeedbackVarying
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4390,17 +3853,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttribIPointer(index, size, type, stride, voidpointer, argtypes_p=None):
+    def glVertexAttribIPointer(index, size, type, stride, voidpointer, index_t=GLuint, size_t=GLint, type_t=GLenum, stride_t=GLsizei, voidpointer_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLint, GLenum, GLsizei, ctypes.c_void_p]
+        argtypes = [index_t, size_t, type_t, stride_t, voidpointer_t]
         cfunc = c.glVertexAttribIPointer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4411,17 +3871,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetVertexAttribIiv(index, pname, param0, argtypes_p=None):
+    def glGetVertexAttribIiv(index, pname, param0, index_t=GLuint, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLint]
+        argtypes = [index_t, pname_t, param0_t]
         cfunc = c.glGetVertexAttribIiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4432,17 +3889,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetVertexAttribIuiv(index, pname, param0, argtypes_p=None):
+    def glGetVertexAttribIuiv(index, pname, param0, index_t=GLuint, pname_t=GLenum, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLuint]
+        argtypes = [index_t, pname_t, param0_t]
         cfunc = c.glGetVertexAttribIuiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4453,17 +3907,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttribI4i(index, x, y, z, w, argtypes_p=None):
+    def glVertexAttribI4i(index, x, y, z, w, index_t=GLuint, x_t=GLint, y_t=GLint, z_t=GLint, w_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLint, GLint, GLint, GLint]
+        argtypes = [index_t, x_t, y_t, z_t, w_t]
         cfunc = c.glVertexAttribI4i
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4474,17 +3925,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttribI4ui(index, x, y, z, w, argtypes_p=None):
+    def glVertexAttribI4ui(index, x, y, z, w, index_t=GLuint, x_t=GLuint, y_t=GLuint, z_t=GLuint, w_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint, GLuint, GLuint, GLuint]
+        argtypes = [index_t, x_t, y_t, z_t, w_t]
         cfunc = c.glVertexAttribI4ui
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4495,17 +3943,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttribI4iv(index, param0, argtypes_p=None):
+    def glVertexAttribI4iv(index, param0, index_t=GLuint, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLint]
+        argtypes = [index_t, param0_t]
         cfunc = c.glVertexAttribI4iv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4516,17 +3961,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttribI4uiv(index, param0, argtypes_p=None):
+    def glVertexAttribI4uiv(index, param0, index_t=GLuint, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint]
+        argtypes = [index_t, param0_t]
         cfunc = c.glVertexAttribI4uiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4537,17 +3979,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetUniformuiv(program, location, param0, argtypes_p=None):
+    def glGetUniformuiv(program, location, param0, program_t=GLuint, location_t=GLint, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLint, GLuint]
+        argtypes = [program_t, location_t, param0_t]
         cfunc = c.glGetUniformuiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4558,17 +3997,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetFragDataLocation(program, param0, argtypes_p=None):
+    def glGetFragDataLocation(program, param0, program_t=GLuint, param0_t=GLchar):
         restype = GLint
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLchar]
+        argtypes = [program_t, param0_t]
         cfunc = c.glGetFragDataLocation
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4579,17 +4015,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform1ui(location, v0, argtypes_p=None):
+    def glUniform1ui(location, v0, location_t=GLint, v0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLuint]
+        argtypes = [location_t, v0_t]
         cfunc = c.glUniform1ui
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4600,17 +4033,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform2ui(location, v0, v1, argtypes_p=None):
+    def glUniform2ui(location, v0, v1, location_t=GLint, v0_t=GLuint, v1_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLuint, GLuint]
+        argtypes = [location_t, v0_t, v1_t]
         cfunc = c.glUniform2ui
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4621,17 +4051,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform3ui(location, v0, v1, v2, argtypes_p=None):
+    def glUniform3ui(location, v0, v1, v2, location_t=GLint, v0_t=GLuint, v1_t=GLuint, v2_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLuint, GLuint, GLuint]
+        argtypes = [location_t, v0_t, v1_t, v2_t]
         cfunc = c.glUniform3ui
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4642,17 +4069,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform4ui(location, v0, v1, v2, v3, argtypes_p=None):
+    def glUniform4ui(location, v0, v1, v2, v3, location_t=GLint, v0_t=GLuint, v1_t=GLuint, v2_t=GLuint, v3_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLuint, GLuint, GLuint, GLuint]
+        argtypes = [location_t, v0_t, v1_t, v2_t, v3_t]
         cfunc = c.glUniform4ui
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4663,17 +4087,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform1uiv(location, count, param0, argtypes_p=None):
+    def glUniform1uiv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLuint]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform1uiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4684,17 +4105,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform2uiv(location, count, param0, argtypes_p=None):
+    def glUniform2uiv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLuint]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform2uiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4705,17 +4123,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform3uiv(location, count, param0, argtypes_p=None):
+    def glUniform3uiv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLuint]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform3uiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4726,17 +4141,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniform4uiv(location, count, param0, argtypes_p=None):
+    def glUniform4uiv(location, count, param0, location_t=GLint, count_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLint, GLsizei, GLuint]
+        argtypes = [location_t, count_t, param0_t]
         cfunc = c.glUniform4uiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4747,17 +4159,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glClearBufferiv(buffer, drawbuffer, param0, argtypes_p=None):
+    def glClearBufferiv(buffer, drawbuffer, param0, buffer_t=GLenum, drawbuffer_t=GLint, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLint]
+        argtypes = [buffer_t, drawbuffer_t, param0_t]
         cfunc = c.glClearBufferiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4768,17 +4177,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glClearBufferuiv(buffer, drawbuffer, param0, argtypes_p=None):
+    def glClearBufferuiv(buffer, drawbuffer, param0, buffer_t=GLenum, drawbuffer_t=GLint, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLuint]
+        argtypes = [buffer_t, drawbuffer_t, param0_t]
         cfunc = c.glClearBufferuiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4789,17 +4195,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glClearBufferfv(buffer, drawbuffer, param0, argtypes_p=None):
+    def glClearBufferfv(buffer, drawbuffer, param0, buffer_t=GLenum, drawbuffer_t=GLint, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLfloat]
+        argtypes = [buffer_t, drawbuffer_t, param0_t]
         cfunc = c.glClearBufferfv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4810,17 +4213,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glClearBufferfi(buffer, drawbuffer, depth, stencil, argtypes_p=None):
+    def glClearBufferfi(buffer, drawbuffer, depth, stencil, buffer_t=GLenum, drawbuffer_t=GLint, depth_t=GLfloat, stencil_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLfloat, GLint]
+        argtypes = [buffer_t, drawbuffer_t, depth_t, stencil_t]
         cfunc = c.glClearBufferfi
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4831,17 +4231,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, argtypes_p=None):
+    def glCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, readTarget_t=GLenum, writeTarget_t=GLenum, readOffset_t=GLintptr, writeOffset_t=GLintptr, size_t=GLsizeiptr):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLintptr, GLintptr, GLsizeiptr]
+        argtypes = [readTarget_t, writeTarget_t, readOffset_t, writeOffset_t, size_t]
         cfunc = c.glCopyBufferSubData
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4852,17 +4249,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetUniformIndices(program, uniformCount, param0, param1, argtypes_p=None):
+    def glGetUniformIndices(program, uniformCount, param0, param1, program_t=GLuint, uniformCount_t=GLsizei, param0_t=GLchar, param1_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLchar, GLuint]
+        argtypes = [program_t, uniformCount_t, param0_t, param1_t]
         cfunc = c.glGetUniformIndices
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4873,17 +4267,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetActiveUniformsiv(program, uniformCount, param0, pname, param1, argtypes_p=None):
+    def glGetActiveUniformsiv(program, uniformCount, param0, pname, param1, program_t=GLuint, uniformCount_t=GLsizei, param0_t=GLuint, pname_t=GLenum, param1_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLuint, GLenum, GLint]
+        argtypes = [program_t, uniformCount_t, param0_t, pname_t, param1_t]
         cfunc = c.glGetActiveUniformsiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4894,17 +4285,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetUniformBlockIndex(program, param0, argtypes_p=None):
+    def glGetUniformBlockIndex(program, param0, program_t=GLuint, param0_t=GLchar):
         restype = GLuint
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLchar]
+        argtypes = [program_t, param0_t]
         cfunc = c.glGetUniformBlockIndex
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4915,17 +4303,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, param0, argtypes_p=None):
+    def glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, param0, program_t=GLuint, uniformBlockIndex_t=GLuint, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint, GLenum, GLint]
+        argtypes = [program_t, uniformBlockIndex_t, pname_t, param0_t]
         cfunc = c.glGetActiveUniformBlockiv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4936,17 +4321,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, param0, param1, argtypes_p=None):
+    def glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, param0, param1, program_t=GLuint, uniformBlockIndex_t=GLuint, bufSize_t=GLsizei, param0_t=GLsizei, param1_t=GLchar):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint, GLsizei, GLsizei, GLchar]
+        argtypes = [program_t, uniformBlockIndex_t, bufSize_t, param0_t, param1_t]
         cfunc = c.glGetActiveUniformBlockName
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4957,17 +4339,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding, argtypes_p=None):
+    def glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding, program_t=GLuint, uniformBlockIndex_t=GLuint, uniformBlockBinding_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint, GLuint]
+        argtypes = [program_t, uniformBlockIndex_t, uniformBlockBinding_t]
         cfunc = c.glUniformBlockBinding
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4978,17 +4357,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDrawArraysInstanced(mode, first, count, instancecount, argtypes_p=None):
+    def glDrawArraysInstanced(mode, first, count, instancecount, mode_t=GLenum, first_t=GLint, count_t=GLsizei, instancecount_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint, GLsizei, GLsizei]
+        argtypes = [mode_t, first_t, count_t, instancecount_t]
         cfunc = c.glDrawArraysInstanced
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -4999,17 +4375,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDrawElementsInstanced(mode, count, type, voidindices, instancecount, argtypes_p=None):
+    def glDrawElementsInstanced(mode, count, type, voidindices, instancecount, mode_t=GLenum, count_t=GLsizei, type_t=GLenum, voidindices_t=ctypes.c_void_p, instancecount_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLsizei, GLenum, ctypes.c_void_p, GLsizei]
+        argtypes = [mode_t, count_t, type_t, voidindices_t, instancecount_t]
         cfunc = c.glDrawElementsInstanced
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5020,17 +4393,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetInteger64v(pname, param0, argtypes_p=None):
+    def glGetInteger64v(pname, param0, pname_t=GLenum, param0_t=GLint64):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLint64]
+        argtypes = [pname_t, param0_t]
         cfunc = c.glGetInteger64v
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5041,17 +4411,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetInteger64i_v(target, index, param0, argtypes_p=None):
+    def glGetInteger64i_v(target, index, param0, target_t=GLenum, index_t=GLuint, param0_t=GLint64):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint, GLint64]
+        argtypes = [target_t, index_t, param0_t]
         cfunc = c.glGetInteger64i_v
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5062,17 +4429,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetBufferParameteri64v(target, pname, param0, argtypes_p=None):
+    def glGetBufferParameteri64v(target, pname, param0, target_t=GLenum, pname_t=GLenum, param0_t=GLint64):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLint64]
+        argtypes = [target_t, pname_t, param0_t]
         cfunc = c.glGetBufferParameteri64v
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5083,17 +4447,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenSamplers(count, param0, argtypes_p=None):
+    def glGenSamplers(count, param0, count_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [count_t, param0_t]
         cfunc = c.glGenSamplers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5104,17 +4465,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteSamplers(count, param0, argtypes_p=None):
+    def glDeleteSamplers(count, param0, count_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [count_t, param0_t]
         cfunc = c.glDeleteSamplers
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5125,17 +4483,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsSampler(sampler, argtypes_p=None):
+    def glIsSampler(sampler, sampler_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [sampler_t]
         cfunc = c.glIsSampler
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5146,17 +4501,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindSampler(unit, sampler, argtypes_p=None):
+    def glBindSampler(unit, sampler, unit_t=GLuint, sampler_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint]
+        argtypes = [unit_t, sampler_t]
         cfunc = c.glBindSampler
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5167,17 +4519,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glSamplerParameteri(sampler, pname, param, argtypes_p=None):
+    def glSamplerParameteri(sampler, pname, param, sampler_t=GLuint, pname_t=GLenum, param_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLint]
+        argtypes = [sampler_t, pname_t, param_t]
         cfunc = c.glSamplerParameteri
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5188,17 +4537,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glSamplerParameteriv(sampler, pname, param0, argtypes_p=None):
+    def glSamplerParameteriv(sampler, pname, param0, sampler_t=GLuint, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLint]
+        argtypes = [sampler_t, pname_t, param0_t]
         cfunc = c.glSamplerParameteriv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5209,17 +4555,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glSamplerParameterf(sampler, pname, param, argtypes_p=None):
+    def glSamplerParameterf(sampler, pname, param, sampler_t=GLuint, pname_t=GLenum, param_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLfloat]
+        argtypes = [sampler_t, pname_t, param_t]
         cfunc = c.glSamplerParameterf
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5230,17 +4573,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glSamplerParameterfv(sampler, pname, param0, argtypes_p=None):
+    def glSamplerParameterfv(sampler, pname, param0, sampler_t=GLuint, pname_t=GLenum, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLfloat]
+        argtypes = [sampler_t, pname_t, param0_t]
         cfunc = c.glSamplerParameterfv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5251,17 +4591,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetSamplerParameteriv(sampler, pname, param0, argtypes_p=None):
+    def glGetSamplerParameteriv(sampler, pname, param0, sampler_t=GLuint, pname_t=GLenum, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLint]
+        argtypes = [sampler_t, pname_t, param0_t]
         cfunc = c.glGetSamplerParameteriv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5272,17 +4609,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetSamplerParameterfv(sampler, pname, param0, argtypes_p=None):
+    def glGetSamplerParameterfv(sampler, pname, param0, sampler_t=GLuint, pname_t=GLenum, param0_t=GLfloat):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLfloat]
+        argtypes = [sampler_t, pname_t, param0_t]
         cfunc = c.glGetSamplerParameterfv
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5293,17 +4627,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glVertexAttribDivisor(index, divisor, argtypes_p=None):
+    def glVertexAttribDivisor(index, divisor, index_t=GLuint, divisor_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLuint]
+        argtypes = [index_t, divisor_t]
         cfunc = c.glVertexAttribDivisor
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5314,17 +4645,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glBindTransformFeedback(target, id, argtypes_p=None):
+    def glBindTransformFeedback(target, id, target_t=GLenum, id_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLuint]
+        argtypes = [target_t, id_t]
         cfunc = c.glBindTransformFeedback
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5335,17 +4663,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glDeleteTransformFeedbacks(n, param0, argtypes_p=None):
+    def glDeleteTransformFeedbacks(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glDeleteTransformFeedbacks
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5356,17 +4681,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGenTransformFeedbacks(n, param0, argtypes_p=None):
+    def glGenTransformFeedbacks(n, param0, n_t=GLsizei, param0_t=GLuint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLsizei, GLuint]
+        argtypes = [n_t, param0_t]
         cfunc = c.glGenTransformFeedbacks
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5377,17 +4699,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glIsTransformFeedback(id, argtypes_p=None):
+    def glIsTransformFeedback(id, id_t=GLuint):
         restype = GLboolean
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint]
+        argtypes = [id_t]
         cfunc = c.glIsTransformFeedback
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5398,17 +4717,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glPauseTransformFeedback(void, argtypes_p=None):
+    def glPauseTransformFeedback(void, void_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [ctypes.c_void_p]
+        argtypes = [void_t]
         cfunc = c.glPauseTransformFeedback
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5419,17 +4735,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glResumeTransformFeedback(void, argtypes_p=None):
+    def glResumeTransformFeedback(void, void_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [ctypes.c_void_p]
+        argtypes = [void_t]
         cfunc = c.glResumeTransformFeedback
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5440,17 +4753,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetProgramBinary(program, bufSize, param0, param1, voidbinary, argtypes_p=None):
+    def glGetProgramBinary(program, bufSize, param0, param1, voidbinary, program_t=GLuint, bufSize_t=GLsizei, param0_t=GLsizei, param1_t=GLenum, voidbinary_t=ctypes.c_void_p):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLsizei, GLsizei, GLenum, ctypes.c_void_p]
+        argtypes = [program_t, bufSize_t, param0_t, param1_t, voidbinary_t]
         cfunc = c.glGetProgramBinary
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5461,17 +4771,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glProgramBinary(program, binaryFormat, voidbinary, length, argtypes_p=None):
+    def glProgramBinary(program, binaryFormat, voidbinary, length, program_t=GLuint, binaryFormat_t=GLenum, voidbinary_t=ctypes.c_void_p, length_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, ctypes.c_void_p, GLsizei]
+        argtypes = [program_t, binaryFormat_t, voidbinary_t, length_t]
         cfunc = c.glProgramBinary
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5482,17 +4789,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glProgramParameteri(program, pname, value, argtypes_p=None):
+    def glProgramParameteri(program, pname, value, program_t=GLuint, pname_t=GLenum, value_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLuint, GLenum, GLint]
+        argtypes = [program_t, pname_t, value_t]
         cfunc = c.glProgramParameteri
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5503,17 +4807,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glInvalidateFramebuffer(target, numAttachments, param0, argtypes_p=None):
+    def glInvalidateFramebuffer(target, numAttachments, param0, target_t=GLenum, numAttachments_t=GLsizei, param0_t=GLenum):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLsizei, GLenum]
+        argtypes = [target_t, numAttachments_t, param0_t]
         cfunc = c.glInvalidateFramebuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5524,17 +4825,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glInvalidateSubFramebuffer(target, numAttachments, param0, x, y, width, height, argtypes_p=None):
+    def glInvalidateSubFramebuffer(target, numAttachments, param0, x, y, width, height, target_t=GLenum, numAttachments_t=GLsizei, param0_t=GLenum, x_t=GLint, y_t=GLint, width_t=GLsizei, height_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLsizei, GLenum, GLint, GLint, GLsizei, GLsizei]
+        argtypes = [target_t, numAttachments_t, param0_t, x_t, y_t, width_t, height_t]
         cfunc = c.glInvalidateSubFramebuffer
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5545,17 +4843,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexStorage2D(target, levels, internalformat, width, height, argtypes_p=None):
+    def glTexStorage2D(target, levels, internalformat, width, height, target_t=GLenum, levels_t=GLsizei, internalformat_t=GLenum, width_t=GLsizei, height_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei]
+        argtypes = [target_t, levels_t, internalformat_t, width_t, height_t]
         cfunc = c.glTexStorage2D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5566,17 +4861,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glTexStorage3D(target, levels, internalformat, width, height, depth, argtypes_p=None):
+    def glTexStorage3D(target, levels, internalformat, width, height, depth, target_t=GLenum, levels_t=GLsizei, internalformat_t=GLenum, width_t=GLsizei, height_t=GLsizei, depth_t=GLsizei):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei]
+        argtypes = [target_t, levels_t, internalformat_t, width_t, height_t, depth_t]
         cfunc = c.glTexStorage3D
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5587,17 +4879,14 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 try:
-    def glGetInternalformativ(target, internalformat, pname, bufSize, param0, argtypes_p=None):
+    def glGetInternalformativ(target, internalformat, pname, bufSize, param0, target_t=GLenum, internalformat_t=GLenum, pname_t=GLenum, bufSize_t=GLsizei, param0_t=GLint):
         restype = None
-        if argtypes_p:
-            argtypes = argtypes_p
-        else:
-            argtypes = [GLenum, GLenum, GLenum, GLsizei, GLint]
+        argtypes = [target_t, internalformat_t, pname_t, bufSize_t, param0_t]
         cfunc = c.glGetInternalformativ
         cfunc.restype = restype
         cfunc.argtypes = argtypes
@@ -5608,9 +4897,9 @@ try:
     loaded[0] += 1
 except AttributeError as e:
     loaded[1] += 1
-    if DEBUG > 1:
+    if DEBUG > 0:
         print 'could not load the function'
         print e
 
 print 'Loaded %i functions and failed to load %i functions of %i functions in the header gl3.h' % (loaded[0], loaded[1], sum(loaded))
-__all__ = ['glActiveTexture', 'glAttachShader', 'glBindAttribLocation', 'glBindBuffer', 'glBindFramebuffer', 'glBindRenderbuffer', 'glBindTexture', 'glBlendColor', 'glBlendEquation', 'glBlendEquationSeparate', 'glBlendFunc', 'glBlendFuncSeparate', 'glBufferData', 'glBufferSubData', 'glCheckFramebufferStatus', 'glClear', 'glClearColor', 'glClearDepthf', 'glClearStencil', 'glColorMask', 'glCompileShader', 'glCompressedTexImage2D', 'glCompressedTexSubImage2D', 'glCopyTexImage2D', 'glCopyTexSubImage2D', 'glCreateProgram', 'glCreateShader', 'glCullFace', 'glDeleteBuffers', 'glDeleteFramebuffers', 'glDeleteProgram', 'glDeleteRenderbuffers', 'glDeleteShader', 'glDeleteTextures', 'glDepthFunc', 'glDepthMask', 'glDepthRangef', 'glDetachShader', 'glDisable', 'glDisableVertexAttribArray', 'glDrawArrays', 'glDrawElements', 'glEnable', 'glEnableVertexAttribArray', 'glFinish', 'glFlush', 'glFramebufferRenderbuffer', 'glFramebufferTexture2D', 'glFrontFace', 'glGenBuffers', 'glGenerateMipmap', 'glGenFramebuffers', 'glGenRenderbuffers', 'glGenTextures', 'glGetActiveAttrib', 'glGetActiveUniform', 'glGetAttachedShaders', 'glGetAttribLocation', 'glGetBooleanv', 'glGetBufferParameteriv', 'glGetError', 'glGetFloatv', 'glGetFramebufferAttachmentParameteriv', 'glGetIntegerv', 'glGetProgramiv', 'glGetProgramInfoLog', 'glGetRenderbufferParameteriv', 'glGetShaderiv', 'glGetShaderInfoLog', 'glGetShaderPrecisionFormat', 'glGetShaderSource', 'glGetTexParameterfv', 'glGetTexParameteriv', 'glGetUniformfv', 'glGetUniformiv', 'glGetUniformLocation', 'glGetVertexAttribfv', 'glGetVertexAttribiv', 'glGetVertexAttribPointerv', 'glHint', 'glIsBuffer', 'glIsEnabled', 'glIsFramebuffer', 'glIsProgram', 'glIsRenderbuffer', 'glIsShader', 'glIsTexture', 'glLineWidth', 'glLinkProgram', 'glPixelStorei', 'glPolygonOffset', 'glReadPixels', 'glReleaseShaderCompiler', 'glRenderbufferStorage', 'glSampleCoverage', 'glScissor', 'glShaderBinary', 'glShaderSource', 'glStencilFunc', 'glStencilFuncSeparate', 'glStencilMask', 'glStencilMaskSeparate', 'glStencilOp', 'glStencilOpSeparate', 'glTexImage2D', 'glTexParameterf', 'glTexParameterfv', 'glTexParameteri', 'glTexParameteriv', 'glTexSubImage2D', 'glUniform1f', 'glUniform1fv', 'glUniform1i', 'glUniform1iv', 'glUniform2f', 'glUniform2fv', 'glUniform2i', 'glUniform2iv', 'glUniform3f', 'glUniform3fv', 'glUniform3i', 'glUniform3iv', 'glUniform4f', 'glUniform4fv', 'glUniform4i', 'glUniform4iv', 'glUniformMatrix2fv', 'glUniformMatrix3fv', 'glUniformMatrix4fv', 'glUseProgram', 'glValidateProgram', 'glVertexAttrib1f', 'glVertexAttrib1fv', 'glVertexAttrib2f', 'glVertexAttrib2fv', 'glVertexAttrib3f', 'glVertexAttrib3fv', 'glVertexAttrib4f', 'glVertexAttrib4fv', 'glVertexAttribPointer', 'glViewport', 'glReadBuffer', 'glDrawRangeElements', 'glTexImage3D', 'glTexSubImage3D', 'glCopyTexSubImage3D', 'glCompressedTexImage3D', 'glCompressedTexSubImage3D', 'glGenQueries', 'glDeleteQueries', 'glIsQuery', 'glBeginQuery', 'glEndQuery', 'glGetQueryiv', 'glGetQueryObjectuiv', 'glUnmapBuffer', 'glGetBufferPointerv', 'glDrawBuffers', 'glUniformMatrix2x3fv', 'glUniformMatrix3x2fv', 'glUniformMatrix2x4fv', 'glUniformMatrix4x2fv', 'glUniformMatrix3x4fv', 'glUniformMatrix4x3fv', 'glBlitFramebuffer', 'glRenderbufferStorageMultisample', 'glFramebufferTextureLayer', 'glFlushMappedBufferRange', 'glBindVertexArray', 'glDeleteVertexArrays', 'glGenVertexArrays', 'glIsVertexArray', 'glGetIntegeri_v', 'glBeginTransformFeedback', 'glEndTransformFeedback', 'glBindBufferRange', 'glBindBufferBase', 'glTransformFeedbackVaryings', 'glGetTransformFeedbackVarying', 'glVertexAttribIPointer', 'glGetVertexAttribIiv', 'glGetVertexAttribIuiv', 'glVertexAttribI4i', 'glVertexAttribI4ui', 'glVertexAttribI4iv', 'glVertexAttribI4uiv', 'glGetUniformuiv', 'glGetFragDataLocation', 'glUniform1ui', 'glUniform2ui', 'glUniform3ui', 'glUniform4ui', 'glUniform1uiv', 'glUniform2uiv', 'glUniform3uiv', 'glUniform4uiv', 'glClearBufferiv', 'glClearBufferuiv', 'glClearBufferfv', 'glClearBufferfi', 'glCopyBufferSubData', 'glGetUniformIndices', 'glGetActiveUniformsiv', 'glGetUniformBlockIndex', 'glGetActiveUniformBlockiv', 'glGetActiveUniformBlockName', 'glUniformBlockBinding', 'glDrawArraysInstanced', 'glDrawElementsInstanced', 'glGetInteger64v', 'glGetInteger64i_v', 'glGetBufferParameteri64v', 'glGenSamplers', 'glDeleteSamplers', 'glIsSampler', 'glBindSampler', 'glSamplerParameteri', 'glSamplerParameteriv', 'glSamplerParameterf', 'glSamplerParameterfv', 'glGetSamplerParameteriv', 'glGetSamplerParameterfv', 'glVertexAttribDivisor', 'glBindTransformFeedback', 'glDeleteTransformFeedbacks', 'glGenTransformFeedbacks', 'glIsTransformFeedback', 'glPauseTransformFeedback', 'glResumeTransformFeedback', 'glGetProgramBinary', 'glProgramBinary', 'glProgramParameteri', 'glInvalidateFramebuffer', 'glInvalidateSubFramebuffer', 'glTexStorage2D', 'glTexStorage3D', 'glGetInternalformativ', 'GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE', 'GL_UNSIGNED_INT_VEC2', 'GL_UNSIGNED_INT_VEC3', 'GL_UNSIGNED_INT_VEC4', 'GL_UNSIGNED_SHORT_5_6_5', 'GL_VERTEX_ATTRIB_ARRAY_SIZE', 'GL_DEPTH_ATTACHMENT', 'GL_DITHER', 'GL_TRANSFORM_FEEDBACK_PAUSED', 'GL_RGB16UI', '__gl3_h_', 'GL_QUERY_RESULT', 'GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE', 'GL_FLOAT_VEC2', 'GL_FLOAT_VEC3', 'GL_FLOAT_VEC4', 'GL_FLOAT', 'GL_INT_2_10_10_10_REV', 'GL_RGB32UI', 'GL_TEXTURE_MAX_LOD', 'GL_BUFFER_MAP_OFFSET', 'GL_BUFFER_SIZE', 'GL_RGB9_E5', 'GL_UNIFORM_BUFFER_START', 'GL_COMPRESSED_R11_EAC', 'GL_RGBA32UI', 'GL_UNSIGNED_INT_SAMPLER_2D', 'GL_TEXTURE_MIN_LOD', 'GL_TEXTURE8', 'GL_TEXTURE9', 'GL_TEXTURE4', 'GL_TEXTURE5', 'GL_TEXTURE6', 'GL_TEXTURE7', 'GL_TEXTURE0', 'GL_LINEAR_MIPMAP_LINEAR', 'GL_TEXTURE2', 'GL_TEXTURE3', 'GL_TEXTURE_CUBE_MAP_POSITIVE_Y', 'GL_TEXTURE_CUBE_MAP_POSITIVE_X', 'GL_BLEND_EQUATION', 'GL_BYTE', 'GL_BOOL_VEC3', 'GL_BOOL_VEC2', 'GL_TIMEOUT_IGNORED', 'GL_MAX_VARYING_VECTORS', 'GL_RENDERBUFFER_SAMPLES', 'GL_ONE', 'GL_RG', 'GL_COLOR_CLEAR_VALUE', 'GL_MAX_SAMPLES', 'GL_BUFFER_USAGE', 'GL_UNPACK_IMAGE_HEIGHT', 'GL_FLOAT_MAT3x2', 'GL_TRIANGLE_STRIP', 'GL_PROGRAM_BINARY_RETRIEVABLE_HINT', 'GL_TRANSFORM_FEEDBACK_BUFFER_BINDING', 'GL_FLOAT_MAT3x4', 'GL_COLOR_ATTACHMENT28', 'GL_COLOR_ATTACHMENT29', 'GL_COLOR_ATTACHMENT24', 'GL_COLOR_ATTACHMENT25', 'GL_COLOR_ATTACHMENT26', 'GL_COLOR_ATTACHMENT27', 'GL_COLOR_ATTACHMENT20', 'GL_COLOR_ATTACHMENT21', 'GL_COLOR_ATTACHMENT22', 'GL_COLOR_ATTACHMENT23', 'GL_TRANSFORM_FEEDBACK_BUFFER', 'GL_BLUE', 'GL_VERTEX_ARRAY_BINDING', 'GL_UNSIGNED_SHORT_5_5_5_1', 'GL_TIMEOUT_EXPIRED', 'GL_COMPRESSED_RGB8_ETC2', 'GL_SIGNED_NORMALIZED', 'GL_STENCIL_FUNC', 'GL_MAX_TEXTURE_LOD_BIAS', 'GL_ALIASED_LINE_WIDTH_RANGE', 'GL_DECR', 'GL_BACK', 'GL_ES_VERSION_3_0', 'GL_TEXTURE_COMPARE_FUNC', 'GL_TRANSFORM_FEEDBACK_BUFFER_MODE', 'GL_INT', 'GL_COMPRESSED_SIGNED_RG11_EAC', 'GL_POLYGON_OFFSET_FILL', 'GL_MINOR_VERSION', 'GL_FRONT_AND_BACK', 'GL_R8', 'GL_RGB_INTEGER', 'GL_STENCIL', 'GL_SRGB', 'GL_GREEN_BITS', 'GL_SYNC_FENCE', 'GL_ONE_MINUS_CONSTANT_COLOR', 'GL_SHADING_LANGUAGE_VERSION', 'GL_RGB8_SNORM', 'GL_UNPACK_SKIP_PIXELS', 'GL_TEXTURE_IMMUTABLE_LEVELS', 'GL_FRAGMENT_SHADER', 'GL_UNSIGNED_INT_2_10_10_10_REV', 'GL_UNSIGNED_SHORT_4_4_4_4', 'GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS', 'GL_FRAGMENT_SHADER_DERIVATIVE_HINT', 'GL_NO_ERROR', 'GL_VIEWPORT', 'GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME', 'GL_BLEND_SRC_ALPHA', 'GL_DRAW_BUFFER6', 'GL_DRAW_BUFFER7', 'GL_DRAW_BUFFER4', 'GL_DRAW_BUFFER5', 'GL_DRAW_BUFFER2', 'GL_DRAW_BUFFER3', 'GL_DRAW_BUFFER0', 'GL_DRAW_BUFFER1', 'GL_UNIFORM_TYPE', 'GL_QUERY_RESULT_AVAILABLE', 'GL_DRAW_BUFFER8', 'GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT', 'GL_MAX_DRAW_BUFFERS', 'GL_KEEP', 'GL_DELETE_STATUS', 'GL_R32UI', 'GL_RGBA8_SNORM', 'GL_INT_SAMPLER_3D', 'GL_SRC_COLOR', 'GL_SAMPLER_BINDING', 'GL_DEPTH24_STENCIL8', 'GL_SAMPLE_BUFFERS', 'GL_MAJOR_VERSION', 'GL_STATIC_COPY', 'GL_ACTIVE_ATTRIBUTE_MAX_LENGTH', 'GL_EXTENSIONS', 'GL_UNIFORM_BUFFER_BINDING', 'GL_RGBA16UI', 'GL_COPY_READ_BUFFER_BINDING', 'GL_TEXTURE_COMPARE_MODE', 'GL_ANY_SAMPLES_PASSED', 'GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE', 'GL_DEPTH_BUFFER_BIT', 'GL_STENCIL_BACK_PASS_DEPTH_FAIL', 'GL_UNIFORM_BUFFER', 'GL_MAP_WRITE_BIT', 'GL_VERTEX_ATTRIB_ARRAY_POINTER', 'GL_ALIASED_POINT_SIZE_RANGE', 'GL_CCW', 'GL_MAP_INVALIDATE_BUFFER_BIT', 'GL_DEPTH_COMPONENT24', 'GL_UNSIGNED_INT_5_9_9_9_REV', 'GL_DEPTH_TEST', 'GL_SYNC_GPU_COMMANDS_COMPLETE', 'GL_VERTEX_ATTRIB_ARRAY_INTEGER', 'GL_MAX_FRAGMENT_UNIFORM_BLOCKS', 'GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE', 'GL_ACTIVE_UNIFORM_MAX_LENGTH', 'GL_STREAM_READ', 'GL_LINEAR', 'GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN', 'GL_FUNC_SUBTRACT', 'GL_R32F', 'GL_MAX_VARYING_COMPONENTS', 'GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH', 'GL_IMPLEMENTATION_COLOR_READ_FORMAT', 'GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING', 'GL_HALF_FLOAT', 'GL_COLOR_ATTACHMENT15', 'GL_COLOR_ATTACHMENT14', 'GL_HIGH_FLOAT', 'GL_DEPTH_RANGE', 'GL_GREATER', 'GL_CLAMP_TO_EDGE', 'GL_COLOR_ATTACHMENT13', 'GL_COLOR_ATTACHMENT12', 'GL_NEAREST', 'GL_VERTEX_ATTRIB_ARRAY_ENABLED', 'GL_COLOR_ATTACHMENT19', 'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER', 'GL_MAX_TEXTURE_IMAGE_UNITS', 'GL_RGB32F', 'GL_FLOAT_MAT2', 'GL_FLOAT_MAT3', 'GL_FRONT_FACE', 'GL_DEPTH', 'GL_FLOAT_MAT4', 'GL_RENDERBUFFER_GREEN_SIZE', 'GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE', 'GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT', 'GL_TEXTURE30', 'GL_TEXTURE31', 'GL_RG8I', 'GL_RGBA8I', 'GL_RG8UI', 'GL_DEPTH_CLEAR_VALUE', 'GL_BUFFER_MAP_POINTER', 'GL_RENDERBUFFER_BINDING', 'GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE', 'GL_STENCIL_REF', 'GL_MAX_3D_TEXTURE_SIZE', 'GL_R16UI', 'GL_COPY_WRITE_BUFFER_BINDING', 'GL_COPY_WRITE_BUFFER', 'GL_BLEND', 'GL_MIRRORED_REPEAT', 'GL_SAMPLER_CUBE_SHADOW', 'GL_TEXTURE_BINDING_3D', 'GL_UNSIGNED_SHORT', 'GL_MIN', 'GL_ONE_MINUS_DST_COLOR', 'GL_ONE_MINUS_SRC_COLOR', 'GL_TEXTURE', 'GL_COLOR_BUFFER_BIT', 'GL_DONT_CARE', 'GL_ACTIVE_UNIFORMS', 'GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2', 'GL_MAX_VERTEX_UNIFORM_VECTORS', 'GL_TEXTURE_BINDING_CUBE_MAP', 'GL_SAMPLER_2D', 'GL_INVALID_VALUE', 'GL_NEAREST_MIPMAP_NEAREST', 'GL_NUM_COMPRESSED_TEXTURE_FORMATS', 'GL_PACK_SKIP_ROWS', 'GL_TEXTURE_MAG_FILTER', 'GL_R8I', 'GL_TEXTURE1', 'GL_BLEND_EQUATION_RGB', 'GL_LINK_STATUS', 'GL_TEXTURE_MAX_LEVEL', 'GL_R32I', 'GL_BLEND_COLOR', 'GL_ALPHA_BITS', 'GL_BOOL_VEC4', 'GL_ONE_MINUS_CONSTANT_ALPHA', 'GL_NEAREST_MIPMAP_LINEAR', 'GL_TEXTURE_CUBE_MAP_POSITIVE_Z', 'GL_WAIT_FAILED', 'GL_UNIFORM_BLOCK_NAME_LENGTH', 'GL_MAX_TEXTURE_SIZE', 'GL_RG32F', 'GL_UNSIGNED_INT_SAMPLER_2D_ARRAY', 'GL_ARRAY_BUFFER', 'GL_DEPTH_COMPONENT16', 'GL_UNSIGNALED', 'GL_RGB32I', 'GL_BLEND_SRC_RGB', 'GL_FRAMEBUFFER_UNDEFINED', 'GL_SYNC_FLAGS', 'GL_FALSE', 'GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS', 'GL_ONE_MINUS_SRC_ALPHA', 'GL_RG32I', 'GL_RENDERBUFFER_INTERNAL_FORMAT', 'GL_NUM_SHADER_BINARY_FORMATS', 'GL_RGBA16I', 'GL_RGBA16F', 'GL_SAMPLE_ALPHA_TO_COVERAGE', 'GL_INT_SAMPLER_2D', 'GL_STENCIL_BITS', 'GL_STENCIL_PASS_DEPTH_FAIL', 'GL_RED', 'GL_MAX_ELEMENT_INDEX', 'GL_MAX_VERTEX_UNIFORM_BLOCKS', 'GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS', 'GL_RGBA8UI', 'GL_GREEN', 'GL_INVALID_OPERATION', 'GL_RED_INTEGER', 'GL_NONE', 'GL_STENCIL_BACK_PASS_DEPTH_PASS', 'GL_COLOR_ATTACHMENT5', 'GL_FUNC_REVERSE_SUBTRACT', 'GL_COLOR_ATTACHMENT7', 'GL_COLOR_ATTACHMENT6', 'GL_COLOR_ATTACHMENT1', 'GL_COLOR_ATTACHMENT0', 'GL_COLOR_ATTACHMENT3', 'GL_COLOR_ATTACHMENT2', 'GL_UNIFORM_BLOCK_INDEX', 'GL_FRAMEBUFFER_DEFAULT', 'GL_COLOR_ATTACHMENT9', 'GL_COLOR_ATTACHMENT8', 'GL_COLOR_ATTACHMENT10', 'GL_FRONT', 'GL_SCISSOR_BOX', 'GL_UNIFORM_BLOCK_DATA_SIZE', 'GL_LEQUAL', 'GL_CULL_FACE_MODE', 'GL_MAX_FRAGMENT_UNIFORM_VECTORS', 'GL_NUM_EXTENSIONS', 'GL_UNIFORM_IS_ROW_MAJOR', 'GL_MAX_UNIFORM_BLOCK_SIZE', 'GL_BOOL', 'GL_MAX_COMBINED_UNIFORM_BLOCKS', 'GL_FRAMEBUFFER_BINDING', 'GL_UNSIGNED_INT_24_8', 'GL_COMPRESSED_TEXTURE_FORMATS', 'GL_ALPHA', 'GL_COLOR_WRITEMASK', 'GL_DST_COLOR', 'GL_UNSIGNED_INT', 'GL_DEPTH_FUNC', 'GL_ALWAYS', 'GL_TEXTURE_WRAP_S', 'GL_TEXTURE_WRAP_T', 'GL_INVALID_ENUM', 'GL_PROGRAM_BINARY_LENGTH', 'GL_STENCIL_BACK_VALUE_MASK', 'GL_INT_SAMPLER_2D_ARRAY', 'GL_COLOR_ATTACHMENT11', 'GL_DEPTH_COMPONENT', 'GL_SCISSOR_TEST', 'GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES', 'GL_SHADER_TYPE', 'GL_COMPARE_REF_TO_TEXTURE', 'GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE', 'GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE', 'GL_TRUE', 'GL_TEXTURE_MIN_FILTER', 'GL_REPLACE', 'GL_BLUE_BITS', 'GL_RG_INTEGER', 'GL_TEXTURE_SWIZZLE_R', 'GL_VERTEX_ATTRIB_ARRAY_STRIDE', 'GL_EQUAL', 'GL_TEXTURE_SWIZZLE_G', 'GL_DEPTH_STENCIL_ATTACHMENT', 'GL_RENDERBUFFER_HEIGHT', 'GL_RG16UI', 'GL_DRAW_BUFFER12', 'GL_TEXTURE_SWIZZLE_A', 'GL_LOW_FLOAT', 'GL_MAX_FRAGMENT_UNIFORM_COMPONENTS', 'GL_FLOAT_MAT4x3', 'GL_DRAW_BUFFER15', 'GL_DYNAMIC_COPY', 'GL_STENCIL_BACK_REF', 'GL_UNPACK_ALIGNMENT', 'GL_ALREADY_SIGNALED', 'GL_LINE_STRIP', 'GL_STREAM_COPY', 'GL_PACK_ROW_LENGTH', 'GL_NUM_SAMPLE_COUNTS', 'GL_MEDIUM_INT', 'GL_TEXTURE_CUBE_MAP', 'GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS', 'GL_COLOR', 'GL_RENDERBUFFER_DEPTH_SIZE', 'GL_DYNAMIC_READ', 'GL_PROGRAM_BINARY_FORMATS', 'GL_LOW_INT', 'GL_DEPTH_STENCIL', 'GL_VERTEX_ATTRIB_ARRAY_DIVISOR', 'GL_MAX_VERTEX_OUTPUT_COMPONENTS', 'GL_POINTS', 'GL_COMPRESSED_RG11_EAC', 'GL_RENDERBUFFER_BLUE_SIZE', 'GL_UNIFORM_NAME_LENGTH', 'GL_FASTEST', 'GL_SYNC_CONDITION', 'GL_TEXTURE_2D', 'GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS', 'GL_MAP_INVALIDATE_RANGE_BIT', 'GL_TEXTURE23', 'GL_TEXTURE22', 'GL_TEXTURE21', 'GL_TEXTURE20', 'GL_TEXTURE27', 'GL_TEXTURE26', 'GL_TEXTURE25', 'GL_TEXTURE24', 'GL_R8_SNORM', 'GL_TEXTURE29', 'GL_TEXTURE28', 'GL_ELEMENT_ARRAY_BUFFER_BINDING', 'GL_TEXTURE_CUBE_MAP_NEGATIVE_Y', 'GL_TEXTURE_CUBE_MAP_NEGATIVE_X', 'GL_TEXTURE_CUBE_MAP_NEGATIVE_Z', 'GL_LINE_LOOP', 'GL_READ_BUFFER', 'GL_MAP_FLUSH_EXPLICIT_BIT', 'GL_PACK_SKIP_PIXELS', 'GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS', 'GL_SUBPIXEL_BITS', 'GL_SRGB8', 'GL_GEQUAL', 'GL_UNIFORM_BLOCK_BINDING', 'GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT', 'GL_LINE_WIDTH', 'GL_UNIFORM_OFFSET', 'GL_R16F', 'GL_REPEAT', 'GL_TRANSFORM_FEEDBACK', 'GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC', 'GL_UNSIGNED_INT_SAMPLER_CUBE', 'GL_COLOR_ATTACHMENT4', 'GL_UNIFORM_SIZE', 'GL_FUNC_ADD', 'GL_FLOAT_MAT4x2', 'GL_SHADER_SOURCE_LENGTH', 'GL_CURRENT_VERTEX_ATTRIB', 'GL_ARRAY_BUFFER_BINDING', 'GL_POLYGON_OFFSET_UNITS', 'GL_DYNAMIC_DRAW', 'GL_OUT_OF_MEMORY', 'GL_NICEST', 'GL_IMPLEMENTATION_COLOR_READ_TYPE', 'GL_UNPACK_ROW_LENGTH', 'GL_CURRENT_PROGRAM', 'GL_BUFFER_MAPPED', 'GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS', 'GL_RASTERIZER_DISCARD', 'GL_NUM_PROGRAM_BINARY_FORMATS', 'GL_STREAM_DRAW', 'GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER', 'GL_MAX_UNIFORM_BUFFER_BINDINGS', 'GL_SIGNALED', 'GL_FRAMEBUFFER', 'GL_MEDIUM_FLOAT', 'GL_STENCIL_TEST', 'GL_R11F_G11F_B10F', 'GL_LUMINANCE_ALPHA', 'GL_PIXEL_UNPACK_BUFFER_BINDING', 'GL_INVERT', 'GL_STENCIL_BACK_FAIL', 'GL_POLYGON_OFFSET_FACTOR', 'GL_TRANSFORM_FEEDBACK_VARYINGS', 'GL_DEPTH_COMPONENT32F', 'GL_TRIANGLE_FAN', 'GL_SYNC_FLUSH_COMMANDS_BIT', 'GL_ONE_MINUS_DST_ALPHA', 'GL_DRAW_FRAMEBUFFER_BINDING', 'GL_MAX_ELEMENTS_VERTICES', 'GL_STENCIL_BACK_WRITEMASK', 'GL_INVALID_FRAMEBUFFER_OPERATION', 'GL_BUFFER_ACCESS_FLAGS', 'GL_COMPRESSED_RGBA8_ETC2_EAC', 'GL_UNIFORM_BUFFER_SIZE', 'GL_TRIANGLES', 'GL_SAMPLER_2D_ARRAY_SHADOW', 'GL_DEPTH32F_STENCIL8', 'GL_MAX_ARRAY_TEXTURE_LAYERS', 'GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING', 'GL_UNIFORM_MATRIX_STRIDE', 'GL_MAX_SERVER_WAIT_TIMEOUT', 'GL_SRGB8_ALPHA8', 'GL_PACK_ALIGNMENT', 'GL_SAMPLER_2D_ARRAY', 'GL_RENDERER', 'GL_MAX_COLOR_ATTACHMENTS', 'GL_ACTIVE_UNIFORM_BLOCKS', 'GL_UNPACK_SKIP_IMAGES', 'GL_STENCIL_BACK_FUNC', 'GL_RGB16I', 'GL_ACTIVE_TEXTURE', 'GL_TEXTURE_BASE_LEVEL', 'GL_INTERLEAVED_ATTRIBS', 'GL_RGB16F', 'GL_COMPRESSED_SIGNED_R11_EAC', 'GL_UNSIGNED_INT_SAMPLER_3D', 'GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH', 'GL_TEXTURE_WRAP_R', 'GL_INT_VEC4', 'GL_INT_VEC3', 'GL_INT_VEC2', 'GL_STENCIL_FAIL', 'GL_MAX_VERTEX_ATTRIBS', 'GL_CONDITION_SATISFIED', 'GL_TEXTURE_IMMUTABLE_FORMAT', 'GL_FRAMEBUFFER_UNSUPPORTED', 'GL_DST_ALPHA', 'GL_LESS', 'GL_MAX_CUBE_MAP_TEXTURE_SIZE', 'GL_RGB565', 'GL_TRANSFORM_FEEDBACK_BINDING', 'GL_RENDERBUFFER_WIDTH', 'GL_READ_FRAMEBUFFER_BINDING', 'GL_RGBA4', 'GL_DRAW_BUFFER10', 'GL_DRAW_BUFFER11', 'GL_RGBA8', 'GL_DRAW_BUFFER13', 'GL_DRAW_BUFFER14', 'GL_LUMINANCE', 'GL_INFO_LOG_LENGTH', 'GL_DEPTH_WRITEMASK', 'GL_PRIMITIVE_RESTART_FIXED_INDEX', 'GL_SRC_ALPHA_SATURATE', 'GL_RENDERBUFFER_STENCIL_SIZE', 'GL_CONSTANT_ALPHA', 'GL_R16I', 'GL_RG8_SNORM', 'GL_PIXEL_PACK_BUFFER', 'GL_STATIC_READ', 'GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2', 'GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER', 'GL_VALIDATE_STATUS', 'GL_MAP_READ_BIT', 'GL_STENCIL_CLEAR_VALUE', 'GL_STENCIL_BUFFER_BIT', 'GL_TEXTURE_SWIZZLE_B', 'GL_COLOR_ATTACHMENT17', 'GL_BLEND_EQUATION_ALPHA', 'GL_RGBA_INTEGER', 'GL_ACTIVE_ATTRIBUTES', 'GL_MAX_RENDERBUFFER_SIZE', 'GL_COLOR_ATTACHMENT31', 'GL_COLOR_ATTACHMENT30', 'GL_STENCIL_PASS_DEPTH_PASS', 'GL_INCR_WRAP', 'GL_RENDERBUFFER_ALPHA_SIZE', 'GL_HIGH_INT', 'GL_COLOR_ATTACHMENT16', 'GL_DECR_WRAP', 'GL_ATTACHED_SHADERS', 'GL_MAX_FRAGMENT_INPUT_COMPONENTS', 'GL_SAMPLE_COVERAGE_INVERT', 'GL_LINES', 'GL_TEXTURE18', 'GL_TEXTURE19', 'GL_TEXTURE16', 'GL_TEXTURE17', 'GL_TEXTURE14', 'GL_GENERATE_MIPMAP_HINT', 'GL_TEXTURE12', 'GL_TEXTURE13', 'GL_TEXTURE10', 'GL_UNPACK_SKIP_ROWS', 'GL_BLEND_DST_ALPHA', 'GL_RGB', 'GL_INT_SAMPLER_CUBE', 'GL_CURRENT_QUERY', 'GL_VERTEX_ATTRIB_ARRAY_NORMALIZED', 'GL_RGB5_A1', 'GL_VERTEX_SHADER', 'GL_TRANSFORM_FEEDBACK_BUFFER_START', 'GL_MAX_PROGRAM_TEXEL_OFFSET', 'GL_SHADER_BINARY_FORMATS', 'GL_CONSTANT_COLOR', 'GL_RGBA32F', 'GL_RGBA32I', 'GL_VERTEX_ATTRIB_ARRAY_TYPE', 'GL_PIXEL_UNPACK_BUFFER', 'GL_LINEAR_MIPMAP_NEAREST', 'GL_STENCIL_WRITEMASK', 'GL_RG8', 'GL_RGB10_A2', 'GL_ES_VERSION_2_0', 'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE', 'GL_VERSION', 'GL_MAP_UNSYNCHRONIZED_BIT', 'GL_ZERO', 'GL_ELEMENT_ARRAY_BUFFER', 'GL_SYNC_STATUS', 'GL_BUFFER_MAP_LENGTH', 'GL_MAX_ELEMENTS_INDICES', 'GL_UNSIGNED_NORMALIZED', 'GL_SRC_ALPHA', 'GL_TEXTURE_3D', 'GL_FIXED', 'GL_RGB8', 'GL_NOTEQUAL', 'GL_UNIFORM_ARRAY_STRIDE', 'GL_FLOAT_32_UNSIGNED_INT_24_8_REV', 'GL_INCR', 'GL_CULL_FACE', 'GL_SAMPLE_COVERAGE_VALUE', 'GL_RENDERBUFFER_RED_SIZE', 'GL_MAX_VIEWPORT_DIMS', 'GL_RG32UI', 'GL_NEVER', 'GL_TEXTURE15', 'GL_STENCIL_VALUE_MASK', 'GL_DRAW_BUFFER9', 'GL_COMPILE_STATUS', 'GL_FRAMEBUFFER_COMPLETE', 'GL_TEXTURE11', 'GL_COPY_READ_BUFFER', 'GL_SHADER_COMPILER', 'GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS', 'GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS', 'GL_RGBA', 'GL_SHORT', 'GL_READ_FRAMEBUFFER', 'GL_CW', 'GL_MIN_PROGRAM_TEXEL_OFFSET', 'GL_UNSIGNED_BYTE', 'GL_MAX_VERTEX_UNIFORM_COMPONENTS', 'GL_VENDOR', 'GL_TEXTURE_2D_ARRAY', 'GL_UNSIGNED_INT_10F_11F_11F_REV', 'GL_TEXTURE_BINDING_2D', 'GL_OBJECT_TYPE', 'GL_R8UI', 'GL_STATIC_DRAW', 'GL_RENDERBUFFER', 'GL_FLOAT_MAT2x3', 'GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE', 'GL_FLOAT_MAT2x4', 'GL_RGB8I', 'GL_COLOR_ATTACHMENT18', 'GL_TRANSFORM_FEEDBACK_BUFFER_SIZE', 'GL_TRANSFORM_FEEDBACK_ACTIVE', 'GL_SEPARATE_ATTRIBS', 'GL_SAMPLER_3D', 'GL_MAX', 'GL_STENCIL_INDEX8', 'GL_DEPTH_BITS', 'GL_RGB8UI', 'GL_INVALID_INDEX', 'GL_COMPRESSED_SRGB8_ETC2', 'GL_BLEND_DST_RGB', 'GL_SAMPLER_2D_SHADOW', 'GL_TEXTURE_BINDING_2D_ARRAY', 'GL_RG16F', 'GL_SAMPLER_CUBE', 'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL', 'GL_RED_BITS', 'GL_RG16I', 'GL_PIXEL_PACK_BUFFER_BINDING', 'GL_STENCIL_ATTACHMENT', 'GL_SAMPLE_COVERAGE', 'GL_ANY_SAMPLES_PASSED_CONSERVATIVE', 'GL_DRAW_FRAMEBUFFER', 'GL_RGB10_A2UI', 'GL_SAMPLES', 'GLchar', 'GLenum', 'GLboolean', 'GLbitfield', 'GLbyte', 'GLshort', 'GLint', 'GLint64', 'GLsizei', 'GLubyte', 'GLushort', 'GLuint', 'GLfloat', 'GLclampf', 'GLfixed', 'GLintptr', 'GLsizeiptr', 'GLclampx', 'void', 'GLvoid', 'GLsync']
+__all__ = ['glActiveTexture', 'glAttachShader', 'glBindAttribLocation', 'glBindBuffer', 'glBindFramebuffer', 'glBindRenderbuffer', 'glBindTexture', 'glBlendColor', 'glBlendEquation', 'glBlendEquationSeparate', 'glBlendFunc', 'glBlendFuncSeparate', 'glBufferData', 'glBufferSubData', 'glCheckFramebufferStatus', 'glClear', 'glClearColor', 'glClearDepthf', 'glClearStencil', 'glColorMask', 'glCompileShader', 'glCompressedTexImage2D', 'glCompressedTexSubImage2D', 'glCopyTexImage2D', 'glCopyTexSubImage2D', 'glCreateProgram', 'glCreateShader', 'glCullFace', 'glDeleteBuffers', 'glDeleteFramebuffers', 'glDeleteProgram', 'glDeleteRenderbuffers', 'glDeleteShader', 'glDeleteTextures', 'glDepthFunc', 'glDepthMask', 'glDepthRangef', 'glDetachShader', 'glDisable', 'glDisableVertexAttribArray', 'glDrawArrays', 'glDrawElements', 'glEnable', 'glEnableVertexAttribArray', 'glFinish', 'glFlush', 'glFramebufferRenderbuffer', 'glFramebufferTexture2D', 'glFrontFace', 'glGenBuffers', 'glGenerateMipmap', 'glGenFramebuffers', 'glGenRenderbuffers', 'glGenTextures', 'glGetActiveAttrib', 'glGetActiveUniform', 'glGetAttachedShaders', 'glGetAttribLocation', 'glGetBooleanv', 'glGetBufferParameteriv', 'glGetError', 'glGetFloatv', 'glGetFramebufferAttachmentParameteriv', 'glGetIntegerv', 'glGetProgramiv', 'glGetProgramInfoLog', 'glGetRenderbufferParameteriv', 'glGetShaderiv', 'glGetShaderInfoLog', 'glGetShaderPrecisionFormat', 'glGetShaderSource', 'glGetTexParameterfv', 'glGetTexParameteriv', 'glGetUniformfv', 'glGetUniformiv', 'glGetUniformLocation', 'glGetVertexAttribfv', 'glGetVertexAttribiv', 'glGetVertexAttribPointerv', 'glHint', 'glIsBuffer', 'glIsEnabled', 'glIsFramebuffer', 'glIsProgram', 'glIsRenderbuffer', 'glIsShader', 'glIsTexture', 'glLineWidth', 'glLinkProgram', 'glPixelStorei', 'glPolygonOffset', 'glReadPixels', 'glReleaseShaderCompiler', 'glRenderbufferStorage', 'glSampleCoverage', 'glScissor', 'glShaderBinary', 'glShaderSource', 'glStencilFunc', 'glStencilFuncSeparate', 'glStencilMask', 'glStencilMaskSeparate', 'glStencilOp', 'glStencilOpSeparate', 'glTexImage2D', 'glTexParameterf', 'glTexParameterfv', 'glTexParameteri', 'glTexParameteriv', 'glTexSubImage2D', 'glUniform1f', 'glUniform1fv', 'glUniform1i', 'glUniform1iv', 'glUniform2f', 'glUniform2fv', 'glUniform2i', 'glUniform2iv', 'glUniform3f', 'glUniform3fv', 'glUniform3i', 'glUniform3iv', 'glUniform4f', 'glUniform4fv', 'glUniform4i', 'glUniform4iv', 'glUniformMatrix2fv', 'glUniformMatrix3fv', 'glUniformMatrix4fv', 'glUseProgram', 'glValidateProgram', 'glVertexAttrib1f', 'glVertexAttrib1fv', 'glVertexAttrib2f', 'glVertexAttrib2fv', 'glVertexAttrib3f', 'glVertexAttrib3fv', 'glVertexAttrib4f', 'glVertexAttrib4fv', 'glVertexAttribPointer', 'glViewport', 'glReadBuffer', 'glDrawRangeElements', 'glTexImage3D', 'glTexSubImage3D', 'glCopyTexSubImage3D', 'glCompressedTexImage3D', 'glCompressedTexSubImage3D', 'glGenQueries', 'glDeleteQueries', 'glIsQuery', 'glBeginQuery', 'glEndQuery', 'glGetQueryiv', 'glGetQueryObjectuiv', 'glUnmapBuffer', 'glGetBufferPointerv', 'glDrawBuffers', 'glUniformMatrix2x3fv', 'glUniformMatrix3x2fv', 'glUniformMatrix2x4fv', 'glUniformMatrix4x2fv', 'glUniformMatrix3x4fv', 'glUniformMatrix4x3fv', 'glBlitFramebuffer', 'glRenderbufferStorageMultisample', 'glFramebufferTextureLayer', 'glFlushMappedBufferRange', 'glBindVertexArray', 'glDeleteVertexArrays', 'glGenVertexArrays', 'glIsVertexArray', 'glGetIntegeri_v', 'glBeginTransformFeedback', 'glEndTransformFeedback', 'glBindBufferRange', 'glBindBufferBase', 'glTransformFeedbackVaryings', 'glGetTransformFeedbackVarying', 'glVertexAttribIPointer', 'glGetVertexAttribIiv', 'glGetVertexAttribIuiv', 'glVertexAttribI4i', 'glVertexAttribI4ui', 'glVertexAttribI4iv', 'glVertexAttribI4uiv', 'glGetUniformuiv', 'glGetFragDataLocation', 'glUniform1ui', 'glUniform2ui', 'glUniform3ui', 'glUniform4ui', 'glUniform1uiv', 'glUniform2uiv', 'glUniform3uiv', 'glUniform4uiv', 'glClearBufferiv', 'glClearBufferuiv', 'glClearBufferfv', 'glClearBufferfi', 'glCopyBufferSubData', 'glGetUniformIndices', 'glGetActiveUniformsiv', 'glGetUniformBlockIndex', 'glGetActiveUniformBlockiv', 'glGetActiveUniformBlockName', 'glUniformBlockBinding', 'glDrawArraysInstanced', 'glDrawElementsInstanced', 'glGetInteger64v', 'glGetInteger64i_v', 'glGetBufferParameteri64v', 'glGenSamplers', 'glDeleteSamplers', 'glIsSampler', 'glBindSampler', 'glSamplerParameteri', 'glSamplerParameteriv', 'glSamplerParameterf', 'glSamplerParameterfv', 'glGetSamplerParameteriv', 'glGetSamplerParameterfv', 'glVertexAttribDivisor', 'glBindTransformFeedback', 'glDeleteTransformFeedbacks', 'glGenTransformFeedbacks', 'glIsTransformFeedback', 'glPauseTransformFeedback', 'glResumeTransformFeedback', 'glGetProgramBinary', 'glProgramBinary', 'glProgramParameteri', 'glInvalidateFramebuffer', 'glInvalidateSubFramebuffer', 'glTexStorage2D', 'glTexStorage3D', 'glGetInternalformativ', 'GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE', 'GL_UNSIGNED_INT_VEC2', 'GL_UNSIGNED_INT_VEC3', 'GL_UNSIGNED_INT_VEC4', 'GL_UNSIGNED_SHORT_5_6_5', 'GL_VERTEX_ATTRIB_ARRAY_SIZE', 'GL_DEPTH_ATTACHMENT', 'GL_DITHER', 'GL_TRANSFORM_FEEDBACK_PAUSED', 'GL_RGB16UI', '__gl3_h_', 'GL_QUERY_RESULT', 'GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE', 'GL_FLOAT_VEC2', 'GL_FLOAT_VEC3', 'GL_FLOAT_VEC4', 'GL_FLOAT', 'GL_INT_2_10_10_10_REV', 'GL_RGB32UI', 'GL_TEXTURE_MAX_LOD', 'GL_BUFFER_MAP_OFFSET', 'GL_BUFFER_SIZE', 'GL_RGB9_E5', 'GL_UNIFORM_BUFFER_START', 'GL_COMPRESSED_R11_EAC', 'GL_RGBA32UI', 'GL_UNSIGNED_INT_SAMPLER_2D', 'GL_TEXTURE_MIN_LOD', 'GL_TEXTURE8', 'GL_TEXTURE9', 'GL_TEXTURE4', 'GL_TEXTURE5', 'GL_TEXTURE6', 'GL_TEXTURE7', 'GL_TEXTURE0', 'GL_LINEAR_MIPMAP_LINEAR', 'GL_TEXTURE2', 'GL_TEXTURE3', 'GL_TEXTURE_CUBE_MAP_POSITIVE_Y', 'GL_TEXTURE_CUBE_MAP_POSITIVE_X', 'GL_BLEND_EQUATION', 'GL_BYTE', 'GL_BOOL_VEC3', 'GL_BOOL_VEC2', 'GL_TIMEOUT_IGNORED', 'GL_MAX_VARYING_VECTORS', 'GL_RENDERBUFFER_SAMPLES', 'GL_ONE', 'GL_RG', 'GL_COLOR_CLEAR_VALUE', 'GL_MAX_SAMPLES', 'GL_BUFFER_USAGE', 'GL_UNPACK_IMAGE_HEIGHT', 'GL_FLOAT_MAT3x2', 'GL_TRIANGLE_STRIP', 'GL_PROGRAM_BINARY_RETRIEVABLE_HINT', 'GL_TRANSFORM_FEEDBACK_BUFFER_BINDING', 'GL_FLOAT_MAT3x4', 'GL_COLOR_ATTACHMENT28', 'GL_COLOR_ATTACHMENT29', 'GL_COLOR_ATTACHMENT24', 'GL_COLOR_ATTACHMENT25', 'GL_COLOR_ATTACHMENT26', 'GL_COLOR_ATTACHMENT27', 'GL_COLOR_ATTACHMENT20', 'GL_COLOR_ATTACHMENT21', 'GL_COLOR_ATTACHMENT22', 'GL_COLOR_ATTACHMENT23', 'GL_TRANSFORM_FEEDBACK_BUFFER', 'GL_BLUE', 'GL_VERTEX_ARRAY_BINDING', 'GL_UNSIGNED_SHORT_5_5_5_1', 'GL_TIMEOUT_EXPIRED', 'GL_COMPRESSED_RGB8_ETC2', 'GL_SIGNED_NORMALIZED', 'GL_STENCIL_FUNC', 'GL_MAX_TEXTURE_LOD_BIAS', 'GL_ALIASED_LINE_WIDTH_RANGE', 'GL_DECR', 'GL_BACK', 'GL_ES_VERSION_3_0', 'GL_TEXTURE_COMPARE_FUNC', 'GL_TRANSFORM_FEEDBACK_BUFFER_MODE', 'GL_INT', 'GL_COMPRESSED_SIGNED_RG11_EAC', 'GL_POLYGON_OFFSET_FILL', 'GL_MINOR_VERSION', 'GL_FRONT_AND_BACK', 'GL_R8', 'GL_RGB_INTEGER', 'GL_STENCIL', 'GL_SRGB', 'GL_GREEN_BITS', 'GL_SYNC_FENCE', 'GL_ONE_MINUS_CONSTANT_COLOR', 'GL_SHADING_LANGUAGE_VERSION', 'GL_RGB8_SNORM', 'GL_UNPACK_SKIP_PIXELS', 'GL_TEXTURE_IMMUTABLE_LEVELS', 'GL_FRAGMENT_SHADER', 'GL_UNSIGNED_INT_2_10_10_10_REV', 'GL_UNSIGNED_SHORT_4_4_4_4', 'GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS', 'GL_FRAGMENT_SHADER_DERIVATIVE_HINT', 'GL_NO_ERROR', 'GL_VIEWPORT', 'GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME', 'GL_BLEND_SRC_ALPHA', 'GL_DRAW_BUFFER6', 'GL_DRAW_BUFFER7', 'GL_DRAW_BUFFER4', 'GL_DRAW_BUFFER5', 'GL_DRAW_BUFFER2', 'GL_DRAW_BUFFER3', 'GL_DRAW_BUFFER0', 'GL_DRAW_BUFFER1', 'GL_UNIFORM_TYPE', 'GL_QUERY_RESULT_AVAILABLE', 'GL_DRAW_BUFFER8', 'GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT', 'GL_MAX_DRAW_BUFFERS', 'GL_KEEP', 'GL_DELETE_STATUS', 'GL_R32UI', 'GL_RGBA8_SNORM', 'GL_INT_SAMPLER_3D', 'GL_SRC_COLOR', 'GL_SAMPLER_BINDING', 'GL_DEPTH24_STENCIL8', 'GL_SAMPLE_BUFFERS', 'GL_MAJOR_VERSION', 'GL_STATIC_COPY', 'GL_ACTIVE_ATTRIBUTE_MAX_LENGTH', 'GL_EXTENSIONS', 'GL_UNIFORM_BUFFER_BINDING', 'GL_RGBA16UI', 'GL_COPY_READ_BUFFER_BINDING', 'GL_TEXTURE_COMPARE_MODE', 'GL_ANY_SAMPLES_PASSED', 'GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE', 'GL_DEPTH_BUFFER_BIT', 'GL_STENCIL_BACK_PASS_DEPTH_FAIL', 'GL_UNIFORM_BUFFER', 'GL_MAP_WRITE_BIT', 'GL_VERTEX_ATTRIB_ARRAY_POINTER', 'GL_ALIASED_POINT_SIZE_RANGE', 'GL_CCW', 'GL_MAP_INVALIDATE_BUFFER_BIT', 'GL_DEPTH_COMPONENT24', 'GL_UNSIGNED_INT_5_9_9_9_REV', 'GL_DEPTH_TEST', 'GL_SYNC_GPU_COMMANDS_COMPLETE', 'GL_VERTEX_ATTRIB_ARRAY_INTEGER', 'GL_MAX_FRAGMENT_UNIFORM_BLOCKS', 'GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE', 'GL_ACTIVE_UNIFORM_MAX_LENGTH', 'GL_STREAM_READ', 'GL_LINEAR', 'GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN', 'GL_FUNC_SUBTRACT', 'GL_R32F', 'GL_MAX_VARYING_COMPONENTS', 'GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH', 'GL_IMPLEMENTATION_COLOR_READ_FORMAT', 'GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING', 'GL_HALF_FLOAT', 'GL_COLOR_ATTACHMENT15', 'GL_COLOR_ATTACHMENT14', 'GL_HIGH_FLOAT', 'GL_DEPTH_RANGE', 'GL_GREATER', 'GL_CLAMP_TO_EDGE', 'GL_COLOR_ATTACHMENT13', 'GL_COLOR_ATTACHMENT12', 'GL_NEAREST', 'GL_VERTEX_ATTRIB_ARRAY_ENABLED', 'GL_COLOR_ATTACHMENT19', 'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER', 'GL_MAX_TEXTURE_IMAGE_UNITS', 'GL_RGB32F', 'GL_FLOAT_MAT2', 'GL_FLOAT_MAT3', 'GL_FRONT_FACE', 'GL_DEPTH', 'GL_FLOAT_MAT4', 'GL_RENDERBUFFER_GREEN_SIZE', 'GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE', 'GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT', 'GL_TEXTURE30', 'GL_TEXTURE31', 'GL_RG8I', 'GL_RGBA8I', 'GL_RG8UI', 'GL_DEPTH_CLEAR_VALUE', 'GL_BUFFER_MAP_POINTER', 'GL_RENDERBUFFER_BINDING', 'GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE', 'GL_STENCIL_REF', 'GL_MAX_3D_TEXTURE_SIZE', 'GL_R16UI', 'GL_COPY_WRITE_BUFFER_BINDING', 'GL_COPY_WRITE_BUFFER', 'GL_BLEND', 'GL_MIRRORED_REPEAT', 'GL_SAMPLER_CUBE_SHADOW', 'GL_TEXTURE_BINDING_3D', 'GL_UNSIGNED_SHORT', 'GL_MIN', 'GL_ONE_MINUS_DST_COLOR', 'GL_ONE_MINUS_SRC_COLOR', 'GL_TEXTURE', 'GL_COLOR_BUFFER_BIT', 'GL_DONT_CARE', 'GL_ACTIVE_UNIFORMS', 'GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2', 'GL_MAX_VERTEX_UNIFORM_VECTORS', 'GL_TEXTURE_BINDING_CUBE_MAP', 'GL_SAMPLER_2D', 'GL_INVALID_VALUE', 'GL_NEAREST_MIPMAP_NEAREST', 'GL_NUM_COMPRESSED_TEXTURE_FORMATS', 'GL_PACK_SKIP_ROWS', 'GL_TEXTURE_MAG_FILTER', 'GL_R8I', 'GL_TEXTURE1', 'GL_BLEND_EQUATION_RGB', 'GL_LINK_STATUS', 'GL_TEXTURE_MAX_LEVEL', 'GL_R32I', 'GL_BLEND_COLOR', 'GL_ALPHA_BITS', 'GL_BOOL_VEC4', 'GL_ONE_MINUS_CONSTANT_ALPHA', 'GL_NEAREST_MIPMAP_LINEAR', 'GL_TEXTURE_CUBE_MAP_POSITIVE_Z', 'GL_WAIT_FAILED', 'GL_UNIFORM_BLOCK_NAME_LENGTH', 'GL_MAX_TEXTURE_SIZE', 'GL_RG32F', 'GL_UNSIGNED_INT_SAMPLER_2D_ARRAY', 'GL_ARRAY_BUFFER', 'GL_DEPTH_COMPONENT16', 'GL_UNSIGNALED', 'GL_RGB32I', 'GL_BLEND_SRC_RGB', 'GL_FRAMEBUFFER_UNDEFINED', 'GL_SYNC_FLAGS', 'GL_FALSE', 'GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS', 'GL_ONE_MINUS_SRC_ALPHA', 'GL_RG32I', 'GL_RENDERBUFFER_INTERNAL_FORMAT', 'GL_NUM_SHADER_BINARY_FORMATS', 'GL_RGBA16I', 'GL_RGBA16F', 'GL_SAMPLE_ALPHA_TO_COVERAGE', 'GL_INT_SAMPLER_2D', 'GL_STENCIL_BITS', 'GL_STENCIL_PASS_DEPTH_FAIL', 'GL_RED', 'GL_MAX_ELEMENT_INDEX', 'GL_MAX_VERTEX_UNIFORM_BLOCKS', 'GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS', 'GL_RGBA8UI', 'GL_GREEN', 'GL_INVALID_OPERATION', 'GL_RED_INTEGER', 'GL_NONE', 'GL_STENCIL_BACK_PASS_DEPTH_PASS', 'GL_COLOR_ATTACHMENT5', 'GL_FUNC_REVERSE_SUBTRACT', 'GL_COLOR_ATTACHMENT7', 'GL_COLOR_ATTACHMENT6', 'GL_COLOR_ATTACHMENT1', 'GL_COLOR_ATTACHMENT0', 'GL_COLOR_ATTACHMENT3', 'GL_COLOR_ATTACHMENT2', 'GL_UNIFORM_BLOCK_INDEX', 'GL_FRAMEBUFFER_DEFAULT', 'GL_COLOR_ATTACHMENT9', 'GL_COLOR_ATTACHMENT8', 'GL_COLOR_ATTACHMENT10', 'GL_FRONT', 'GL_SCISSOR_BOX', 'GL_UNIFORM_BLOCK_DATA_SIZE', 'GL_LEQUAL', 'GL_CULL_FACE_MODE', 'GL_MAX_FRAGMENT_UNIFORM_VECTORS', 'GL_NUM_EXTENSIONS', 'GL_UNIFORM_IS_ROW_MAJOR', 'GL_MAX_UNIFORM_BLOCK_SIZE', 'GL_BOOL', 'GL_MAX_COMBINED_UNIFORM_BLOCKS', 'GL_FRAMEBUFFER_BINDING', 'GL_UNSIGNED_INT_24_8', 'GL_COMPRESSED_TEXTURE_FORMATS', 'GL_ALPHA', 'GL_COLOR_WRITEMASK', 'GL_DST_COLOR', 'GL_UNSIGNED_INT', 'GL_DEPTH_FUNC', 'GL_ALWAYS', 'GL_TEXTURE_WRAP_S', 'GL_TEXTURE_WRAP_T', 'GL_INVALID_ENUM', 'GL_PROGRAM_BINARY_LENGTH', 'GL_STENCIL_BACK_VALUE_MASK', 'GL_INT_SAMPLER_2D_ARRAY', 'GL_COLOR_ATTACHMENT11', 'GL_DEPTH_COMPONENT', 'GL_SCISSOR_TEST', 'GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES', 'GL_SHADER_TYPE', 'GL_COMPARE_REF_TO_TEXTURE', 'GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE', 'GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE', 'GL_TRUE', 'GL_TEXTURE_MIN_FILTER', 'GL_REPLACE', 'GL_BLUE_BITS', 'GL_RG_INTEGER', 'GL_TEXTURE_SWIZZLE_R', 'GL_VERTEX_ATTRIB_ARRAY_STRIDE', 'GL_EQUAL', 'GL_TEXTURE_SWIZZLE_G', 'GL_DEPTH_STENCIL_ATTACHMENT', 'GL_RENDERBUFFER_HEIGHT', 'GL_RG16UI', 'GL_DRAW_BUFFER12', 'GL_TEXTURE_SWIZZLE_A', 'GL_LOW_FLOAT', 'GL_MAX_FRAGMENT_UNIFORM_COMPONENTS', 'GL_FLOAT_MAT4x3', 'GL_DRAW_BUFFER15', 'GL_DYNAMIC_COPY', 'GL_STENCIL_BACK_REF', 'GL_UNPACK_ALIGNMENT', 'GL_ALREADY_SIGNALED', 'GL_LINE_STRIP', 'GL_STREAM_COPY', 'GL_PACK_ROW_LENGTH', 'GL_NUM_SAMPLE_COUNTS', 'GL_MEDIUM_INT', 'GL_TEXTURE_CUBE_MAP', 'GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS', 'GL_COLOR', 'GL_RENDERBUFFER_DEPTH_SIZE', 'GL_DYNAMIC_READ', 'GL_PROGRAM_BINARY_FORMATS', 'GL_LOW_INT', 'GL_DEPTH_STENCIL', 'GL_VERTEX_ATTRIB_ARRAY_DIVISOR', 'GL_MAX_VERTEX_OUTPUT_COMPONENTS', 'GL_POINTS', 'GL_COMPRESSED_RG11_EAC', 'GL_RENDERBUFFER_BLUE_SIZE', 'GL_UNIFORM_NAME_LENGTH', 'GL_FASTEST', 'GL_SYNC_CONDITION', 'GL_TEXTURE_2D', 'GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS', 'GL_MAP_INVALIDATE_RANGE_BIT', 'GL_TEXTURE23', 'GL_TEXTURE22', 'GL_TEXTURE21', 'GL_TEXTURE20', 'GL_TEXTURE27', 'GL_TEXTURE26', 'GL_TEXTURE25', 'GL_TEXTURE24', 'GL_R8_SNORM', 'GL_TEXTURE29', 'GL_TEXTURE28', 'GL_ELEMENT_ARRAY_BUFFER_BINDING', 'GL_TEXTURE_CUBE_MAP_NEGATIVE_Y', 'GL_TEXTURE_CUBE_MAP_NEGATIVE_X', 'GL_TEXTURE_CUBE_MAP_NEGATIVE_Z', 'GL_LINE_LOOP', 'GL_READ_BUFFER', 'GL_MAP_FLUSH_EXPLICIT_BIT', 'GL_PACK_SKIP_PIXELS', 'GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS', 'GL_SUBPIXEL_BITS', 'GL_SRGB8', 'GL_GEQUAL', 'GL_UNIFORM_BLOCK_BINDING', 'GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT', 'GL_LINE_WIDTH', 'GL_UNIFORM_OFFSET', 'GL_R16F', 'GL_REPEAT', 'GL_TRANSFORM_FEEDBACK', 'GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC', 'GL_UNSIGNED_INT_SAMPLER_CUBE', 'GL_COLOR_ATTACHMENT4', 'GL_UNIFORM_SIZE', 'GL_FUNC_ADD', 'GL_FLOAT_MAT4x2', 'GL_SHADER_SOURCE_LENGTH', 'GL_CURRENT_VERTEX_ATTRIB', 'GL_ARRAY_BUFFER_BINDING', 'GL_POLYGON_OFFSET_UNITS', 'GL_DYNAMIC_DRAW', 'GL_OUT_OF_MEMORY', 'GL_NICEST', 'GL_IMPLEMENTATION_COLOR_READ_TYPE', 'GL_UNPACK_ROW_LENGTH', 'GL_CURRENT_PROGRAM', 'GL_BUFFER_MAPPED', 'GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS', 'GL_RASTERIZER_DISCARD', 'GL_NUM_PROGRAM_BINARY_FORMATS', 'GL_STREAM_DRAW', 'GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER', 'GL_MAX_UNIFORM_BUFFER_BINDINGS', 'GL_SIGNALED', 'GL_FRAMEBUFFER', 'GL_MEDIUM_FLOAT', 'GL_STENCIL_TEST', 'GL_R11F_G11F_B10F', 'GL_LUMINANCE_ALPHA', 'GL_PIXEL_UNPACK_BUFFER_BINDING', 'GL_INVERT', 'GL_STENCIL_BACK_FAIL', 'GL_POLYGON_OFFSET_FACTOR', 'GL_TRANSFORM_FEEDBACK_VARYINGS', 'GL_DEPTH_COMPONENT32F', 'GL_TRIANGLE_FAN', 'GL_SYNC_FLUSH_COMMANDS_BIT', 'GL_ONE_MINUS_DST_ALPHA', 'GL_DRAW_FRAMEBUFFER_BINDING', 'GL_MAX_ELEMENTS_VERTICES', 'GL_STENCIL_BACK_WRITEMASK', 'GL_INVALID_FRAMEBUFFER_OPERATION', 'GL_BUFFER_ACCESS_FLAGS', 'GL_COMPRESSED_RGBA8_ETC2_EAC', 'GL_UNIFORM_BUFFER_SIZE', 'GL_TRIANGLES', 'GL_SAMPLER_2D_ARRAY_SHADOW', 'GL_DEPTH32F_STENCIL8', 'GL_MAX_ARRAY_TEXTURE_LAYERS', 'GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING', 'GL_UNIFORM_MATRIX_STRIDE', 'GL_MAX_SERVER_WAIT_TIMEOUT', 'GL_SRGB8_ALPHA8', 'GL_PACK_ALIGNMENT', 'GL_SAMPLER_2D_ARRAY', 'GL_RENDERER', 'GL_MAX_COLOR_ATTACHMENTS', 'GL_ACTIVE_UNIFORM_BLOCKS', 'GL_UNPACK_SKIP_IMAGES', 'GL_STENCIL_BACK_FUNC', 'GL_RGB16I', 'GL_ACTIVE_TEXTURE', 'GL_TEXTURE_BASE_LEVEL', 'GL_INTERLEAVED_ATTRIBS', 'GL_RGB16F', 'GL_COMPRESSED_SIGNED_R11_EAC', 'GL_UNSIGNED_INT_SAMPLER_3D', 'GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH', 'GL_TEXTURE_WRAP_R', 'GL_INT_VEC4', 'GL_INT_VEC3', 'GL_INT_VEC2', 'GL_STENCIL_FAIL', 'GL_MAX_VERTEX_ATTRIBS', 'GL_CONDITION_SATISFIED', 'GL_TEXTURE_IMMUTABLE_FORMAT', 'GL_FRAMEBUFFER_UNSUPPORTED', 'GL_DST_ALPHA', 'GL_LESS', 'GL_MAX_CUBE_MAP_TEXTURE_SIZE', 'GL_RGB565', 'GL_TRANSFORM_FEEDBACK_BINDING', 'GL_RENDERBUFFER_WIDTH', 'GL_READ_FRAMEBUFFER_BINDING', 'GL_RGBA4', 'GL_DRAW_BUFFER10', 'GL_DRAW_BUFFER11', 'GL_RGBA8', 'GL_DRAW_BUFFER13', 'GL_DRAW_BUFFER14', 'GL_LUMINANCE', 'GL_INFO_LOG_LENGTH', 'GL_DEPTH_WRITEMASK', 'GL_PRIMITIVE_RESTART_FIXED_INDEX', 'GL_SRC_ALPHA_SATURATE', 'GL_RENDERBUFFER_STENCIL_SIZE', 'GL_CONSTANT_ALPHA', 'GL_R16I', 'GL_RG8_SNORM', 'GL_PIXEL_PACK_BUFFER', 'GL_STATIC_READ', 'GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2', 'GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER', 'GL_VALIDATE_STATUS', 'GL_MAP_READ_BIT', 'GL_STENCIL_CLEAR_VALUE', 'GL_STENCIL_BUFFER_BIT', 'GL_TEXTURE_SWIZZLE_B', 'GL_COLOR_ATTACHMENT17', 'GL_BLEND_EQUATION_ALPHA', 'GL_RGBA_INTEGER', 'GL_ACTIVE_ATTRIBUTES', 'GL_MAX_RENDERBUFFER_SIZE', 'GL_COLOR_ATTACHMENT31', 'GL_COLOR_ATTACHMENT30', 'GL_STENCIL_PASS_DEPTH_PASS', 'GL_INCR_WRAP', 'GL_RENDERBUFFER_ALPHA_SIZE', 'GL_HIGH_INT', 'GL_COLOR_ATTACHMENT16', 'GL_DECR_WRAP', 'GL_ATTACHED_SHADERS', 'GL_MAX_FRAGMENT_INPUT_COMPONENTS', 'GL_SAMPLE_COVERAGE_INVERT', 'GL_LINES', 'GL_TEXTURE18', 'GL_TEXTURE19', 'GL_TEXTURE16', 'GL_TEXTURE17', 'GL_TEXTURE14', 'GL_GENERATE_MIPMAP_HINT', 'GL_TEXTURE12', 'GL_TEXTURE13', 'GL_TEXTURE10', 'GL_UNPACK_SKIP_ROWS', 'GL_BLEND_DST_ALPHA', 'GL_RGB', 'GL_INT_SAMPLER_CUBE', 'GL_CURRENT_QUERY', 'GL_VERTEX_ATTRIB_ARRAY_NORMALIZED', 'GL_RGB5_A1', 'GL_VERTEX_SHADER', 'GL_TRANSFORM_FEEDBACK_BUFFER_START', 'GL_MAX_PROGRAM_TEXEL_OFFSET', 'GL_SHADER_BINARY_FORMATS', 'GL_CONSTANT_COLOR', 'GL_RGBA32F', 'GL_RGBA32I', 'GL_VERTEX_ATTRIB_ARRAY_TYPE', 'GL_PIXEL_UNPACK_BUFFER', 'GL_LINEAR_MIPMAP_NEAREST', 'GL_STENCIL_WRITEMASK', 'GL_RG8', 'GL_RGB10_A2', 'GL_ES_VERSION_2_0', 'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE', 'GL_VERSION', 'GL_MAP_UNSYNCHRONIZED_BIT', 'GL_ZERO', 'GL_ELEMENT_ARRAY_BUFFER', 'GL_SYNC_STATUS', 'GL_BUFFER_MAP_LENGTH', 'GL_MAX_ELEMENTS_INDICES', 'GL_UNSIGNED_NORMALIZED', 'GL_SRC_ALPHA', 'GL_TEXTURE_3D', 'GL_FIXED', 'GL_RGB8', 'GL_NOTEQUAL', 'GL_UNIFORM_ARRAY_STRIDE', 'GL_FLOAT_32_UNSIGNED_INT_24_8_REV', 'GL_INCR', 'GL_CULL_FACE', 'GL_SAMPLE_COVERAGE_VALUE', 'GL_RENDERBUFFER_RED_SIZE', 'GL_MAX_VIEWPORT_DIMS', 'GL_RG32UI', 'GL_NEVER', 'GL_TEXTURE15', 'GL_STENCIL_VALUE_MASK', 'GL_DRAW_BUFFER9', 'GL_COMPILE_STATUS', 'GL_FRAMEBUFFER_COMPLETE', 'GL_TEXTURE11', 'GL_COPY_READ_BUFFER', 'GL_SHADER_COMPILER', 'GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS', 'GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS', 'GL_RGBA', 'GL_SHORT', 'GL_READ_FRAMEBUFFER', 'GL_CW', 'GL_MIN_PROGRAM_TEXEL_OFFSET', 'GL_UNSIGNED_BYTE', 'GL_MAX_VERTEX_UNIFORM_COMPONENTS', 'GL_VENDOR', 'GL_TEXTURE_2D_ARRAY', 'GL_UNSIGNED_INT_10F_11F_11F_REV', 'GL_TEXTURE_BINDING_2D', 'GL_OBJECT_TYPE', 'GL_R8UI', 'GL_STATIC_DRAW', 'GL_RENDERBUFFER', 'GL_FLOAT_MAT2x3', 'GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE', 'GL_FLOAT_MAT2x4', 'GL_RGB8I', 'GL_COLOR_ATTACHMENT18', 'GL_TRANSFORM_FEEDBACK_BUFFER_SIZE', 'GL_TRANSFORM_FEEDBACK_ACTIVE', 'GL_SEPARATE_ATTRIBS', 'GL_SAMPLER_3D', 'GL_MAX', 'GL_STENCIL_INDEX8', 'GL_DEPTH_BITS', 'GL_RGB8UI', 'GL_INVALID_INDEX', 'GL_COMPRESSED_SRGB8_ETC2', 'GL_BLEND_DST_RGB', 'GL_SAMPLER_2D_SHADOW', 'GL_TEXTURE_BINDING_2D_ARRAY', 'GL_RG16F', 'GL_SAMPLER_CUBE', 'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL', 'GL_RED_BITS', 'GL_RG16I', 'GL_PIXEL_PACK_BUFFER_BINDING', 'GL_STENCIL_ATTACHMENT', 'GL_SAMPLE_COVERAGE', 'GL_ANY_SAMPLES_PASSED_CONSERVATIVE', 'GL_DRAW_FRAMEBUFFER', 'GL_RGB10_A2UI', 'GL_SAMPLES', 'GLchar', 'GLenum', 'GLboolean', 'GLbitfield', 'GLbyte', 'GLshort', 'GLint', 'GLint64', 'GLsizei', 'GLubyte', 'GLushort', 'GLuint', 'GLfloat', 'GLclampf', 'GLfixed', 'GLintptr', 'GLsizeiptr', 'GLclampx', 'void', 'GLvoid', 'GLsync', 'GLeglImageOES', 'GLDEBUGPROCKHR', 'GLuint64']
