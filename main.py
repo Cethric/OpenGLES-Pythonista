@@ -51,10 +51,12 @@ class Renderer(Util.RenderCycle):
         Util.RenderCycle.__init__(self)
         
         self.objects = []
-        o2 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(10, 0, 4))
-        #o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(10, 0, 0))
-        #self.objects.append(o1)
-        self.objects.append(o2)
+        for x in range(-10, 10, 4):
+            for y in range(10, 14, 4):
+                for z in range(-10, 10, 4):
+                    o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(y, x, z))
+                    # o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(y, x, z))
+                    self.objects.append(o1)
         
         self.v = Util.Shader.ShaderSource(VERTEX_SHADER_SOURCE, GL_VERTEX_SHADER)
         self.f = Util.Shader.ShaderSource(FRAGMENT_SHADER_SOURCE, GL_FRAGMENT_SHADER)
@@ -88,24 +90,18 @@ class Renderer(Util.RenderCycle):
     def teardown(self):
         self.sp.teardown()
         EAGL.setCurrentContext(None)
-        
+    
     def update(self, dt):
         start = time.clock()
-        @on_main_thread
-        def update(dt):
-            Physics.step_simulation(dt*10.0, 10)
-        # update(dt)
+        Physics.PhysicsWorld.step_simulation(dt, 10)
         glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
         for rObj in self.objects:
             rObj.update(dt)
-            rObj.model.rotatex(0.5 * dt)
-            rObj.model.rotatey(0.5 * dt)
-            rObj.model.rotatez(0.5 * dt)
         self.eye.update(dt)
         self.view = self.eye.view
         
         end = time.clock()
-        # print end - start
+        # print "update", end - start
             
     def move_f(self, mdir):
         mdir.reverse()
@@ -124,7 +120,7 @@ class Renderer(Util.RenderCycle):
             for rObj in self.objects:
                 rObj.render(self.sp)
         end = time.clock()
-        # print (end - self.last) * 100
+        # print 'render', (end - self.last)
         self.last = end
 
 @on_main_thread

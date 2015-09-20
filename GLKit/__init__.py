@@ -39,7 +39,9 @@ def glkView_drawInRect_(_self, _cmd, _view, _rect):
     
 def glkViewControllerUpdate_(_self, _cmd, _controller):
     controller = ObjCInstance(_controller)
+    # print dir(controller)
     renderEngine.update(controller.timeSinceLastUpdate())
+    #renderEngine.fps = controller.frameInterval()
     renderEngine.fps = controller.framesPerSecond()
     renderEngine.framesDisplayed = controller.framesDisplayed()
 
@@ -65,6 +67,7 @@ def GKLViewController(title, glview):
     glvc = GKLViewController_Class.alloc().initWithNibName_bundle_(None, None).autorelease()
     glvc.setTitle_(title)
     glvc.setView_(glview)
+    glvc.setPreferredFramesPerSecond_(120)
     return glvc
     
 class TouchController(ui.View):
