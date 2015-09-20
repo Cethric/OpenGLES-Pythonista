@@ -2,10 +2,13 @@
 import ui
 import ctypes
 import weakref
+import motion
 from objc_util import *
 
 from OpenGLES.EAGL import *
 from OpenGLES.Util import RenderCycle
+
+import effect
 
 __all__ = ["GLKView", "GLKViewDelegate", "setRenderEngine", "getRenderEngine"]
 
@@ -30,7 +33,6 @@ def glkView_drawInRect_(_self, _cmd, _view, _rect):
     if not game_initialised:
         try:
             renderEngine.setup(view.context())
-            print "Game has been Initialised"
         finally:
             game_initialised = True
     renderEngine.render(view.context())
@@ -75,12 +77,76 @@ class TouchController(ui.View):
         self.dir_move = [0,0]
         self.dir_look = [0,0]
         
+        self.old = (0, 0, 0)
+        
+        
+        self.label = ui.Label()
+        self.label.x = 10
+        self.label.y = 10
+        self.label.text_color = "#FFFFFF"
+        self.label.number_of_lines = 0
+        self.label.width = 200
+        self.add_subview(self.label)
+        
+        self.calibtn = ui.ButtonItem()
+        self.calibtn.title = "Calibrate"
+        self.calibtn.action = self.calibrate
+        self.calib = None
+        
+    def calibrate(self, sender):
+        print "Old calib", self.calib
+        self.calib = motion.get_attitude()
+        print "New calib", self.calib
+        
+    def present(self, debug=False, *args, **kwargs):
+        if debug:
+            ui.View.present(self, *args, **kwargs)
+            
+        if self.superview:
+            self.superview.right_button_items = [self.calibtn]
+        else:
+            self.right_button_items = [self.calibtn]
+        motion.start_updates()
         ui.delay(self.update_touch, 0.01)
         
     def update_touch(self):
+        if self.calib is None:
+            self.calibrate(None)
+        self.check_motion()
         renderEngine.look_f(self.dir_look)
         renderEngine.move_f(self.dir_move)
         ui.delay(self.update_touch, 0.01)
+        
+    def check_motion(self):
+        s1 = 1.0
+        s2 = 1.5
+        
+        b = 0.2
+        n = motion.get_attitude()
+        c = self.calib
+        x = round((n[0] - c[0]) * s1, 2)
+        z = round((n[2] - c[2]) * s2, 2)
+        d1 = ""
+        d2 = ""
+        
+        if not (x > b or x < -b):
+            x = 0.0
+        else:
+            d1 = "Looking %s" % ("down" if x > 0 else "up")
+            
+        if not (z > b or z < -b):
+            z = 0.0
+        else:
+            d2 = "Looking %s" % ("left" if z > 0 else "right")
+        
+        self.label.text = "%s\t%s\n%s\t%s" % (x, d1, z, d2)
+        self.label.set_needs_display()
+        if x != 0.0 or z != 0.0:
+            renderEngine.look_f([-z, -x])
+        
+    def will_close(self):
+        ui.cancel_delays()
+        motion.stop_updates()
 
     def touch_began(self, touch):
         if touch.location[0] > self.width / 2:
@@ -168,14 +234,12 @@ class GLKView(ui.View):
             self.glview.setFrame_(frame)
         else:
             raise RuntimeError("GLKViewController property ('vc') must not be None")
-        
-        self.tc.multitouch_enabled = True
-        
-        #self.glview.addSubview_(ObjCInstance(tc))
+            
         self.add_subview(self.tc)
         self.tc.width = self.width
         self.tc.height = self.height
-        
+        self.tc.multitouch_enabled = True
+        self.tc.present()
         self.tc.bring_to_front()
     def will_close(self):
         ui.cancel_delays()
@@ -209,7 +273,9 @@ if __name__ == "__main__":
     vc = GKLViewController("GLKit Demo", v)
     vcd = GLKViewControllerDelegate()
     vc.delegate = vcd
-    print v
-    print d
-    print vc
-    print vcd
+    t = TouchController()
+    t.present(debug=True)
+    # print v
+    # print d
+    # print vc
+    # print vcd

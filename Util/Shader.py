@@ -37,7 +37,10 @@ class ShaderSource(object):
         compiled = GLint(0)
         sargs = (shader, GL_COMPILE_STATUS, ctypes.byref(compiled))
         glGetShaderiv(*sargs, param0_t=ctypes.POINTER(GLint))
-        print "%s Shader Compile Status: %s" % ("Vertex" if self.shader_type == GL_VERTEX_SHADER else "Fragment", "success" if compiled.value == GL_TRUE else "fail")
+        print "%s Shader Compile Status: %s" % (
+                "Vertex" if self.shader_type == GL_VERTEX_SHADER
+                else "Fragment",
+                "success" if compiled.value == GL_TRUE else "fail")
         if(compiled.value == GL_FALSE):
             infoLen = GLint()
             glGetShaderiv(shader, GL_INFO_LOG_LENGTH, ctypes.byref(infoLen), param0_t=ctypes.POINTER(GLint))
@@ -149,7 +152,8 @@ class ShaderProgram(object):
         if self.programObject:
             glUseProgram(self.programObject)
         else:
-            print "'ShaderProgram.programObject' is not set. Try running ShaderProgram.build() first"
+            print "'ShaderProgram.programObject' is not set. Attempting to build it"
+            self.build()
             
     def unbind(self):
         glUseProgram(0)
