@@ -26,5 +26,6 @@
 - Bullet physics support is done through [Ammo.js](https://github.com/kripken/ammo.js/) which is a javascript port of the physics engine
 - Header parsing code. This was from an example that I found on stackoverflow which I expanded on quite a bit. However I do not remeber what post it was from. So if someone can find it please let me know.
 - Inspired by [PyOpenGL](http://pyopengl.sourceforge.net) for python
-- 
+
+
 __Please note the above is NOT affiliated with or in any way related to this, other than where I have made use of the code. I just what to thank them for their projects__
