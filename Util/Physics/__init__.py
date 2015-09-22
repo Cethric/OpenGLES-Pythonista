@@ -6,6 +6,7 @@ import euclid
 import urlparse
 import time
 import ui
+import threading
 
 PHYSICS_DIR = __file__.replace("__init__.py", "")
 BULLET_CODE = os.path.join(os.path.join(PHYSICS_DIR,"ammo.js"))
@@ -114,7 +115,6 @@ groundTransform.setOrigin(new Ammo.btVector3(0, -56, 0));
   dynamicsWorld.addRigidBody(body);
   bodies.push(body);
 })();
-print(dynamicsWorld);
 '''
 
 ADD_SPHERE = '''
@@ -213,7 +213,8 @@ if (body.getMotionState()) {
 '''
 
 GET_ROTATION = '''
-var body = bodies[%s];
+var id = %s;
+var body = bodies[id];
 if (body.getMotionState()) {
     var trans = new Ammo.btTransform();
     body.getMotionState().getWorldTransform(trans);
@@ -239,16 +240,20 @@ class Bullet(object):
         if not r:
             url = url.replace("python://method?", "")
             qs = urlparse.parse_qs(url)
-            funcname = qs['name'][0]
-            args = qs['param'][0]
-            func = None
-            try:
-                func = getattr(self, funcname)
-            except Exception as e:
-                print "Function", funcname, "Does not exist"
-            if func:
-                func(args)
-        return r
+            if 'name' in qs and 'param' in qs:
+                funcname = qs['name'][0]
+                args = qs['param'][0]
+                func = None
+                try:
+                    func = getattr(self, funcname)
+                except Exception as e:
+                    print "Function", funcname, "Does not exist"
+                if func:
+                    func(args)
+            else:
+                print qs
+                return False
+        return r    
     
     def ios_log(self, args):
         print "BULLET-LOG:", args
@@ -314,40 +319,58 @@ class Bullet(object):
         
     def step_simulation(self, step, maxSubStep=1, fixTimeStep=1/60.0):
         start = time.clock()
-        s = "dynamicsWorld.stepSimulation(%f, %f, %f)" % (step, maxSubStep, fixTimeStep)
-        self.wv.evaluate_javascript(s)
+        func = "dynamicsWorld.stepSimulation(%f, %f, %f)" % (step, maxSubStep, fixTimeStep)
+        t = threading.Thread(target=self.wv.evaluate_javascript, args=[func])
+        # self.wv.evaluate_javascript("dynamicsWorld.stepSimulation(%f, %f, %f)" % (step, maxSubStep, fixTimeStep))
+        t.setDaemon(True)
+        t.start()
         end = time.clock()
-        print "step_simulation", end - start
+        #print "step_simulation", end - start
         
     def get_object_pos(self, i=0):
         start = time.clock()
-        self.can_check = False
-        self.wv.evaluate_javascript(GET_POSITION % i)
-        while not self.can_check:
-            pass
+        i = int(i)
         vpos = euclid.Vector3()
         if not int(i) in self.objdata:
             return vpos
+            
+        def get_p(self=self):
+            self._get_object_pos(i)
+        ui.delay(get_p, 0.0)
+        # self.can_check = False
+        # while not self.can_check:
+        #     pass
         pos = self.objdata[int(i)][0]
+        if not len(pos) == 3:
+            return vpos
         vpos.x = pos[0]
         vpos.y = pos[1]
         vpos.z = pos[2]
         end = time.clock()
         # print "get_object_pos", end - start
         return vpos
+    
+    def _get_object_pos(self, i):
+        self.wv.evaluate_javascript(GET_POSITION % i)
         
     def get_object_rot(self, i=0):
         start = time.clock()
-        self.can_check = False
-        self.wv.evaluate_javascript(GET_ROTATION % i)
-        while not self.can_check:
-            pass
-            
+        i = int(i)
         qrot = euclid.Quaternion()
         if not int(i) in self.objdata:
             return qrot
+        
+        def get_p(self=self):
+            self._get_object_rot(i)
+        ui.delay(get_p, 0.0)
+        
+        # self.can_check = False
+        # while not self.can_check:
+        #     pass
             
         rot = self.objdata[int(i)][1]
+        if not len(rot) == 4:
+            return qrot
         qrot.w = rot[0]
         qrot.x = rot[1]
         qrot.y = rot[2]
@@ -355,6 +378,9 @@ class Bullet(object):
         end = time.clock()
         # print "get_object_rot", end - start
         return qrot
+        
+    def _get_object_rot(self, i):
+        self.wv.evaluate_javascript(GET_ROTATION % i)
     
     def set_object_pos(self, i, pos):
         self.wv.evaluate_javascript("")
@@ -370,31 +396,22 @@ if __name__ == "__main__":
     p.add_sphere(1, [0,20,0])
     import OpenGLES.Util.Model as Model
     m = Model.XMLModel("../../test_model.xml")
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
-    i = p.add_object(m.frames[m.frame], 10, [0,30,0])
+    for x in range(-10, 10, 4):
+        for y in range(10, 14, 4):
+            for z in range(-10, 10, 4):
+                i = p.add_object(m.frames[m.frame], 10, [x,y,z])
     for _ in range(0, 10):
         p.step_simulation(1/60.0, 10)
-        pos = p.get_object_pos(i)
-        rot = p.get_object_rot(i)
-        mat = euclid.Matrix4()
-        mat.translate(pos.x, pos.y, pos.z)
-        mat = mat * rot.get_matrix()
-        print mat 
+        s = time.clock()
+        for i in p.ids:
+            so = time.clock()
+            pos = p.get_object_pos(i)
+            rot = p.get_object_rot(i)
+            mat = euclid.Matrix4()
+            mat.translate(pos.x, pos.y, pos.z)
+            mat = mat * rot.get_matrix()
+            #print i, mat
+            se = time.clock()
+            print 'object', se - so
+        e = time.clock()
+        print e - s

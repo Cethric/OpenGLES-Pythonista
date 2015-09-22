@@ -73,6 +73,7 @@ class Renderer(Util.RenderCycle):
             self.sp.build()
             self.sp.bind()
             
+            print len(self.objects), " object/s in the world"
             for rObj in self.objects:
                 rObj.setup_object()
             
@@ -94,14 +95,22 @@ class Renderer(Util.RenderCycle):
     def update(self, dt):
         start = time.clock()
         Physics.PhysicsWorld.step_simulation(dt, 10)
+        end = time.clock()
+        print "simulation update", end - start
         glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
+        su = time.clock()
         for rObj in self.objects:
+            so = time.clock()
             rObj.update(dt)
+            eo = time.clock()
+            print 'time to update object', rObj, eo - so
+        eu = time.clock()
+        print 'time to update all objects', eu - su
         self.eye.update(dt)
         self.view = self.eye.view
         
         end = time.clock()
-        # print "update", end - start
+        print "update", end - start
             
     def move_f(self, mdir):
         mdir.reverse()

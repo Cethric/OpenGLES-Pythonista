@@ -101,11 +101,14 @@ class PhysicsObject(XMLModel):
         print "Object ID:", self.i
         
     def get_mat(self):
+        start = time.clock()
         pos = Physics.PhysicsWorld.get_object_pos(self.i)
         rot = Physics.PhysicsWorld.get_object_rot(self.i)
         mat = euclid.Matrix4()
         mat.translate(pos.x, pos.y, pos.z)
         mat = mat * rot.get_matrix()
+        end = time.clock()
+        print self, '.get_mat', end - start
         return mat
     
     def update(self, dt):
