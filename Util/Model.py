@@ -8,6 +8,7 @@ import euclid
 import math
 import ctypes
 import time
+import os
 import xmltodict
 from objc_util import *
 
@@ -16,19 +17,19 @@ __all__ = ["XMLModel", "PhysicsObject"]
 
 # {'filename': {'framenum': ctypes.c_float_array}}
 _loaded_files = {}
-# {'filename': 'framenum': ctypes.c_uint `bufferid`}
+# {'filename': {'framenum': ctypes.c_uint `bufferid`}}
 _loaded_vbos = {}
+
 
 class XMLModel(OpenGLES.Util.RenderObject):
     def __init__(self, obj_xml, pos=euclid.Vector3(0,0,0)):
         OpenGLES.Util.RenderObject.__init__(self, pos)
-        self.file = obj_xml
+        self.file = os.path.basename(obj_xml)
         self.frames = {}
         self.bframes = {}
         self.frame = 0
-        
-        if obj_xml in _loaded_files:
-            self.frames = _loaded_files[obj_xml]
+        if self.file in _loaded_files:
+            self.frames = _loaded_files[self.file]
             return None
             
         self.data = {}
@@ -39,7 +40,7 @@ class XMLModel(OpenGLES.Util.RenderObject):
             frame = self.data['anim'][frame]
             self._parse_frame(frame)
             
-        _loaded_files[obj_xml] = self.frames
+        _loaded_files[self.file] = self.frames
             
     def setup_object(self):
         for frame in self.frames:
@@ -61,7 +62,6 @@ class XMLModel(OpenGLES.Util.RenderObject):
         if self.file in _loaded_vbos:
             if frame_id in _loaded_vbos[self.file]:
                 self.vertexBuffer = _loaded_vbos[self.file][frame_id]
-                print "VBO already setup"
                 return
         vertexBuffer = GLES1.GLuint()
         GLES2.glGenBuffers(1, ctypes.byref(vertexBuffer), GLES1.GLsizei, ctypes.POINTER(GLES1.GLuint))
@@ -69,7 +69,6 @@ class XMLModel(OpenGLES.Util.RenderObject):
         v = verts
         lv = len(v)
         va = (GLES2.GLfloat * len(v))
-        print v, lv, va
         GLES2.glBufferData(
                            GLES2.GL_ARRAY_BUFFER,
                            lv,
@@ -92,6 +91,7 @@ class XMLModel(OpenGLES.Util.RenderObject):
         frame = self.frames[self.frame]
         self.vSize = len(frame)
         self.vVertices = frame
+        
         
 class PhysicsObject(XMLModel):
     def __init__(self, *args, **kwargs):
@@ -121,9 +121,8 @@ class PhysicsObject(XMLModel):
 if __name__ == "__main__":
     m = XMLModel("../test_model.xml")
     m.setup_object()
-    print m
     m2 = PhysicsObject("../test_model.xml")
     m2.setup_object()
-    print m2
-    print _loaded_files
-    print _loaded_vbos
+    print '_loaded_files', _loaded_files
+    print '_loaded_vbos', _loaded_vbos
+    
