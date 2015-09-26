@@ -108,7 +108,7 @@ class PhysicsObject(XMLModel):
         mat.translate(pos.x, pos.y, pos.z)
         mat = mat * rot.get_matrix()
         end = time.clock()
-        print self, '.get_mat', end - start
+        # print self, '.get_mat', end - start
         return mat
     
     def update(self, dt):

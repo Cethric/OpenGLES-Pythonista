@@ -68,6 +68,9 @@ class Renderer(Util.RenderCycle):
         self.view = self.eye.view
         self.model = euclid.Matrix4.new_identity()
         
+        self.rt = 0
+        self.ut = 0
+        
     def setup(self, context):
         if EAGL.setCurrentContext(context):
             self.sp.build()
@@ -96,21 +99,23 @@ class Renderer(Util.RenderCycle):
         start = time.clock()
         Physics.PhysicsWorld.step_simulation(dt, 10)
         end = time.clock()
-        print "simulation update", end - start
-        glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
+        # print "simulation update", end - start
+        # glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
+        glviewv.name = "Render Time: %.3f\tUpdate Time: %.3f\tFrames: %i" % (self.rt, self.ut, self.framesDisplayed)
         su = time.clock()
         for rObj in self.objects:
             so = time.clock()
             rObj.update(dt)
             eo = time.clock()
-            print 'time to update object', rObj, eo - so
+            # print 'time to update object', rObj, eo - so
         eu = time.clock()
-        print 'time to update all objects', eu - su
+        # print 'time to update all objects', eu - su
         self.eye.update(dt)
         self.view = self.eye.view
         
         end = time.clock()
-        print "update", end - start
+        self.ut = end - start
+        # print "update", end - start
             
     def move_f(self, mdir):
         mdir.reverse()
@@ -120,6 +125,7 @@ class Renderer(Util.RenderCycle):
         self.eye.look(*ldir)
         
     def render(self, context):
+        start = time.clock()
         if EAGL.setCurrentContext(context):
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glViewport(0, 0, int(glviewv.width*2), int(glviewv.height*2))
@@ -130,6 +136,7 @@ class Renderer(Util.RenderCycle):
                 rObj.render(self.sp)
         end = time.clock()
         # print 'render', (end - self.last)
+        self.rt = end - start
         self.last = end
 
 @on_main_thread
