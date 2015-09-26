@@ -98,7 +98,7 @@ class PhysicsObject(XMLModel):
         XMLModel.__init__(self, *args, **kwargs)
         self.pos = [self.model.h, self.model.l, self.model.p]
         self.i = Physics.PhysicsWorld.add_object(self.frames[self.frame], 10, self.pos, True)
-        print "Object ID:", self.i
+        # print "Object ID:", self.i
         
     def get_mat(self):
         start = time.clock()

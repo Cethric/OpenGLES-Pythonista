@@ -6,10 +6,12 @@ import euclid
 import urlparse
 import time
 import ui
+import dialogs
 import threading
 
 PHYSICS_DIR = __file__.replace("__init__.py", "")
 BULLET_CODE = os.path.join(os.path.join(PHYSICS_DIR,"ammo.js"))
+CHART_CODE = os.path.join(PHYSICS_DIR, 'Chart.min.js')
 if os.path.exists(BULLET_CODE):
     with open(BULLET_CODE, "rb") as f:
         AMMO = f.read()
@@ -27,11 +29,32 @@ else:
         f.close()
     print "ammo.js successfully downloaded"
     
+if not os.path.exists(CHART_CODE):
+    chart_url = 'https://raw.githubusercontent.com/nnnick/Chart.js/master/Chart.min.js'
+    print "Chart.js (Chart.min.js file) found"
+    print "Downloading one from '%s'" % chart_url
+    import urllib2
+    try:
+        f = urllib2.urlopen(chart_url)
+        CHART = f.read()
+        with open(CHART_CODE, "wb") as r:
+            r.write(CHART)
+    finally:
+        f.close()
+    print "Chart.min.js successfully downloaded"
+    
 BULLET_HTML = '''<!DOCTYPE html>
 <html>
     <head>
         <title> Bullet Physics Hub </title>
+        <script src='Chart.min.js' type='text/javascript'></script>
         <script>
+            var bodies = [];
+            var sim_step = 0;
+            var simTime = 0;
+            var gpTime = 0;
+            var grTime = 0;
+            
             function send_to_python(name, param) {
                 var iframe = document.createElement("IFRAME");
                 iframe.setAttribute("src", 'python://method?name=' + name + "&param=" + param);
@@ -76,7 +99,50 @@ BULLET_HTML = '''<!DOCTYPE html>
         </script>
     </head>
     <body>
-        <p> Bullet Physics test </p>
+        <p> Bullet Physics </p>
+        <p id='simstep'> Step:&nbsp;NaN </p>
+        <span id='obj_list'> No Objects in list </span>
+        <div id='obj_info'></div>
+        <p id='gpgrtime'> Get Position Time:&nbsp;NaN&nbsp;Get Rotation Time:&nbsp;Nan </p>
+        <p id='simsteptime'> Simulation Step Time:&nbsp;NaN </p>
+        <script>
+            var atab = null;
+            function set_tab(tab) {
+                atab = tab;
+                var tab_div = document.getElementById('obj_info');
+                var body = bodies[tab];
+                tab_div.innerHTML = ""
+                if (body.getMotionState()) {
+                    var trans = new Ammo.btTransform();
+                    body.getMotionState().getWorldTransform(trans);
+                    tab_div.innerHTML += "<p> Position (x,y,z):&nbsp;" + trans.getOrigin().x() + "&nbsp;" + trans.getOrigin().y() + "&nbsp" + trans.getOrigin().z() + "</p>"
+                    tab_div.innerHTML += "<p> Rotation (w,x,y,z):&nbsp;" + trans.getRotation().w() + "&nbsp;" + trans.getRotation().x() + "&nbsp;" + trans.getRotation().y() + "&nbsp;" + trans.getRotation().z() + "</p>";
+                }
+                
+            }
+            function update_list() {
+                var obj_list = document.getElementById('obj_list');
+                obj_list.innerHTML = ""
+                for (var i in bodies) {
+                    obj_list.innerHTML += "<a href='#' onclick='set_tab(" + i + ")'>" + i + "</a>&nbsp;&nbsp;";
+                }
+            }
+            
+            function step() {
+                var sp = document.getElementById('simstep');
+                sp.innerHTML = "Step:&nbsp;" + sim_step;
+            }
+            
+            function updateSimTime() {
+                var sp = document.getElementById('simsteptime');
+                sp.innerHTML = "Simulation Step Time:&nbsp;" + (simTime / 1000.0);
+            }
+            
+            function updateObjectTime() {
+                var sp = document.getElementById('gpgrtime');
+                sp.innerHTML = "Get Position Time:&nbsp;" + (gpTime / 1000.0) + "&nbsp;Get Rotation Time:&nbsp;" + (grTime / 1000.0);
+            }
+        </script>
     </body>
 </html>'''
 
@@ -92,8 +158,6 @@ var overlappingPairCache = new Ammo.btAxisSweep3(aabbmin, aabbmax, maxProxies);
 var solver = new Ammo.btSequentialImpulseConstraintSolver();
 var dynamicsWorld = new Ammo.btDiscreteDynamicsWorld(dispatcher, overlappingPairCache, solver, collisionConfiguration);
 dynamicsWorld.setGravity(new Ammo.btVector3(0, -9.8, 0));
-
-var bodies = [];
 
 var groundShape = new Ammo.btBoxShape(new Ammo.btVector3(50, 50, 50));
 var groundTransform = new Ammo.btTransform();
@@ -141,6 +205,7 @@ ADD_SPHERE = '''
   dynamicsWorld.addRigidBody(body);
   bodies.push(body);
 })();
+update_list();
 var l = bodies.length - 1;
 l
 '''
@@ -170,6 +235,7 @@ ADD_BOX = '''
   dynamicsWorld.addRigidBody(body);
   bodies.push(body);
 })();
+update_list();
 var l = bodies.length - 1;
 l
 '''
@@ -198,11 +264,13 @@ ADD_SHAPE = '''
   dynamicsWorld.addRigidBody(body);
   bodies.push(body);
 })();
+update_list();
 var l = bodies.length - 1;
 l
 '''
 
 GET_POSITION = '''
+var start = new Date().getTime();
 var id = %s;
 var body = bodies[id];
 if (body.getMotionState()) {
@@ -210,15 +278,33 @@ if (body.getMotionState()) {
     body.getMotionState().getWorldTransform(trans);
     get_position(id, [trans.getOrigin().x(), trans.getOrigin().y(),trans.getOrigin().z()]);
 }
+var end = new Date().getTime();
+if (atab != null) {
+    set_tab(atab);
+    if (id == atab) {
+        gpTime = end - start;
+        updateObjectTime();
+    }
+}
 '''
 
 GET_ROTATION = '''
+var start = new Date().getTime();
 var id = %s;
 var body = bodies[id];
 if (body.getMotionState()) {
     var trans = new Ammo.btTransform();
     body.getMotionState().getWorldTransform(trans);
     get_rotation(id, [trans.getRotation().w(), trans.getRotation().x(),trans.getRotation().y(), trans.getRotation().z()]);
+}
+
+var end = new Date().getTime();
+if (atab != null) {
+    set_tab(atab); 
+    if (id == atab) {
+        grTime = end - start;
+        updateObjectTime();
+    }
 }
 '''
 
@@ -264,6 +350,10 @@ class Bullet(object):
     def ios_error(self, args):
         print "BULLET-ERROR:", args
     
+    @ui.in_background
+    def ios_alert(self, args):
+        dialogs.alert('BULLET-ALERT', args)
+    
     def _get_position(self, args):
         args = args.split("#")
         self.objdata[int(args[0])][0] = [float(x) for x in args[1].split(",")]
@@ -279,7 +369,6 @@ class Bullet(object):
             self.wv.evaluate_javascript(AMMO)
             self.wv.evaluate_javascript(PHYSICS_WORLD_LOAD)
             self.setup = True
-        print "Functions can be called now"
         
     def webview_did_fail_load(self, webview, error_code, error_msg):
         print error_code, error_msg
@@ -319,9 +408,12 @@ class Bullet(object):
         
     def step_simulation(self, step, maxSubStep=1, fixTimeStep=1/60.0):
         start = time.clock()
+        self.wv.evaluate_javascript("var start = new Date().getTime();")
         func = "dynamicsWorld.stepSimulation(%f, %f, %f)" % (step, maxSubStep, fixTimeStep)
         t = threading.Thread(target=self.wv.evaluate_javascript, args=[func])
         # self.wv.evaluate_javascript("dynamicsWorld.stepSimulation(%f, %f, %f)" % (step, maxSubStep, fixTimeStep))
+        self.wv.evaluate_javascript('sim_step += 1;step();')
+        self.wv.evaluate_javascript("var end=new Date().getTime();simTime=end-start;updateSimTime();")
         t.setDaemon(True)
         t.start()
         end = time.clock()
@@ -386,6 +478,8 @@ class Bullet(object):
         self.wv.evaluate_javascript("")
         
 PhysicsWorld = Bullet()
+PhysicsWorld.wv.width = 300
+PhysicsWorld.wv.height = 300
 while not PhysicsWorld.setup:
     pass
     
@@ -393,6 +487,7 @@ __all__ = ['PhysicsWorld']
         
 if __name__ == "__main__":
     p = PhysicsWorld
+    p.wv.present("sheet")
     p.add_sphere(1, [0,20,0])
     import OpenGLES.Util.Model as Model
     m = Model.XMLModel("../../test_model.xml")
@@ -400,7 +495,7 @@ if __name__ == "__main__":
         for y in range(10, 14, 4):
             for z in range(-10, 10, 4):
                 i = p.add_object(m.frames[m.frame], 10, [x,y,z])
-    for _ in range(0, 10):
+    for _ in range(0, 1000):
         p.step_simulation(1/60.0, 10)
         s = time.clock()
         for i in p.ids:
@@ -412,6 +507,7 @@ if __name__ == "__main__":
             mat = mat * rot.get_matrix()
             #print i, mat
             se = time.clock()
-            print 'object', se - so
+            # print 'object', se - so
         e = time.clock()
-        print e - s
+        # print e - s
+        time.sleep(0.5)

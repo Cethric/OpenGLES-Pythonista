@@ -39,6 +39,13 @@ with open("shader.fs", "rb") as f:
     
 glviewv = GLKit.GLKView(frame=(0, 0, 800, 600))
 
+def physics_info(sender):
+    Physics.PhysicsWorld.wv.present("sheet")
+btn = ui.ButtonItem()
+btn.title = "Physics Info"
+btn.action = physics_info
+glviewv.left_button_items = [btn]
+
 TRIANGLE = [
     0.0, 0.5, 0.0,
     -0.5, -0.5, 0.0,
