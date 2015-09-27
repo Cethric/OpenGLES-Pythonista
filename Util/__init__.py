@@ -184,13 +184,13 @@ class LookObject(object):
             dy (float): The new pitch to be added to the old pitch
         """
         self.yaw -= dx
+        self.yaw %= 360
         self.pitch += dy
-        
         if self.pitch > 89.0:
             self.pitch = 89.0
-        if self.pitch < -89.0:
+        elif self.pitch < -89.0:
             self.pitch = -89.0
-        self.yaw = self.yaw % 360
+
     
     def move(self, dx, dy):
         """
@@ -219,9 +219,9 @@ class LookObject(object):
         
         start = self.position
         if self.strafe[0] != 0:
-            start += (self.front * (speed * self.strafe[0]))
+            start += self.front * speed * self.strafe[0]
         if self.strafe[1] != 0:
-            start += (self.right * (speed * self.strafe[1]))
+            start += self.right * speed * self.strafe[1]
         
         self.position = start
         
