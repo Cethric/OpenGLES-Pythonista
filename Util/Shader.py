@@ -46,13 +46,6 @@ class ShaderSource(object):
             glDeleteShader(self.shader_id)
         self.shader_id = None
         
-    def __del__(self):
-        """
-        Look at ShaderSource.teardown
-        """
-        self.teardown()
-        object.__del__(self)
-        
     def compile(self):
         """
         Compile the shader source and print a look and raise an error if compilation failed.
@@ -142,13 +135,6 @@ class ShaderProgram(object):
         if self.geometry:
             self.geometry.teardown()
         print "ShaderProgram deleted"
-        
-    def __del__(self):
-        """
-        Look at ShaderProgram.teardown
-        """
-        self.teardown()
-        object.__del__(self)
         
     def build(self):
         """
