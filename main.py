@@ -1,7 +1,23 @@
 # coding: utf-8
-# NOTE:
-# This example requires the euclid.py math library
-#
+"""
+NOTE:
+This example requires the euclid.py math library
+
+
+This is purely an example file that is both used to test the library
+
+
+Attributes:
+    VERTEX_SHADER_SOURCE (str): Constant variable to store the
+                                Vertex Shader source code
+                                from a file
+    FRAGMENT_SHADER_SOURCE (str): Constant Variable to store the
+                                  Fragment Shader source code
+                                  from a file
+    glviewv (OpenGLES.GLKit.GLKView): The object to store an
+                                      OpenGLES rendering context
+                                      and present it to screen
+"""
 import ui
 import sys
 import time

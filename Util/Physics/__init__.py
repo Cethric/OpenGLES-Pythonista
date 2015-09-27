@@ -1,4 +1,12 @@
 # coding: utf-8
+"""
+OpenGLES.Util.Physics.__init__.py
+Helper script for handling physics related tasks
+Note This uses Cannon.js for physics and if it cannot be
+found it will atomatically download it
+Attributes:
+    LIB_DIR (str): The location to check for the Cannon.js file or to download it to.
+"""
 import os
 import ui
 import time
@@ -10,6 +18,13 @@ import euclid
 LIB_DIR = __file__.replace("__init__.py", "")
 
 def get_library(lib_name, url_path=None):
+    """
+    Check if a file exist otherwise try to download it
+    Args:
+        lib_name (str): The name of the library
+        url_path (Optional[str]): If not none and file cannot be
+                                  found download it from this location
+    """
     lib_file = os.path.join(LIB_DIR, lib_name)
     if os.path.exists(lib_file):
         with open(lib_file, 'rb') as f:
@@ -31,6 +46,13 @@ CANNON = get_library('Cannon.js', 'https://raw.githubusercontent.com/schteppe/ca
 
 class CannonJS(object):
     def __init__(self):
+        """
+        Handle object for most Physics related tasks
+        Attributes:
+            setup (bool): Are the libraries setup yet
+            objects (dict): This id of an object and the position and rotation of it
+            js (ui.WebView): A method to display infomation and handle the JSContext
+        """
         self.setup = False
         self.objects = {}
         
@@ -44,6 +66,14 @@ class CannonJS(object):
             pass
         
     def webview_should_start_load(self, webview, url, nav_type):
+        """
+        Should a url be allowed to load.
+        If it starts with 'python' no as this is a function
+        Args:
+            webview (ui.WebView): The view that wants to load
+            url (str): the url to load
+            nav_type (str): the type of navigation
+        """
         if not 'python' in url:
             return True
         else:
@@ -55,14 +85,33 @@ class CannonJS(object):
                 print e
                 print url, t
             return False
-            
-    def ios_log(self, args):
-        print "BULLET-LOG:\t%s" % args
+    
+    def ios_log(self, msg):
+        """
+        A javascript to python function for simple logging
+        Args:
+            msg (str): the message to print
+        """
+        print "BULLET-LOG:\t%s" % msg
         
-    def ios_error(self, args):
-        print "BULLET-ERROR:\t%s" % args
+    def ios_error(self, msg):
+        """
+        A javascript to python function for simple error logging
+        Args:
+            msg (str): the message to print
+        """
+        print "BULLET-ERROR:\t%s" % msg
         
     def object_pos(self, oid, x, y, z):
+        """
+        A javascript to python function to handle setting object position
+        @TODO change values to ints and floats respectively
+        Args:
+            oid (str): the id of the object
+            x (str): the x position
+            y (str): the y position
+            z (str): the z position
+        """
         (oid,x,y,z) = int(oid), float(x), float(y), float(z)
         if oid in self.objects:
             self.objects[oid][0] = (x, y, z)
@@ -70,6 +119,16 @@ class CannonJS(object):
             self.objects[oid] = [(x,y,z), (0,0,0,0)]
     
     def object_rot(self, oid, w, x, y, z):
+        """
+        A javascript to python function to handle setting object rotation
+        @TODO change values to ints and floats respectively
+        Args:
+            oid (str): the id of the object
+            w (str): the w real value
+            x (str): the x imaginary value
+            y (str): the y imaginary value
+            z (str): the z imaginary value
+        """
         (oid,w,x,y,z) = int(oid), float(w), float(x), float(y), float(z)
         if oid in self.objects:
             self.objects[oid][1] = (w, x, y, z)
@@ -77,6 +136,15 @@ class CannonJS(object):
             self.objects[oid] = [(0,0,0), (w,x,y,z)]
             
     def get_object_mat(self, oid):
+        """
+        A way of getting the matrix data of an object
+        Args:
+            oid (int): The id of the object
+        Returns:
+            (euclid.Matrix4): The model matrix of an MVP
+        Raises:
+            AttributeError: if the object cannot be found
+        """
         if oid in self.objects:
             quat = euclid.Quaternion(*self.objects[oid][1])
             mat = euclid.Matrix4.new_identity()
@@ -87,11 +155,23 @@ class CannonJS(object):
             raise AttributeError, "Object with id '%s' does not exist" % oid
             
     def add_cube(self, x, y, z):
+        """
+        Add a cube physics object to the physics world
+        Args:
+            x (float): initial x position
+            y (float): initial y position
+            z (float): initial z position
+        Returns:
+            (int): the id of the new object
+        """
         oid = int(self.js.eval_js('add_cube(%f, %f, %f);' % (x, y, z)))
         self.objects[oid] = [(x,y,z), (0,0,0,0)]
         return oid
         
     def webview_did_finish_load(self, webview):
+        """
+        If the libraries have not yet been setup then set them up
+        """
         if not self.setup:
             self.js.eval_js(CANNON)
             self.js.eval_js(get_library('CannonHelpers.js'))
@@ -101,6 +181,9 @@ class CannonJS(object):
             print 'Setup Finished'
         
     def webview_did_fail_load(self, webview, error_code, error_msg):
+        """
+        Very simple error logging if the webview failed to load something
+        """
         print error_code, error_msg
         
 

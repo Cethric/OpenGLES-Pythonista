@@ -1,23 +1,64 @@
 # coding: utf-8
+"""
+OpenGLES.Util.Shader.py
+Create and manipulate ShaderPrograms with ShaderSources.
+"""
 from OpenGLES.GLES import gles2
 from OpenGLES.GLES.gles2 import *
 reload(gles2)
 
 class ShaderSource(object):
     def __init__(self, source, shader_type):
+        """
+        Create a new ShaderSource
+        Args:
+            source (str | file): The shader source
+            shader_type (OpenGLES.GLES.header.GLConstants.GLenum): The type of shader this
+                                                                   source is. I.E
+                                                                   GL_VERTEX_SHADER
+                                                                   GL_FRAGMENT_SHADER
+                                                                   GL_GEOMETARY_SHADER
+        Attributes:
+            source (str): The source string
+            shader_type (OpenGLES.GLES.header.GLConstants.GLenum): The type of shader this
+                                                                   source is. I.E
+                                                                   GL_VERTEX_SHADER
+                                                                   GL_FRAGMENT_SHADER
+                                                                   GL_GEOMETARY_SHADER
+            compiled (bool): Is the shadersource compiled or not
+            shader_id (int): the id of this shader
+        """
         if isinstance(source, file):
             print "Source is of File type"
-        self.source = source
+            with open(source, "rb") as f:
+                self.source = f.read()
+        else:
+            self.source = source
         self.shader_type = shader_type
         self.compiled = False
         self.shader_id = None
         
     def teardown(self):
+        """
+        If the object has not already been deleted then delete it
+        """
         if self.shader_id:
             glDeleteShader(self.shader_id)
         self.shader_id = None
         
+    def __del__(self):
+        """
+        Look at ShaderSource.teardown
+        """
+        self.teardown()
+        object.__del__(self)
+        
     def compile(self):
+        """
+        Compile the shader source and print a look and raise an error if compilation failed.
+        Returns:
+            (int): the ID of the shader if successful compilation else 0
+        """
         shader = glCreateShader(self.shader_type)
         if(shader == 0):
             print "Failed to create shader"
@@ -65,12 +106,33 @@ class ShaderSource(object):
 
 class ShaderProgram(object):
     def __init__(self, vertex_shader=None, fragment_shader=None, geometry_shader=None):
+        """
+        Creates a new shader program
+        @TODO add all uniform functions and basic functions
+        Args:
+            vertex_shader (Optional[OpenGLES.Util.Shader.ShaderSource]): A ShaderSource with 
+                                                                         format GL_VERTEX_SHADER
+            fragment_shader (Optional[OpenGLES.Util.Shader.ShaderSource]): A ShaderSource with 
+                                                                           format GL_FRAGMENT_SHADER
+            geometry_shader (Optional[OpenGLES.Util.Shader.ShaderSource]): A ShaderSource with 
+                                                                           format GL_GEOMETRY_SHADER
+        Attributes:
+            compiled (bool): If the program has been compiled
+            vertex (OpenGLES.Util.Shader.ShaderSource): the vertex source (Default: None)
+            fragment (OpenGLES.Util.Shader.ShaderSource): the fragment source (Default: None)
+            geometry (OpenGLES.Util.Shader.ShaderSource): the geometry source (Default: None)
+            programObject (int): the programs id for reference with OpenGLES
+            uniforms (dict): a dictionary containing uniform names and there OpenGLES locations
+        """
         self.compiled = False
         self.vertex, self.fragment, self.geometry = vertex_shader, fragment_shader, geometry_shader
         self.programObject = None
         self.uniforms = {}
         
     def teardown(self):
+        """
+        Delete the object before termination
+        """
         if self.programObject:
             glDeleteProgram(self.programObject)
         if self.vertex:
@@ -81,7 +143,17 @@ class ShaderProgram(object):
             self.geometry.teardown()
         print "ShaderProgram deleted"
         
+    def __del__(self):
+        """
+        Look at ShaderProgram.teardown
+        """
+        self.teardown()
+        object.__del__(self)
+        
     def build(self):
+        """
+        Compile the shader
+        """
         print "Building Shader"
         if self.compiled:
             return
@@ -149,6 +221,9 @@ class ShaderProgram(object):
         print "Done"
         
     def bind(self):
+        """
+        Bind the programObject to allow for function calls
+        """
         if self.programObject:
             glUseProgram(self.programObject)
         else:
@@ -156,9 +231,21 @@ class ShaderProgram(object):
             self.build()
             
     def unbind(self):
+        """
+        Unbind the programObject (i.e set to 0)
+        """
         glUseProgram(0)
         
     def uniformLocation(self, name):
+        """
+        Get the uniform location of an object
+        Args:
+            name (str): The name of the uniform
+        Return:
+            (int): The location of the uniform
+        Raises:
+            AttributeError: When the location of the uniform cannot be found
+        """
         if name in self.uniforms:
             mid = self.uniforms[name]
         else:
@@ -179,6 +266,12 @@ class ShaderProgram(object):
         return mid
         
     def uniform4x4(self, name, mat):
+        """
+        Set the UniformMatrix 4x4 (glUniformMatrix4fv)
+        Args:
+            name (str): The name of the uniform
+            mat (euclid.Matrix4 | list[float]): the matrix that is to be used
+        """
         mid = self.uniformLocation(name)
         glUniformMatrix4fv(mid,
                            1,
