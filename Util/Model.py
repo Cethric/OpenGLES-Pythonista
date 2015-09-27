@@ -97,16 +97,13 @@ class PhysicsObject(XMLModel):
     def __init__(self, *args, **kwargs):
         XMLModel.__init__(self, *args, **kwargs)
         self.pos = [self.model.h, self.model.l, self.model.p]
-        self.i = Physics.PhysicsWorld.add_object(self.frames[self.frame], 10, self.pos, True)
+        # self.i = Physics.PhysicsWorld.add_object(self.frames[self.frame], 10, self.pos, True)
+        self.i = Physics.PhysicsWorld.add_cube(*self.pos)
         # print "Object ID:", self.i
         
     def get_mat(self):
         start = time.clock()
-        pos = Physics.PhysicsWorld.get_object_pos(self.i)
-        rot = Physics.PhysicsWorld.get_object_rot(self.i)
-        mat = euclid.Matrix4()
-        mat.translate(pos.x, pos.y, pos.z)
-        mat = mat * rot.get_matrix()
+        mat = Physics.PhysicsWorld.get_object_mat(self.i)
         end = time.clock()
         # print self, '.get_mat', end - start
         return mat

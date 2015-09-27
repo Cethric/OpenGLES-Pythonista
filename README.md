@@ -26,7 +26,7 @@ accelerometer handles look
 
 ---
 ## Other resources / misc
-- 3D physics support is done through [Ammo.js](https://github.com/kripken/ammo.js/) which is a javascript port of the [Bullet](http://bulletphysics.org/wordpress/) physics engine
+- ~~3D physics support is done through [Ammo.js](https://github.com/kripken/ammo.js/) which is a javascript port of the [Bullet](http://bulletphysics.org/wordpress/) physics engine~~ Physics is now done with [Cannon.js](https://github.com/schteppe/cannon.js)
 - Header parsing code. This was from an example that I found on stackoverflow which I expanded on quite a bit. However I do not remeber what post it was from. So if someone can find it please let me know.
 - Inspired by [PyOpenGL](http://pyopengl.sourceforge.net) for python
 

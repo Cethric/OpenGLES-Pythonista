@@ -40,7 +40,7 @@ with open("shader.fs", "rb") as f:
 glviewv = GLKit.GLKView(frame=(0, 0, 800, 600))
 
 def physics_info(sender):
-    Physics.PhysicsWorld.wv.present("sheet")
+    Physics.PhysicsWorld.js.present("sheet")
 btn = ui.ButtonItem()
 btn.title = "Physics Info"
 btn.action = physics_info
@@ -59,9 +59,9 @@ class Renderer(Util.RenderCycle):
         
         self.objects = []
         for x in range(-10, 10, 4):
-            for y in range(10, 14, 4):
-                for z in range(-10, 10, 4):
-                    o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(y, x, z))
+            for y in range(-10, 10, 4):
+                for z in range(10, 14, 4):
+                    o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(x, y, z))
                     # o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(y, x, z))
                     self.objects.append(o1)
         
@@ -69,7 +69,7 @@ class Renderer(Util.RenderCycle):
         self.f = Util.Shader.ShaderSource(FRAGMENT_SHADER_SOURCE, GL_FRAGMENT_SHADER)
         self.sp = Util.Shader.ShaderProgram(self.v, self.f)
         
-        self.eye = Util.LookObject(euclid.Vector3(0, 0, 0))
+        self.eye = Util.LookObject(euclid.Vector3(-10, 2, 0))
         
         self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
@@ -101,10 +101,12 @@ class Renderer(Util.RenderCycle):
     def teardown(self):
         self.sp.teardown()
         EAGL.setCurrentContext(None)
+        # Physics.PhysicsWorld.js.eval_js('done();')
     
     def update(self, dt):
         start = time.clock()
-        Physics.PhysicsWorld.step_simulation(dt, 10)
+        # Physics.PhysicsWorld.step_simulation(dt, 10)  # Should add some form of simulation step
+        Physics.PhysicsWorld.js.eval_js('startUpdates();')
         end = time.clock()
         # print "simulation update", end - start
         # glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
