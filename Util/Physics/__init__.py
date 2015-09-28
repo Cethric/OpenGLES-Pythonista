@@ -79,8 +79,10 @@ class CannonJS(object):
         else:
             t = urlparse.parse_qs(url.replace("python://method?", ""))
             try:
+                s = time.clock()
                 func = getattr(self, t['name'][0])
                 func(*t['param'])
+                e = time.clock()
             except AttributeError as e:
                 print e
                 print url, t
@@ -173,11 +175,11 @@ class CannonJS(object):
         If the libraries have not yet been setup then set them up
         """
         if not self.setup:
+            self.setup = True
             self.js.eval_js(CANNON)
             self.js.eval_js(get_library('CannonHelpers.js'))
             self.js.eval_js("setup();")
-            self.js.eval_js("startUpdates();")
-            self.setup = True
+            # self.js.eval_js("startUpdates();")
             print 'Setup Finished'
         
     def webview_did_fail_load(self, webview, error_code, error_msg):
@@ -188,11 +190,17 @@ class CannonJS(object):
         
 
 PhysicsWorld = CannonJS()
+        
+def reset():
+    global PhysicsWorld
+    del PhysicsWorld
+    PhysicsWorld = CannonJS()
 
-__all__ = ["PhysicsWorld"]
+__all__ = ["PhysicsWorld", "reset"]
         
 if __name__ == '__main__':
     c = PhysicsWorld
+    reset()
     import OpenGLES.Util.Model as Model
     m = Model.XMLModel("../../test_model.xml")
     # oid = c.add_cube(0, 0, 0)

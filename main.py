@@ -4,7 +4,7 @@ NOTE:
 This example requires the euclid.py math library
 
 
-This is purely an example file that is both used to test the library
+This is purely an example file that is also used to test the library
 
 
 Attributes:
@@ -46,6 +46,8 @@ reload(GLKit)
 reload(OpenGLES.Util.Shader)
 reload(OpenGLES.Util.Model)
 reload(OpenGLES.Util.Physics)
+
+OpenGLES.Util.Physics.reset()
 
 with open("shader.vs", "rb") as f:
     VERTEX_SHADER_SOURCE = f.read()

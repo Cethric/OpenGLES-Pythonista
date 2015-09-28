@@ -48,12 +48,10 @@ function setup() {
 }
 
 var intervalID = null;
-
-var lastUpdate = new Date().getTime();
-var c = 0;
-var delta = 0;
+var intervalID2 = null;
 
 function sendObjectData() {
+    var start = new Date().getTime();
     for (var id in world.bodies) {
         var body = world.bodies[id];
         var vec = body.position;
@@ -61,6 +59,8 @@ function sendObjectData() {
         send_to_python('object_pos', id+'&param='+vec.x+'&param='+vec.y+'&param='+vec.z);
         send_to_python('object_rot', id+'&param='+quat.w+'&param='+quat.x+'&param='+quat.y+'&param='+quat.z);
     }
+    var end = new Date().getTime();
+    // console.log(end - start)
 }
 
 var ts = 0;
@@ -102,16 +102,12 @@ function updateBulletView() {
 
 function __update() {
     var start = new Date().getTime();
-    // c = new Date().getTime();
-    // delta = (c - lastUpdate) / 10000.0;
+    // sendObjectData();
     world.step(1.0 / 120.0);
-    sendObjectData();
-    // lastUpdate = c;
-    // console.log(delta);
     // intervalID = setTimeout(__update, 0.0001);
+    updateBulletView();
     var end = new Date().getTime();
     ts = end - start;
-    updateBulletView()
 }
 
 function add_cube(x, y, z) {
@@ -129,10 +125,13 @@ function add_cube(x, y, z) {
 function startUpdates() {
     // intervalID = setTimeout(__update, 0.0001);
     intervalID = setInterval(__update, 1 / 120.0);
+    intervalID2 = setInterval(sendObjectData, 1 / 60);
     // __update()
 }
 
 function done() {
     // clearTimeout(intervalID);
     clearInterval(intervalID);
+    clearInterval(intervalID2);
+    console.log("Shutting simulation down");
 }
