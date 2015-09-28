@@ -217,13 +217,10 @@ class LookObject(object):
         
         speed = dt * self.speed
         
-        start = self.position
         if self.strafe[0] != 0:
-            start += self.front * speed * self.strafe[0]
+            self.position += self.front * speed * self.strafe[0]
         if self.strafe[1] != 0:
-            start += self.right * speed * self.strafe[1]
-        
-        self.position = start
+            self.position += self.right * speed * self.strafe[1]
         
 if __name__ == "__main__":
     c = LookObject()

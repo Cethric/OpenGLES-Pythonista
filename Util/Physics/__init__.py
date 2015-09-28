@@ -14,6 +14,7 @@ import dialogs
 import urllib2
 import urlparse
 import euclid
+import threading
 
 LIB_DIR = __file__.replace("__init__.py", "")
 
@@ -62,8 +63,20 @@ class CannonJS(object):
         self.js.delegate = self
         self.js.load_html(get_library('view.html'))
         
+        self.slider = ui.Slider()
+        print self.slider.frame
+        self.slider.x = self.js.width - self.slider.width
+        self.js.add_subview(self.slider)
+        self.slider.action = self.value_change
+        self.slider.value = 0.5
+        self.slider.continuous = True
+        
         while not self.setup:
             pass
+            
+    def value_change(self, sender):
+        v = int(sender.value * 10.0)
+        self.js.eval_js('BLOCK_SIZE = %i;' % v)
         
     def webview_should_start_load(self, webview, url, nav_type):
         """
@@ -81,7 +94,9 @@ class CannonJS(object):
             try:
                 s = time.clock()
                 func = getattr(self, t['name'][0])
-                func(*t['param'])
+                th = threading.Thread(target=func, args=t['param'])
+                th.start()
+                # func(*t['param'])
                 e = time.clock()
             except AttributeError as e:
                 print e
@@ -147,6 +162,8 @@ class CannonJS(object):
         Raises:
             AttributeError: if the object cannot be found
         """
+        if oid is None:
+            return None
         if oid in self.objects:
             quat = euclid.Quaternion(*self.objects[oid][1])
             mat = euclid.Matrix4.new_identity()
@@ -166,9 +183,13 @@ class CannonJS(object):
         Returns:
             (int): the id of the new object
         """
-        oid = int(self.js.eval_js('add_cube(%f, %f, %f);' % (x, y, z)))
-        self.objects[oid] = [(x,y,z), (0,0,0,0)]
-        return oid
+        d = self.js.eval_js('add_cube(%f, %f, %f);' % (x, y, z))
+        if d:
+            oid = int(d)
+            self.objects[oid] = [(x,y,z), (0,0,0,0)]
+            return oid
+        else:
+            return None
         
     def webview_did_finish_load(self, webview):
         """
@@ -192,6 +213,7 @@ class CannonJS(object):
 PhysicsWorld = CannonJS()
         
 def reset():
+    print "Resetting physics world"
     global PhysicsWorld
     del PhysicsWorld
     PhysicsWorld = CannonJS()
@@ -200,6 +222,7 @@ __all__ = ["PhysicsWorld", "reset"]
         
 if __name__ == '__main__':
     c = PhysicsWorld
+    c.js.present()
     reset()
     import OpenGLES.Util.Model as Model
     m = Model.XMLModel("../../test_model.xml")
@@ -208,12 +231,11 @@ if __name__ == '__main__':
         for y in range(10, 14, 4):
             for z in range(-10, 10, 4):
                 oid = c.add_cube(x,y,z)  # yes I know only the last ```oid``` will be saved
-    i = 0
-    while i < 1000:
-        start = time.clock()
-        print c.get_object_mat(oid)
-        i += 1
-        end = time.clock()
-        print end - start
-    
-    c.js.eval_js('done')
+    c.js.eval_js('startUpdates()')
+    # i = 0
+    # while i < 1000:
+    #     start = time.clock()
+    #     print c.get_object_mat(1)
+    #     i += 1
+    #     end = time.clock()
+    #     # print end - start

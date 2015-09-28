@@ -33,6 +33,7 @@ print = (function(arg) {
 console.log("logging activated");
 
 var world = null;
+var timeforotp = 0;
 
 function setup() {
     world = new CANNON.World();
@@ -50,17 +51,35 @@ function setup() {
 var intervalID = null;
 var intervalID2 = null;
 
+var BLOCK_SIZE = 5;
+var curr_id = 0;
+
 function sendObjectData() {
     var start = new Date().getTime();
-    for (var id in world.bodies) {
-        var body = world.bodies[id];
+    var i = curr_id;
+    while (i < curr_id+BLOCK_SIZE) {
+        if (i > (world.bodies.length-1)) {
+            curr_id = 0;
+            break;
+        }
+        var body = world.bodies[i];
         var vec = body.position;
         var quat = body.quaternion;
-        send_to_python('object_pos', id+'&param='+vec.x+'&param='+vec.y+'&param='+vec.z);
-        send_to_python('object_rot', id+'&param='+quat.w+'&param='+quat.x+'&param='+quat.y+'&param='+quat.z);
+        send_to_python('object_pos', i+'&param='+vec.x+'&param='+vec.y+'&param='+vec.z);
+        send_to_python('object_rot', i+'&param='+quat.w+'&param='+quat.x+'&param='+quat.y+'&param='+quat.z);
+        i += 1;
     }
+    curr_id += BLOCK_SIZE;
+    // for (var id in world.bodies) {
+    //     var body = world.bodies[id];
+    //     var vec = body.position;
+    //     var quat = body.quaternion;
+    //     send_to_python('object_pos', id+'&param='+vec.x+'&param='+vec.y+'&param='+vec.z);
+    //     send_to_python('object_rot', id+'&param='+quat.w+'&param='+quat.x+'&param='+quat.y+'&param='+quat.z);
+    // }
     var end = new Date().getTime();
     // console.log(end - start)
+    timeforotp = end - start;
 }
 
 var ts = 0;
@@ -86,6 +105,8 @@ function addToBodyMenu(body_id) {
 function updateBulletView() {
     var time_s = document.getElementById('time_s');
     time_s.innerHTML = 'Time Spent Updating (ms): ' + ts;
+    time_s.innerHTML += '<br>Time Spent Sending to python (ms): ' + timeforotp;
+    time_s.innerHTML += '&nbsp;&nbsp;Block Size:&nbsp;' + BLOCK_SIZE;
     var tot_bodies = document.getElementById('tot_bodies');
     tot_bodies.innerHTML = 'Total Number of objects in the world: ' + world.bodies.length;
     if (sw == 20) {
@@ -102,8 +123,8 @@ function updateBulletView() {
 
 function __update() {
     var start = new Date().getTime();
-    // sendObjectData();
     world.step(1.0 / 120.0);
+    // sendObjectData();
     // intervalID = setTimeout(__update, 0.0001);
     updateBulletView();
     var end = new Date().getTime();

@@ -57,8 +57,16 @@ with open("shader.fs", "rb") as f:
     
 glviewv = GLKit.GLKView(frame=(0, 0, 800, 600))
 
+at_front = False
 def physics_info(sender):
-    Physics.PhysicsWorld.js.present("sheet")
+    global at_front
+    if at_front:
+        Physics.PhysicsWorld.js.send_to_back()
+        at_front = False
+    else:
+        Physics.PhysicsWorld.js.bring_to_front()
+        at_front = True
+    # Physics.PhysicsWorld.js.present("sheet")
 btn = ui.ButtonItem()
 btn.title = "Physics Info"
 btn.action = physics_info
@@ -112,6 +120,10 @@ class Renderer(Util.RenderCycle):
             glViewport(0, 0, int(glviewv.width*2), int(glviewv.height*2))
             
             glClearColor(0.1, 0.12, 0.45, 1.0)
+            
+            Physics.PhysicsWorld.js.eval_js('startUpdates();')
+            glviewv.add_subview(Physics.PhysicsWorld.js)
+            Physics.PhysicsWorld.js.send_to_back()
         else:
             print "Could not Setup OpenGLES"
         self.last = time.clock()
@@ -119,16 +131,16 @@ class Renderer(Util.RenderCycle):
     def teardown(self):
         self.sp.teardown()
         EAGL.setCurrentContext(None)
-        # Physics.PhysicsWorld.js.eval_js('done();')
+        Physics.PhysicsWorld.js.eval_js('done();')
     
     def update(self, dt):
         start = time.clock()
         # Physics.PhysicsWorld.step_simulation(dt, 10)  # Should add some form of simulation step
-        Physics.PhysicsWorld.js.eval_js('startUpdates();')
+        # Physics.PhysicsWorld.js.eval_js('startUpdates();')
         end = time.clock()
         # print "simulation update", end - start
         # glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
-        glviewv.name = "Render Time: %.3f\tUpdate Time: %.3f\tFrames: %i" % (self.rt, self.ut, self.framesDisplayed)
+        glviewv.name = "Render Time: %.3f\tUpdate Time: %.3f\tFrames: %i\tFPS: %i" % (self.rt, self.ut, self.framesDisplayed, self.fps)
         su = time.clock()
         for rObj in self.objects:
             so = time.clock()
