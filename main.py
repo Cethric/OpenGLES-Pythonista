@@ -49,6 +49,8 @@ reload(OpenGLES.Util.Physics)
 
 OpenGLES.Util.Physics.reset()
 
+MAX_DIST = 100
+
 with open("shader.vs", "rb") as f:
     VERTEX_SHADER_SOURCE = f.read()
     
@@ -85,17 +87,24 @@ class Renderer(Util.RenderCycle):
         
         self.objects = []
         for x in range(-10, 10, 4):
-            for y in range(-10, 10, 4):
-                for z in range(10, 14, 4):
+            for y in range(10, 14, 4):
+                for z in range(-10, 10, 4):
+                    # o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(x, y, z))
                     o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(x, y, z))
-                    # o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(y, x, z))
                     self.objects.append(o1)
+        
+        for _ in range(0, 25):
+            o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
+            self.objects.append(o1)
+        
+        # o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(10, 5, 0))
+        # self.objects.append(o1)
         
         self.v = Util.Shader.ShaderSource(VERTEX_SHADER_SOURCE, GL_VERTEX_SHADER)
         self.f = Util.Shader.ShaderSource(FRAGMENT_SHADER_SOURCE, GL_FRAGMENT_SHADER)
         self.sp = Util.Shader.ShaderProgram(self.v, self.f)
         
-        self.eye = Util.LookObject(euclid.Vector3(-10, 2, 0))
+        self.eye = Util.LookObject(euclid.Vector3(-10, 10, -10), yaw=30, pitch=-30)
         
         self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
@@ -135,7 +144,6 @@ class Renderer(Util.RenderCycle):
     
     def update(self, dt):
         start = time.clock()
-        # Physics.PhysicsWorld.step_simulation(dt, 10)  # Should add some form of simulation step
         # Physics.PhysicsWorld.js.eval_js('startUpdates();')
         end = time.clock()
         # print "simulation update", end - start
@@ -144,7 +152,11 @@ class Renderer(Util.RenderCycle):
         su = time.clock()
         for rObj in self.objects:
             so = time.clock()
-            rObj.update(dt)
+            if rObj.distance_from_point(self.eye.position) < MAX_DIST:
+                rObj.update(dt)
+                rObj.renderable = True
+            else:
+                rObj.renderable = False
             eo = time.clock()
             # print 'time to update object', rObj, eo - so
         eu = time.clock()

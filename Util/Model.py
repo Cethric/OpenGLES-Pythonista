@@ -123,12 +123,13 @@ class XMLModel(OpenGLES.Util.RenderObject):
             sp (OpenGLES.Util.Shader.ShaderObject): The currently bound shader object to pass
                                                     the model matrix to.
         """
-        # GLES2.glBindBuffer(GLES2.GL_ARRAY_BUFFER, self.vertexBuffer)
-        sp.uniform4x4("M", list(self.model))
-        GLES2.glVertexAttribPointer(0, 3, GLES1.GL_FLOAT, GLES1.GL_FALSE, 0, self.vVertices, voidpointer_t=(GLES1.GLfloat * self.vSize));
-        GLES2.glEnableVertexAttribArray(0);
-        GLES2.glDrawArrays(GLES2.GL_TRIANGLES, 0, self.vSize / 3);
-        # GLES2.glBindBuffer(GLES2.GL_ARRAY_BUFFER, 0)
+        if self.renderable:
+            # GLES2.glBindBuffer(GLES2.GL_ARRAY_BUFFER, self.vertexBuffer)
+            sp.uniform4x4("M", list(self.model))
+            GLES2.glVertexAttribPointer(0, 3, GLES1.GL_FLOAT, GLES1.GL_FALSE, 0, self.vVertices, voidpointer_t=(GLES1.GLfloat * self.vSize));
+            GLES2.glEnableVertexAttribArray(0);
+            GLES2.glDrawArrays(GLES2.GL_TRIANGLES, 0, self.vSize / 3);
+            # GLES2.glBindBuffer(GLES2.GL_ARRAY_BUFFER, 0)
         
     def update(self, dt):
         """
@@ -153,7 +154,8 @@ class PhysicsObject(XMLModel):
             i (int): The id of the physics object
         """
         XMLModel.__init__(self, *args, **kwargs)
-        self.pos = [self.model.h, self.model.l, self.model.p]
+        # self.model.d = x pos, self.model.h = y pos, self.model.l = z pos... I think
+        self.pos = [self.model.d, self.model.h, self.model.l]
         # self.i = Physics.PhysicsWorld.add_object(self.frames[self.frame], 10, self.pos, True)
         self.i = Physics.PhysicsWorld.add_cube(*self.pos)
         # print "Object ID:", self.i

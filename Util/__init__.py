@@ -95,11 +95,13 @@ class RenderObject(object):
             vVertices (OpenGLES.GLES.headers.GLConstants.GLfloat): An array of the verticies
             vSize (int): The size of vVertices
             model (euclid.Matrix4): The model matrix of the MVP
+            renderable (bool): If true object should be rendered
         """
         self.vVertices = (GLfloat * len(vertices))(*vertices)
         self.vSize = len(vertices)
         self.model = euclid.Matrix4.new_identity()
         self.model.translate(*list(pos))
+        self.renderable = True
         
     def setup_object(self):
         """
@@ -113,6 +115,12 @@ class RenderObject(object):
         """
         pass
         
+    def distance_from_point(self, point):
+        p2 = euclid.Point3(*point)
+        p1 = euclid.Point3(self.model.d, self.model.h, self.model.l)
+        p1 = p1.distance(p2)
+        return p1
+        
     def render(self, sp):
         """
         Called every time the scene needs to be rendered
@@ -120,10 +128,11 @@ class RenderObject(object):
             sp (OpenGLES.Util.Shader.ShaderProgram): the currently bound shader program
                                                      to pass the model matrix to.
         """
-        sp.uniform4x4("M", list(self.model))
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, self.vVertices, voidpointer_t=(GLfloat * self.vSize));
-        glEnableVertexAttribArray(0);
-        glDrawArrays(GL_TRIANGLES, 0, self.vSize / 3);
+        if self.renderable:
+            sp.uniform4x4("M", list(self.model))
+            glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, self.vVertices, voidpointer_t=(GLfloat * self.vSize));
+            glEnableVertexAttribArray(0);
+            glDrawArrays(GL_TRIANGLES, 0, self.vSize / 3);
         
     def update(self, dt):
         """

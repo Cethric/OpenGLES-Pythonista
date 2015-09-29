@@ -1,4 +1,4 @@
-# coding: utf-8
+4# coding: utf-8
 """
 OpenGLES.Util.Physics.__init__.py
 Helper script for handling physics related tasks
@@ -10,11 +10,13 @@ Attributes:
 import os
 import ui
 import time
+import json
 import dialogs
 import urllib2
 import urlparse
 import euclid
 import threading
+import objc_util
 
 LIB_DIR = __file__.replace("__init__.py", "")
 
@@ -63,20 +65,8 @@ class CannonJS(object):
         self.js.delegate = self
         self.js.load_html(get_library('view.html'))
         
-        self.slider = ui.Slider()
-        print self.slider.frame
-        self.slider.x = self.js.width - self.slider.width
-        self.js.add_subview(self.slider)
-        self.slider.action = self.value_change
-        self.slider.value = 0.5
-        self.slider.continuous = True
-        
         while not self.setup:
             pass
-            
-    def value_change(self, sender):
-        v = int(sender.value * 10.0)
-        self.js.eval_js('BLOCK_SIZE = %i;' % v)
         
     def webview_should_start_load(self, webview, url, nav_type):
         """
@@ -94,9 +84,9 @@ class CannonJS(object):
             try:
                 s = time.clock()
                 func = getattr(self, t['name'][0])
-                th = threading.Thread(target=func, args=t['param'])
-                th.start()
-                # func(*t['param'])
+                # th = threading.Thread(target=func, args=t['param'])
+                # th.start()
+                func(*t['param'])
                 e = time.clock()
             except AttributeError as e:
                 print e
@@ -151,6 +141,20 @@ class CannonJS(object):
             self.objects[oid][1] = (w, x, y, z)
         else:
             self.objects[oid] = [(0,0,0), (w,x,y,z)]
+            
+    def object_json(self, jsonstring):
+        try:
+            data = json.loads(jsonstring)
+            posl = len(data['pos'])
+            rotl = len(data['rot'])
+            for i in range(0, posl):
+                pos = data['pos'][i]
+                self.object_pos(i, *pos)
+            for i in range(0, rotl):
+                rot = data['rot'][i]
+                self.object_rot(i, *rot)
+        except Exception as e:
+            print e
             
     def get_object_mat(self, oid):
         """
