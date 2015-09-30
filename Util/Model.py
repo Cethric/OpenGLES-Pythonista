@@ -11,7 +11,6 @@ Attributes:
 from OpenGLES.GLES import gles1 as GLES1
 from OpenGLES.GLES import gles2 as GLES2
 from OpenGLES.GLES import gles3 as GLES3
-from OpenGLES.Util import Physics
 import OpenGLES
 import euclid
 import math
@@ -22,12 +21,19 @@ import xmltodict
 from objc_util import *
 
 
-__all__ = ["XMLModel", "PhysicsObject"]
+__all__ = ["XMLModel", "PhysicsObject", "set_PhysicsWorld"]
 
 # {'filename': {'framenum': ctypes.c_float_array}}
 _loaded_files = {}
 # {'filename': {'framenum': ctypes.c_uint `bufferid`}}
 _loaded_vbos = {}
+
+
+_PhysicsWorld = None
+
+def set_PhysicsWorld(pw):
+    global _PhysicsWorld
+    _PhysicsWorld = pw
 
 
 class XMLModel(OpenGLES.Util.RenderObject):
@@ -157,7 +163,7 @@ class PhysicsObject(XMLModel):
         # self.model.d = x pos, self.model.h = y pos, self.model.l = z pos... I think
         self.pos = [self.model.d, self.model.h, self.model.l]
         # self.i = Physics.PhysicsWorld.add_object(self.frames[self.frame], 10, self.pos, True)
-        self.i = Physics.PhysicsWorld.add_cube(*self.pos)
+        self.i = _PhysicsWorld.add_cube(*self.pos)
         # print "Object ID:", self.i
         
     def get_mat(self):
@@ -171,7 +177,7 @@ class PhysicsObject(XMLModel):
             mat (euclid.Matrix4): the model matrix of the object
         """
         start = time.clock()
-        mat = Physics.PhysicsWorld.get_object_mat(self.i)
+        mat = _PhysicsWorld.get_object_mat(self.i)
         end = time.clock()
         # print self, '.get_mat', end - start
         return mat

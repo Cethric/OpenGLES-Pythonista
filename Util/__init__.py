@@ -153,6 +153,7 @@ class LookObject(object):
             yaw (Optional[float]): Initial yaw of the camera
             pitch (Optional[float]): Initial pitch of the camera
         Attributes:
+            camera_id (int): The physics object camera id (see OpenGLES.Util.LightsCameras.PhysicsCamera)
             position (euclid.Vector3): The position of the camera
             worldup (euclid.Vector3): The world up direction (default euclid.Vector(0,1,0))
             up (euclid.Vector3): Up direction relative to the world and the camera
@@ -163,6 +164,7 @@ class LookObject(object):
             strafe (list[int]): Strafe direction in the format [x,y]
             speed (float): The speed the camera moves at
         """
+        self.camera_id = None
         self.position = position
         self.worldup = up
         self.up = euclid.Vector3(0, 0, 0)

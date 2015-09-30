@@ -35,17 +35,22 @@ console.log("logging activated");
 var world = null;
 var timeforotp = 0;
 
+var cansetup = false;
+
 function setup() {
-    world = new CANNON.World();
-    world.gravity.set(0, -9.8, 0);
-    world.broadphase = new CANNON.NaiveBroadphase();
-    world.solver.iterations = 10;
-    
-    var groundShape = new CANNON.Plane();
-    var groundBody = new CANNON.Body({ mass: 0 });
-    groundBody.addShape(groundShape);
-    groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1,0,0),-Math.PI/2);
-    world.addBody(groundBody);
+    if (cansetup==false) {
+        world = new CANNON.World();
+        world.gravity.set(0, -9.8, 0);
+        world.broadphase = new CANNON.NaiveBroadphase();
+        world.solver.iterations = 10;
+        
+        var groundShape = new CANNON.Plane();
+        var groundBody = new CANNON.Body({ mass: 0 });
+        groundBody.addShape(groundShape);
+        groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1,0,0),-Math.PI/2);
+        world.addBody(groundBody);
+        cansetup = true;
+    }
 }
 
 var intervalID = null;
@@ -80,8 +85,8 @@ function selectTab(tab_id) {
     var pos = body.position;
     var quat = body.quaternion;
     body_info.innerHTML = '<p> Body: ' + tab_id + '</p>';
-    body_info.innerHTML += '<p> Position (x,y,z): ' + pos.x + ', ' + pos.y + ', ' + pos.z + '</p>';
-    body_info.innerHTML += '<p> Rotation (w,x,y,z): ' + quat.w + ', ' + quat.x + ', ' + quat.y + ', ' + quat.z + '</p>';
+    body_info.innerHTML += '<p> Position (x,y,z): ' + pos.x.toFixed(2) + ', ' + pos.y.toFixed(2) + ', ' + pos.z.toFixed(2) + '</p>';
+    body_info.innerHTML += '<p> Rotation (w,x,y,z): ' + quat.w.toFixed(2) + ', ' + quat.x.toFixed(2) + ', ' + quat.y.toFixed(2) + ', ' + quat.z.toFixed(2) + '</p>';
     
 }
 
@@ -118,6 +123,8 @@ function __update() {
     ts = end - start;
 }
 
+var fid = 0;
+
 function add_cube(x, y, z) {
     var shape = new CANNON.Box(new CANNON.Vec3(1,1,1));
     var body = new CANNON.Body({mass:1});
@@ -126,8 +133,31 @@ function add_cube(x, y, z) {
     body.angularDamping = 0.5;
     body.position.set(x, y, z)
     world.addBody(body);
-    addToBodyMenu(world.bodies.length - 1);
-    return world.bodies.length - 1;
+    fid += 1;
+    addToBodyMenu(fid);
+    return fid;
+}
+
+function add_camera(px,py,pz, qw,qx,qy,qz, w,h,d) {
+    var shape = new CANNON.Box(new CANNON.Vec3(w,h,d));
+    var body = new CANNON.Body({mass:4});
+    body.addShape(shape);
+    body.angularDamping = 0.5;
+    body.position.set(px,py,pz);
+    body.quaternion.set(qw,qx,qy,qz);
+    world.addBody(body);
+    fid += 1;
+    addToBodyMenu(fid);
+    return fid;
+}
+
+function set_object_pos(oid, px, py, pz) {
+    var body = world.bodies[oid];
+    body.position.set(px, py, pz);
+}
+function set_object_rot(oid, qw, qx, qy, qz) {
+    var body = world.bodies[oid];
+    body.quaternion.set(qw,qx,qy,qz);
 }
 
 function startUpdates() {

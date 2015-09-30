@@ -38,16 +38,25 @@ import OpenGLES.GLKit as GLKit
 from OpenGLES.GLES.gles1 import *
 from OpenGLES.GLES.gles2 import *
 from OpenGLES.Util import Physics
-
+import OpenGLES.Util.LightsCameras as LightsCameras
+from OpenGLES.Util.LightsCameras import PhysicsCamera
 reload(Util)
 reload(GLES)
 reload(EAGL)
 reload(GLKit)
+# reload(LightsCameras)
 reload(OpenGLES.Util.Shader)
 reload(OpenGLES.Util.Model)
 reload(OpenGLES.Util.Physics)
 
 OpenGLES.Util.Physics.reset()
+
+PhysicsWorld = OpenGLES.Util.Physics.PhysicsWorld
+
+LightsCameras.set_PhysicsWorld(PhysicsWorld)
+Util.Model.set_PhysicsWorld(PhysicsWorld)
+
+print PhysicsWorld
 
 MAX_DIST = 100
 
@@ -63,10 +72,10 @@ at_front = False
 def physics_info(sender):
     global at_front
     if at_front:
-        Physics.PhysicsWorld.js.send_to_back()
+        PhysicsWorld.js.send_to_back()
         at_front = False
     else:
-        Physics.PhysicsWorld.js.bring_to_front()
+        PhysicsWorld.js.bring_to_front()
         at_front = True
     # Physics.PhysicsWorld.js.present("sheet")
 btn = ui.ButtonItem()
@@ -93,9 +102,9 @@ class Renderer(Util.RenderCycle):
                     o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(x, y, z))
                     self.objects.append(o1)
         
-        for _ in range(0, 25):
-            o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
-            self.objects.append(o1)
+        # for _ in range(0, 25):
+        #     o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
+        #     self.objects.append(o1)
         
         # o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(10, 5, 0))
         # self.objects.append(o1)
@@ -104,7 +113,8 @@ class Renderer(Util.RenderCycle):
         self.f = Util.Shader.ShaderSource(FRAGMENT_SHADER_SOURCE, GL_FRAGMENT_SHADER)
         self.sp = Util.Shader.ShaderProgram(self.v, self.f)
         
-        self.eye = Util.LookObject(euclid.Vector3(-10, 10, -10), yaw=30, pitch=-30)
+        # self.eye = Util.LookObject(euclid.Vector3(-10, 10, -10), yaw=30, pitch=-30)
+        self.eye = PhysicsCamera(euclid.Vector3(-20, 10, -20), yaw=0, pitch=-0)
         
         self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
@@ -130,9 +140,9 @@ class Renderer(Util.RenderCycle):
             
             glClearColor(0.1, 0.12, 0.45, 1.0)
             
-            Physics.PhysicsWorld.js.eval_js('startUpdates();')
-            glviewv.add_subview(Physics.PhysicsWorld.js)
-            Physics.PhysicsWorld.js.send_to_back()
+            PhysicsWorld.js.eval_js('startUpdates();')
+            glviewv.add_subview(PhysicsWorld.js)
+            PhysicsWorld.js.send_to_back()
         else:
             print "Could not Setup OpenGLES"
         self.last = time.clock()
@@ -140,11 +150,11 @@ class Renderer(Util.RenderCycle):
     def teardown(self):
         self.sp.teardown()
         EAGL.setCurrentContext(None)
-        Physics.PhysicsWorld.js.eval_js('done();')
+        PhysicsWorld.js.eval_js('done();')
     
     def update(self, dt):
         start = time.clock()
-        # Physics.PhysicsWorld.js.eval_js('startUpdates();')
+        # PhysicsWorld.js.eval_js('startUpdates();')
         end = time.clock()
         # print "simulation update", end - start
         # glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
@@ -185,6 +195,7 @@ class Renderer(Util.RenderCycle):
             self.sp.uniform4x4("P", list(self.projection))
             for rObj in self.objects:
                 rObj.render(self.sp)
+            self.eye.debug_model.debug_draw(sp)
         end = time.clock()
         # print 'render', (end - self.last)
         self.rt = end - start

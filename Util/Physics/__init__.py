@@ -58,9 +58,8 @@ class CannonJS(object):
         """
         self.setup = False
         self.objects = {}
-        
         self.js = ui.WebView()
-        self.js.width = 700
+        self.js.width = 800
         self.js.height = 300
         self.js.delegate = self
         self.js.load_html(get_library('view.html'))
@@ -84,8 +83,6 @@ class CannonJS(object):
             try:
                 s = time.clock()
                 func = getattr(self, t['name'][0])
-                # th = threading.Thread(target=func, args=t['param'])
-                # th.start()
                 func(*t['param'])
                 e = time.clock()
             except AttributeError as e:
@@ -177,6 +174,13 @@ class CannonJS(object):
         else:
             raise AttributeError, "Object with id '%s' does not exist" % oid
             
+    def get_object_pos_rot(self, oid):
+        if oid in self.objects:
+            quat = euclid.Quaternion(*self.objects[oid][1])
+            pos = euclid.Vector3(*self.objects[oid][0])
+            return pos, quat
+        return None, None
+            
     def add_cube(self, x, y, z):
         """
         Add a cube physics object to the physics world
@@ -192,8 +196,17 @@ class CannonJS(object):
             oid = int(d)
             self.objects[oid] = [(x,y,z), (0,0,0,0)]
             return oid
-        else:
-            return None
+        return None
+            
+    def add_camera(self, camera_object):
+        r = euclid.Quaternion().rotate_euler(0, camera_object.yaw, 0)
+        p = camera_object.position
+        d = self.js.eval_js('add_camera(%f,%f,%f, %f,%f,%f,%f, 1,2,1);' % (p.x,p.y,p.z, r.w,r.x,r.y,r.z))
+        if d:
+            oid = int(d)
+            self.objects[oid] = [(p.x, p.y, p.z), (r.w,r.x,r.y,r.z)]
+            return oid
+        return None
         
     def webview_did_finish_load(self, webview):
         """
@@ -236,6 +249,8 @@ if __name__ == '__main__':
             for z in range(-10, 10, 4):
                 oid = c.add_cube(x,y,z)  # yes I know only the last ```oid``` will be saved
     c.js.eval_js('startUpdates()')
+    c.js.wait_modal()
+    c.js.eval_js('done();')
     # i = 0
     # while i < 1000:
     #     start = time.clock()
