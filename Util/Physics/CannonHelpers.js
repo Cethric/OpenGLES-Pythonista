@@ -140,7 +140,7 @@ function add_cube(x, y, z) {
 
 function add_camera(px,py,pz, qw,qx,qy,qz, w,h,d) {
     var shape = new CANNON.Box(new CANNON.Vec3(w,h,d));
-    var body = new CANNON.Body({mass:4});
+    var body = new CANNON.Body({mass:16});
     body.addShape(shape);
     body.angularDamping = 0.5;
     body.position.set(px,py,pz);

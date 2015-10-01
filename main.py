@@ -40,14 +40,14 @@ from OpenGLES.GLES.gles2 import *
 from OpenGLES.Util import Physics
 import OpenGLES.Util.LightsCameras as LightsCameras
 from OpenGLES.Util.LightsCameras import PhysicsCamera
-reload(Util)
-reload(GLES)
-reload(EAGL)
-reload(GLKit)
-# reload(LightsCameras)
-reload(OpenGLES.Util.Shader)
-reload(OpenGLES.Util.Model)
-reload(OpenGLES.Util.Physics)
+# reload(Util)
+# reload(GLES)
+# reload(EAGL)
+# reload(GLKit)
+reload(LightsCameras)
+# reload(OpenGLES.Util.Shader)
+# reload(OpenGLES.Util.Model)
+# reload(OpenGLES.Util.Physics)
 
 OpenGLES.Util.Physics.reset()
 
@@ -55,8 +55,6 @@ PhysicsWorld = OpenGLES.Util.Physics.PhysicsWorld
 
 LightsCameras.set_PhysicsWorld(PhysicsWorld)
 Util.Model.set_PhysicsWorld(PhysicsWorld)
-
-print PhysicsWorld
 
 MAX_DIST = 100
 
@@ -71,6 +69,7 @@ glviewv = GLKit.GLKView(frame=(0, 0, 800, 600))
 at_front = False
 def physics_info(sender):
     global at_front
+    global PhysicsWorld
     if at_front:
         PhysicsWorld.js.send_to_back()
         at_front = False
@@ -82,6 +81,26 @@ btn = ui.ButtonItem()
 btn.title = "Physics Info"
 btn.action = physics_info
 glviewv.left_button_items = [btn]
+
+
+setting_front = False
+setting_view = ui.ScrollView()
+setting_view.width = 800
+setting_view.height = 300
+player_height = ui.Slider()
+setting_view.add_subview(player_height)
+def settings(sender):
+    global setting_front
+    if setting_front:
+        setting_front = False
+        setting_view.send_to_back()
+    else:
+        setting_front = True
+        setting_view.bring_to_front()
+sbtn = ui.ButtonItem()
+sbtn.image = ui.Image.named('iob:ios7_gear_outline_32')
+sbtn.action = settings
+glviewv.left_button_items = [btn, sbtn]
 
 TRIANGLE = [
     0.0, 0.5, 0.0,
@@ -114,7 +133,8 @@ class Renderer(Util.RenderCycle):
         self.sp = Util.Shader.ShaderProgram(self.v, self.f)
         
         # self.eye = Util.LookObject(euclid.Vector3(-10, 10, -10), yaw=30, pitch=-30)
-        self.eye = PhysicsCamera(euclid.Vector3(-20, 10, -20), yaw=0, pitch=-0)
+        self.eye = PhysicsCamera(euclid.Vector3(-20, 10, -20), yaw=0, pitch=0)
+        # self.eye.debug_model = o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(0, 0, 0))
         
         self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
@@ -122,6 +142,9 @@ class Renderer(Util.RenderCycle):
         
         self.rt = 0
         self.ut = 0
+        
+        glviewv.add_subview(setting_view)
+        setting_view.send_to_back()
         
     def setup(self, context):
         if EAGL.setCurrentContext(context):
@@ -195,7 +218,8 @@ class Renderer(Util.RenderCycle):
             self.sp.uniform4x4("P", list(self.projection))
             for rObj in self.objects:
                 rObj.render(self.sp)
-            self.eye.debug_model.debug_draw(sp)
+            self.eye.debug_draw(self.sp)
+            # self.eye.debug_draw(self.sp)
         end = time.clock()
         # print 'render', (end - self.last)
         self.rt = end - start
