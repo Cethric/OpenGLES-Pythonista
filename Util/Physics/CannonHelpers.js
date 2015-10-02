@@ -126,7 +126,7 @@ function __update() {
 var fid = 0;
 
 function add_cube(x, y, z) {
-    var shape = new CANNON.Box(new CANNON.Vec3(1,1,1));
+    var shape = new CANNON.Box(new CANNON.Vec3(0.5,0.5,0.5));
     var body = new CANNON.Body({mass:1});
     body.addShape(shape);
     // body.angularVelocity.set(0,10,0);

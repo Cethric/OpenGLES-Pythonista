@@ -201,7 +201,7 @@ class CannonJS(object):
     def add_camera(self, camera_object):
         r = euclid.Quaternion().rotate_euler(0, camera_object.yaw, 0)
         p = camera_object.position
-        d = self.js.eval_js('add_camera(%f,%f,%f, %f,%f,%f,%f, 1,2,1);' % (p.x,p.y,p.z, r.w,r.x,r.y,r.z))
+        d = self.js.eval_js('add_camera(%f,%f,%f, %f,%f,%f,%f, 0.5,0.5,0.5);' % (p.x,p.y,p.z, r.w,r.x,r.y,r.z))
         if d:
             oid = int(d)
             self.objects[oid] = [(p.x, p.y, p.z), (r.w,r.x,r.y,r.z)]

@@ -84,7 +84,7 @@ glviewv.left_button_items = [btn]
 
 
 setting_front = False
-setting_view = ui.ScrollView()
+setting_view = ui.View()
 setting_view.width = 800
 setting_view.height = 300
 player_height = ui.Slider()
