@@ -91,6 +91,14 @@ class TouchController(ui.View):
         self.label.width = 200
         self.add_subview(self.label)
         
+        self.label2 = ui.Label()
+        self.label2.x = 210
+        self.label2.y = 10
+        self.label2.text_color = "#FFFFFF"
+        self.label2.number_of_lines = 0
+        self.label2.width = 200
+        self.add_subview(self.label2)
+        
         self.calibtn = ui.ButtonItem()
         self.calibtn.title = "Calibrate"
         self.calibtn.action = self.calibrate
@@ -116,8 +124,15 @@ class TouchController(ui.View):
         if self.calib is None:
             self.calibrate(None)
         self.check_motion()
-        renderEngine.look_f(self.dir_look)
-        renderEngine.move_f(self.dir_move)
+        try:
+            renderEngine.look_f(self.dir_look)
+        except NotImplementedError:
+            print "Function Not Implimented"
+        try:
+            renderEngine.move_f(self.dir_move)
+        except NotImplementedError:
+            print "Function Not Implimented"
+            
         ui.delay(self.update_touch, 0.01)
         
     def check_motion(self):
@@ -145,7 +160,20 @@ class TouchController(ui.View):
         self.label.text = "%s\t%s\n%s\t%s" % (x, d1, z, d2)
         self.label.set_needs_display()
         if x != 0.0 or z != 0.0:
-            renderEngine.look_f([-z, -x])
+            try:
+                renderEngine.look_f([-z, -x])
+            except NotImplementedError:
+                print "Function Not Implimented"
+        
+        m = self.dir_move
+        d3 = ''
+        d4 = ''
+        if m[1] != 0:
+            d3 = 'Moving %s' % ('forward' if m[1] > 0 else 'backward' if m[1] < 0 else '')
+        if m[0] != 0:
+            d4 = 'Strafe %s' % ('left' if m[0] > 0 else 'right' if m[0] < 0 else '')
+        self.label2.text = '%s\n%s' % (d3, d4)
+        self.label2.set_needs_display()
         
     def will_close(self):
         ui.cancel_delays()
@@ -164,19 +192,19 @@ class TouchController(ui.View):
             my = touch.location[1] - self.right_touch[touch.touch_id][1]
             
             if mx < -b:
-                #print "Strafe Left", mx + b
+                # print "Strafe Left", mx + b
                 self.dir_move[0] = 1
             elif mx > b:
-                #print "Strafe Right", mx - b
+                # print "Strafe Right", mx - b
                 self.dir_move[0] = -1
             else:
                 self.dir_move[0] = 0
                 
             if my < -b:
-                #print "Move Forward", my + b
+                # print "Move Forward", my + b
                 self.dir_move[1] = 1
             elif my > b:
-                #print "Move Backward", my - b
+                # print "Move Backward", my - b
                 self.dir_move[1] = -1
             else:
                 self.dir_move[1] = 0
@@ -185,19 +213,19 @@ class TouchController(ui.View):
             mx = touch.location[0] - self.left_touch[touch.touch_id][0]
             my = touch.location[1] - self.left_touch[touch.touch_id][1]
             if mx < -b:
-                #print "Look Left", mx + b
+                # print "Look Left", mx + b
                 self.dir_look[0] = 1
             elif mx > b:
-                #print "Look Right", mx - b
+                # print "Look Right", mx - b
                 self.dir_look[0] = -1
             else:
                 self.dir_look[0] = 0
                 
             if my < -b:
-                #print "Look Up", my + b
+                # print "Look Up", my + b
                 self.dir_look[1] = 1
             elif my > b:
-                #print "Look Down", my - b
+                # print "Look Down", my - b
                 self.dir_look[1] = -1
             else:
                 self.dir_look[1] = 0

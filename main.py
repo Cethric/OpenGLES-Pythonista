@@ -121,9 +121,9 @@ class Renderer(Util.RenderCycle):
                     o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(x, y, z))
                     self.objects.append(o1)
         
-        # for _ in range(0, 25):
-        #     o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
-        #     self.objects.append(o1)
+        for _ in range(0, 25):
+            o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
+            self.objects.append(o1)
         
         # o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(10, 5, 0))
         # self.objects.append(o1)
@@ -202,7 +202,8 @@ class Renderer(Util.RenderCycle):
         # print "update", end - start
             
     def move_f(self, mdir):
-        mdir.reverse()
+        # mdir.reverse()
+        mdir = [mdir[1], mdir[0]]
         self.eye.move(*mdir)
     
     def look_f(self, ldir):
