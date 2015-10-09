@@ -25,6 +25,11 @@ accelerometer handles look
 - Create a better example file
 
 ---
+## Known Issues
+- GLKVector3, GLKVector4, etc are returned incorrectly from GLKEffectPropertyTransform, GLKEffectPropertyMaterial, and any class that uses GLKMath Structures
+- Texture loading does not work. DO NOT USE IT, IT WILL CRASH
+
+---
 ## Other resources / misc
 - ~~3D physics support is done through [Ammo.js](https://github.com/kripken/ammo.js/) which is a javascript port of the [Bullet](http://bulletphysics.org/wordpress/) physics engine~~ Physics is now done with [Cannon.js](https://github.com/schteppe/cannon.js)
 - Header parsing code. This was from an example that I found on stackoverflow which I expanded on quite a bit. However I do not remeber what post it was from. So if someone can find it please let me know.

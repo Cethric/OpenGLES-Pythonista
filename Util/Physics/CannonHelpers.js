@@ -40,7 +40,7 @@ var cansetup = false;
 function setup() {
     if (cansetup==false) {
         world = new CANNON.World();
-        world.gravity.set(0, -9.8, 0);
+        world.gravity.set(0, -20, 0);
         world.broadphase = new CANNON.NaiveBroadphase();
         world.solver.iterations = 10;
         
@@ -113,9 +113,12 @@ function updateBulletView() {
     selectTab(tabid);
 }
 
+var last = 0;
+
 function __update() {
     var start = new Date().getTime();
-    world.step(1.0 / 120.0);
+    world.step(1.0 / 30.0, start - last, 9);
+    last = start;
     // sendObjectData();
     // intervalID = setTimeout(__update, 0.0001);
     updateBulletView();
@@ -162,8 +165,9 @@ function set_object_rot(oid, qw, qx, qy, qz) {
 
 function startUpdates() {
     // intervalID = setTimeout(__update, 0.0001);
-    intervalID = setInterval(__update, 1 / 120.0);
-    intervalID2 = setInterval(sendObjectData, 1 / 60);
+    last = new Date().getTime();
+    intervalID = setInterval(__update, 1 / 180.0);
+    intervalID2 = setInterval(sendObjectData, 1 / 120.0);
     // __update()
 }
 

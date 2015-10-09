@@ -4,21 +4,80 @@ from objc_util import *
 import ui
 import RenderingAPI
 
-__all__ = ["setCurrentContext", "EAGLContext"]
-
 ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/OpenGLES.framework").load()
 
 EAGLContext_OBJC = ObjCClass("EAGLContext")
 
-#print get_methods(EAGLContext_OBJC)
 
-def setCurrentContext(context):
-    return EAGLContext_OBJC.setCurrentContext_(context)
+class EAGLSharegroup(object):
+    def __init__(self, c_sharegroup=None, gles_api=RenderingAPI.OpenGLES2):
+        if c_sharegroup is None:
+            sg = ObjCClass('EAGLSharegroup')
+            self._sharegroup = sg.alloc().initWithAPI_(gles_api)
+        else:
+            self._sharegroup = c_sharegroup
+            
+    def __str__(self):
+        return str(self._sharegroup.description())
+        
+    def setDebugLabel(self, label):
+        self._sharegroup.setDebugLabel_(label)
+        
+    def getDebugLabel(self):
+        return self._sharegroup.debugLabel()
+        
+    debugLabel = property(getDebugLabel, setDebugLabel)
+
 
 class EAGLContext(object):
-    def __init__(self, gles_api=RenderingAPI.OpenGLES2, c_context = None): 
-        self._context = c_context if c_context != None else EAGLContext_OBJC.alloc().initWithAPI_(gles_api)
-        #self._context.setMultiThreaded_(True)
+    def __init__(self, gles_api=RenderingAPI.OpenGLES2, c_context=None, sharegroup=None):
+        if c_context is None:
+            if sharegroup is None:
+                self._context = EAGLContext_OBJC.alloc().initWithAPI_(gles_api)
+            else:
+                self._context = EAGLContext_OBJC.alloc()
+                self._context.initWithAPI_sharegroup_(gles_api, sharegroup._sharegroup)
+            self._context.setMultiThreaded_(True)
+        else:
+            self._context = c_context
+    
+    def __str__(self):
+        return str(self._context.description())
         
-    def renderbufferStorage(self, gl_target, drawable):
-        self._context.renderbufferStorage_(gl_target, drawable)
+    def setMultiThreaded(self, threaded):
+        self._context.setMultiThreaded_(threaded)
+        
+    def getMultiThreaded(self):
+        return self._context.isMultiThreaded()
+        
+    multiThreaded = property(getMultiThreaded, setMultiThreaded)
+    
+    @property
+    def sharegroup(self):
+        return EAGLSharegroup(self._context.sharegroup())
+
+
+def setCurrentContext(context):
+    if '_context' in context.__dict__:
+        v = EAGLContext_OBJC.setCurrentContext_(context._context)
+    else:
+        v = EAGLContext_OBJC.setCurrentContext_(context)
+    return v
+    
+def currentContext():
+    return EAGLContext(None, EAGLContext_OBJC.currentContext())
+    
+    
+__all__ = ["setCurrentContext", 'currentContext', "EAGLContext", 'EAGLSharegroup']
+
+if __name__ == '__main__':
+    c = EAGLContext()
+    print c
+    c.sharegroup.debugLabel = 'ABC'
+    print c.sharegroup.debugLabel
+    print c.sharegroup
+    c2 = EAGLContext(sharegroup=c.sharegroup)
+    print c2
+    setCurrentContext(c2)
+    print currentContext()
+    

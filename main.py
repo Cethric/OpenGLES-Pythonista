@@ -43,7 +43,7 @@ from OpenGLES.Util.LightsCameras import PhysicsCamera
 # reload(Util)
 # reload(GLES)
 # reload(EAGL)
-# reload(GLKit)
+reload(GLKit)
 reload(LightsCameras)
 # reload(OpenGLES.Util.Shader)
 # reload(OpenGLES.Util.Model)
@@ -77,18 +77,24 @@ def physics_info(sender):
         PhysicsWorld.js.bring_to_front()
         at_front = True
     # Physics.PhysicsWorld.js.present("sheet")
+    
 btn = ui.ButtonItem()
 btn.title = "Physics Info"
 btn.action = physics_info
 glviewv.left_button_items = [btn]
 
+def change(sender):
+    glviewv.tc.accelerometer_speed = 1 + sender.value * 5
 
 setting_front = False
 setting_view = ui.View()
+setting_view.background_color = '#FFFFFF'
 setting_view.width = 800
 setting_view.height = 300
-player_height = ui.Slider()
-setting_view.add_subview(player_height)
+accelerometer_speed = ui.Slider()
+accelerometer_speed.action = change
+accelerometer_speed.continuous = True
+setting_view.add_subview(accelerometer_speed)
 def settings(sender):
     global setting_front
     if setting_front:
@@ -133,8 +139,7 @@ class Renderer(Util.RenderCycle):
         self.sp = Util.Shader.ShaderProgram(self.v, self.f)
         
         # self.eye = Util.LookObject(euclid.Vector3(-10, 10, -10), yaw=30, pitch=-30)
-        self.eye = PhysicsCamera(euclid.Vector3(-20, 10, -20), yaw=0, pitch=0)
-        # self.eye.debug_model = o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(0, 0, 0))
+        self.eye = PhysicsCamera(euclid.Vector3(-20, 5, -20), yaw=0, pitch=0)
         
         self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
