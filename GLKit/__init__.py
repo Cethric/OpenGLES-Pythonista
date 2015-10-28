@@ -4,8 +4,6 @@ import ctypes
 import weakref
 from objc_util import *
 
-from OpenGLES.EAGL import *
-
 from effect import *
 from view import *
 from glkmath import *
@@ -15,7 +13,6 @@ from texture import *
 from material import *
 
 ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/GLKit.framework").load()
-
 
 __all__ = ["GLKView", "GLKViewDelegate", "setRenderEngine", "getRenderEngine"]
 

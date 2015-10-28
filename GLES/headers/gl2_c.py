@@ -4,7 +4,7 @@ import ctypes
 from objc_util import *
 from GLConstants import *
 
-DEBUG = 0
+DEBUG = 1
 loaded = [0, 0]
 
 # GLES Constants
@@ -2336,7 +2336,10 @@ try:
         cfunc = c.glUniform1i
         cfunc.restype = restype
         cfunc.argtypes = argtypes
-        return cfunc(location, v0)
+        try:
+            return cfunc(location, v0)
+        except Exception:
+            return None
     # Check if the function actually exists
     f = c.glUniform1i
     del f
@@ -2344,7 +2347,7 @@ try:
 except AttributeError as e:
     loaded[1] += 1
     if DEBUG > 0:
-        print 'could not load the function'
+        print 'could not load the function glUniform1i'
         print e
 
 try:

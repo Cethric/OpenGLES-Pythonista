@@ -3,9 +3,12 @@ import ctypes
 from objc_util import *
 from glkmath import *
 import OpenGLES.GLES.gles1 as ES
+import OpenGLES.GLES.gles1 as ES2
 import OpenGLES.GLES.gles3 as ES3
 
 from OpenGLES.EAGL import currentContext
+
+import Image
 
 
 class GLKTextureEnvMode:
@@ -173,21 +176,85 @@ class GLKTextureLoader:
             sharegroup = currentContext().sharegroup
             print sharegroup
         tl = ObjCClass('GLKTextureLoader')
-        self._loader = tl.alloc().initWithSharegroup_(sharegroup._sharegroup)
+        if '_sharegroup' in sharegroup.__dict__:
+            sharegroup = sharegroup._sharegroup
+        self._loader = tl.alloc().initWithSharegroup_(sharegroup)
         
     def textureFromFile(self, path):
-        callback = CBlock(GLKTextureLoaderCallback, restype=None, argtypes=[ctypes.c_void_p, ctypes.c_void_p])
-        print dir(self._loader)
-        print DEFAULTS
-        # self._loader.textureWithContentsOfFile_options_queue_completionHandler_(path, DEFAULTS, None, callback)
+        def test(*args, **kwargs):
+            print args, kwargs
+        callback = CBlock(
+                            test,
+                            restype=None,
+                            argtypes=None
+                          )
+        
+        self._loader.textureWithContentsOfFile_options_queue_completionHandler_(path, DEFAULTS, None, test)
+        
+    def textureFromURL(self, path):
+        url = nsurl(path)
+        for x in dir(self._loader):
+            if 'texture' in x:
+                print x
+                
+        def test(*args, **kwargs):
+            print args, kwargs
+        
+        self._loader.textureWithContentsOfURL_options_queue_completionHandler_(url, DEFAULTS, None, test)
+
+
+positions = [ES.GL_TEXTURE0, ES.GL_TEXTURE1, ES.GL_TEXTURE2, ES.GL_TEXTURE3, ES.GL_TEXTURE4, ES.GL_TEXTURE5, ES.GL_TEXTURE6, ES.GL_TEXTURE7, ES.GL_TEXTURE8, ES.GL_TEXTURE9, ES.GL_TEXTURE10, ES.GL_TEXTURE11, ES.GL_TEXTURE12, ES.GL_TEXTURE13, ES.GL_TEXTURE14, ES.GL_TEXTURE15, ES.GL_TEXTURE16, ES.GL_TEXTURE17, ES.GL_TEXTURE18, ES.GL_TEXTURE19, ES.GL_TEXTURE20, ES.GL_TEXTURE21, ES.GL_TEXTURE22, ES.GL_TEXTURE23, ES.GL_TEXTURE24, ES.GL_TEXTURE25, ES.GL_TEXTURE26, ES.GL_TEXTURE27, ES.GL_TEXTURE28, ES.GL_TEXTURE29, ES.GL_TEXTURE30, ES.GL_TEXTURE31]
+
+def loadTexture(pathOrURL, tex_pos=None):
+    if tex_pos is None:
+        tex_pos = 0
+    ES.glActiveTexture(positions[tex_pos])
+    
+    r = pathOrURL
+    d = Image.open(r)
+    d.load()
+    # d.show()
+    width, height = d.width, d.height
+    b = list(d.getdata())
+    t = (ctypes.c_ubyte * len(b * len(b[0])))
+    pt = t()
+    print len(b)
+    for (i,p) in enumerate(b):
+        if not len(p) == len(pt[i*len(b[0]):i*len(b[0])+len(b[0])]):
+            print len(p), len(pt[i*len(b[0]):i*len(b[0])+len(b[0])])
+            print p
+        pt[i*len(b[0]):i*len(b[0])+len(b[0])] = p[:]
+    tex_id = ES.GLuint()
+    ES.glGenTextures(1, ctypes.byref(tex_id), param0_t=ctypes.POINTER(ES.GLuint))
+    ES.glBindTexture(ES.GL_TEXTURE_2D, tex_id)
+    ES.glTexParameteri(ES.GL_TEXTURE_2D, ES.GL_TEXTURE_WRAP_S, ES.GL_REPEAT)
+    ES.glTexParameteri(ES.GL_TEXTURE_2D, ES.GL_TEXTURE_WRAP_T, ES.GL_REPEAT)
+    
+    ES.glTexParameteri(ES.GL_TEXTURE_2D, ES.GL_TEXTURE_MAG_FILTER, ES.GL_LINEAR)
+    ES.glTexParameteri(ES.GL_TEXTURE_2D, ES.GL_TEXTURE_MIN_FILTER, ES.GL_LINEAR)
+    
+    ES.glGenerateMipmapOES(ES.GL_TEXTURE_2D)
+    
+    ES.glTexImage2D(ES.GL_TEXTURE_2D, 0, ES.GL_RGBA, width, height, 0, ES.GL_RGBA, ES.GL_UNSIGNED_BYTE, byref(pt))
+    del pt
+    return tex_id
+
+def useTexture(tex_id, shader_program, name='texture', tex_pos=None):
+    if tex_pos is None:
+        tex_pos = 0
+    if tex_id is not None:
+        ES.glActiveTexture(positions[tex_pos])
+        ES.glBindTexture(ES.GL_TEXTURE_2D, tex_id)
+        shader_program.uniform1i(name, tex_pos)
     
     
+
 __all__ = [
             'GLKEffectPropertyTexture', 'GLKTextureTarget', 'GLKTextureEnvMode',
             'GLKTextureInfo', 'GLKTextureInfoOrigin', 'GLKTextureInfoAlphaState',
+            'loadTexture', 'useTexture'
           ]
-    
-    
+
 if __name__ == '__main__':
     from OpenGLES.EAGL import setCurrentContext, EAGLContext
     c = EAGLContext()
@@ -208,9 +275,26 @@ if __name__ == '__main__':
     print ti.height
     print ti.containsMipmaps
     
-    tl = GLKTextureLoader()
-    from ui import Image
-    i = Image.named('test:Lenna')
+    from ui import Image as image
+    i = image.named('test:Lenna')
+    d = i.to_png()
     with open('test.png', 'wb') as f:
-        f.write(i.to_png())
-    tl.textureFromFile('test.png')
+        f.write(d)
+    t = (ctypes.c_char_p * len(d))
+    pt = t()
+    pt[:] = d[:]
+    tid = loadTexture('test:Lenna')
+    print tid
+    from OpenGLES.Util.Shader import ShaderProgram
+    from OpenGLES.Util.Shader import ShaderSource
+    
+    with open("../shader.vs", "rb") as f:
+        v = ShaderSource(f.read(), ES3.GL_VERTEX_SHADER)
+    with open("../shader.fs", "rb") as f:
+        f = ShaderSource(f.read(), ES3.GL_FRAGMENT_SHADER)
+    s = ShaderProgram(v, f)
+    s.build()
+    useTexture(tid, s)
+    # useTexture(loadTexture('http://i.imgur.com/hCrSRTN.png'), s)
+    # tl.textureFromFile('test.png')
+    # tl.textureFromURL('http://i.imgur.com/hCrSRTN.png')

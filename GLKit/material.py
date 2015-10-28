@@ -15,34 +15,34 @@ class GLKEffectPropertyMaterial:
         return str(self._mat.description())
             
     def setAmbientColor(self, color):
-        self._mat.setAmbientColor_(color, argtypes=[GLKMath.GLKVector4], restype=None)
+        return GLKMath.setGLKVector4(self._mat.setAmbientColor_, color)
         
     def getAmbientColor(self):
-        return self._mat.ambientColor(argtypes=[], restype=GLKMath.GLKVector4)
+        return GLKMath.getGLKVector4(self._mat.ambientColor)
         
     ambientColor = property(getAmbientColor, setAmbientColor)
     
     def setDiffuseColor(self, color):
-        self._mat.setDiffuseColor_(color, argtypes=[GLKMath.GLKVector4], restype=None)
+        return GLKMath.setGLKVector4(self._mat.setDiffuseColor_, color)
         
     def getDiffuseColor(self):
-        return self._mat.diffuseColor(argtypes=[], restype=GLKMath.GLKVector4)
+        return GLKMath.getGLKVector4(self._mat.diffuseColor)
         
     diffuseColor = property(getDiffuseColor, setDiffuseColor)
     
     def setEmissiveColor(self, color):
-        self._mat.setEmissiveColor_(color, argtypes=[GLKMath.GLKVector4], restype=None)
+        return GLKMath.setGLKVector4(self._mat.setEmissiveColor_, color)
         
     def getEmissiveColor(self):
-        return self._mat.emissiveColor(argtypes=[], restype=GLKMath.GLKVector4)
+        return GLKMath.getGLKVector4(self._mat.emissiveColor)
         
     emissiveColor = property(getEmissiveColor, setEmissiveColor)
     
     def setSpecularColor(self, color):
-        self._mat.setSpecularColor_(color, argtypes=[GLKMath.GLKVector4], restype=None)
+        return GLKMath.setGLKVector4(self._mat.setSpecularColor_, color)
         
     def getSpecularColor(self):
-        return self._mat.specularColor(argtypes=[], restype=GLKMath.GLKVector4)
+        return GLKMath.getGLKVector4(self._mat.specularColor)
         
     specularColor = property(getSpecularColor, setSpecularColor)
             

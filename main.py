@@ -40,6 +40,8 @@ from OpenGLES.GLES.gles2 import *
 from OpenGLES.Util import Physics
 import OpenGLES.Util.LightsCameras as LightsCameras
 from OpenGLES.Util.LightsCameras import PhysicsCamera
+import OpenGLES.GLKit.texture as texture
+
 # reload(Util)
 # reload(GLES)
 # reload(EAGL)
@@ -131,8 +133,9 @@ class Renderer(Util.RenderCycle):
             o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
             self.objects.append(o1)
         
-        # o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(10, 5, 0))
-        # self.objects.append(o1)
+        o1 = Util.Model.XMLModel("plane.xml", euclid.Vector3(-20, 0, -20))
+        o1.model.scale(10, 10, 10)
+        self.objects.append(o1)
         
         self.v = Util.Shader.ShaderSource(VERTEX_SHADER_SOURCE, GL_VERTEX_SHADER)
         self.f = Util.Shader.ShaderSource(FRAGMENT_SHADER_SOURCE, GL_FRAGMENT_SHADER)
@@ -148,6 +151,8 @@ class Renderer(Util.RenderCycle):
         self.rt = 0
         self.ut = 0
         
+        self.texture = None
+        
         glviewv.add_subview(setting_view)
         setting_view.send_to_back()
         
@@ -155,6 +160,8 @@ class Renderer(Util.RenderCycle):
         if EAGL.setCurrentContext(context):
             self.sp.build()
             self.sp.bind()
+            
+            self.texture = texture.loadTexture('test.png', 0)
             
             print len(self.objects), " object/s in the world"
             for rObj in self.objects:
@@ -184,7 +191,6 @@ class Renderer(Util.RenderCycle):
         start = time.clock()
         # PhysicsWorld.js.eval_js('startUpdates();')
         end = time.clock()
-        # print "simulation update", end - start
         # glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
         glviewv.name = "Render Time: %.3f\tUpdate Time: %.3f\tFrames: %i\tFPS: %i" % (self.rt, self.ut, self.framesDisplayed, self.fps)
         su = time.clock()
@@ -196,15 +202,12 @@ class Renderer(Util.RenderCycle):
             else:
                 rObj.renderable = False
             eo = time.clock()
-            # print 'time to update object', rObj, eo - so
         eu = time.clock()
-        # print 'time to update all objects', eu - su
         self.eye.update(dt)
         self.view = self.eye.view
         
         end = time.clock()
         self.ut = end - start
-        # print "update", end - start
             
     def move_f(self, mdir):
         # mdir.reverse()
@@ -216,16 +219,18 @@ class Renderer(Util.RenderCycle):
         
     def render(self, context):
         start = time.clock()
+        texture.useTexture(self.texture, self.sp, 'test', 0)
+        
         if EAGL.setCurrentContext(context):
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glViewport(0, 0, int(glviewv.width*2), int(glviewv.height*2))
             self.sp.bind()
             self.sp.uniform4x4("V", list(self.view))
             self.sp.uniform4x4("P", list(self.projection))
+            texture.useTexture(self.texture, self.sp)
             for rObj in self.objects:
                 rObj.render(self.sp)
             self.eye.debug_draw(self.sp)
-            # self.eye.debug_draw(self.sp)
         end = time.clock()
         # print 'render', (end - self.last)
         self.rt = end - start
@@ -233,6 +238,11 @@ class Renderer(Util.RenderCycle):
 
 @on_main_thread
 def main():
+    from ui import Image
+    i = Image.named('test:Lenna')
+    with open('test.png', 'wb') as f:
+        f.write(i.to_png())
+        
     contextc = EAGL.EAGLContext(EAGL.RenderingAPI.OpenGLES2)
     GLKit.setRenderEngine(Renderer())
     glviewv.setDelegate(GLKit.GLKViewDelegate())

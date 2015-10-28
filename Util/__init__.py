@@ -99,6 +99,12 @@ class RenderObject(object):
         """
         self.vVertices = (GLfloat * len(vertices))(*vertices)
         self.vSize = len(vertices)
+        self.cItems = (GLfloat * len(colour))(*colour)
+        self.cSize = len(colour)
+        self.uItems = (GLfloat * len(uv))(*uv)
+        self.uSize = len(uv)
+        self.IItems = (GLfloat * len(indices))(*indices)
+        self.ISize = len(indices)
         self.model = euclid.Matrix4.new_identity()
         self.model.translate(*list(pos))
         self.renderable = True

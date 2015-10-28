@@ -1,5 +1,6 @@
 # coding: utf-8
 import ctypes
+import euclid
 
 
 class float16(ctypes.Structure):
@@ -38,13 +39,7 @@ class GLKMatrix4(ctypes.Union):
                 ]
     
     def __str__(self):
-        mstr = '''GLKMatrix4
-{
-{%.3f, %.3f, %.3f, %.3f}
-{%.3f, %.3f, %.3f, %.3f}
-{%.3f, %.3f, %.3f, %.3f}
-{%.3f, %.3f, %.3f, %.3f}
-}''' % tuple([float(x) for x in self.s1.m])
+        mstr = '''GLKMatrix4 { {%.3f, %.3f, %.3f, %.3f} {%.3f, %.3f, %.3f, %.3f} {%.3f, %.3f, %.3f, %.3f {%.3f, %.3f, %.3f, %.3f} }''' % tuple([float(x) for x in self.s1.m])
         return mstr
         
 

@@ -1,0 +1,20 @@
+<model>
+    <anim>
+        <frame num='0'>
+            <vert id="0"> -0.5 0 -0.5 </vert>
+            <vert id="1"> -0.5 0 0.5 </vert>
+            <vert id="2"> 0.5 0 -0.5 </vert>
+            
+            <vert id="3"> 0.5 0 0.5 </vert>
+            <vert id="4"> 0.5 0 -0.5 </vert>
+            <vert id="5"> -0.5 0 0.5 </vert>
+            
+            <tex_coord id="0"> 0 0 </tex_coord>
+            <tex_coord id="1"> 0 1 </tex_coord>
+            <tex_coord id="2"> 1 0 </tex_coord>
+            <tex_coord id="3"> 1 0 </tex_coord>
+            <tex_coord id="4"> 1 1 </tex_coord>
+            <tex_coord id="5"> 0 1 </tex_coord>
+        </frame>
+    </anim>
+</model>

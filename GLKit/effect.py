@@ -12,8 +12,6 @@ from glkmath import *
 import transform
 from transform import *
 
-reload(transform)
-
 
 class GLKBaseEffect(object):
     def __init__(self, c_effect=None):
@@ -71,10 +69,10 @@ class GLKBaseEffect(object):
     material = property(getMaterial, setMaterial)
     
     def setLightModelAmbientColor(self, color):
-        self._effect.setLightModelAmbientColor_(color, argtypes=[GLKMath.GLKVector4], restype=None)
+        return setGLKVector4(self._effect.setLightModelAmbientColor_, color)
         
     def getLightModelAmbientColor(self):
-        return self._effect.lightModelAmbientColor(argtypes=[], restype=GLKMath.GLKVector4)
+        return getGLKVector4(self._effect.lightModelAmbientColor)
         
     lightModelAmbientColor = property(getLightModelAmbientColor, setLightModelAmbientColor)
     
@@ -137,10 +135,10 @@ class GLKBaseEffect(object):
     useConstantColor = property(getUseConstantColor, setUseConstantColor)
     
     def setConstantColor(self, color):
-        self._effect.setConstantColor_(color, argtypes=[GLKMath.GLKVector4], restype=None)
+        return setGLKVector4(self._effect.setConstantColor_, color)
         
     def getConstantColor(self):
-        return self._effect.constantColor(argtypes=[], restype=GLKMath.GLKVector4)
+        return getGLKVector4(self._effect.constantColor)
         
     constantColor = property(getConstantColor, setConstantColor)
     
@@ -217,10 +215,10 @@ class GLKSkyboxEffect(object):
     textureCubeMap = property(getTextureCubeMap, setTextureCubeMap)
     
     def setCenter(self, center):
-        self._effect.setCenter_(center, argtypes=[GLKVector3], restype=None)
+        return setGLKVector3(self._effect.setCenter_, center)
         
     def getCenter(self):
-        return self._effect.center(argtypes=[], restype=GLKVector3)
+        return getGLKVector3(self._effect.center)
         
     center = property(getCenter, setCenter)
     
@@ -250,12 +248,15 @@ class GLKSkyboxEffect(object):
 
 if __name__ == "__main__":
     e = GLKBaseEffect()
+    e.constantColor = GLKVector4(r=0.0, g=0.1, b=0.2, a=1)
     print e
+    print e.constantColor
     print "REFLECTION MAP EFFECT"
     r = GLKReflectionMapEffect()
     print r
     print "SKYBOX EFFECT"
     s = GLKSkyboxEffect()
+    s.center = GLKVector3(x=0.0, y=10.0, z=0.0)
     print s
     print s.center
     print s.xSize

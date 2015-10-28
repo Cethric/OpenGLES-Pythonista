@@ -23,7 +23,8 @@ from objc_util import *
 
 __all__ = ["XMLModel", "PhysicsObject", "set_PhysicsWorld"]
 
-# {'filename': {'framenum': ctypes.c_float_array}}
+# {'filename': {'framenum': (ctypes.c_float_array, ctypes.c_float_array)}}
+#                                Vertex Array            Tex Coords
 _loaded_files = {}
 # {'filename': {'framenum': ctypes.c_uint `bufferid`}}
 _loaded_vbos = {}
@@ -92,9 +93,9 @@ class XMLModel(OpenGLES.Util.RenderObject):
             
         print "Frame '%i' registered" % int(frame["@num"])
         frame_id = int(frame["@num"])
-        self.frames[frame_id] = (ctypes.c_float * len(verts))(*verts)
+        self.frames[frame_id] = [(ctypes.c_float * len(verts))(*verts), None]
         
-    def bind_frame_to_buffer(self, frame_id, verts):
+    def bind_frame_to_buffer(self, frame_id, data):
         """
         For every frame create a OpenGLES GL_ARRAY_BUFFER for rendering
         Args:
@@ -102,6 +103,7 @@ class XMLModel(OpenGLES.Util.RenderObject):
             verts (array(OpenGLES.GLES.header.GLConstants.GLfloat): A ctypes array of the
                                                                     vertex data.
         """
+        verts = data[0]
         if self.file in _loaded_vbos:
             if frame_id in _loaded_vbos[self.file]:
                 self.vertexBuffer = _loaded_vbos[self.file][frame_id]
@@ -144,8 +146,8 @@ class XMLModel(OpenGLES.Util.RenderObject):
             dt (int): The time since last update
         """
         frame = self.frames[self.frame]
-        self.vSize = len(frame)
-        self.vVertices = frame
+        self.vSize = len(frame[0])
+        self.vVertices = frame[0]
         
         
 class PhysicsObject(XMLModel):

@@ -57,15 +57,13 @@ class EAGLContext(object):
         return EAGLSharegroup(self._context.sharegroup())
 
 
-def setCurrentContext(context):
-    if '_context' in context.__dict__:
-        v = EAGLContext_OBJC.setCurrentContext_(context._context)
-    else:
-        v = EAGLContext_OBJC.setCurrentContext_(context)
-    return v
+def setCurrentContext(context=None):
+    context = getattr(context, '_context', context)
+    return EAGLContext_OBJC.setCurrentContext_(context)
     
 def currentContext():
-    return EAGLContext(None, EAGLContext_OBJC.currentContext())
+    c = EAGLContext_OBJC.currentContext()
+    return EAGLContext(None, c) if c is not None else None
     
     
 __all__ = ["setCurrentContext", 'currentContext', "EAGLContext", 'EAGLSharegroup']
@@ -78,6 +76,10 @@ if __name__ == '__main__':
     print c.sharegroup
     c2 = EAGLContext(sharegroup=c.sharegroup)
     print c2
+    
+    print dir(c._context)
     setCurrentContext(c2)
+    setCurrentContext(c._context)
+    setCurrentContext(None)
     print currentContext()
     

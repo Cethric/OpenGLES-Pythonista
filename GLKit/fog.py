@@ -40,11 +40,10 @@ class GLKEffectPropertyFog(object):
     mode = property(getMode, setMode)
     
     def setColor(self, color):
-        print self._fog.setColor_.encoding
-        self._fog.setColor_(color, argtypes=[GLKVector4], restype=None)
+        return setGLKVector4(self._fog.setColor_, color)
         
     def getColor(self):
-        return self._fog.color(argtypes=[], restype=GLKVector4)
+        return getGLKVector4(self._fog.color)
         
     color = property(getColor, setColor)
     

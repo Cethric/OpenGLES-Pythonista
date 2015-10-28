@@ -185,10 +185,10 @@ class ShaderProgram(object):
                             GLuint,
                             GLenum,
                             ctypes.POINTER(GLint))
-            print "Linked Status: %s" % "success" if linked.value == GL_TRUE else "fail"
+            print "Linked Status: %s" % ("success" if linked.value == GL_TRUE else "fail")
             if linked.value == GL_FALSE:
                 infoLen = GLint()
-                glGetProgramiv(programObject, GL_INFO_LOG_LENGTH, ctypes.byref(infoLen))
+                glGetProgramiv(programObject, GL_INFO_LOG_LENGTH, ctypes.byref(infoLen), param0_t=ctypes.POINTER(GLint))
                 if(infoLen > 1):
                     infoLog = (ctypes.c_char_p * infoLen.value)()
                     glGetProgramInfoLog(
@@ -264,3 +264,8 @@ class ShaderProgram(object):
                            GL_FALSE,
                            (GLfloat * 16)(*mat),
                            param0_t = (GLfloat * 16))
+                           
+    def uniform1i(self, name, integer):
+        mid = self.uniformLocation(name)
+        print mid
+        glUniform1i(mid, integer)
