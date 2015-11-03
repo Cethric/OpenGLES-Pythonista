@@ -1,7 +1,4 @@
 # coding: utf-8
-'''
-Vector math functions from https://github.com/ralcr/hxcocoa/blob/master/ios/glkit/GLKVector4.h
-'''
 import math
 import ctypes
 from objc_util import *
@@ -279,7 +276,7 @@ def GLKVector4AllGreaterThanVector4(vectorLeft, vectorRight):
     w = vectorLeft.w > vectorRight.w
     return x and y and z and w
     
-__all__ = ['GLKVector4', 'getGLKVector4', 'setGLKVector4']
+__all__ = ['GLKVector4', 'getGLKVector4', 'setGLKVector4', 'GLKVector4Make', 'GLKVector4MakeWithArray', 'GLKVector4MakeWithVector3', 'GLKVector4Length', 'GLKVector4Distance', 'GLKVector4Negate', 'GLKVector4Normalize', 'GLKVector4AddScalar', 'GLKVector4SubtractScalar', 'GLKVector4MultiplyScalar', 'GLKVector4DivideScalar', 'GLKVector4Add', 'GLKVector4Subtract', 'GLKVector4Multiply', 'GLKVector4Divide', 'GLKVector4DotProduct', 'GLKVector4CrossProduct', 'GLKVector4Lerp', 'GLKVector4Project', 'GLKVector4Maximum', 'GLKVector4Minimum', 'GLKVector4EqualToScalar', 'GLKVector4AllEqualToVector4', 'GLKVector4AllGreaterThanOrEqualToScalar', 'GLKVector4AllGreaterThanOrEqualToVector4', 'GLKVector4AllGreaterThanScalar', 'GLKVector4AllGreaterThanVector4']
 
 if __name__ == '__main__':
     v = GLKVector4Make(1, 1, 1, 1)

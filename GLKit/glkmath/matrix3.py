@@ -2,8 +2,11 @@
 import math
 import ctypes
 import vector3
+import matrix2
+import quaternion
 from objc_util import *
-                
+
+
 class m9(ctypes.Structure):
     _fields_ = [
                 ('m00', ctypes.c_float),
@@ -23,6 +26,7 @@ class float9(ctypes.Structure):
                 ('m', ctypes.c_float * 9)
                 ]
 
+
 class GLKMatrix3(ctypes.Union):
     _anonymous_ = [
                     ('s1'),
@@ -37,7 +41,8 @@ class GLKMatrix3(ctypes.Union):
         mstr = '''GLKMatrix3 { {%.3f\t%.3f\t%.3f}\t{%.3f\t%.3f\t%.3f}\t{%.3f\t%.3f\t%.3f} }'''
         mstr %= tuple([float(x) for x in self.s1.m])
         return mstr
-        
+
+
 def GLKMatrix3Make(m00, m01, m02, m10, m11, m12, m20, m21, m22):
     m = GLKMatrix3()
     m.m00 = m00
@@ -55,7 +60,7 @@ def GLKMatrix3MakeIdentity():
     return GLKMatrix3Make(1,0,0, 0,1,0, 0,0,1)
     
 def GLKMatrix3MakeAndTranspose(m00, m01, m02, m10, m11, m12, m20, m21, m22):
-    return GLKMatrix3Make(m00, m01, m02, m10, m11, m12, m20, m21, m22)
+    return GLKMatrix3Transpose(GLKMatrix3Make(m00, m01, m02, m10, m11, m12, m20, m21, m22))
     
 def GLKMatrix3MakeWithArray(values):
     m = GLKMatrix3()
@@ -63,7 +68,7 @@ def GLKMatrix3MakeWithArray(values):
     return m
     
 def GLKMatrix3MakeWithArrayAndTranspose(values):
-    return GLKMatrix3MakeWithArray(values)
+    return GLKMatrix3Transpose(GLKMatrix3MakeWithArray(values))
     
 def GLKMatrix3MakeWithColumns(column0, column1, column2):
     m = GLKMatrix3()
@@ -170,7 +175,6 @@ def GLKMatrix3MakeZRotation(radians):
     return m
     
 def GLKMatrix3MakeWithQuaternion(quat):
-    raise NotImplementedError('No GLKQuaternion Class yet.')
     quat = quaternion.GLKQuaternionNormalize(quat)
     x = quat.x
     y = quat.y
@@ -237,55 +241,20 @@ def GLKMatrix3SetRow(matrix, row, vector):
     matrix.m[row + 6] = vector.z
     return matrix
     
-    
-def _determinant(matrix):
-    return (matrix.m[0] * matrix.m[4] * matrix.m[8]
-            + matrix.m[1] * matrix.m[5] * matrix.m[6]
-            + matrix.m[2] * matrix.m[3] * matrix.m[7]
-            - matrix.m[0] * matrix.m[5] * matrix.m[7]
-            - matrix.m[1] * matrix.m[3] * matrix.m[8]
-            - matrix.m[2] * matrix.m[4] * matrix.m[6])
-
-# m00(a) m01(b) m02(c)
-# m10(d) m11(e) m12(f)
-# m20(g) m21(h) m22(i)
 def GLKMatrix3Invert(matrix):
-    d = matrix.m00 * (matrix.m11 * matrix.m22 - matrix.m12 * matrix.m21) - matrix.m01 * (matrix.m10 * matrix.m22 - matrix.m12 * matrix.m20) - matrix.m02 * (matrix.m10 * matrix.m21 - matrix.m11 * matrix.m20)
-    d = 1 / d
-    if d == 0:
-        return GLKMatrix3MakeIdentity()
-    row1 = vector3.GLKVector3()
-    row1.x = 1 / matrix.m00
-    row1.y = 0
-    row1.z = 0
-    # row1.x = d * (matrix.m11 * matrix.m22 - matrix.m12 * matrix.m21)
-    # row1.y = d * (matrix.m02 * matrix.m21 - matrix.m01 * matrix.m22)
-    # row1.z = d * (matrix.m01 * matrix.m12 - matrix.m02 * matrix.m11)
-    
-    row2 = vector3.GLKVector3()
-    row2.x = 0
-    row2.y = 1 / matrix.m11
-    row2.z = 0
-    # row2.x = d * (matrix.m12 * matrix.m20 - matrix.m10 * matrix.m22)
-    # row2.y = d * (matrix.m00 * matrix.m22 - matrix.m02 * matrix.m20)
-    # row2.z = d * (matrix.m02 * matrix.m10 - matrix.m00 * matrix.m12)
-    
-    row3 = vector3.GLKVector3()
-    row3.x = 0
-    row3.y = 0
-    row3.z = 1 / matrix.m22
-    # row3.x = d * (matrix.m10 * matrix.m21 - matrix.m11 * matrix.m20)
-    # row3.y = d * (matrix.m01 * matrix.m20 - matrix.m00 * matrix.m21)
-    # row3.z = d * (matrix.m00 * matrix.m11 - matrix.m01 * matrix.m10)
-    
-    m = GLKMatrix3MakeWithColumns(row1, row2, row3)
-    return m
+    func = c.GLKMatrix3Invert
+    func.argtypes = [GLKMatrix3]
+    func.restype = GLKMatrix3
+    return func(matrix)
     
 def GLKMatrix3Transpose(matrix):
+    matrix = GLKMatrix3MakeWithArray([matrix.m[0], matrix.m[3], matrix.m[6],
+                                      matrix.m[1], matrix.m[4], matrix.m[7],
+                                      matrix.m[2], matrix.m[5], matrix.m[8]])
     return matrix
     
 def GLKMatrix3InvertAndTranspose(matrix):
-    return GLKMatrix3Invert(GLKMatrix3Invert(matrix)[0])
+    return GLKMatrix3Transpose(GLKMatrix3Invert(matrix))
     
 def GLKMatrix3Multiply(matrixLeft, matrixRight):
     rl1 = GLKMatrix3GetRow(matrixLeft, 0)
@@ -313,7 +282,7 @@ def GLKMatrix3Multiply(matrixLeft, matrixRight):
     
     return m
 
-__all__ = ['GLKMatrix3']
+__all__ = ['GLKMatrix3', 'GLKMatrix3Make', 'GLKMatrix3MakeIdentity', 'GLKMatrix3MakeAndTranspose', 'GLKMatrix3MakeWithArray', 'GLKMatrix3MakeWithArrayAndTranspose', 'GLKMatrix3MakeWithColumns', 'GLKMatrix3MakeWithRows', 'GLKMatrix3MakeRotation', 'GLKMatrix3MakeXRotation', 'GLKMatrix3MakeYRotation', 'GLKMatrix3MakeZRotation', 'GLKMatrix3MakeWithQuaternion', 'GLKMatrix3MakeScale', 'GLKMatrix3GetMatrix2', 'GLKMatrix3GetColumn', 'GLKMatrix3GetRow', 'GLKMatrix3SetColumn', 'GLKMatrix3SetRow', 'GLKMatrix3Invert', 'GLKMatrix3Transpose', 'GLKMatrix3InvertAndTranspose', 'GLKMatrix3Multiply']
 
 
 if __name__ == '__main__':
@@ -325,8 +294,3 @@ if __name__ == '__main__':
     print m
     print GLKMatrix3GetColumn(m, 1)
     print m2
-    print GLKMatrix3GetRow(m2, 0)
-    print GLKMatrix3Multiply(mv, mv)
-    print 'Before Invert', mv
-    print 'After Invert', GLKMatrix3Invert(mv)
-    print 'Intentity??', GLKMatrix3Multiply(GLKMatrix3Invert(mv), mv)

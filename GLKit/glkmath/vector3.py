@@ -75,7 +75,7 @@ def GLKVector3Make(x, y, z):
     return GLKVector3(x=x, y=y, z=z)
     
 def GLKVector3MakeWithArray(values):
-    return GLKVector(v=(ctypes.c_float * 3)(*values))
+    return GLKVector3(v=(ctypes.c_float * 3)(*values))
     
 def GLKVector3Length(vector):
     v = [float(x) for x in vector.v]
@@ -249,7 +249,7 @@ def GLKVector3AllGreaterThanVector4(vectorLeft, vectorRight):
     z = vectorLeft.z > vectorRight.z
     return x and y and z
 
-__all__ = ['GLKVector3', 'setGLKVector3', 'getGLKVector3']
+__all__ = ['GLKVector3', 'setGLKVector3', 'getGLKVector3', 'GLKVector3Make', 'GLKVector3MakeWithArray', 'GLKVector3Length', 'GLKVector3Distance', 'GLKVector3Negate', 'GLKVector3Normalize', 'GLKVector3AddScalar', 'GLKVector3SubtractScalar', 'GLKVector3MultiplyScalar', 'GLKVector3DivideScalar', 'GLKVector3Add', 'GLKVector3Subtract', 'GLKVector3Multiply', 'GLKVector3Divide', 'GLKVector3DotProduct', 'GLKVector3CrossProduct', 'GLKVector3Lerp', 'GLKVector3Project', 'GLKVector3Maximum', 'GLKVector3Minimum', 'GLKVector3EqualToScalar', 'GLKVector3AllEqualToVector4', 'GLKVector3AllGreaterThanOrEqualToScalar', 'GLKVector3AllGreaterThanOrEqualToVector4', 'GLKVector3AllGreaterThanScalar', 'GLKVector3AllGreaterThanVector4']
 
 if __name__ == '__main__':
     v = GLKVector3Make(1, 1, 1)

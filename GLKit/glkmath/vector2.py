@@ -180,6 +180,8 @@ def GLKVector2EqualToScalar(vector, value):
     y = vector.y == value
     return x and y
     
+'GLKVector2Make', 'GLKVector2MakeWithArray', 'GLKVector2Length', 'GLKVector2Distance', 'GLKVector2Negate', 'GLKVector2Normalize', 'GLKVector2AddScalar', 'GLKVector2SubtractScalar', 'GLKVector2MultiplyScalar', 'GLKVector2DivideScalar', 'GLKVector2Add', 'GLKVector2Subtract', 'GLKVector2Multiply', 'GLKVector2Divide', 'GLKVector2DotProduct', 'GLKVector2Lerp', 'GLKVector2Project', 'GLKVector2Maximum', 'GLKVector2Minimum', 'GLKVector2EqualToScalar', 'GLKVector2AllEqualToVector4', 'GLKVector2AllGreaterThanOrEqualToScalar', 
+    
 def GLKVector2AllEqualToVector4(vectorLeft, vectorRight):
     assert isinstance(vectorRight, GLKVector2)
     x = vectorLeft.x == vectorRight.x

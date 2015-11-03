@@ -4,6 +4,7 @@ from objc_util import *
 
 from glkmath.vector4 import *
 from glkmath.matrix4 import *
+from glkmath.matrix3 import *
 
 PropTans = ObjCClass('GLKEffectPropertyTransform')
 
@@ -118,6 +119,14 @@ class GLKEffectPropertyTransform:
         
     normalMatrixLoc = property(getNormalMatrixLoc, setNormalMatrixLoc)
     
+    def setNormalMatrix(self, nm):
+        self._trans.setNormalMatrix_(nm, argtypes=[GLKMatrix3], restype=None)
+        
+    def getNormalMatrix(self):
+        return self._trans.normalMatrix(argtypes=[], restype=GLKMatrix3)
+        
+    normalMatrix = property(getNormalMatrix, setNormalMatrix)
+    
     def setProjectionMatrixLoc(self, pml):
         self._trans.setProjectionMatrixLoc_(pml)
         
@@ -154,19 +163,20 @@ __all__ = ['GLKEffectPropertyTransform']
 if __name__ == '__main__':
     t = GLKEffectPropertyTransform()
     print t
-    print t.dirtyUniforms
-    print t.effect
-    print t.fshSource
-    print t.invModelviewMatrixLoc
-    print t.invModelviewMatrix
-    print t.location
-    print t.masksInitialized
-    print t.modelviewMatrixLoc
-    print t.modelviewMatrix
-    print t.mvpMatrixLoc
-    print t.mvpMatrix
-    print t.nameString
-    print t.normalMatrixLoc
-    print t.projectionMatrixLoc
-    print t.projectionMatrix
-    print t.vshSource
+    # print t.dirtyUniforms
+    # print t.effect
+    # print t.fshSource
+    # print t.invModelviewMatrixLoc
+    # print t.invModelviewMatrix
+    # print t.location
+    # print t.masksInitialized
+    # print t.modelviewMatrixLoc
+    # print t.modelviewMatrix
+    # print t.mvpMatrixLoc
+    # print t.mvpMatrix
+    # print t.nameString
+    # print t.normalMatrixLoc
+    print t.normalMatrix
+    # print t.projectionMatrixLoc
+    # print t.projectionMatrix
+    # print t.vshSource

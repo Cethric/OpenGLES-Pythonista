@@ -219,7 +219,6 @@ class Renderer(Util.RenderCycle):
         
     def render(self, context):
         start = time.clock()
-        texture.useTexture(self.texture, self.sp, 'test', 0)
         
         if EAGL.setCurrentContext(context):
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -227,7 +226,6 @@ class Renderer(Util.RenderCycle):
             self.sp.bind()
             self.sp.uniform4x4("V", list(self.view))
             self.sp.uniform4x4("P", list(self.projection))
-            texture.useTexture(self.texture, self.sp)
             for rObj in self.objects:
                 rObj.render(self.sp)
             self.eye.debug_draw(self.sp)
