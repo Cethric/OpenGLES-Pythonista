@@ -13,7 +13,10 @@ from OpenGLES.GLES.gles1 import *
 from OpenGLES.GLES.gles2 import *
 from OpenGLES.GLES.gles3 import *
 from OpenGLES.GLES.headers.GLConstants import *
-import euclid
+# import euclid
+
+from OpenGLES.GLKit.glkmath import vector3 as v3
+from OpenGLES.GLKit.glkmath import matrix4 as m4
 
 __all__ = ["RenderCycle", "RenderObject", "LookObject", "Model", "Shader", "Physics"]
 
@@ -105,8 +108,9 @@ class RenderObject(object):
         self.uSize = len(uv)
         self.IItems = (GLfloat * len(indices))(*indices)
         self.ISize = len(indices)
-        self.model = euclid.Matrix4.new_identity()
-        self.model.translate(*list(pos))
+        self.model = m4.GLKMatrix4MakeTranslation(pos.x, pos.y, pos.z)
+        # self.model = euclid.Matrix4.new_identity()
+        # self.model.translate(*list(pos))
         self.renderable = True
         
     def setup_object(self):
@@ -122,10 +126,10 @@ class RenderObject(object):
         pass
         
     def distance_from_point(self, point):
-        p2 = euclid.Point3(*point)
-        p1 = euclid.Point3(self.model.d, self.model.h, self.model.l)
-        p1 = p1.distance(p2)
-        return p1
+        # p2 = euclid.Point3(*point)
+        # p1 = euclid.Point3(self.model.d, self.model.h, self.model.l)
+        # p1 = p1.distance(p2)
+        return 10 # p1
         
     def render(self, sp):
         """
@@ -135,7 +139,7 @@ class RenderObject(object):
                                                      to pass the model matrix to.
         """
         if self.renderable:
-            sp.uniform4x4("M", list(self.model))
+            sp.uniform4x4("M", list(self.model.s1.m))
             glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, self.vVertices, voidpointer_t=(GLfloat * self.vSize));
             glEnableVertexAttribArray(0);
             glDrawArrays(GL_TRIANGLES, 0, self.vSize / 3);
@@ -149,7 +153,7 @@ class RenderObject(object):
         pass
         
 class LookObject(object):
-    def __init__(self, position=euclid.Vector3(0,0,0), up=euclid.Vector3(0,1,0), yaw=0.0, pitch=0.0):
+    def __init__(self, position=v3.GLKVector3Make(0,0,0), up=v3.GLKVector3Make(0,1,0), yaw=0.0, pitch=0.0):
         """
         A simple camera class, for a basic fly camera.
         Uses similar math to gluLookAt
@@ -173,9 +177,9 @@ class LookObject(object):
         self.camera_id = None
         self.position = position
         self.worldup = up
-        self.up = euclid.Vector3(0, 0, 0)
-        self.front = euclid.Vector3(0, 0, -1)
-        self.right = euclid.Vector3(0, 0, 0)
+        self.up = v3.GLKVector3Make(0, 0, 0)
+        self.front = v3.GLKVector3Make(0, 0, -1)
+        self.right = v3.GLKVector3Make(0, 0, 0)
         self.yaw = yaw
         self.pitch = pitch
         self.strafe = [0,0]
@@ -189,10 +193,14 @@ class LookObject(object):
         Returns:
             (euclid.Matrix4): The view matrix to be applied to a MVP
         """
-        return euclid.Matrix4.new_look_at(
-                                          self.position,
-                                          self.position + self.front,
-                                          self.up)
+        p = self.position
+        p.y += 1.0
+        e = v3.GLKVector3Add(p, self.front)
+        u = self.up
+        res = m4.GLKMatrix4MakeLookAt(p.x, p.y, p.z, e.x, e.y, e.z, u.x, u.y, u.z)
+        # res = euclid.Matrix4.new_look_at(p, p + self.front, self.up)
+        return res
+        
     def look(self, dx, dy):
         """
         Set the yaw and pitch of a camera
@@ -224,20 +232,23 @@ class LookObject(object):
         Args:
             dt (int): The time since the last update
         """
-        self.front = euclid.Vector3(
-                                    math.cos(math.radians(self.yaw)) * math.cos(math.radians(self.pitch)),
-                                    math.sin(math.radians(self.pitch)),
-                                    math.sin(math.radians(self.yaw)) * math.cos(math.radians(self.pitch))
-                                    ) * 1
-        self.right = self.front.cross(self.worldup)
-        self.up = self.right.cross(self.front)
+        self.front = v3.GLKVector3MultiplyScalar(v3.GLKVector3Make(math.cos(math.radians(self.yaw)) * math.cos(math.radians(self.pitch)), math.sin(math.radians(self.pitch)), math.sin(math.radians(self.yaw)) * math.cos(math.radians(self.pitch))), 1)
+        
+        self.right = v3.GLKVector3CrossProduct(self.front, self.worldup)
+        # self.right = self.front.cross(self.worldup)
+        self.up = v3.GLKVector3CrossProduct(self.right, self.front)
+        # self.up = self.right.cross(self.front)
         
         speed = dt * self.speed
         
         if self.strafe[0] != 0:
-            self.position += self.front * speed * self.strafe[0]
+            self.position = v3.GLKVector3Add(self.position, 
+                            v3.GLKVector3MultiplyScalar(self.front, speed * self.strafe[0]))
+            # self.position += self.front * speed * self.strafe[0]
         if self.strafe[1] != 0:
-            self.position += self.right * speed * self.strafe[1]
+            self.position = v3.GLKVector3Add(self.position, 
+                            v3.GLKVector3MultiplyScalar(self.right, speed * self.strafe[1]))
+            # self.position += self.right * speed * self.strafe[1]
         
 if __name__ == "__main__":
     c = LookObject()
@@ -249,3 +260,5 @@ if __name__ == "__main__":
     print c.front
     print c.right
     print c.view
+    
+    print list(c.view.s1.m)

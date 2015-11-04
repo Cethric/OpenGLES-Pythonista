@@ -11,8 +11,10 @@ Attributes:
 from OpenGLES.GLES import gles1 as GLES1
 from OpenGLES.GLES import gles2 as GLES2
 from OpenGLES.GLES import gles3 as GLES3
+from OpenGLES.GLKit.glkmath import vector3 as v3
+from OpenGLES.GLKit.glkmath import matrix4 as m4
 import OpenGLES
-import euclid
+# import euclid
 import math
 import ctypes
 import time
@@ -21,7 +23,7 @@ import xmltodict
 from objc_util import *
 
 
-__all__ = ["XMLModel", "PhysicsObject", "set_PhysicsWorld"]
+__all__ = ["XMLModel", "PhysicsObject", "setPhysicsWorld"]
 
 # {'filename': {'framenum': (ctypes.c_float_array, ctypes.c_float_array)}}
 #                                Vertex Array            Tex Coords
@@ -32,13 +34,13 @@ _loaded_vbos = {}
 
 _PhysicsWorld = None
 
-def set_PhysicsWorld(pw):
+def setPhysicsWorld(pw):
     global _PhysicsWorld
     _PhysicsWorld = pw
 
 
 class XMLModel(OpenGLES.Util.RenderObject):
-    def __init__(self, obj_xml, pos=euclid.Vector3(0,0,0)):
+    def __init__(self, obj_xml, pos=v3.GLKVector3Make(0, 0, 0)):
         """
         Subclass of OpenGLES.Util.RenderObject
         Args:
@@ -133,7 +135,7 @@ class XMLModel(OpenGLES.Util.RenderObject):
         """
         if self.renderable:
             # GLES2.glBindBuffer(GLES2.GL_ARRAY_BUFFER, self.vertexBuffer)
-            sp.uniform4x4("M", list(self.model))
+            sp.uniform4x4("M", list(self.model.s1.m))
             GLES2.glVertexAttribPointer(0, 3, GLES1.GL_FLOAT, GLES1.GL_FALSE, 0, self.vVertices, voidpointer_t=(GLES1.GLfloat * self.vSize));
             GLES2.glEnableVertexAttribArray(0);
             GLES2.glDrawArrays(GLES2.GL_TRIANGLES, 0, self.vSize / 3);
@@ -163,7 +165,8 @@ class PhysicsObject(XMLModel):
         """
         XMLModel.__init__(self, *args, **kwargs)
         # self.model.d = x pos, self.model.h = y pos, self.model.l = z pos... I think
-        self.pos = [self.model.d, self.model.h, self.model.l]
+        pos = m4.GLKMatrix4GetColumn(self.model, 3)
+        self.pos = [pos.x, pos.y, pos.z]
         # self.i = Physics.PhysicsWorld.add_object(self.frames[self.frame], 10, self.pos, True)
         self.i = _PhysicsWorld.add_cube(*self.pos)
         # print "Object ID:", self.i
@@ -197,9 +200,11 @@ class PhysicsObject(XMLModel):
         #print end - start
 
 if __name__ == "__main__":
+    from OpenGLES.Util.Physics import getPhysicsWorld
+    setPhysicsWorld(getPhysicsWorld())
     m = XMLModel("../test_model.xml")
     m.setup_object()
-    m2 = PhysicsObject("../test_model.xml")
+    m2 = PhysicsObject("../test_model.xml", pos=v3.GLKVector3Make(10, 10, 10))
     m2.setup_object()
     print '_loaded_files', _loaded_files
     print '_loaded_vbos', _loaded_vbos

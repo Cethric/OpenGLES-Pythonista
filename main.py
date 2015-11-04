@@ -1,9 +1,5 @@
 # coding: utf-8
 """
-NOTE:
-This example requires the euclid.py math library
-
-
 This is purely an example file that is also used to test the library
 
 
@@ -25,10 +21,10 @@ import math
 import copy
 import time
 import random
-import euclid
 import colorsys
 from objc_util import *
 
+import OpenGLES.Util
 import OpenGLES.Util.Model
 import OpenGLES.Util.Shader
 import OpenGLES.GLES as GLES
@@ -41,6 +37,8 @@ from OpenGLES.Util import Physics
 import OpenGLES.Util.LightsCameras as LightsCameras
 from OpenGLES.Util.LightsCameras import PhysicsCamera
 import OpenGLES.GLKit.texture as texture
+from OpenGLES.GLKit.glkmath import matrix4 as m4
+from OpenGLES.GLKit.glkmath import vector3 as v3
 
 # reload(Util)
 # reload(GLES)
@@ -51,12 +49,10 @@ reload(LightsCameras)
 # reload(OpenGLES.Util.Model)
 # reload(OpenGLES.Util.Physics)
 
-OpenGLES.Util.Physics.reset()
+PhysicsWorld = OpenGLES.Util.Physics.getPhysicsWorld()
 
-PhysicsWorld = OpenGLES.Util.Physics.PhysicsWorld
-
-LightsCameras.set_PhysicsWorld(PhysicsWorld)
-Util.Model.set_PhysicsWorld(PhysicsWorld)
+LightsCameras.setPhysicsWorld(PhysicsWorld)
+Util.Model.setPhysicsWorld(PhysicsWorld)
 
 MAX_DIST = 100
 
@@ -126,15 +122,18 @@ class Renderer(Util.RenderCycle):
             for y in range(10, 14, 4):
                 for z in range(-10, 10, 4):
                     # o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(x, y, z))
-                    o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(x, y, z))
+                    o1 = Util.Model.PhysicsObject("test_model.xml", v3.GLKVector3Make(x, y, z))
+                    # o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(x, y, z))
                     self.objects.append(o1)
         
         for _ in range(0, 25):
-            o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(0, 0, 0))
+            o1 = Util.Model.PhysicsObject("test_model.xml", v3.GLKVector3Make(0, 0, 0))
             self.objects.append(o1)
         
-        o1 = Util.Model.XMLModel("plane.xml", euclid.Vector3(-20, 0, -20))
-        o1.model.scale(10, 10, 10)
+        # o1 = Util.Model.XMLModel("plane.xml", euclid.Vector3(-20, 0, -20))
+        o1 = Util.Model.XMLModel("plane.xml", v3.GLKVector3Make(-20, 0, -20))
+        o1.model = m4.GLKMatrix4Scale(o1.model, 10, 10, 10)
+        # o1.model.scale(10, 10, 10)
         self.objects.append(o1)
         
         self.v = Util.Shader.ShaderSource(VERTEX_SHADER_SOURCE, GL_VERTEX_SHADER)
@@ -142,11 +141,14 @@ class Renderer(Util.RenderCycle):
         self.sp = Util.Shader.ShaderProgram(self.v, self.f)
         
         # self.eye = Util.LookObject(euclid.Vector3(-10, 10, -10), yaw=30, pitch=-30)
-        self.eye = PhysicsCamera(euclid.Vector3(-20, 5, -20), yaw=0, pitch=0)
+        # self.eye = PhysicsCamera(euclid.Vector3(-20, 5, -20), yaw=0, pitch=0)
+        self.eye = PhysicsCamera(v3.GLKVector3Make(-20, 10, -20), yaw=0, pitch=0)
         
-        self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
+        # self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
+        self.projection = m4.GLKMatrix4MakePerspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
-        self.model = euclid.Matrix4.new_identity()
+        # self.model = euclid.Matrix4.new_identity()
+        self.model = m4.GLKMatrix4Identity()
         
         self.rt = 0
         self.ut = 0
@@ -224,8 +226,8 @@ class Renderer(Util.RenderCycle):
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glViewport(0, 0, int(glviewv.width*2), int(glviewv.height*2))
             self.sp.bind()
-            self.sp.uniform4x4("V", list(self.view))
-            self.sp.uniform4x4("P", list(self.projection))
+            self.sp.uniform4x4("V", list(self.view.s1.m))
+            self.sp.uniform4x4("P", list(self.projection.s1.m))
             for rObj in self.objects:
                 rObj.render(self.sp)
             self.eye.debug_draw(self.sp)

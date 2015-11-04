@@ -4,6 +4,7 @@ import ctypes
 from objc_util import *
 import vector3
 import vector4
+import matrix3
 
 
 class vectScale(ctypes.Structure):
@@ -63,6 +64,12 @@ def GLKQuaternionMakeWithAngleAndAxis(radians, x, y, z):
     
 def GLKQuaternionMakeWithAngleAndVector3Axis(radians, axisVector):
     return GLKQuaternionMakeWithAngleAndAxis(radians, axisVector.v[0], axisVector.v[1], axisVector.v[2]);
+    
+def GLKQuaternionMakeWithMatrix3(matrix):
+    func = c.GLKQuaternionMakeWithMatrix3
+    func.argtypes = [matrix3.GLKMatrix3]
+    func.restype = GLKQuaternion
+    return func(matrix)
     
 def GLKQuaternionAdd(quaternionLeft, quaternionRight):
     array = [

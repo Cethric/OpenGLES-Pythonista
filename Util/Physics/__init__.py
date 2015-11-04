@@ -1,4 +1,4 @@
-4# coding: utf-8
+# coding: utf-8
 """
 OpenGLES.Util.Physics.__init__.py
 Helper script for handling physics related tasks
@@ -14,9 +14,14 @@ import json
 import dialogs
 import urllib2
 import urlparse
-import euclid
+# import euclid
 import threading
 import objc_util
+
+from OpenGLES.GLKit.glkmath import vector3 as v3
+from OpenGLES.GLKit.glkmath import matrix4 as m4
+from OpenGLES.GLKit.glkmath import matrix3 as m3
+from OpenGLES.GLKit.glkmath import quaternion as quat
 
 LIB_DIR = __file__.replace("__init__.py", "")
 
@@ -166,19 +171,26 @@ class CannonJS(object):
         if oid is None:
             return None
         if oid in self.objects:
-            quat = euclid.Quaternion(*self.objects[oid][1])
-            mat = euclid.Matrix4.new_identity()
-            mat.translate(*self.objects[oid][0])
-            mat *= quat.get_matrix()
+            # quat = euclid.Quaternion(*self.objects[oid][1])
+            axis = v3.GLKVector3Make(*self.objects[oid][1][1:])
+            quaternion = quat.GLKQuaternionMakeWithAngleAndVector3Axis(self.objects[oid][1][0], axis)
+            # mat = euclid.Matrix4.new_identity()
+            mat = m4.GLKMatrix4MakeTranslation(*self.objects[oid][0])
+            # mat.translate(*self.objects[oid][0])
+            mat = m4.GLKMatrix4Multiply(mat, m4.GLKMatrix4MakeWithQuaternion(quaternion))
+            # mat *= quat.get_matrix()
             return mat
         else:
             raise AttributeError, "Object with id '%s' does not exist" % oid
             
     def get_object_pos_rot(self, oid):
         if oid in self.objects:
-            quat = euclid.Quaternion(*self.objects[oid][1])
-            pos = euclid.Vector3(*self.objects[oid][0])
-            return pos, quat
+            # quat = euclid.Quaternion(*self.objects[oid][1])
+            axis = v3.GLKVector3Make(*self.objects[oid][0][0:3])
+            quaternion = quat.GLKQuaternionMakeWithAngleAndVector3Axis(self.objects[oid][0][0], axis)
+            # pos = euclid.Vector3(*self.objects[oid][0])
+            pos = v3.GLKVector3Make(*self.objects[oid][0])
+            return pos, quaternion
         return None, None
             
     def add_cube(self, x, y, z):
@@ -199,7 +211,8 @@ class CannonJS(object):
         return None
             
     def add_camera(self, camera_object):
-        r = euclid.Quaternion().rotate_euler(0, camera_object.yaw, 0)
+        # r = euclid.Quaternion().rotate_euler(0, camera_object.yaw, 0)
+        r = quat.GLKQuaternionMakeWithMatrix3(m3.GLKMatrix3MakeYRotation(camera_object.yaw))
         p = camera_object.position
         d = self.js.eval_js('add_camera(%f,%f,%f, %f,%f,%f,%f, 0.5,0.5,0.5);' % (p.x,p.y,p.z, r.w,r.x,r.y,r.z))
         if d:
@@ -227,20 +240,29 @@ class CannonJS(object):
         print error_code, error_msg
         
 
-PhysicsWorld = CannonJS()
+_PhysicsWorld = None # CannonJS()
         
-def reset():
+def resetPhysicsWorld():
     print "Resetting physics world"
     global PhysicsWorld
     del PhysicsWorld
     PhysicsWorld = CannonJS()
+    
+def getPhysicsWorld():
+    global _PhysicsWorld
+    if _PhysicsWorld is None:
+        print 'Setting up new Physics World'
+        _PhysicsWorld = CannonJS()
+    return _PhysicsWorld
+    
+def setPhysicsWorld(newWorld):
+    _PhysicsWorld = newWorld
 
-__all__ = ["PhysicsWorld", "reset"]
+__all__ = ["resetPhysicsWorld", "getPhysicsWorld", "setPhysicsWorld"]
         
 if __name__ == '__main__':
-    c = PhysicsWorld
+    c = getPhysicsWorld()
     c.js.present()
-    reset()
     import OpenGLES.Util.Model as Model
     m = Model.XMLModel("../../test_model.xml")
     # oid = c.add_cube(0, 0, 0)
@@ -251,10 +273,10 @@ if __name__ == '__main__':
     c.js.eval_js('startUpdates()')
     c.js.wait_modal()
     c.js.eval_js('done();')
-    # i = 0
-    # while i < 1000:
-    #     start = time.clock()
-    #     print c.get_object_mat(1)
-    #     i += 1
-    #     end = time.clock()
+    i = 0
+    while i < 1000:
+        start = time.clock()
+        print c.get_object_mat(1)
+        i += 1
+        end = time.clock()
     #     # print end - start

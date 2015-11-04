@@ -106,7 +106,6 @@ def GLKMatrix4MakeWithColumns(col0, col1, col2, col3):
     
     
 def GLKMatrix4MakeWithQuaternion(quat):
-    raise NotImplementedError('No GLKQuaternion Class yet.')
     quat = quaternion.GLKQuaternionNormalize(quat)
     x = quat.q[0];
     y = quat.q[1];
