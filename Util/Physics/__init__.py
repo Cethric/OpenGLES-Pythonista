@@ -14,7 +14,6 @@ import json
 import dialogs
 import urllib2
 import urlparse
-# import euclid
 import threading
 import objc_util
 
@@ -244,9 +243,11 @@ _PhysicsWorld = None # CannonJS()
         
 def resetPhysicsWorld():
     print "Resetting physics world"
-    global PhysicsWorld
-    del PhysicsWorld
-    PhysicsWorld = CannonJS()
+    global _PhysicsWorld
+    del _PhysicsWorld
+    _PhysicsWorld = None
+    # PhysicsWorld = CannonJS()
+    getPhysicsWorld()
     
 def getPhysicsWorld():
     global _PhysicsWorld

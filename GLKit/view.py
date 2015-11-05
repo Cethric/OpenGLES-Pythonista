@@ -11,34 +11,45 @@ def setRenderEngine(engine):
 def getRenderEngine():
     global renderEngine
     if renderEngine is None:
+        print 'Creating new Render Cycle.'
         from OpenGLES.Util import RenderCycle
         renderEngine = RenderCycle()
     return renderEngine
     
 GLKView_OBJC = ObjCClass('GLKView')
 
-game_initialised = False
+_game_initialised = None
+
+def setGameInitialised(initialised):
+    global _game_initialised
+    _game_initialised = initialised
+    
+def getGameInitialised():
+    global _game_initialised
+    if _game_initialised is None:
+        print 'Setting initialised game state to FALSE'
+        _game_initialised = False
+    return _game_initialised
+    
 def glkView_drawInRect_(_self, _cmd, _view, _rect):
-    global game_initialised
     view = ObjCInstance(_view)
-    if not game_initialised:
+    if not getGameInitialised():
         try:
-            renderEngine.setup(view.context())
+            getRenderEngine().setup(view.context())
         finally:
-            game_initialised = True
-    renderEngine.render(view.context())
+            setGameInitialised(True)
+    getRenderEngine().render(view.context())
     
 def glkViewControllerUpdate_(_self, _cmd, _controller):
     controller = ObjCInstance(_controller)
-    # print dir(controller)
-    renderEngine.update(controller.timeSinceLastUpdate())
+    getRenderEngine().update(controller.timeSinceLastUpdate())
     #renderEngine.fps = controller.frameInterval()
-    renderEngine.fps = controller.framesPerSecond()
-    renderEngine.framesDisplayed = controller.framesDisplayed()
+    getRenderEngine().fps = controller.framesPerSecond()
+    getRenderEngine().framesDisplayed = controller.framesDisplayed()
 
 try:
     GLKViewDelegate_Class = ObjCClass('GLKViewDelegate_Class')
-except:
+except Exception as e:
     GLKViewDelegate_Class = create_objc_class('GLKViewDelegate_Class', methods=[glkView_drawInRect_], protocols=['GLKViewDelegate'])
 
 try:
@@ -61,9 +72,9 @@ def dismiss(_self, _cmd):
     self.dismissViewControllerAnimated_completion_(True, None)
 
 try:
-    GKLViewController_Class = create_objc_class('GKLViewController_Class', GLKViewController_OBJC, methods=[dismiss])
-except:
     GKLViewController_Class = ObjCClass('GKLViewController_Class')
+except:
+    GKLViewController_Class = create_objc_class('GKLViewController_Class', GLKViewController_OBJC, methods=[dismiss])
 
 def GKLViewController(title, glview):
     glvc = GKLViewController_Class.alloc().initWithNibName_bundle_(None, None).autorelease()
@@ -129,11 +140,11 @@ class TouchController(ui.View):
             self.calibrate(None)
         self.check_motion()
         try:
-            renderEngine.look_f(self.dir_look)
+            getRenderEngine().look_f(self.dir_look)
         except NotImplementedError:
             print "Function Not Implimented"
         try:
-            renderEngine.move_f(self.dir_move)
+            getRenderEngine().move_f(self.dir_move)
         except NotImplementedError:
             print "Function Not Implimented"
             
@@ -165,7 +176,7 @@ class TouchController(ui.View):
         self.label.set_needs_display()
         if x != 0.0 or z != 0.0:
             try:
-                renderEngine.look_f([-z, -x])
+                getRenderEngine().look_f([-z, -x])
             except NotImplementedError:
                 print "Function Not Implimented"
         
@@ -253,7 +264,7 @@ class GLKView(ui.View):
         self.glview = GLKView_OBJC.alloc().initWithFrame_(frame).autorelease()
         self.glview.setDrawableDepthFormat_(2)
         self.glview.setAutoresizingMask_(flex_width|flex_height)
-        self.vc = GKLViewController("Test GLES", self.glview)
+        self.vc = GKLViewController("ABC GLES", self.glview)
         self.vcd = GLKViewControllerDelegate()
         self.vc.setDelegate_(self.vcd)
         self.glview.setEnableSetNeedsDisplay_(False)
@@ -281,9 +292,6 @@ class GLKView(ui.View):
         print "Tearing down GLES data"
         renderEngine.teardown()
         print "Goodbye"
-        
-    def updateToucher(self):
-        print "Update Touch events"
         
     def setContext(self, context):
         self.glview.setContext_(context._context)

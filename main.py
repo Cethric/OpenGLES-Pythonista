@@ -40,6 +40,10 @@ import OpenGLES.GLKit.texture as texture
 from OpenGLES.GLKit.glkmath import matrix4 as m4
 from OpenGLES.GLKit.glkmath import vector3 as v3
 
+reload(GLKit.view)
+
+OpenGLES.Util.Physics.resetPhysicsWorld()
+
 PhysicsWorld = OpenGLES.Util.Physics.getPhysicsWorld()
 
 LightsCameras.setPhysicsWorld(PhysicsWorld)

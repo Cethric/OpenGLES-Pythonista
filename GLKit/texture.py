@@ -256,6 +256,29 @@ __all__ = [
           ]
 
 if __name__ == '__main__':
+    def dispatch_queue_create(name, parent):
+        func = c.dispatch_queue_create
+        func.argtypes = [ctypes.c_char_p, ctypes.c_void_p]
+        func.restype = ctypes.c_void_p
+        return ObjCInstance(func(name, parent))
+    
+    textureloader = ObjCClass('GLKTextureLoader')
+    print dir(textureloader.alloc())
+    queue = dispatch_queue_create('test_queue', None)
+    
+    def callback_func(_self, _info, _error):
+        if _error is not None:
+            print 'Error Loading texture'
+            print ObjCInstance(_error)
+        else:
+            print ObjCInstance(_info)
+    
+    callback = ObjCBlock(callback_func, None, [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p])
+    textureloader.alloc().textureWithContentsOfURL_options_queue_completionHandler_(nsurl(os.path.abspath('test.png')), DEFAULTS, queue, callback)
+    
+    
+    import sys
+    sys.exit(0)
     from OpenGLES.EAGL import setCurrentContext, EAGLContext
     c = EAGLContext()
     c.label = 'Test Context'
