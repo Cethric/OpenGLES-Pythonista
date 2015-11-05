@@ -1,15 +1,18 @@
 # coding: utf-8
 from objc_util import *
 import motion
-from OpenGLES.Util import RenderCycle
 
-renderEngine = RenderCycle()
+renderEngine = None # RenderCycle()
 
 def setRenderEngine(engine):
     global renderEngine
     renderEngine = engine
 
 def getRenderEngine():
+    global renderEngine
+    if renderEngine is None:
+        from OpenGLES.Util import RenderCycle
+        renderEngine = RenderCycle()
     return renderEngine
     
 GLKView_OBJC = ObjCClass('GLKView')
@@ -33,9 +36,15 @@ def glkViewControllerUpdate_(_self, _cmd, _controller):
     renderEngine.fps = controller.framesPerSecond()
     renderEngine.framesDisplayed = controller.framesDisplayed()
 
-GLKViewDelegate_Class = create_objc_class('GLKViewDelegate_Class', methods=[glkView_drawInRect_], protocols=['GLKViewDelegate'])
+try:
+    GLKViewDelegate_Class = ObjCClass('GLKViewDelegate_Class')
+except:
+    GLKViewDelegate_Class = create_objc_class('GLKViewDelegate_Class', methods=[glkView_drawInRect_], protocols=['GLKViewDelegate'])
 
-GLKViewControllerDelegate_Class = create_objc_class('GLKViewControllerDelegate_Class', methods=[glkViewControllerUpdate_], protocols='GLKViewControllerDelegate')
+try:
+    GLKViewControllerDelegate_Class = ObjCClass('GLKViewControllerDelegate_Class')
+except:
+    GLKViewControllerDelegate_Class = create_objc_class('GLKViewControllerDelegate_Class', methods=[glkViewControllerUpdate_], protocols='GLKViewControllerDelegate')
 
 def GLKViewDelegate():
     return GLKViewDelegate_Class.alloc().init()
@@ -44,12 +53,17 @@ def GLKViewControllerDelegate():
     return GLKViewControllerDelegate_Class.alloc().init()
         
 GLKViewController_OBJC = ObjCClass('GLKViewController')
+
 def dismiss(_self, _cmd):
     self = ObjCInstance(_self)
     self.view().delegate().release()
     self.view().setDelegate_(None)
     self.dismissViewControllerAnimated_completion_(True, None)
-GKLViewController_Class = create_objc_class('GKLViewController_Class', GLKViewController_OBJC, methods=[dismiss])
+
+try:
+    GKLViewController_Class = create_objc_class('GKLViewController_Class', GLKViewController_OBJC, methods=[dismiss])
+except:
+    GKLViewController_Class = ObjCClass('GKLViewController_Class')
 
 def GKLViewController(title, glview):
     glvc = GKLViewController_Class.alloc().initWithNibName_bundle_(None, None).autorelease()
@@ -70,7 +84,6 @@ class TouchController(ui.View):
         self.dir_look = [0,0]
         
         self.old = (0, 0, 0)
-        
         
         self.label = ui.Label()
         self.label.x = 10
@@ -287,3 +300,7 @@ class GLKView(ui.View):
         return self.glview.delegate
         
     delegate = property(getDelegate, setDelegate, None, "GLKViewDelegate")
+    
+if __name__ == '__main__':
+    getRenderEngine()
+    print GLKView

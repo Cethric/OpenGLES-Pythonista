@@ -40,15 +40,6 @@ import OpenGLES.GLKit.texture as texture
 from OpenGLES.GLKit.glkmath import matrix4 as m4
 from OpenGLES.GLKit.glkmath import vector3 as v3
 
-# reload(Util)
-# reload(GLES)
-# reload(EAGL)
-reload(GLKit)
-reload(LightsCameras)
-# reload(OpenGLES.Util.Shader)
-# reload(OpenGLES.Util.Model)
-# reload(OpenGLES.Util.Physics)
-
 PhysicsWorld = OpenGLES.Util.Physics.getPhysicsWorld()
 
 LightsCameras.setPhysicsWorld(PhysicsWorld)
@@ -74,12 +65,10 @@ def physics_info(sender):
     else:
         PhysicsWorld.js.bring_to_front()
         at_front = True
-    # Physics.PhysicsWorld.js.present("sheet")
     
 btn = ui.ButtonItem()
 btn.title = "Physics Info"
 btn.action = physics_info
-glviewv.left_button_items = [btn]
 
 def change(sender):
     glviewv.tc.accelerometer_speed = 1 + sender.value * 5
@@ -106,12 +95,6 @@ sbtn.image = ui.Image.named('iob:ios7_gear_outline_32')
 sbtn.action = settings
 glviewv.left_button_items = [btn, sbtn]
 
-TRIANGLE = [
-    0.0, 0.5, 0.0,
-    -0.5, -0.5, 0.0,
-    0.5, -0.5, 0
-]
-
 
 class Renderer(Util.RenderCycle):
     def __init__(self):
@@ -121,33 +104,25 @@ class Renderer(Util.RenderCycle):
         for x in range(-10, 10, 4):
             for y in range(10, 14, 4):
                 for z in range(-10, 10, 4):
-                    # o1 = Util.Model.XMLModel("test_model.xml", euclid.Vector3(x, y, z))
                     o1 = Util.Model.PhysicsObject("test_model.xml", v3.GLKVector3Make(x, y, z))
-                    # o1 = Util.Model.PhysicsObject("test_model.xml", euclid.Vector3(x, y, z))
                     self.objects.append(o1)
         
         for _ in range(0, 25):
             o1 = Util.Model.PhysicsObject("test_model.xml", v3.GLKVector3Make(0, 0, 0))
             self.objects.append(o1)
         
-        # o1 = Util.Model.XMLModel("plane.xml", euclid.Vector3(-20, 0, -20))
         o1 = Util.Model.XMLModel("plane.xml", v3.GLKVector3Make(-20, 0, -20))
         o1.model = m4.GLKMatrix4Scale(o1.model, 10, 10, 10)
-        # o1.model.scale(10, 10, 10)
         self.objects.append(o1)
         
         self.v = Util.Shader.ShaderSource(VERTEX_SHADER_SOURCE, GL_VERTEX_SHADER)
         self.f = Util.Shader.ShaderSource(FRAGMENT_SHADER_SOURCE, GL_FRAGMENT_SHADER)
         self.sp = Util.Shader.ShaderProgram(self.v, self.f)
         
-        # self.eye = Util.LookObject(euclid.Vector3(-10, 10, -10), yaw=30, pitch=-30)
-        # self.eye = PhysicsCamera(euclid.Vector3(-20, 5, -20), yaw=0, pitch=0)
         self.eye = PhysicsCamera(v3.GLKVector3Make(-20, 10, -20), yaw=0, pitch=0)
         
-        # self.projection = euclid.Matrix4.new_perspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.projection = m4.GLKMatrix4MakePerspective(45.0, 800.0/600.0, 0.1, 1000.0)
         self.view = self.eye.view
-        # self.model = euclid.Matrix4.new_identity()
         self.model = m4.GLKMatrix4Identity()
         
         self.rt = 0
@@ -231,6 +206,8 @@ class Renderer(Util.RenderCycle):
             for rObj in self.objects:
                 rObj.render(self.sp)
             self.eye.debug_draw(self.sp)
+        else:
+            raise RuntimeError('Render Failed as context could not be set.')
         end = time.clock()
         # print 'render', (end - self.last)
         self.rt = end - start

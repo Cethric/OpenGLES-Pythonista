@@ -17,6 +17,7 @@ ObjCClass("NSBundle").bundleWithPath_("/System/Library/Frameworks/GLKit.framewor
 __all__ = ["GLKView", "GLKViewDelegate", "setRenderEngine", "getRenderEngine"]
 
 if __name__ == "__main__":
+    from view import *
     v = GLKView(frame=(0,0,800,600))
     d = GLKViewDelegate()
     vc = GKLViewController("GLKit Demo", v)
