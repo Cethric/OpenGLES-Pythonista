@@ -38,6 +38,10 @@ def get_library(lib_name, url_path=None):
             data = f.read()
     else:
         if url_path:
+            # proxy = 'http://%s:%s@proxy.det.nsw.edu.au:8080' % dialogs.login_alert('Proxy Username and password')
+            # proxy_handler = urllib2.ProxyHandler({'http': proxy})
+            # opener = urllib2.build_opener(proxy_handler)
+            # urllib2.install_opener(opener)
             print "Could not find: '%s'.\nDownloading it from %s" % (lib_name, url_path)
             f = urllib2.urlopen(url_path)
             data = f.read()
@@ -170,24 +174,18 @@ class CannonJS(object):
         if oid is None:
             return None
         if oid in self.objects:
-            # quat = euclid.Quaternion(*self.objects[oid][1])
             axis = v3.GLKVector3Make(*self.objects[oid][1][1:])
             quaternion = quat.GLKQuaternionMakeWithAngleAndVector3Axis(self.objects[oid][1][0], axis)
-            # mat = euclid.Matrix4.new_identity()
             mat = m4.GLKMatrix4MakeTranslation(*self.objects[oid][0])
-            # mat.translate(*self.objects[oid][0])
             mat = m4.GLKMatrix4Multiply(mat, m4.GLKMatrix4MakeWithQuaternion(quaternion))
-            # mat *= quat.get_matrix()
             return mat
         else:
             raise AttributeError, "Object with id '%s' does not exist" % oid
             
     def get_object_pos_rot(self, oid):
         if oid in self.objects:
-            # quat = euclid.Quaternion(*self.objects[oid][1])
             axis = v3.GLKVector3Make(*self.objects[oid][0][0:3])
             quaternion = quat.GLKQuaternionMakeWithAngleAndVector3Axis(self.objects[oid][0][0], axis)
-            # pos = euclid.Vector3(*self.objects[oid][0])
             pos = v3.GLKVector3Make(*self.objects[oid][0])
             return pos, quaternion
         return None, None
@@ -210,7 +208,6 @@ class CannonJS(object):
         return None
             
     def add_camera(self, camera_object):
-        # r = euclid.Quaternion().rotate_euler(0, camera_object.yaw, 0)
         r = quat.GLKQuaternionMakeWithMatrix3(m3.GLKMatrix3MakeYRotation(camera_object.yaw))
         p = camera_object.position
         d = self.js.eval_js('add_camera(%f,%f,%f, %f,%f,%f,%f, 0.5,0.5,0.5);' % (p.x,p.y,p.z, r.w,r.x,r.y,r.z))
@@ -229,7 +226,6 @@ class CannonJS(object):
             self.js.eval_js(CANNON)
             self.js.eval_js(get_library('CannonHelpers.js'))
             self.js.eval_js("setup();")
-            # self.js.eval_js("startUpdates();")
             print 'Setup Finished'
         
     def webview_did_fail_load(self, webview, error_code, error_msg):
@@ -239,14 +235,13 @@ class CannonJS(object):
         print error_code, error_msg
         
 
-_PhysicsWorld = None # CannonJS()
+_PhysicsWorld = None
         
 def resetPhysicsWorld():
     print "Resetting physics world"
     global _PhysicsWorld
     del _PhysicsWorld
     _PhysicsWorld = None
-    # PhysicsWorld = CannonJS()
     getPhysicsWorld()
     
 def getPhysicsWorld():

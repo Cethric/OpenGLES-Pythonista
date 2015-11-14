@@ -10,9 +10,9 @@ Attributes:
     FRAGMENT_SHADER_SOURCE (str): Constant Variable to store the
                                   Fragment Shader source code
                                   from a file
-    glviewv (OpenGLES.GLKit.GLKView): The object to store an
-                                      OpenGLES rendering context
-                                      and present it to screen
+    glviewv (OpenGLES.GLKit.view.GLKView): The object to store an
+                                           OpenGLES rendering context
+                                           and present it to screen
 """
 import ui
 import sys
@@ -21,7 +21,6 @@ import math
 import copy
 import time
 import random
-import colorsys
 from objc_util import *
 
 import OpenGLES.Util
@@ -43,7 +42,6 @@ from OpenGLES.GLKit.glkmath import vector3 as v3
 reload(GLKit.view)
 
 OpenGLES.Util.Physics.resetPhysicsWorld()
-
 PhysicsWorld = OpenGLES.Util.Physics.getPhysicsWorld()
 
 LightsCameras.setPhysicsWorld(PhysicsWorld)
@@ -116,7 +114,7 @@ class Renderer(Util.RenderCycle):
             self.objects.append(o1)
         
         o1 = Util.Model.XMLModel("plane.xml", v3.GLKVector3Make(-20, 0, -20))
-        o1.model = m4.GLKMatrix4Scale(o1.model, 10, 10, 10)
+        o1.model = m4.GLKMatrix4Scale(o1.model, 100, 100, 100)
         self.objects.append(o1)
         
         self.v = Util.Shader.ShaderSource(VERTEX_SHADER_SOURCE, GL_VERTEX_SHADER)
@@ -142,7 +140,7 @@ class Renderer(Util.RenderCycle):
             self.sp.build()
             self.sp.bind()
             
-            self.texture = texture.loadTexture('test.png', 0)
+            # self.texture = texture.loadTexture('test.png', 0)
             
             print len(self.objects), " object/s in the world"
             for rObj in self.objects:
@@ -170,7 +168,6 @@ class Renderer(Util.RenderCycle):
     
     def update(self, dt):
         start = time.clock()
-        # PhysicsWorld.js.eval_js('startUpdates();')
         end = time.clock()
         # glviewv.name = "FPS: %i. Frames: %s" % (self.fps, self.framesDisplayed)
         glviewv.name = "Render Time: %.3f\tUpdate Time: %.3f\tFrames: %i\tFPS: %i" % (self.rt, self.ut, self.framesDisplayed, self.fps)
@@ -191,7 +188,6 @@ class Renderer(Util.RenderCycle):
         self.ut = end - start
             
     def move_f(self, mdir):
-        # mdir.reverse()
         mdir = [mdir[1], mdir[0]]
         self.eye.move(*mdir)
     

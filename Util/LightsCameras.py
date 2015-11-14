@@ -37,9 +37,7 @@ class PhysicsCamera(LookObject):
         p = v3.GLKVector3Make(pos.x, pos.y + 1, pos.z)
         e = v3.GLKVector3Add(p, self.front)
         u = self.up
-        res = m4.GLKMatrix4MakeLookAt(p.x, p.y, p.z, e.x, e.y, e.z, u.x, u.y, u.z)
-        # res = euclid.Matrix4.new_look_at(p, p + self.front, self.up)
-        return res
+        return m4.GLKMatrix4MakeLookAt(p.x, p.y, p.z, e.x, e.y, e.z, u.x, u.y, u.z)
                                           
     def debug_draw(self, sp):
         if self.debug_model:
@@ -49,42 +47,37 @@ class PhysicsCamera(LookObject):
         self.front = v3.GLKVector3MultiplyScalar(v3.GLKVector3Make(math.cos(math.radians(self.yaw)) * math.cos(math.radians(self.pitch)), math.sin(math.radians(self.pitch)), math.sin(math.radians(self.yaw)) * math.cos(math.radians(self.pitch))), 1)
         
         self.right = v3.GLKVector3CrossProduct(self.front, self.worldup)
-        # self.right = self.front.cross(self.worldup)
         self.up = v3.GLKVector3CrossProduct(self.right, self.front)
-        # self.up = self.right.cross(self.front)
         
         
         if self.camera_id:
             (npos,nrot) = _PhysicsWorld.get_object_pos_rot(self.camera_id)
             position = npos
-            # (heading, attitude, bank) = nrot.get_euler()
-            rotation_matrix = m3.GLKMatrix3MakeWithQuaternion(nrot)
             speed = dt * self.speed
             if self.strafe[0] != 0:
                 position = v3.GLKVector3Add(position, 
                                 v3.GLKVector3MultiplyScalar(self.front, speed * self.strafe[0]))
-                # self.position += self.front * speed * self.strafe[0]
             if self.strafe[1] != 0:
                 position = v3.GLKVector3Add(position, 
                                 v3.GLKVector3MultiplyScalar(self.right, speed * self.strafe[1]))
-                # self.position += self.right * speed * self.strafe[1]
-            p = position
+                                
             (npos,nrot) = _PhysicsWorld.get_object_pos_rot(self.camera_id)
-            ny = npos.y
-            _PhysicsWorld.js.eval_js('set_object_pos(%i, %f, %f, %f);' % (self.camera_id, p.x, ny, p.z))
+            _PhysicsWorld.js.eval_js('set_object_pos(%i, %f, %f, %f);' % (
+                                                                            self.camera_id,
+                                                                            position.x,
+                                                                            npos.y,
+                                                                            position.z))
             # I don't like how rotations are handled.
             # They should pay more attention to what is happening in the physics environment as well.
+            rotation_matrix = m3.GLKMatrix3MakeWithQuaternion(nrot)
             r = math.radians(-self.yaw)
-            # q = euclid.Quaternion.new_rotate_euler(r, 0, 0)
             q = quat.GLKQuaternionMakeWithMatrix3(m3.GLKMatrix3MakeZRotation(r))
             _PhysicsWorld.js.eval_js('set_object_rot(%i, %f, %f, %f, %f);' % (self.camera_id, q.w, q.x, q.y, q.z))
             (npos,nrot) = _PhysicsWorld.get_object_pos_rot(self.camera_id)
             position = npos
             self.position = position
             if self.debug_model:
-                # nmodel = euclid.Matrix4.new_translate(*position)
                 nmodel = m4.GLKMatrix4MakeTranslation(*position.v)
-                # nmodel *= q.get_matrix()
                 nmodel = m4.GLKMatrix4Multiply(nmodel, m4.GLKMatrix4MakeWithQuaternion(q))
                 self.debug_model.model = nmodel
         else:

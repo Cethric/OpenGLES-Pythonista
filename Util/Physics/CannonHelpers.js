@@ -40,8 +40,9 @@ var cansetup = false;
 function setup() {
     if (cansetup==false) {
         world = new CANNON.World();
-        world.gravity.set(0, -20, 0);
-        world.broadphase = new CANNON.NaiveBroadphase();
+        world.gravity.set(0, -9.8, 0);
+        // world.broadphase = new CANNON.NaiveBroadphase();
+        world.broadphase = new CANNON.GridBroadphase(100, 100, 100, 100, 100);
         world.solver.iterations = 10;
         
         var groundShape = new CANNON.Plane();
@@ -101,15 +102,6 @@ function updateBulletView() {
     time_s.innerHTML += '<br>Time Spent Sending to python (ms): ' + timeforotp;
     var tot_bodies = document.getElementById('tot_bodies');
     tot_bodies.innerHTML = 'Total Number of objects in the world: ' + world.bodies.length;
-    // if (sw == 20) {
-    //     tabid += 1;
-    //     sw = 0;
-    // } else {
-    //     sw += 1;
-    // }
-    // if (tabid == world.bodies.length) {
-    //     tabid = 1;
-    // }
     selectTab(tabid);
 }
 
@@ -119,8 +111,6 @@ function __update() {
     var start = new Date().getTime();
     world.step(1.0 / 30.0, start - last, 9);
     last = start;
-    // sendObjectData();
-    // intervalID = setTimeout(__update, 0.0001);
     updateBulletView();
     var end = new Date().getTime();
     ts = end - start;
@@ -131,10 +121,15 @@ var fid = 0;
 function add_cube(x, y, z) {
     var shape = new CANNON.Box(new CANNON.Vec3(0.5,0.5,0.5));
     var body = new CANNON.Body({mass:1});
+    // body.allowSleep = false;
     body.addShape(shape);
-    // body.angularVelocity.set(0,10,0);
     body.angularDamping = 0.5;
     body.position.set(x, y, z)
+    
+    body.addEventListener("sleep",function(event){
+        console.log("The cube " + fid+1 + " fell asleep!");
+    });
+    
     world.addBody(body);
     fid += 1;
     addToBodyMenu(fid);
@@ -144,10 +139,16 @@ function add_cube(x, y, z) {
 function add_camera(px,py,pz, qw,qx,qy,qz, w,h,d) {
     var shape = new CANNON.Box(new CANNON.Vec3(w,h,d));
     var body = new CANNON.Body({mass:16});
+    // body.allowSleep = false;
     body.addShape(shape);
     body.angularDamping = 0.5;
     body.position.set(px,py,pz);
     body.quaternion.set(qw,qx,qy,qz);
+    
+    body.addEventListener("sleep",function(event){
+        console.log("The camera " + fid+1 + " fell asleep!");
+    });
+    
     world.addBody(body);
     fid += 1;
     addToBodyMenu(fid);
@@ -156,7 +157,9 @@ function add_camera(px,py,pz, qw,qx,qy,qz, w,h,d) {
 
 function set_object_pos(oid, px, py, pz) {
     var body = world.bodies[oid];
-    body.position.set(px, py, pz);
+    body.position.x = px;
+    body.position.z = pz;
+    // body.position.set(px, py, pz);
 }
 function set_object_rot(oid, qw, qx, qy, qz) {
     var body = world.bodies[oid];
@@ -164,11 +167,9 @@ function set_object_rot(oid, qw, qx, qy, qz) {
 }
 
 function startUpdates() {
-    // intervalID = setTimeout(__update, 0.0001);
     last = new Date().getTime();
     intervalID = setInterval(__update, 1 / 180.0);
     intervalID2 = setInterval(sendObjectData, 1 / 120.0);
-    // __update()
 }
 
 function done() {
